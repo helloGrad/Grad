@@ -11,6 +11,9 @@ import com.grad.net.repository.OrganzDao;
 import com.grad.net.vo.OrganzVo;
 import com.grad.net.vo.ResrchAcrsltVo;
 
+/*
+ * 허주한
+ */
 
 @Service
 public class OrganzService {

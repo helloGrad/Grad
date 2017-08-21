@@ -12,6 +12,9 @@ import com.grad.net.dto.JSONResult;
 import com.grad.net.service.OrganzService;
 import com.grad.net.vo.ResrchAcrsltVo;
 
+/*
+ * 허규준
+ */	
 
 @Controller("orgnzAPIController")
 @RequestMapping("/organz/api")

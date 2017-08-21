@@ -55,6 +55,9 @@ public class MemberController {
 
 	/////////////////////////////////////// snslogin//////////////////////////////////////////
 
+	/*
+	 * 정예린,박가혜
+	 */	
 	@RequestMapping(value = "/snslogin", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
 		System.out.println("snslogin naver get");
@@ -117,6 +120,9 @@ public class MemberController {
 
 	////////////////////////////// 맞춤정보/////////////////////////////////
 
+	/*
+	 * 박가혜
+	 */	
 	@Auth(role = Auth.Role.USER)
 	@RequestMapping(value = "/mbinfo", method = RequestMethod.GET)
 	public String mbinfo(Locale locale, Model model, @AuthUser MemberVo authUser) {

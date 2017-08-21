@@ -13,9 +13,7 @@ import com.grad.net.vo.MemberVo;
 
 
 
-/*
- * 정예린, 박가혜
- */	
+	
 
 @Service
 public class MemberService {
@@ -28,6 +26,10 @@ public class MemberService {
 
 	}
 
+	/*
+	 * 정예린, 박가혜
+	 */
+	
 	// sns login(fb, nave, google)
 	public void snslogin(MemberVo memberVo, String snsnm) {
 		Map<String, Object> map = new HashMap<String, Object>();

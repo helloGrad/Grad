@@ -17,7 +17,7 @@ public class NotiService {
 	NotiDao notiDao;
 
 	/**
-	 * 허규준
+	 * 허주한
 	 */
 	public List<NotiVo> getNotiList(String type) {
 		
@@ -30,7 +30,7 @@ public class NotiService {
 	}
 	
 	/**
-	 * 허규준
+	 * 허주한
 	 */
 	public List<NotiVo> getNotiListByPage(int page, String type) {
 		// TODO Auto-generated method stub

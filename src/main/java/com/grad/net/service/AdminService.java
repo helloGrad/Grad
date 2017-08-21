@@ -15,6 +15,10 @@ public class AdminService {
 	@Autowired
 	private AdminDao adminDao;
 
+	
+	/*
+	 * 정예린
+	 */	
 	public void registerNoti(NotiVo notiVo, String tabnm) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("notiVo", notiVo);
