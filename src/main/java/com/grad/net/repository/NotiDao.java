@@ -25,10 +25,7 @@ public class NotiDao {
 		return sqlSession.selectList("noti.getNotiList",type);
 	}
 
-	public NotiVo getByNo(int no) {
-		NotiVo vo = sqlSession.selectOne("noti.getByNo", no);
-		return vo;
-	}
+	
 
 	/**
 	 * 허규준
@@ -58,5 +55,7 @@ public class NotiDao {
 		
 		return vo;
 	}
+	
+	
 
 }

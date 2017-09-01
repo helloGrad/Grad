@@ -23,11 +23,8 @@ public class NotiService {
 		
 		return notiDao.getNotiList(type);
 	}
-	
-	public NotiVo getNoti(int no) {
-		return notiDao.getByNo(no);
-		
-	}
+	/**
+
 	
 	/**
 	 * 허주한
