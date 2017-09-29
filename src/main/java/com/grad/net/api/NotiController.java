@@ -27,8 +27,8 @@ public class NotiController {
 	NotiService notiService; 
 	
 
-	/**
-	 * 박가혜
+	/*
+	 * 박가혜, 모집공고 연구분야 가지고 오기 
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/lab", method = RequestMethod.POST)

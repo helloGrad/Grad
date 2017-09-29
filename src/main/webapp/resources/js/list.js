@@ -22,9 +22,9 @@ function clickTab(){
 	
 	$(this).addClass("active");
 	type = $(this).html();
-	console.log(global);
+	
 	global = $(this).html();
-	console.log(global);
+	
 	addList(type);
 }
 
@@ -106,6 +106,6 @@ function openTab(evt, tabName, temp) {
 
 }
 
-// Get the element with id="defaultOpen" and click on it
+
 document.getElementById("defaultOpen").click();
 

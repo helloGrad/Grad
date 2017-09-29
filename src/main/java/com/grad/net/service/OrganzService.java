@@ -11,10 +11,6 @@ import com.grad.net.repository.OrganzDao;
 import com.grad.net.vo.OrganzVo;
 import com.grad.net.vo.ResrchAcrsltVo;
 
-/*
- * 허주한
- */
-
 @Service
 public class OrganzService {
 	
@@ -46,6 +42,11 @@ public class OrganzService {
 		map.put("type", type);
 		
 		return organzDao.countResrchAcrslt(map);
+	}
+	
+	
+	public OrganzVo getOrganzByNo(int no) {	
+		return organzDao.getOrganzByNo(no);
 	}
 
 }

@@ -11,6 +11,7 @@ import com.grad.net.repository.CounselingDao;
 import com.grad.net.vo.CounselingVo;
 import com.grad.net.vo.MemberVo;
 import com.grad.net.vo.NotiVo;
+import com.grad.net.vo.PageVo;
 
 
 
@@ -22,50 +23,42 @@ public class CounselingService {
 	@Autowired
 	CounselingDao counselingDao;
 	
-	
-	/**
-	 * 박가혜 2017-08-23
-	 */
+
 	public void setWrite(CounselingVo counselingVo) {
-		
+	
 		counselingDao.insert(counselingVo);
 
 	}
 
-	/**
-	 * 박가혜 2017-08-23
-	 */
-	public List<CounselingVo> getCounselingList() {
+	public List<CounselingVo> getCounselingList(String type,String order,Long startNo) {
 		
-		return counselingDao.getCounselingList();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("type", type);
+		map.put("order", order);
+		map.put("startNo",startNo);
+		
+		return counselingDao.getCounselingList(map);
 	}
 
-	/**
-	 * 박가혜 2017-08-23
-	 */
+
 	public List<CounselingVo> getReplyList() {
 		
 		return counselingDao.getReplyList();
 	}
-	/**
-	 * 박가혜 2017-08-24
-	 */
+	
+	
 	public  CounselingVo getCounselingPrnts(Long no) {
 		
 		return counselingDao.getCounselingPrnts(no);
 	}
 	
-	/**
-	 * 박가혜 2017-08-24
-	 */
+
 	public List<CounselingVo> getCounselingReplyDetail(Long no) {
 		
 		return counselingDao.getReplyDetail(no);
 	}
 	
-	/**
-	 * 박가혜 2017-08-24
-	 */
+
 	public void setReplyWrite(CounselingVo counselingVo) {
 		
 		counselingDao.insertReply(counselingVo);
@@ -73,9 +66,6 @@ public class CounselingService {
 	}
 	
 	
-	/**
-	 * 박가혜 2017-08-25
-	 */
 	public void ChangefindCo(Long no) {
 		
 		counselingDao.updateFindCo(no);
@@ -83,9 +73,6 @@ public class CounselingService {
 	}
 	
 	
-	/**
-	 * 박가혜 2017-08-25
-	 */
 	public List<CounselingVo> existLike(Long mbNo,Long no){
 		
 		
@@ -97,9 +84,7 @@ public class CounselingService {
 		
 	}
 	
-	/**
-	 * 박가혜 2017-08-28
-	 */
+
 	public  CounselingVo existLikeOne(Long mbNo,Long no) {
 		
 		Map<String, Object> map = new HashMap<String, Object>() ;
@@ -110,12 +95,6 @@ public class CounselingService {
 	}
 	
 	
-	
-	
-	
-	/**
-	 * 박가혜 2017-08-28
-	 */
 	public void deleteLike(Long mbNo, Long wrtbtNo, String infroDstnct) {
 		
 		Map<String, Object> map = new HashMap<String, Object>() ;
@@ -138,10 +117,7 @@ public class CounselingService {
 		
 
 	}
-	
-	/**
-	 * 박가혜 2017-08-28
-	 */
+
 	public void setLike(Long mbNo, Long wrtbtNo, String infroDstnct) {
 		
 		Map<String, Object> map = new HashMap<String, Object>() ;
@@ -165,4 +141,31 @@ public class CounselingService {
 
 	}
 	
+	
+	public int lastInsertId() {
+		return counselingDao.lastInsertId();
+	}
+	
+
+	public int countCounList(String type) {
+		
+		return counselingDao.countCounList(type);
+	}
+
+	
+
+	public List<CounselingVo> getCounList(String type, String order, PageVo pageVo) {
+		Map<String, Object> map =  new HashMap<String, Object>();
+		
+		map.put("type", type);
+		map.put("order", order);
+		map.put("pageVo", pageVo);
+		
+		return counselingDao.countCounList(map);
+	}
+	
+
+	public List<MemberVo> getScrapList(Long user) {
+		return counselingDao.getScrapList(user);
+	}
 }

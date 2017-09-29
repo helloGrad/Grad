@@ -12,7 +12,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.grad.net.vo.MemberVo;
 
 /**
- * 박가혜
+ * 박가혜, 사용자 권한 설정
  */
 
 public class AuthInterceptor extends HandlerInterceptorAdapter {
@@ -42,13 +42,13 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 		if (session == null) {
 
-			response.sendRedirect(request.getContextPath() + "/user/login");
+			response.sendRedirect(request.getContextPath() + "/");
 			return false;
 		}
 
 		if (session.getAttribute("authUser") == null) {
 
-			response.sendRedirect(request.getContextPath() + "/user/login");
+			response.sendRedirect(request.getContextPath() + "/");
 			return false;
 
 		}
@@ -58,7 +58,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 		if (role == Auth.Role.ADMIN && vo.getMbDstnct().equals("관리자") == false) {
 
-			response.sendRedirect(request.getContextPath() + "/");
+			response.sendRedirect(request.getContextPath() + "/submain");
 			return false;
 		}
 

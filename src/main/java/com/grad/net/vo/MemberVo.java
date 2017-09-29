@@ -22,13 +22,14 @@ public class MemberVo {
 	private String telNo;
 	private String hndphNo;
 	private String email;
-	
 	private String cdId;
 	private String infoYn;
-	
-	
+	private boolean exist;
+	private Long prntsNo;
+	private String prntsDstnct;	
 	
 
+	
 	public String getInfoYn() {
 		return infoYn;
 	}
@@ -189,21 +190,43 @@ public class MemberVo {
 		this.cdId = cdId;
 	}
 
+	
+	public Long getPrntsNo() {
+		return prntsNo;
+	}
+
+	public void setPrntsNo(Long prntsNo) {
+		this.prntsNo = prntsNo;
+	}
+
+	public String getPrntsDstnct() {
+		return prntsDstnct;
+	}
+
+	public void setPrntsDstnct(String prntsDstnct) {
+		this.prntsDstnct = prntsDstnct;
+	}
+
+	
+	
+	public boolean isExist() {
+		return exist;
+	}
+
+	public void setExist(boolean exist) {
+		this.exist = exist;
+	}
+
 	@Override
 	public String toString() {
 		return "MemberVo [mbNo=" + mbNo + ", mbDstnct=" + mbDstnct + ", mbNm=" + mbNm + ", nknm=" + nknm + ", iden="
 				+ iden + ", pw=" + pw + ", sex=" + sex + ", birdt=" + birdt + ", myselfAuthzYn=" + myselfAuthzYn
 				+ ", insrdDd=" + insrdDd + ", wthdrDd=" + wthdrDd + ", genalMbDstnct=" + genalMbDstnct
 				+ ", snsTknValue=" + snsTknValue + ", snsDstnct=" + snsDstnct + ", agrg=" + agrg + ", telNo=" + telNo
-				+ ", hndphNo=" + hndphNo + ", email=" + email + ", cdId=" + cdId + ", infoYn=" + infoYn + "]";
+				+ ", hndphNo=" + hndphNo + ", email=" + email + ", cdId=" + cdId + ", infoYn=" + infoYn + ", exist="
+				+ exist + ", prntsNo=" + prntsNo + ", prntsDstnct=" + prntsDstnct + "]";
 	}
 
-
 	
-	
-	
-	
-	
-
-	
+		
 }

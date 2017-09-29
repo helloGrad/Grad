@@ -3,20 +3,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-	charset="utf-8"></script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 
 <body>
 
 	<script type="text/javascript">
+	
+	
 		var naver_id_login = new naver_id_login("4XJQVjfPiPo3e5Xe23hL",
 				"http://127.0.0.1:8080/net/user/snslogin/");
 		// 접근 토큰 값 출력
@@ -30,9 +28,6 @@
 
 			event.preventDefault();
 
-			// document.write(naver_id_login.oauthParams.access_token);
-			// document.write(naver_id_login.getProfileData('email'));
-
 			var vo = {};
 
 			vo.token = naver_id_login.oauthParams.access_token;
@@ -42,11 +37,10 @@
 			vo.age = naver_id_login.getProfileData('age');
 			vo.name = naver_id_login.getProfileData('name');
 			vo.gender = naver_id_login.getProfileData('gender');
-			//alert(JSON.stringify(vo));
+			
 
 			$.ajax({
 				url : "/net/api/snslogin",
-				//type : "post",
 				data : "name="+vo.name
 				 +"&email="+vo.email
 				 +"&gender="+vo.gender
@@ -58,31 +52,20 @@
 
 				success : function(response) {
 
+					if(response.data.exist===true){
+						
+						parent.window.location.href = "/net/submain/";
+					}
+					else{
+						
+						parent.window.location.href = "/net?id="+vo.email;
+					}
 					if (response.result === "fail") {
 
 						console.error(response.message);
 						return;
 					}
 
-
-					
-					/**
-					 * 박가혜 2017-08-31 맞춤정보 제안 페이지
-					 */
-					
-						if(response.data.infoYn == "N" ) { //건너뛰기 안헀으면 
-							
-						
-						
-							parent.window.location.href = "/net/user/mbinfo";
-							
-						}else {
-							parent.window.location.href = "/net/";
-						
-							
-						}
-					
-					
 
 				},
 				error : function(jqXHR, status, e) {
@@ -94,7 +77,7 @@
 
 		}
 
-	</script>
+</script>
 
 </body>
 </html>

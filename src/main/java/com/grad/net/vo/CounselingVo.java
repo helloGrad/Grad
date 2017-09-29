@@ -12,7 +12,6 @@ public class CounselingVo {
 	private Long mbNo;
 	private Long bbsNo;
 	private String wrtbtDstnct;
-	
 	private Long rcmdCo;
 	private Long ncmdCo;
 	private Long findCo;
@@ -21,29 +20,57 @@ public class CounselingVo {
 	private Long depth;
 	private String wrtbtTitle;
 	private String voteRegstDt;
-	
 	private Long prntsCwrNo;
 	private Long prntsWrtbtNo;
-	
 	private String cwrDstnct;
 	private String writrInfoOpngYn;
 	private String conslBbsDstnct;
 	private Long orgnzNo;
-	
 	private Long count;
 	private String nknm; 
 	private String birdt; 
 	private String agrg; 
-	
 	private String infroDstnct;
+	private Long reMbNo;
+	private String reNknm; 
+	private String reAvlblBeginDt;
+	private String reWrtbtText;
+	private Long reRcmdCo;
+	private int rownum;
 	
 	
-	//답변수
-	//닉네임
-	//생년월일
-	//연령대
-	//공감비공감 
 	
+	
+	public Long getReMbNo() {
+		return reMbNo;
+	}
+	public void setReMbNo(Long reMbNo) {
+		this.reMbNo = reMbNo;
+	}
+	public String getReNknm() {
+		return reNknm;
+	}
+	public void setReNknm(String reNknm) {
+		this.reNknm = reNknm;
+	}
+	public String getReAvlblBeginDt() {
+		return reAvlblBeginDt;
+	}
+	public void setReAvlblBeginDt(String reAvlblBeginDt) {
+		this.reAvlblBeginDt = reAvlblBeginDt;
+	}
+	public String getReWrtbtText() {
+		return reWrtbtText;
+	}
+	public void setReWrtbtText(String reWrtbtText) {
+		this.reWrtbtText = reWrtbtText;
+	}
+	public Long getReRcmdCo() {
+		return reRcmdCo;
+	}
+	public void setReRcmdCo(Long reRcmdCo) {
+		this.reRcmdCo = reRcmdCo;
+	}
 	public String getInfroDstnct() {
 		return infroDstnct;
 	}
@@ -206,6 +233,16 @@ public class CounselingVo {
 	public void setOrgnzNo(Long orgnzNo) {
 		this.orgnzNo = orgnzNo;
 	}
+	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "CounselingVo [wrtbtNo=" + wrtbtNo + ", wrtbtText=" + wrtbtText + ", wrtbtTypeDstnct=" + wrtbtTypeDstnct
@@ -215,23 +252,11 @@ public class CounselingVo {
 				+ wrtbtTitle + ", voteRegstDt=" + voteRegstDt + ", prntsCwrNo=" + prntsCwrNo + ", prntsWrtbtNo="
 				+ prntsWrtbtNo + ", cwrDstnct=" + cwrDstnct + ", writrInfoOpngYn=" + writrInfoOpngYn
 				+ ", conslBbsDstnct=" + conslBbsDstnct + ", orgnzNo=" + orgnzNo + ", count=" + count + ", nknm=" + nknm
-				+ ", birdt=" + birdt + ", agrg=" + agrg + ", infroDstnct=" + infroDstnct + "]";
+				+ ", birdt=" + birdt + ", agrg=" + agrg + ", infroDstnct=" + infroDstnct + ", reMbNo=" + reMbNo
+				+ ", reNknm=" + reNknm + ", reAvlblBeginDt=" + reAvlblBeginDt + ", reWrtbtText=" + reWrtbtText
+				+ ", reRcmdCo=" + reRcmdCo + ", rownum=" + rownum + "]";
 	}
 
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

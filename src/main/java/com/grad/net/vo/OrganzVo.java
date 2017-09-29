@@ -1,6 +1,8 @@
 package com.grad.net.vo;
 
 public class OrganzVo {
+	
+	
 	private int orgnzNo;
 	private String orgnzNm;
 	private String engOrgnzNm;
@@ -15,6 +17,17 @@ public class OrganzVo {
 	private String labIntro;
 	private String rsrchrInfoText;
 	private String hmnbrdDstnct;
+	private String orgnzFullNm;
+	private String grschDstnct;
+	private String aboltYn;
+	private String cdNm;
+	private String pNm;
+	private String university;
+	private String graduate;
+	private String major;
+	private String ar;
+	
+	
 	
 	public int getOrgnzNo() {
 		return orgnzNo;
@@ -100,14 +113,72 @@ public class OrganzVo {
 	public void setHmnbrdDstnct(String hmnbrdDstnct) {
 		this.hmnbrdDstnct = hmnbrdDstnct;
 	}
+	public String getOrgnzFullNm() {
+		return orgnzFullNm;
+	}
+	public void setOrgnzFullNm(String orgnzFullNm) {
+		this.orgnzFullNm = orgnzFullNm;
+	}
+	public String getGrschDstnct() {
+		return grschDstnct;
+	}
+	public void setGrschDstnct(String grschDstnct) {
+		this.grschDstnct = grschDstnct;
+	}
+	public String getAboltYn() {
+		return aboltYn;
+	}
+	public void setAboltYn(String aboltYn) {
+		this.aboltYn = aboltYn;
+	}
+	public String getCdNm() {
+		return cdNm;
+	}
+	public void setCdNm(String cdNm) {
+		this.cdNm = cdNm;
+	}
+	public String getpNm() {
+		return pNm;
+	}
+	public void setpNm(String pNm) {
+		this.pNm = pNm;
+	}
+	public String getUniversity() {
+		return university;
+	}
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+	public String getGraduate() {
+		return graduate;
+	}
+	public void setGraduate(String graduate) {
+		this.graduate = graduate;
+	}
+	public String getMajor() {
+		return major;
+	}
+	public void setMajor(String major) {
+		this.major = major;
+	}
+	public String getAr() {
+		return ar;
+	}
+	public void setAr(String ar) {
+		this.ar = ar;
+	}
 	@Override
 	public String toString() {
 		return "OrganzVo [orgnzNo=" + orgnzNo + ", orgnzNm=" + orgnzNm + ", engOrgnzNm=" + engOrgnzNm + ", orgnzDstnct="
 				+ orgnzDstnct + ", hmpageUrl=" + hmpageUrl + ", telNo=" + telNo + ", faxNo=" + faxNo + ", addr=" + addr
 				+ ", detailAddr=" + detailAddr + ", prntsOrgnzNo=" + prntsOrgnzNo + ", mapProfNm=" + mapProfNm
 				+ ", labIntro=" + labIntro + ", rsrchrInfoText=" + rsrchrInfoText + ", hmnbrdDstnct=" + hmnbrdDstnct
-				+ "]";
+				+ ", orgnzFullNm=" + orgnzFullNm + ", grschDstnct=" + grschDstnct + ", aboltYn=" + aboltYn + ", cdNm="
+				+ cdNm + ", pNm=" + pNm + ", university=" + university + ", graduate=" + graduate + ", major=" + major
+				+ ", ar=" + ar + "]";
 	}
-		
+	
+	
+	
 
 }

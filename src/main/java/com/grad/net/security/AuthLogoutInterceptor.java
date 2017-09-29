@@ -10,8 +10,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.grad.net.service.MemberService;
 
 
-/**
- * 박가혜
+/*
+ * 박가혜, 로그아웃 세션 종료
  */
 
 public class AuthLogoutInterceptor extends HandlerInterceptorAdapter {
@@ -27,7 +27,7 @@ public class AuthLogoutInterceptor extends HandlerInterceptorAdapter {
 		
 		session.removeAttribute("authUser");
 		session.invalidate();
-		response.sendRedirect(request.getContextPath()+"/user/login");
+		response.sendRedirect(request.getContextPath()+"/");
 
 		return false;
 	}

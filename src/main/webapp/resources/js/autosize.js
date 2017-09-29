@@ -1,8 +1,4 @@
-/*!
-	Autosize 3.0.14
-	license: MIT
-	http://www.jacklmoore.com/autosize
-*/
+
 (function (global, factory) {
 	if (typeof define === 'function' && define.amd) {
 		define(['exports', 'module'], factory);
@@ -63,7 +59,7 @@
 			} else {
 				heightOffset = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
 			}
-			// Fix when a textarea is not on document body and heightOffset is Not a Number
+			
 			if (isNaN(heightOffset)) {
 				heightOffset = 0;
 			}
@@ -73,15 +69,12 @@
 
 		function changeOverflow(value) {
 			{
-				// Chrome/Safari-specific fix:
-				// When the textarea y-overflow is hidden, Chrome/Safari do not reflow the text to account for the space
-				// made available by removing the scrollbar. The following forces the necessary text reflow.
+				
 				var width = ta.style.width;
 				ta.style.width = '0px';
-				// Force reflow:
-				/* jshint ignore:start */
+				
 				ta.offsetWidth;
-				/* jshint ignore:end */
+				
 				ta.style.width = width;
 			}
 
@@ -104,17 +97,16 @@
 			var endHeight = ta.scrollHeight + heightOffset;
 
 			if (ta.scrollHeight === 0) {
-				// If the scrollHeight is 0, then the element probably has display:none or is detached from the DOM.
+			
 				ta.style.height = originalHeight;
 				return;
 			}
 
 			ta.style.height = endHeight + 'px';
-
-			// used to check if an update is actually necessary on window.resize
+	
 			clientWidth = ta.clientWidth;
 
-			// prevents scroll-position jumping
+		
 			document.documentElement.scrollTop = htmlTop;
 			document.body.scrollTop = bodyTop;
 		}
@@ -169,9 +161,7 @@
 
 		ta.addEventListener('autosize:destroy', destroy, false);
 
-		// IE9 does not fire onpropertychange or oninput for deletions,
-		// so binding to onkeyup to catch most of those events.
-		// There is no way that I know of to detect something like 'cut' in IE9.
+		
 		if ('onpropertychange' in ta && 'oninput' in ta) {
 			ta.addEventListener('keyup', update, false);
 		}
@@ -205,7 +195,7 @@
 
 	var autosize = null;
 
-	// Do nothing in Node.js environment and IE8 (or lower)
+	
 	if (typeof window === 'undefined' || typeof window.getComputedStyle !== 'function') {
 		autosize = function (el) {
 			return el;

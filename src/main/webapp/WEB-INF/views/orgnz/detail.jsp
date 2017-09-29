@@ -6,31 +6,24 @@
 <%
 pageContext.setAttribute("newLine", "\n");
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/css/detail.css">
-
-
-
+<title>하이그래드넷</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
 
 </head>
 <body>
 	<c:import url="/WEB-INF/views/include/header.jsp" />
 
-	<div class="container">
+<div class="container">
 
 		<div class="row">
-			<!-- Blog `bar Widgets Column -->
 			<div class="col-xs-3">
 				<div class=" col-sm-2 side" id="side">
-
-					<!--////////////////////// 연구실 요약 ////////////////////////-->
+			
 					<div class="well">
 						<h4>연구실 정보</h4>
 						<div class="row">
@@ -44,9 +37,7 @@ pageContext.setAttribute("newLine", "\n");
 							</div>
 
 						</div>
-						<!-- /.row -->
-
-
+					
 					</div>
 
 					<div class="well">
@@ -56,42 +47,31 @@ pageContext.setAttribute("newLine", "\n");
 						<p>100명이 이 연구실을 좋아합니다.</p>
 					</div>
 
-					<!-- Side Widget Well -->
-
 				</div>
 			</div>
 
-			<!--//////////////////////////// 연구실 상세 소개 페이지 /////////////////////////-->
 			<div class="col-xs-8">
-
-				<!--  //////////////////// 연구실 ////////////////////// -->
+		
 				<h1>${vo.orgnzNm } / ${vo.engOrgnzNm }</h1>
 				<input id="orgNo" type=hidden value=${vo.orgnzNo }>
 
-				<!-- ///////////////////// 연구실 명 /////////////////////// -->
 				<p class="lead">
 					by <a href="#"> DB Lab </a> <i class="glyphicon glyphicon-ok-sign"></i>
 				</p>
-				<p>
-					<!--/////////////////////// 업데이트 일시 /////////////////// -->
+				<p>	
 					<span class="glyphicon glyphicon-time"></span> August 24, 2013 at
 					9:00 PM에 업데이트 됨
 				</p>
 
 				<hr>
 
-
-				<!-- //////////////////////// 연구실 소개  ////////////////////////-->
 				<p class="lead">
 					<i class="glyphicon glyphicon-comment"></i> 연구실 소개
 				</p>
 				<p>${fn:replace(vo.labIntro, newLine,"<br>") }</p>
-				
-
 
 				<hr>
 				
-				<!--/////////////////////// 논문실적 /////////////////// -->
 				<p class="lead">
 					<i class="glyphicon glyphicon-book"></i> 논문
 					<input  id="paperBtn" name = "paper" type="button" value="+" style="display: none"/>
@@ -115,7 +95,6 @@ pageContext.setAttribute("newLine", "\n");
 				
 				<hr>
 				
-				<!--/////////////////////// 프로젝트 실적 /////////////////// -->
 				<p class="lead">
 					<i class="glyphicon glyphicon-book"></i> 프로젝트
 					<input  id="projectBtn" name = "project" type="button" value="+" style="display: none" />
@@ -136,8 +115,7 @@ pageContext.setAttribute("newLine", "\n");
 				</div>
 				
 				<hr>
-				
-				<!--/////////////////////// 특허 실적 /////////////////// -->
+
 				<p class="lead">
 					<i class="glyphicon glyphicon-book"></i> 특허
 					<input  id="patentBtn" name = "patent" type="button" value="+" style="display: none"/>
@@ -158,8 +136,7 @@ pageContext.setAttribute("newLine", "\n");
 				</div>
 				
 				<hr>
-				
-				<!--/////////////////////// 특허 실적 /////////////////// -->
+
 				<p class="lead">
 					<i class="glyphicon glyphicon-book"></i> 세미나
 					<input  id="seminarBtn" name = "seminar" type="button" value="+" style="display: none"/>
@@ -180,8 +157,7 @@ pageContext.setAttribute("newLine", "\n");
 				</div>
 				
 				<hr>
-				
-				<!--/////////////////////// 학회 실적 /////////////////// -->
+
 				<p class="lead">
 					<i class="glyphicon glyphicon-book"></i> 학회
 					<input  id="academyBtn" name = "academy" type="button" value="+" style="display: none"/>
@@ -213,8 +189,6 @@ pageContext.setAttribute("newLine", "\n");
 
 				<hr>
 
-
-				<!--///////////////////////// 지도 /////////////////////////-->
 				<p class="lead">
 					<i class="glyphicon glyphicon-map-marker"></i> 장소 <span
 						class="location"> • ${vo.addr } ${vo.detailAddr }</span> <input id="address"
@@ -243,7 +217,7 @@ pageContext.setAttribute("newLine", "\n");
                                 });
                             } else {
                                 alert('Geocode was not successful for the following reason: ' + status);
-                                // return null;
+                               
                             }
                         });
                     }
@@ -254,7 +228,6 @@ pageContext.setAttribute("newLine", "\n");
 
 				<p class="lead">QnA</p>
 
-				<!-- Comments Form -->
 				<div class="well">
 					<h4>Leave a Comment:</h4>
 					<form role="form">
@@ -269,9 +242,6 @@ pageContext.setAttribute("newLine", "\n");
 				<hr>
 
 
-				<!-- Posted Comments -->
-
-				<!-- Comment -->
 				<div class="media">
 					<a class="pull-left" href="#"> <img class="media-object"
 						src="http://placehold.it/64x64" alt="">
@@ -287,7 +257,7 @@ pageContext.setAttribute("newLine", "\n");
 					</div>
 				</div>
 
-				<!-- Comment -->
+				
 				<div class="media">
 					<a class="pull-left" href="#"> <img class="media-object"
 						src="http://placehold.it/64x64" alt="">
@@ -300,7 +270,7 @@ pageContext.setAttribute("newLine", "\n");
 						scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum
 						in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
 						nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-						<!-- Nested Comment -->
+						
 						<div class="media">
 							<a class="pull-left" href="#"> <img class="media-object"
 								src="http://placehold.it/64x64" alt="">
@@ -317,17 +287,14 @@ pageContext.setAttribute("newLine", "\n");
 								congue felis in faucibus.
 							</div>
 						</div>
-						<!-- End Nested Comment -->
+						
 					</div>
 				</div>
 
 			</div>
 
 
-
 		</div>
-		<!-- /.row -->
-
 		<hr>
 
 		<div class="col-lg-12">
@@ -362,17 +329,11 @@ pageContext.setAttribute("newLine", "\n");
 		</div>
 
 
-	</div>
-	<!-- /.container -->
+</div>
 
-
-	<!--//////////////////////// footer ////////////////////////////-->
-	<c:import url="/WEB-INF/views/include/footer.jsp" />
-	<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/js/detail.js"></script>
-	<script async defer 
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEl_BNACj7LCF2Hzs2Ft-9-XBf5Z4AZLQ&callback=initMap"></script>
-	
+<c:import url="/WEB-INF/views/include/footer.jsp" />
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/detail.js"></script>
+<script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEl_BNACj7LCF2Hzs2Ft-9-XBf5Z4AZLQ&callback=initMap"></script>	
 </body>
 </html>

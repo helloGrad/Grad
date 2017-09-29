@@ -5,87 +5,85 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
 pageContext.setAttribute("newLine", "\n");
-%>
-
-
-                   
+%>                  
 <!DOCTYPE html> 
 <html>
 <head>
- 
- 
- 	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>하이그래드넷</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>  
+		  
     
-    <title>상담실</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
-    <link href="${pageContext.request.contextPath}/resources/css/higrad-signup.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
-     <style>
-        body {
-            padding-top: 80px;
-        }
-        .question {
-            font-size : 1.5em;
-            font-weight: bold;
-        }
-        .remove-btn {
-            float : right;
-        }
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
+<link href="${pageContext.request.contextPath}/resources/css/higrad-signup.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-        .web-volunteer {
-            font-size: 1.5em;
-        }
-        .info {
-            border-top: 1px solid lightgray;
-        }
-        .interest {
-            color : gray;
-        }
-        .option {
-            float : right;
-        }
-        p {
-            line-height: 170%;
-        }
+		
+<style>
+body {
+	padding-top: 80px;
+}
+.question {
+	font-size : 1.5em;
+    font-weight: bold;
+}
+.remove-btn {
+	float : right;
+}
+.web-volunteer {
+	font-size: 1.5em;
+}
+.info {
+	border-top: 1px solid lightgray;
+}
+.interest {
+	color : gray;
+}
+.option {
+	float : right;
+}
+p {
+	line-height: 170%;
+}
+.disabled {
+	pointer-events: none;
+   	cursor: default;
+}
+.winter { 
+	border:7px solid #FF8080; 
+	background-color: #FF8080;
+	border-radius: 8px;
+}
+.hide{
+	display:none;  
+}		
+select {
+	-webkit-appearance: none; 
+	-moz-appearance: none;   
+	appearance: none;       
+}
+select::-ms-expand {
+	display: none;           
+}	
 
-		.disabled {
-   		pointer-events: none;
-   		cursor: default;
-		}
-
-		.winter { border:7px solid #dddddd; 
-					background-color: yellow;}
-
-    </style>
-    
+textarea {
+	width:300px; 
+	overflow:visible;
+} 
+</style>   
 </head>
 
-
-
-<style> textarea {width:300px; overflow:visible} </style>
-
-
 <script>
-
-//박가혜 2017-08-23
 
     function resize(obj) {
       obj.style.height = "1px";
       obj.style.height = (20+obj.scrollHeight)+"px";
     }
-</script>
-
-
-
-
-<script type="text/javascript">
-//박가혜 2017-08-24
-
+    
 	var list = [];
 	var counselingPrnts = JSON.parse('${jsoncounselingPrnts}');
 	var existLike = JSON.parse('${jsonexistLike}');
@@ -99,18 +97,8 @@ pageContext.setAttribute("newLine", "\n");
 		var type = "${type}";
 		
 		var existLikelist = []; 
-		
-		//<c:forEach items="${existLike}" var="item">
-		//existLikelist.push("${item}");
-		//</c:forEach>
-		
-		
 	
-
-	
-
-
-		if (replysize == 0) { //첫답변 구분
+		if (replysize == 0) { 
 
 			if (type === 'prnts') {
 
@@ -120,6 +108,7 @@ pageContext.setAttribute("newLine", "\n");
 		} else {
 
 			div_hide();
+		
 		}
 		
 		
@@ -129,16 +118,10 @@ pageContext.setAttribute("newLine", "\n");
 			
 			if(existLike[i].wrtbtNo == counselingPrnts[0].wrtbtNo){
 			
-				
-				//$("a").attr("like", "like"+existLike[i].wrtbtNo).removeAttr('href');
-
 				var link ="like"+existLike[i].wrtbtNo+"like";
 				
-				console.log(link);
+				
 				list.push(link);
-				
-				
-				//$('.'+link).attr('disabled',false);
 				
 				$('.'+link).addClass("winter");
 			
@@ -148,10 +131,6 @@ pageContext.setAttribute("newLine", "\n");
 			
 		}
 		
-		
-		console.log(existLike);
-		console.log(counselingReply);
-	
 			
 			for( var i=0; i<counselingReply.length; i++){
 				
@@ -159,16 +138,14 @@ pageContext.setAttribute("newLine", "\n");
 				
 				if(existLike[j].wrtbtNo == counselingReply[i].wrtbtNo){
 			
-				
-					//$("a").attr("like", "like"+existLike[i].wrtbtNo).removeAttr('href');
 	
 					var link ="like"+existLike[j].wrtbtNo+"like";
 
 					var dislink ="like"+existLike[j].wrtbtNo+"dislike";
-					console.log(link);
+					
 					list.push(link);
 					
-					console.log(dislink);
+					
 					list.push(dislink);
 					
 					$('.'+link).addClass("winter");
@@ -180,8 +157,6 @@ pageContext.setAttribute("newLine", "\n");
 			
 			
 		}
-		
-		
 		
 
 		$(document).ready(function() {
@@ -208,24 +183,39 @@ pageContext.setAttribute("newLine", "\n");
 				}
 
 			});
+			
+			$('#writrInfoOpngYn2 li > a').on('click', function() { 
+
+				
+				 document.getElementById("writrInfoOpngYn").innerHTML = 
+					 
+					 "<option  class='hide' value='Y'></option>"+
+					  "<option value='N' selected='selected'>비공개로 작성하기</option>";
+			});
+			
+		
 
 		});
+		
+	
 
 	})
+	
+	
 
-	//보이기
+
+	
 	function div_show() {
 
 		document.getElementById("reply-form").style.display = "block";
 
 	}
 
-	//숨기기
 	function div_hide() {
 		document.getElementById("reply-form").style.display = "none";
 	}
 
-	//박가혜 2017-08-24
+	
 	function counselingreplyinsert() {
 
 		event.preventDefault();
@@ -239,10 +229,8 @@ pageContext.setAttribute("newLine", "\n");
 		}
 		
 		var prntsWrtbtNo=$("#prntsWrtbtNo").val();
-		var wrtbtText = $("#wrtbtText").val();
-		var writrInfoOpngYn = $("input[type=radio][name=writrInfoOpngYn]:checked").val();
-		
-		
+		var wrtbtText = $("#wrtbtText2").val();			
+		var writrInfoOpngYn = $("#writrInfoOpngYn").val();				
 		var bbsNo = $("#bbsNo").val();
 
 		var replylist = {
@@ -252,24 +240,16 @@ pageContext.setAttribute("newLine", "\n");
 			bbsNo : bbsNo
 		};
 
-		//폼종료
 		div_hide();
 
-
-		// ajax 통신 
-
 		jQuery.ajaxSettings.traditional = true;
-
-		//alert(JSON.stringify(replylist));
-	
 
 		$.ajax({
 			url : "${pageContext.request.contextPath }/counseling/api/replywrite",
 			type : "post",
-			dataType : "json", // 받아야되는 데이터 타입 
+			dataType : "json", 
 			data : JSON.stringify(replylist),
-			//{comlist : comlist},
-			contentType : 'application/json; charset=utf-8', //json 타입으로 데이터를 보낼때 사용함 
+			contentType : 'application/json; charset=utf-8', 
 
 			success : function(response) {
 
@@ -279,23 +259,18 @@ pageContext.setAttribute("newLine", "\n");
 					return;
 				}
 
-				console.log("성공입니다");
 				location.reload();
-				//console.log(response.data);
-				//response.data.contextpath = "${pageContext.request.contextPath}/noti/api/lab";
 
 			},
 			error : function(jqXHR, status, e) {
-				console.log("에러입니다");
+				
 				console.error(status + " : " + e);
 				console.log(jqXHR);
 			}
 		});
 
 	}
-	
-	
-	//박가혜 2017-08-25
+
 	function likeupdate(num, value) {
 
 	
@@ -308,9 +283,7 @@ pageContext.setAttribute("newLine", "\n");
 			
 		}
 	
-		console.log(num+" "+value+" 사용자id :"+authUser);
-	
-		
+
 		var likevalue = {
 				wrtbtNo : num,
 				mbNo : authUser,
@@ -321,9 +294,9 @@ pageContext.setAttribute("newLine", "\n");
 		$.ajax({
 			url : "${pageContext.request.contextPath }/counseling/api/likeadd",
 			type : "post",
-			dataType : "json", // 받아야되는 데이터 타입 
+			dataType : "json",
 			data : JSON.stringify(likevalue),
-			contentType : 'application/json; charset=utf-8', //json 타입으로 데이터를 보낼때 사용함 
+			contentType : 'application/json; charset=utf-8',
 
 			success : function(response) {
 
@@ -333,21 +306,18 @@ pageContext.setAttribute("newLine", "\n");
 					return;
 				}
 
-				console.log("성공입니다");
-				//location.reload();
-				console.log(response.data);
+				
+				location.reload();
+				
 				
 				if(value == 'like'){
 
-					console.log("공감버튼");
-					
-					 
 					 var check=0;
 					 var result;
 					 
 					 for( var i=0; i<counselingReply.length; i++){
 						 
-						 if(num== counselingReply[i].wrtbtNo){ //답변일경우
+						 if(num== counselingReply[i].wrtbtNo){
 							 
 							 check=1;
 							 
@@ -355,7 +325,7 @@ pageContext.setAttribute("newLine", "\n");
 						 
 					 }
 					 
-					 if(check ==1){ //답변인 경우 up
+					 if(check ==1){ 
 						 
 							for( var i=0; i<existLike.length; i++){
 								if(num== counselingReply[i].wrtbtNo){
@@ -366,9 +336,7 @@ pageContext.setAttribute("newLine", "\n");
 								
 							}
 							
-							//if(result == 'like'){
-						 
-						 
+
 						 	$(".like"+num+"like").html("<a class='like"+response.data.wrtbtNo+"like' onclick='likeupdate("+response.data.wrtbtNo+",'like')' value='like'> Up <span class='w3-badge w3-white'>"+response.data.rcmdCo+"</span></a>");
 							 if($(".like"+num+"dislike").hasClass("winter") === true) {
 								 $(".like"+num+"dislike").removeClass("winter");
@@ -379,9 +347,9 @@ pageContext.setAttribute("newLine", "\n");
 									 $(".like"+num+"like").addClass("winter");
 								}		
 						
-							//}
+						
 						 
-					 }else{ //답변이 아닌경우
+					 }else{ 
 					 	$(".like"+num+"like").html("<a class='like"+response.data.wrtbtNo+"like' onclick='likeupdate("+response.data.wrtbtNo+",'like')' value='like'> 공감 <span class='w3-badge w3-white'>"+response.data.rcmdCo+"</span></a>");
 	
 					 	 if($(".like"+num+"like").hasClass("winter") === true) {
@@ -393,11 +361,8 @@ pageContext.setAttribute("newLine", "\n");
 
 						}
 
-						
-                     
 					
 				}else{
-					console.log("비공감버튼");
 					
 					for( var i=0; i<existLike.length; i++){
 						if(num== counselingReply[i].wrtbtNo){
@@ -408,8 +373,7 @@ pageContext.setAttribute("newLine", "\n");
 						
 					}
 					
-					//if(result == 'dislike'){
-						
+					
 						 $(".like"+num+"dislike").html("<a class='like"+response.data.wrtbtNo+"dislike' onclick='likeupdate("+response.data.wrtbtNo+",'dislike')' value='dislike'> Down <span class='w3-badge w3-white'>"+response.data.ncmdCo+"</span></a>");
 
 						 if($(".like"+num+"dislike").hasClass("winter") === true) {
@@ -420,38 +384,21 @@ pageContext.setAttribute("newLine", "\n");
 								 $(".like"+num+"dislike").addClass("winter");
 								 $(".like"+num+"like").addClass("winter");
 							}	
-				//	}
+				
 					
 						
 					
 				}
-				//response.data.contextpath = "${pageContext.request.contextPath}/noti/api/lab";
-
+				
 			},
 			error : function(jqXHR, status, e) {
-				console.log("에러입니다");
 				console.error(status + " : " + e);
 				console.log(jqXHR);
 			}
 		});
-		
-		
-
-	
-	
-
-	
-
 	}
 </script>
-
-
-
-
-
-
 <body>
-<!-- /////////////////////////////// Header ///////////////////////-->
 
 
 <c:import url="/WEB-INF/views/include/header.jsp" />
@@ -459,9 +406,9 @@ pageContext.setAttribute("newLine", "\n");
 	
 <div class="container">
     <div class="row">
-        <!--///////// 질문 및 답변 /////////-->
+     
         <div class="col-lg-8">
-            <!--////// 제목 및 작성자 정보 //////-->
+          
             <div class="w3-card-4 w3-margin w3-topbar w3-border-red">
 
                 <div class="w3-container">
@@ -472,8 +419,7 @@ pageContext.setAttribute("newLine", "\n");
                 <div class="w3-container">
                 <h6>
                 <c:if test="${counselingPrnts.writrInfoOpngYn =='Y' }"	>
-                
-                
+ 
                 <c:choose>
  
 					 <c:when test="${counselingPrnts.birdt == null and counselingPrnts.agrg == null}">
@@ -481,15 +427,15 @@ pageContext.setAttribute("newLine", "\n");
 				    </c:when>
  					
 				    <c:when test="${counselingPrnts.birdt == null}">
-				       ${counselingPrnts.agrg }대,컴퓨터공학과
+				       ${counselingPrnts.nknm}, ${counselingPrnts.agrg }대
 				    </c:when>
 				 
 				    <c:when test="${counselingPrnts.agrg == null }">
-				        ${counselingPrnts.birdt }대,컴퓨터공학과
+				        ${counselingPrnts.nknm}, ${counselingPrnts.birdt }대
 				    </c:when>
 				 
 				    <c:otherwise>
-				        아무것도 아닌 사람 입니다.
+				        기타
 				    </c:otherwise>
  
 				</c:choose>
@@ -507,9 +453,14 @@ pageContext.setAttribute("newLine", "\n");
                     <p>
                     ${fn:replace(counselingPrnts.wrtbtText, newLine,"<br>") }
                     </p>
+                    
+                   	<c:forEach items="${fileList }" var="list" varStatus="status">
+					  <img src="${pageContext.request.contextPath }${list.storgPath }" style="max-width: 100%; height: auto;" >  
+					</c:forEach>
+                
                 </div>
 
-                <div class="w3-container interest">#유학 #외국 #컴퓨터
+                <div class="w3-container interest">
                 </div>
 
                 <div class="w3-container">
@@ -531,12 +482,20 @@ pageContext.setAttribute("newLine", "\n");
                         <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
                             <i class="glyphicon glyphicon-option-horizontal"></i>
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="#">익명으로 답변하기</a></li>
                             <li><a href="#">스크랩하기</a></li>
                             <li><a href="#">신고하기</a></li>
                         </ul>
                     </div>
+                    
+                    <br>
+                    <div class="row w3-margin">
+					<c:forEach items="${fileList }" var="list" varStatus="status">
+					<a id="down" href="${pageContext.servletContext.contextPath }/download?no=${list.apndngFileNo}">${list.apndngFileNm }</a>
+					</c:forEach>
+					</div>
+                    
                 </div>
                 <Br>
             </div>
@@ -546,14 +505,12 @@ pageContext.setAttribute("newLine", "\n");
                     <h4><b>답변</b> <span class="w3-badge w3-white">${fn:length(counselingReplyList)}</span></h4>
                     <input type="hidden" id="replysize" name="replysize" value="${fn:length(counselingReplyList)}">
                     
-                    <div id="myBtn" class="btn btn-danger web-volunteer" >답변하기</div>
+                    <div id="myBtn" class="btn btn-danger" >답변하기</div>
                    
                 <hr>
             </div>
 
-            <!--/////// 답변 ///////-->
-            
-            
+         
             <div class="w3-card-4 w3-margin w3-topbar w3-border-lightgray" id="reply-form">
               
 			
@@ -561,11 +518,28 @@ pageContext.setAttribute("newLine", "\n");
 				 
 					<input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
 					<input type="hidden" id="prntsWrtbtNo" name="prntsWrtbtNo" value="${counselingPrnts.wrtbtNo }">
-					답변 등록 <input type="hidden" id="bbsNo" name="bbsNo" value="1"> <br>
-					내용 : <textarea class="form-control" onkeydown="resize(this)" onkeyup="resize(this)" id="wrtbtText" name="wrtbtText"></textarea>
+					 <input type="hidden" id="bbsNo" name="bbsNo" value="${counselingPrnts.bbsNo}"> <br>
+					<div>답변</div> 
+					<textarea class="form-control" onkeydown="resize(this)" onkeyup="resize(this)" id="wrtbtText2" name="wrtbtText"></textarea>
 					
-					작성자정보공개여부 : <input type="radio" id="writrInfoOpngYn" name="writrInfoOpngYn" value="Y" checked="checked" />Y 
-									<input type="radio" id="writrInfoOpngYn" name="writrInfoOpngYn" value="N" /> N <br>
+					 <div class="dropdown writedropdown">
+	               			<button  class="w3-button w3-padding w3-round-large dropdown-toggle" type="button" data-toggle="dropdown" style="float:right;">
+	                   		 <i class="glyphicon glyphicon-option-horizontal"></i>
+	               			 </button>
+	               			 <ul id="writrInfoOpngYn2" class="dropdown-menu dropdown-menu-right">
+	                  	     <li class="hide"><a href="#" value="Y">공개로 작성하기</a></li>
+	                  	     <li><a href="#" value="N">비공개로 작성하기</a></li>
+	                  	  
+	                		</ul>
+	               
+	                
+	             	</div>
+	           
+	           		<select id="writrInfoOpngYn" class="hide">
+	           		
+					  <option  class="hide" value="Y" selected="selected"></option>
+					  <option value="N">비공개로 작성하기</option>
+					</select>
 				
 
 					<button type="submit" class="form-control">입력</button>
@@ -581,14 +555,14 @@ pageContext.setAttribute("newLine", "\n");
             	 <c:if test="${status.index == 0 }"	>
             
             <div class="w3-card-4 w3-margin w3-topbar w3-border-green">
-                <!--//// 답변자 정보 //// -->
+               
                 <div class="w3-container">
                     <br>
                     <img src="images/portfolio/1.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:4em; height: 4em;">
                     
                     <c:if test="${counselingReplyList.writrInfoOpngYn =='Y' }"	>
                 	<p><span class="w3-large w3-margin-right">${counselingReplyList.nknm}</span>
-                 	 <span class="w3-medium w3-opacity">컴퓨터공학과</span>
+                 	 <span class="w3-medium w3-opacity"></span>
                  	  </p>
                 	</c:if>
                 
@@ -605,7 +579,7 @@ pageContext.setAttribute("newLine", "\n");
 
                 <br>
 
-                <!--//// 답변 내용 //// -->
+           
                 <div class="w3-container">
                     <p>${fn:replace(counselingReplyList.wrtbtText, newLine,"<br>") } </p> 
                 </div>
@@ -627,7 +601,7 @@ pageContext.setAttribute("newLine", "\n");
                         <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
                             <i class="glyphicon glyphicon-option-horizontal"></i>
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="#">신고하기</a></li>
                         </ul>
                     </div>
@@ -640,7 +614,7 @@ pageContext.setAttribute("newLine", "\n");
   			<c:if test="${status.index != 0 }"	>
   			
             <div class="w3-card-4 w3-margin w3-topbar w3-border-lightgray">
-                <!--//// 답변자 정보 //// -->
+                
                 <div class="w3-container">
                     <br>
                     <img src="http://placehold.it/40x40" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:4em; height: 4em;">
@@ -648,7 +622,7 @@ pageContext.setAttribute("newLine", "\n");
                     
                     <c:if test="${counselingReplyList.writrInfoOpngYn =='Y' }"	>
                 	<p><span class="w3-large w3-margin-right">${counselingReplyList.nknm}</span>
-                 	 <span class="w3-medium w3-opacity">컴퓨터공학과</span>
+                 	 <span class="w3-medium w3-opacity"></span>
                  	  </p>
                 	</c:if>
                 
@@ -683,7 +657,7 @@ pageContext.setAttribute("newLine", "\n");
                         <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
                             <i class="glyphicon glyphicon-option-horizontal"></i>
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="#">신고하기</a></li>
                         </ul>
                     </div>
@@ -694,19 +668,11 @@ pageContext.setAttribute("newLine", "\n");
 			</c:if>	
 		
 			</c:forEach>
-			
-			
-			
-			 
-			
-			
-			
-			
-			
+
      
         </div>
 
-        <!--///////// 유사한 질문 /////////-->
+ 
         <div class="col-lg-4">
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container">
@@ -732,57 +698,6 @@ pageContext.setAttribute("newLine", "\n");
     </div>
 </div>
 
-<!--//////////////////////// footer ////////////////////////////-->
-<footer>
-    <div class="container text-center">
-        <hr />
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="col-md-3">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#">Product for Mac</a></li>
-                        <li><a href="#">Product for Windows</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#">Web analytics</a></li>
-                        <li><a href="#">Presentations</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#">Product Help</a></li>
-                        <li><a href="#">Developer API</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <hr>
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <div class="copyright">
-                        © 2015, Webenlance, All rights reserved
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <div class="design">
-                        <a href="#">Franchisee </a> |<a target="_blank" href="http://www.webenlance.com">Web Design & Development by Webenlance</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 
 </body>
 </html>

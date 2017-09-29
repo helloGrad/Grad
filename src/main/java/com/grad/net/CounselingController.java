@@ -15,14 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grad.net.security.Auth;
 import com.grad.net.security.AuthUser;
+import com.grad.net.service.ApndngFileService;
+import com.grad.net.service.CodeService;
 import com.grad.net.service.CounselingService;
+import com.grad.net.service.MemberService;
+import com.grad.net.service.NotiService;
+import com.grad.net.vo.ApndngFileVo;
 import com.grad.net.vo.CounselingVo;
 import com.grad.net.vo.MemberVo;
 
 import net.sf.json.JSONArray;
-
-
-
 
 
 @Controller
@@ -33,19 +35,43 @@ public class CounselingController {
 	@Autowired
 	CounselingService counselingService;
 	
+	@Autowired
+	ApndngFileService apndngFileService;
 	
-	/**
-	 * 박가혜 2017-08-23
+	@Autowired
+	CodeService codeService;
+	
+	@Autowired
+	MemberService memberService;
+	
+	@Autowired
+	NotiService notiService;
+	
+	
+	/*
+	 * 박가혜, 답변하기 리스트 보여주기 기능
 	 */
 	
 	@RequestMapping("/list")
 	public String counselingList(Model model, @AuthUser MemberVo authUser) {
 
-		List<CounselingVo> counselingList= counselingService.getCounselingList();
 		List<CounselingVo> ReplyList= counselingService.getReplyList();
+		
+		JSONArray jsonArray = new JSONArray();
+		model.addAttribute("codeList", codeService.getStudyList());
+		model.addAttribute("gradList", notiService.getGradNotiList());
+		model.addAttribute("labList", notiService.getLabNotiList());
+		model.addAttribute("labCodeList", notiService.getLabCodeList());
+		
+		if (authUser != null) {
+			model.addAttribute("scrapList", memberService.getScrapList(authUser.getMbNo()));
+			model.addAttribute("scrapList", jsonArray.fromObject(memberService.getScrapList(authUser.getMbNo())));
+		}
+		
+		model.addAttribute("gradList", jsonArray.fromObject(notiService.getGradNotiList()));
+		model.addAttribute("labList", jsonArray.fromObject(notiService.getLabNotiList()));
 	
 		model.addAttribute("authUser", authUser);
-		model.addAttribute("counselingList", counselingList);
 		model.addAttribute("replyList", ReplyList);
 		
 		
@@ -53,36 +79,43 @@ public class CounselingController {
 		return "/counseling/list";
 	}
 	
-	/**
-	 * 박가혜 2017-08-24
+	/*
+	 * 박가혜, 2017-08-24, 답변하기, 토론하기 상세보기 기능
 	 */
 	
-	
+	@Auth(role=Auth.Role.USER) 
 	@RequestMapping("/detail")
-	@Auth(role = Auth.Role.USER)
-	public String counselingDetail( Model model, @RequestParam("no") Long no,@AuthUser MemberVo authUser, @RequestParam("type") String type) {
+	public String counselingDetail( Model model, @RequestParam("no") Long no, @AuthUser MemberVo authUser, @RequestParam("type") String type) {
+		
+
+		List<CounselingVo> existLike = new ArrayList<>();
+		
+		CounselingVo counselingPrnts = counselingService.getCounselingPrnts(no); 
+		List<CounselingVo> counselingReplyList = counselingService.getCounselingReplyDetail(no); 
 		
 		
-		//System.out.println(authUser.getMbNo()+" "+no);
-		CounselingVo counselingPrnts = counselingService.getCounselingPrnts(no); //원글
-		List<CounselingVo> counselingReplyList = counselingService.getCounselingReplyDetail(no); //답글
-		List<CounselingVo> existLike =counselingService.existLike(authUser.getMbNo(),no);
-		
+		/*
+		 * 정예린,2017-09-27, 검색 결과 사용자가 없이 상담글에 접근하려고 할 때 널 처리 
+		 */
+		if(authUser!=null) {
+			existLike=counselingService.existLike(authUser.getMbNo(),no);
+		}
+
 	
-		
-
-		
-		//조횟수 
-		//counselingService.ChangefindCo(no);
-		
-		
-
+		counselingService.ChangefindCo(no);
 		model.addAttribute("authUser", authUser);
 		model.addAttribute("counselingPrnts", counselingPrnts);
 		model.addAttribute("counselingReplyList", counselingReplyList);
-		model.addAttribute("type", type); //제목클릭 , 답변하기 클릭을 구분하기 위해서 
-		model.addAttribute("existLike", existLike); //좋아요 싫어요
+		model.addAttribute("type", type); 
+		model.addAttribute("existLike", existLike); 
 		
+		/*
+		 * 박가혜,2017-09-15, 첨부된 파일 이미지 보여주기
+		*/
+		
+		List<ApndngFileVo> fileList = apndngFileService.getFileList(no, "게시글");
+		model.addAttribute("fileList", apndngFileService.getFileList(no, "게시글"));
+	
 		
 		JSONArray jsonArray = new JSONArray();
 		JSONArray jsonArray2 = new JSONArray();
@@ -101,23 +134,15 @@ public class CounselingController {
 			
 			counselingReplyList2.add(new CounselingVo());
 			counselingReplyList2.get(i).setWrtbtNo(counselingReplyList.get(i).getWrtbtNo());
-			//System.out.println(counselingReplyList2.get(i).getWrtbtNo());
-			
+	
 	
 		}
 
-		//System.out.println(existLike);
-		
-	
 		model.addAttribute("jsoncounselingPrnts", jsonArray.fromObject(counselingPrnts2));
-		model.addAttribute("jsonexistLike", jsonArray2.fromObject(existLike)); 
-		
+		model.addAttribute("jsonexistLike", jsonArray2.fromObject(existLike)); 		
 		model.addAttribute("jsoncounselingReply", jsonArray3.fromObject(counselingReplyList2)); 
 	
-		
 
-
-		
 		return "/counseling/detail";
 	}
 	

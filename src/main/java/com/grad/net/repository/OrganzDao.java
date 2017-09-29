@@ -43,5 +43,10 @@ public class OrganzDao {
 	}
 	
 	
+	public OrganzVo getOrganzByNo(int no) {
+		return sqlSession.selectOne("organz.getOrganzByNo", no);
+	}
+	
+	
 	
 }

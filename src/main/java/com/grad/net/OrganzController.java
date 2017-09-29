@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.grad.net.service.OrganzService;
 
 /*
- * 허규준
+ * 허규준, 기관리스트 및 상세보기 (사용x)
  */	
 @Controller
 @RequestMapping("/organz")

@@ -13,7 +13,7 @@ import com.grad.net.service.OrganzService;
 import com.grad.net.vo.ResrchAcrsltVo;
 
 /*
- * 허규준
+ * 허규준, 연구실 상세보기 연구실적 가지고 오기(사용x) 
  */	
 
 @Controller("orgnzAPIController")
@@ -40,6 +40,9 @@ public class OrganzController {
 		return JSONResult.success(num);
 		
 	}
+	
+	
+	
 	
 	
 

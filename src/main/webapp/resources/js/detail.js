@@ -1,6 +1,4 @@
-/**
- * 허규준
- */
+
 $(function() {
 	$("#paperBtn").click(fetchList);
 	$("#projectBtn").click(fetchList);
@@ -51,8 +49,7 @@ var countList = function(acrType, engAcrType){
 		success : function(response) {
 			console.log(response.data)
 			if(response.data > 1){
-				console.log("없음")
-				console.log('#'+engAcrType+'Btn');
+				
 				$('#'+engAcrType+'Btn').show();
 			}
 			
@@ -65,8 +62,6 @@ var countList = function(acrType, engAcrType){
 }
 
 
-
-//연구실 실적 별로 렌더링할 데이터 가져오는 ajax
 var fetchList = function() {
 	
 	var orgNo = $("#orgNo").val();
@@ -92,13 +87,9 @@ var fetchList = function() {
 		success : function(response) {
 			
 			for(var i=0;i<response.data.length;i++){
-				//console.log(response.data.length);
-				//console.log(response.data[i]);
+				
 				$('#'+acrTypeEng).append(response.data[i].resrchYycl)
 				$('#'+acrTypeEng).append("<br><br>");
-//				console.log((response.data[i].resrchText.match(/\n/g) || []).length); 
-//				console.log((response.data[i].resrchText.match(new RegExp(response.data[i].resrchYycl, "g")) || []).length);
-//				console.log(("str1,str2,str3,str4".match(new RegExp("str", "g")) || []).length)
 				$('#'+acrTypeEng).append(response.data[i].resrchText.replace(/\n/g, "<br> "));
 				$('#'+acrTypeEng).append("<br><br><br>");				
 				

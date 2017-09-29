@@ -16,8 +16,8 @@ import com.grad.net.service.MemberService;
 import com.grad.net.vo.MemberVo;
 
 
-/**
- * 박가혜
+/*
+ * 박가혜, 로그인후 세션등록(사용 x)
  */
 public class AuthLoginInterceptor extends HandlerInterceptorAdapter {	
 
@@ -30,23 +30,13 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 		
 		String iden = request.getParameter("iden");
 		String pw=request.getParameter("pw");		
-		
-		System.out.println(iden+" "+pw);
+	
 		
 		MemberVo memberVo=  memberService.getUser(iden, pw);
 		
 		if( memberVo == null){
 			
-//			String accept = request.getHeader("accept");			//������ Ŭ���̾�Ʈ�� ������ ������ ���ؼ� �Ѱ���
-//			if(accept.matches(".*application/json.*")){
-//				//�轼 ���̺귯���� ����Ͽ� �޼��������ͷ� json���·� ����
-//				//response.getOutputStream().write("{'result':'fail', 'message':'fail', 'data':{no:0}}");
-//			} else {
-//				response.sendRedirect(request.getContextPath()+"/login?result=fail");
-//			}
-			
-			System.out.println(request.getContextPath());
-			response.sendRedirect(request.getContextPath()+"/user/login?result=fail");
+			response.sendRedirect(request.getContextPath()+"?result=fail");
 			return false;
 		}		
 		
@@ -56,8 +46,8 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 		
 	
 		
-		/**
-		 * 박가혜 2017-08-31 맞춤정보 제안 페이지
+		/*
+		 * 박가혜, 2017-08-31, 맞춤정보 제안 페이지(사용x)
 		 */
 	
 		
@@ -73,9 +63,6 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 			response.sendRedirect(request.getContextPath()+"/");
 			
 		}
-		
-		
-
 		
 		return false;
 	}	

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.grad.net.repository.NotiDao;
 import com.grad.net.vo.NotiVo;
+import com.grad.net.vo.StudyVo;
 
 @Service
 public class NotiService {
@@ -16,34 +17,65 @@ public class NotiService {
 	@Autowired
 	NotiDao notiDao;
 
-	/**
-	 * 허주한
-	 */
+
 	public List<NotiVo> getNotiList(String type) {
 		
 		return notiDao.getNotiList(type);
 	}
-	/**
 
-	
-	/**
-	 * 허주한
-	 */
 	public List<NotiVo> getNotiListByPage(int page, String type) {
-		// TODO Auto-generated method stub
+		
 		Map<String, Object> map = new HashMap<String, Object>() ;
 		map.put("page", page-1);
 		map.put("type", type);
 		return notiDao.getNotiListByPage(map);
 	}
 	
-	
-	/*
-	 * 정예린, 박가혜
-	 */	
-	public NotiVo getNoti(String tabnm, int no) {
-		return notiDao.getByNo(tabnm,no);
+
+	public NotiVo getNoti(String tabnm, int no, Long userid) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("tabnm", tabnm);
+		map.put("no", no);
+		map.put("userid", userid);
 		
+		
+		return notiDao.getByNo(map);
+
+	}
+	
+	public NotiVo getNoti(String tabnm, int no) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("tabnm", tabnm);
+		map.put("no", no);
+		
+		return notiDao.getByNo(map);
+
+	}
+	
+
+	public List<StudyVo> getGradNotiList() {
+
+		return notiDao.getGradNotiList();
+	}
+
+
+	public List<StudyVo> getLabNotiList() {
+		return notiDao.getLabNotiList();
+	}
+
+
+	public List<StudyVo> getLabCodeList() {
+		return notiDao.getLabCodeList();
+	}
+
+
+	public List<StudyVo> getLabCodeList(int no) {
+		return notiDao.getLabCodeList(no);
+	}
+
+	
+	public int getNotiCount() {
+		return notiDao.getNotiCount();
 	}
 
 }
