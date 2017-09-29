@@ -1,13 +1,17 @@
 
 var doScrap = function(type, id, user) {
+	
 
-	if (user === undefined) {
+
+	if (user === undefined || user ==null || user =='' ) {
 
 		$("#login").css({
 			"display" : "block"
 		});
 
 		return;
+		
+		
 	} else {
 
 		var classType;
