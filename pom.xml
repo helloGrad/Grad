@@ -164,6 +164,14 @@
          <artifactId>commons-io</artifactId>
          <version>1.4</version>
       </dependency>
+      
+      
+      <dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk</artifactId>
+    <version>1.11.66</version>
+</dependency>
+
 		
 		<!-- JSONResult 변환하기 -->
 		<dependency>

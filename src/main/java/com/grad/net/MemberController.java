@@ -51,6 +51,7 @@ public class MemberController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String register(@ModelAttribute MemberVo memberVo) {
 
+	
 
 		memberService.register(memberVo);
 

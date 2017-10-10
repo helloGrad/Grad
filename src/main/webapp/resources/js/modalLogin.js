@@ -29,6 +29,8 @@ $(function(){
 		});
 
 		$(".close").click(function() {
+			
+			
 			$("#login").css({
 				"display" : "none"
 			});

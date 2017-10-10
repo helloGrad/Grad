@@ -34,6 +34,7 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 		
 		MemberVo memberVo=  memberService.getUser(iden, pw);
 		
+		
 		if( memberVo == null){
 			
 			response.sendRedirect(request.getContextPath()+"?result=fail");

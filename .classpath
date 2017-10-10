@@ -25,5 +25,8 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/gahye/Downloads/aws-java-sdk-1.11.210/aws-java-sdk-1.11.210/lib/aws-java-sdk-1.11.210.jar"/>
+	<classpathentry kind="lib" path="C:/Users/gahye/Downloads/aws-java-sdk-1.11.210/aws-java-sdk-1.11.210/lib/aws-java-sdk-1.11.210-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/gahye/Downloads/aws-java-sdk-1.11.210/aws-java-sdk-1.11.210/lib/aws-java-sdk-1.11.210-sources.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

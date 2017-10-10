@@ -81,10 +81,38 @@ if(vo.count==0) {
 								<h4><b><a class='detail' href="/net/counseling/detail?no=<%=vo.wrtbtNo%>&type=prnts"><%=vo.wrtbtTitle%></a></b>
 								</h4></div>
 							<div class="w3-container">
+							
+							<%
+							if( vo.writrInfoOpngYn == "Y") {
+									
+								
+							%>
+							
 								<h6><%=vo.reNknm%>
 									<span class="w3-opacity"><%=vo.reAvlblBeginDt%>에
 										답변</span>
 								</h6>
+							<%
+							}
+									
+								
+							%>		
+								<%
+							if( vo.writrInfoOpngYn == "N") {
+									
+								
+							%>
+							
+								<h6>비공개 
+									<span class="w3-opacity"><%=vo.reAvlblBeginDt%>에
+										답변</span>
+								</h6>
+							<%
+							}
+									
+								
+							%>
+								
 								<p>
 									<a class='detail'
 										href="/net/counseling/detail?no=<%=vo.wrtbtNo%>&type=prnts"><%=vo.reWrtbtText%></a>
@@ -131,7 +159,7 @@ if(vo.count==0) {
 							<div class="w3-container">
 								<h6><%=vo.reNknm%>
 									<span class="w3-opacity"><%=vo.reAvlblBeginDt%>에
-										답변</span>
+										답변<%=vo.writrInfoOpngYn%></span>
 								</h6>
 								<p>
 									<a class='detail'

@@ -26,9 +26,9 @@
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://192.168.1.90:3306/grad" />
-		<property name="username" value="higrad" />
-		<property name="password" value="higrad" />
+		<property name="url" value="jdbc:mysql://higradinstance.c9fkap62cv2m.ap-northeast-2.rds.amazonaws.com:3306/grad" />
+		<property name="username" value="admin" />
+		<property name="password" value="Qby-UnJ-tKN-En2" />
 	</bean>
 
 	<!-- MyBatis SqlSessionFactoryBean -->

@@ -93,10 +93,38 @@ if(count==0) {
 								<h4><b><a class='detail' href="${pageContext.servletContext.contextPath }/counseling/detail?no=<%=wrtbtNo%>&type=prnts"><%=wrtbtTitle%></a></b>
 								</h4></div>
 							<div class="w3-container">
+							
+							<%
+							if( writrInfoOpngYn == "Y") {
+									
+								
+							%>
+							
 								<h6><%=reNknm%>
 									<span class="w3-opacity"><%=reAvlblBeginDt%>에
 										답변</span>
 								</h6>
+							<%
+							}
+									
+								
+							%>		
+								<%
+							if( writrInfoOpngYn == "N") {
+									
+								
+							%>
+							
+								<h6>비공개 
+									<span class="w3-opacity"><%=reAvlblBeginDt%>에
+										답변</span>
+								</h6>
+							<%
+							}
+									
+								
+							%>	
+							
 								<p>
 									<a class='detail'
 										href="${pageContext.servletContext.contextPath }/counseling/detail?no=<%=wrtbtNo%>&type=prnts"><%=reWrtbtText%></a>
@@ -147,10 +175,40 @@ if(count==0) {
 								<h4><b><a class='detail' href="/net/counseling/detail?no=<%=wrtbtNo%>&type=prnts"><%=wrtbtTitle%></a></b>
 								</h4></div>
 							<div class="w3-container">
+							
+							
+							<%
+							if( writrInfoOpngYn == "Y") {
+									
+								
+							%>
+							
 								<h6><%=reNknm%>
 									<span class="w3-opacity"><%=reAvlblBeginDt%>에
 										답변</span>
 								</h6>
+							<%
+							}
+									
+								
+							%>		
+								<%
+							if( writrInfoOpngYn == "N") {
+									
+								
+							%>
+							
+								<h6>비공개 
+									<span class="w3-opacity"><%=reAvlblBeginDt%>에
+										답변</span>
+								</h6>
+							<%
+							}
+									
+								
+							%>
+							
+								
 								<p>
 									<a class='detail'
 										href="/net/counseling/detail?no=<%=wrtbtNo%>&type=prnts"><%=reWrtbtText%></a>

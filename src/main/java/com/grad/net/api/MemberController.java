@@ -224,8 +224,9 @@ public class MemberController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public JSONResult register(@ModelAttribute MemberVo memberVo) {
 
+		System.out.println(memberVo);
 		boolean success = memberService.register(memberVo);
-		return JSONResult.success(success);
+		return JSONResult.success(true);
 
 	}
 	

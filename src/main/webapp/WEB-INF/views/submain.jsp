@@ -199,6 +199,11 @@
 
 				</div>
 			</div>
+			
+		
+            
+            
+            
 
 			<div class="row distinct-line">
 				<div class="col-xs-12 col-sm-12 col-lg-12">
@@ -208,6 +213,8 @@
 
 					<hr>
 				</div>
+				
+
 
 				<div class="row distinct-line">
 					<c:forEach items="${myBoardList }" var="myBoardList"

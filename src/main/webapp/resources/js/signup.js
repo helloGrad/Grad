@@ -393,6 +393,8 @@ $("#join-form").submit(
 			emailCheck();
 			pwdCheck();
 			pwdCheck2();
+			
+			console.log($('.genderlabel').find('.on-gender').find('input').val());
 
 			if ($("#nicknamecheck").hasClass("oninput") == true
 					|| $("#emailcheck").hasClass("oninput") == true
@@ -408,7 +410,7 @@ $("#join-form").submit(
 					data : "iden="+$("#remail").val()
 					+"&nknm="+$("#nickname").val()
 					+"&pw="+ $("#rpwd").val()
-					+"&sex="+ $('.gender').find('.on').find('input').val()
+					+"&sex="+ $('.gender').find('.on-gender').find('input').val()
 					+"&birdt="+ $("#birthy").val()+$("#birthm").val()+$("#birthd").val(),
 					
 					success : function(response) {

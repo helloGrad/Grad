@@ -297,7 +297,7 @@ public class StudyController {
 		model.addAttribute("gradList", jsonArray.fromObject(notiService.getGradNotiList()));
 		model.addAttribute("labList", jsonArray.fromObject(notiService.getLabNotiList()));
 		
-		
+	
 
 		model.addAttribute("boardtype", boardtype);
 		model.addAttribute("authUser", authUser);

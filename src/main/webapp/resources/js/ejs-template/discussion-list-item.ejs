@@ -81,7 +81,38 @@ if(wrtbtDstnct =="일반게시판"){
 			<h4><b>
 			<a class='detail' href='/net/counseling/detail?no=<%=wrtbtNo%>&type=prnts'><%=wrtbtTitle%></a></b></h4></div>
 				<div class='w3-container interest'></div>
-					<div class='w3-container'><h6><%=reNknm%><span class='w3-opacity'>•<%=reAvlblBeginDt%>에 답변</span></h6>
+					<div class='w3-container'>
+					<%
+							if( writrInfoOpngYn == "Y") {
+									
+								
+							%>
+							
+								<h6><%=reNknm%>
+									<span class="w3-opacity"><%=reAvlblBeginDt%>에
+										답변</span>
+								</h6>
+							<%
+							}
+									
+								
+							%>		
+								<%
+							if( writrInfoOpngYn == "N") {
+									
+								
+							%>
+							
+								<h6>비공개 
+									<span class="w3-opacity"><%=reAvlblBeginDt%>에
+										답변</span>
+								</h6>
+							<%
+							}
+									
+								
+							%>	
+
 						<a class='detail' href='/net/counseling/detail?no=<%=wrtbtNo%>&type=prnts'><p><%=reWrtbtText%></p></a></div>
 			<div class='w3-container'>
 			<div class='w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large'>
@@ -112,7 +143,40 @@ if(wrtbtDstnct =="일반게시판"){
 		<h4><b>
 		<a class='detail' href='/net/counseling/detail?no=<%=wrtbtNo%>&type=prnts'><%=wrtbtTitle%></a></b></h4></div>
 			<div class='w3-container interest'></div>
-				<div class='w3-container'><h6><%=reNknm%><span class='w3-opacity'>•<%=reAvlblBeginDt%>에 답변</span></h6>
+				<div class='w3-container'>
+				
+				
+							<%
+							if( writrInfoOpngYn == "Y") {
+									
+								
+							%>
+							
+								<h6><%=reNknm%>
+									<span class="w3-opacity"><%=reAvlblBeginDt%>에
+										답변</span>
+								</h6>
+							<%
+							}
+									
+								
+							%>		
+								<%
+							if( writrInfoOpngYn == "N") {
+									
+								
+							%>
+							
+								<h6>비공개 
+									<span class="w3-opacity"><%=reAvlblBeginDt%>에
+										답변</span>
+								</h6>
+							<%
+							}
+									
+								
+							%>	
+				
 					<a class='detail' href='/net/counseling/detail?no=<%=wrtbtNo%>&type=prnts'><p><%=reWrtbtText%></p></a></div>
 		<div class='w3-container'>
 		<div class='w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large'>

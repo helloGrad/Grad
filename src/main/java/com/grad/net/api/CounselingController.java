@@ -229,6 +229,9 @@ public class CounselingController {
 			fileList.add(fileList2)	;
 			
 		}
+	
+		
+		System.out.println("ㄴㄴㄴㄴ"+counselingList);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("counselingList", counselingList);
