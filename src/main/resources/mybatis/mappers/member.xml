@@ -402,17 +402,16 @@ where (a.slctnNotiNo, slctnNotiDstnct) in (
 	]]>
 	</select>
 	
-	
 	<select id="getMyBoardList" parameterType="long" resultType="studyVo">
 	<![CDATA[
-	select w.WRTBT_NO slctnNotiNo,w.AVLBL_BEGIN_DT notiRegstDt, year(w.AVLBL_BEGIN_DT) year, month(w.AVLBL_BEGIN_DT) month, DAYOFMONTH(w.AVLBL_BEGIN_DT) day ,w.WRTBT_DSTNCT slctnNotiDstnct, w.WRTBT_TEXT wrtbtText, w.WRTBT_TITLE wrtbtTitle
+	select wt.*, a.STORG_PATH storgPath
+	from (select w.AVLBL_BEGIN_DT notiRegstDt, year(w.AVLBL_BEGIN_DT) year, month(w.AVLBL_BEGIN_DT) month, DAYOFMONTH(w.AVLBL_BEGIN_DT) day ,w.WRTBT_DSTNCT slctnNotiDstnct, w.WRTBT_TEXT wrtbtText, w.WRTBT_TITLE wrtbtTitle
 	 , (select count(*) from wetbt w2 where w2.PRNTS_WRTBT_NO = w.wrtbt_no) count
-	 , (select w2.WRTBT_TEXT from wetbt w2 where w2.PRNTS_WRTBT_NO = w.wrtbt_no order by w2.RCMD_CO desc limit 1) subwrtbtText
+	 , (select w2.WRTBT_TEXT from wetbt w2 where w2.PRNTS_WRTBT_NO = w.wrtbt_no order by w2.RCMD_CO desc limit 1) subwrtbtText, w.WRTBT_DSTNCT wrtbtDstnct, w.mb_no, w.WRTBT_NO wrtbtNo
 	from bbs b, wetbt w
 	where b.BBS_NO = w.BBS_NO
-	and w.mb_no = #{mbNo}
-	and w.WRTBT_TYPE_DSTNCT = '원글'
-	order by 1 desc;
+	and w.MB_NO = #{mbNo}
+	order by 1 desc) wt left outer join apndng_file a on wt.wrtbtNo = a.PRNTS_NO ;
 	]]>
 	</select>
 	
@@ -445,13 +444,11 @@ where (a.slctnNotiNo, slctnNotiDstnct) in (
 	<if test="type=='common'">
 		<![CDATA[
 		insert into mb_info values ( (select mb_no from mb where nknm = #{iden}), (select cd_id from cd where cd_nm=#{studys}));
-
 		]]>
 	</if>
 	<if test="type!='common'">
 		<![CDATA[
 		insert into mb_info values ( (select mb_no from mb where iden = #{iden}), (select cd_id from cd where cd_nm=#{studys}));
-
 		]]>
 	</if>
 	

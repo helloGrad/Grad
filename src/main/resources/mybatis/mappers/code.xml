@@ -35,7 +35,7 @@
 					and noti_cd.cd_id = c.cd_id
 					and noti.noti_dstnct='연구실'
 					and noti.pchrgYn='Y'
-					and to_days(noti.slctnEndDt)-to_days(sysdate()) > 0 
+					and to_days(noti.slctnEndDt)-to_days(sysdate()) >= 0 
 					and (to_days(noti.slctnEndDt)-to_days(noti.slctnBeginDt))-(to_days(noti.slctnEndDt)-to_days(sysdate())) >= 0
 					group by notiNo, cdNm) c 
 					group by  c.cdNm) c1 right outer join cd c on (c.cd_nm=c1.cdNm) left outer join 
@@ -58,7 +58,7 @@
 				and i.cd_id=c.cd_id
 				and SLCTN_NOTI_DSTNCT='대학원'
 				and s.pchrg_yn='Y'
-				and to_days(s.slctn_end_dt)-to_days(sysdate()) > 0 
+				and to_days(s.slctn_end_dt)-to_days(sysdate()) >= 0 
 				and (to_days(s.slctn_end_dt)-to_days(s.slctn_begin_dt))-(to_days(s.slctn_end_dt)-to_days(sysdate())) >=0
 				group by  c.cd_nm) c1 right outer join cd c on (c.cd_nm=c1.cdNm) left outer join 
 				(select c.cd_nm cdNm, count(*) cend

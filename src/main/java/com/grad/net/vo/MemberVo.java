@@ -1,14 +1,25 @@
 package com.grad.net.vo;
 
-
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class MemberVo {
 	
 	private Long mbNo;
 	private String mbDstnct;
 	private String mbNm;
+	
+	@NotEmpty(message="닉네임은 필수 입력 항목입니다.")
+	@Length(min=2,max=8,message="닉네임은 2~8자리입니다.")
 	private String nknm;
+	
+	@NotEmpty(message="이메일은 필수 입력 항목입니다.")
+	@Email(message="@를 포함한 올바른 이메일 형식으로 입력바랍니다.")
 	private String iden;
+	
+	@NotEmpty(message="비밀번호는 필수 입력 항목입니다.")
+	@Length(min=6,max=14,message="비밀번호는 6~14자리입니다.")
 	private String pw;
 	private String sex;
 	private String birdt;

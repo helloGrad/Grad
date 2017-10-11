@@ -280,7 +280,7 @@
     
 			         		<div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom">
 			                <div class="w3-display-container w3-card w3-round-large w3-white">
-			              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${myBoardList.slctnNotiNo}&tabnm=${myBoardList.slctnNotiDstnct}''">
+			              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${myBoardList.slctnNotiNo}&tabnm=${myBoardList.slctnNotiDstnct}'">
 				                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">
 				                    	<c:choose>
 										<c:when test="${myBoardList.bk21EorgnzSuprtYn == 'Y' }">
@@ -319,16 +319,19 @@
 				                            <i class="far fa-thumbtack w3-large" 
 				                            onclick="doScrap('모집공고',${myBoardList.slctnNotiNo },${authUser.mbNo });"></i>
 				                        </div>
-										<span
-											class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"
-											style="float: right;">
-											<c:if test="${myBoardList.percent<=0 }">
-                            				  모집예정
-                          					 </c:if> 
-                          					 <c:if test="${myBoardList.percent>0 }">
-                             				 D-${myBoardList.dday }
-                          					 </c:if>
-										</span>
+				                        
+										<c:if test="${myBoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+                        				<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
+								</c:if>
+
+								<c:if test="${myBoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+									<c:if test="${myBoardList.percent<=0 }">
+										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">모집예정</span>
+									</c:if>
+									<c:if test="${myBoardList.percent>0 }">
+										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">D-${myBoardList.dday }</span>
+									</c:if>
+								</c:if>
 								</div>
 			                  
 			                </div>

@@ -224,11 +224,16 @@ var naver_id_login = function (client_id,redirect_uri)
 		else 
 		{
 			naver_id_login_contents=
-				"<a href='"+naver_id_login_url+"' "+naver_id_popup_option+" id='naver_id_login_anchor'>" +
-					"<button id='naverLoginBtn' class='naverlogin btn btn-social socialbtn'>" +
-						"<span id='naverLogo' class='fa icon-naver_icon'></span>Naver 아이디로 로그인" +
-					"</button>" +
-				"</a> ";
+			      "<a href='"+naver_id_login_url+"' "+naver_id_popup_option+" id='naver_id_login_anchor' style='text-decoration:none'>" +
+	               /*"<button id='naverLoginBtn' class='naverlogin btn btn-social socialbtn'>" +
+	                  "<span id='naverLogo' class='fa icon-naver_icon'></span>Naver 아이디로 로그인" +
+	               "</button>" +*/
+	            
+	            "<button id='naverLoginBtn' class='w3-button w3-block w3-margin-bottom w3-large w3-round w3-margin-top w3-margin-bottom' style='background-color: #1EC800;'>"+
+	               "<span id='na-logo2' class='naverLogo w3-text-white fa-lg w3-left'></span>"+
+	               "<span class='w3-text-white'>Login with Naver</span>"+
+	            "</button>"+
+	            "</a> ";
 		}
 		naver_id_login.innerHTML=naver_id_login_contents;
 		if (this.is_callback)

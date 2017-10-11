@@ -1,3 +1,6 @@
+/**
+ * 허주한
+ */
 
 var infoListVar = ['studyList', 'researchList', 'purposeList', 'arList'];
 var cdNames = new Array();
@@ -8,6 +11,7 @@ var arNames = new Array();
 var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 var mbno = $('#mbNo').val();
 
+//맞춤정보 박스 클릭하면 배열에 추가
 var addNames = function(type, name){
 	if(type==='study'){
 		studyNames.push(name);
@@ -38,7 +42,7 @@ var momo = function(){
 		});
 }
 
-
+//맞춤정보 박스 클릭하면 배열에 제거
 var removeNames = function(type, name){
 	if(type==='study'){
 		studyNames.splice(studyNames.indexOf(name),1);
@@ -51,7 +55,7 @@ var removeNames = function(type, name){
 	}
 };
 
-
+//연구분야 중복 체크
 var checkDuplicate = function(name){
 
 	for(var i=0;i<$('#researchList div').length;i++){
@@ -79,12 +83,12 @@ var nknmCheck = function(nknm){
 			type : "post",
 			data : "nknm=" + nknm,
 			success : function(response) {
-			
+				// 닉네임 이미 존재하는 경우
 				if (response.data === true) {
 					$('#nkname-warn').css('display','block');
 					$("#nkname-warn").text("닉네임이 이미 존재 합니다.");
 				}
-				
+				// 닉네임 없는 경우
 				else {
 
 					$.ajax({
@@ -133,7 +137,7 @@ $(function(){
 	}
 
 
-	
+	//기존 설정된 학문 맞춤정보 불러오기
 	for(var i=0;i<$('#studyList div').length;i++){
 		studyNames.push($($('#studyList div')[i]).text());
 	}
@@ -147,7 +151,7 @@ $(function(){
 		arNames.push($($('#arList div')[i]).text());
 	}
 
-
+	//각 맞춤정보에 설정된 값이 없는 경우 미설정으로 세팅
 	for(var i=0;i<infoListVar.length;i++){
 		if($('#'+infoListVar[i]).children().length==0){
 			$('#'+infoListVar[i]).html('<div>미설정</div>');
@@ -160,7 +164,7 @@ $(function(){
 		autoComplete();
 	})
 
-	
+	//수정 하기 클릭시
 	$(document).on('click', '.modify', function(event) {
 		
 		if($(this).siblings('.modifyList').css('display')==='block'){
@@ -169,7 +173,7 @@ $(function(){
 			var type = $(this).attr('id');
 
 
-			
+			//해달 배열 ajax로 연결
 			if(type === 'study'){
 				cdNames = studyNames;
 			}else if(type === 'research'){
@@ -190,7 +194,7 @@ $(function(){
 				+"&cdNames="+cdNames,
 
 				success : function(response) {
-					
+					//parent.window.location.href = "/net/user/mypage";
 					$('#'+type+'Modify').css('display','none')
 					$('#'+type+'List div button').css('visibility','hidden')
 				},
@@ -216,11 +220,12 @@ $(function(){
 		
 	});
 
-	
+	//맞춤정보 속성 박스 클릭시
 	$(document).on('click', '.box', function(event) {
 
 		var listName = $(this).parents('div').siblings('span').attr('id');
 		var listLength = $('#'+listName+'List div').length;
+		
 		if($(this).hasClass('on')){
 
 			$(this).removeClass('on');
@@ -234,7 +239,10 @@ $(function(){
 		}
 
 		else{
-
+			//분야 정보는 하나만 되도록
+			if(listName==='study'&&studyNames.length==1){
+				return;
+			}
 			$(this).addClass('on');
 			if($($('#'+listName+'List div')[0]).text()==='미설정'){
 				$('#'+listName+'List').empty();
@@ -365,5 +373,3 @@ $(function(){
 	})
 
 })
-
-	

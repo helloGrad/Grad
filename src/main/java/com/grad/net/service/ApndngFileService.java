@@ -3,6 +3,7 @@ package com.grad.net.service;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Calendar;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -23,6 +24,9 @@ public class ApndngFileService {
 	@Autowired 
 	ApndngFileDao apndngFileDao;
 	
+	@Autowired
+	AWSService awsService;
+	
 	ApndngFileVo vo=null;
 	private static final String SAVE_PATH = "/uploads";
 	private static final String PREFIX_URL = "/uploads/";
@@ -31,23 +35,28 @@ public class ApndngFileService {
 
 		String url = "";
 
-
 		try{
 			if(multipartFile.isEmpty()==true){
 				return url;
 			}
-
 			String orginalFileName = multipartFile.getOriginalFilename();
 			String extName = orginalFileName.substring(orginalFileName.lastIndexOf('.'), orginalFileName.length());
 			Long fileSize = multipartFile.getSize();
 			String saveFileName = genSaveFileName(extName);
 
+//			System.out.println("##########");
+//			System.out.println("fileName = "+ orginalFileName + ", fileSzie = "+fileSize + ", extName = " + extName + ", saveFileName = " + saveFileName);
+//			System.out.println("##########");
 
 			wrtieFile(multipartFile, saveFileName);
+			awsService.uploadFile(new File(SAVE_PATH+"/"+saveFileName));
 			
-			url = PREFIX_URL + saveFileName;
 			
-			setFileVo(orginalFileName, fileSize, extName, url);
+			System.out.println("apnding" + SAVE_PATH+"/"+saveFileName);
+//			url = PREFIX_URL + saveFileName;
+			url = "https://s3.ap-northeast-2.amazonaws.com/elasticbeanstalk-ap-northeast-2-563282106598/grad-image/" + saveFileName;
+			
+			setFileVo(orginalFileName, fileSize, extName, url, saveFileName);
 		} catch (IOException e) {
 			throw new RuntimeException(e); 
 		}
@@ -60,10 +69,11 @@ public class ApndngFileService {
 		FileOutputStream fos = new FileOutputStream(SAVE_PATH+"/"+saveFileName);
 		fos.write(fileDate);
 		fos.close();
+		
 	}
 
 	private String genSaveFileName(String extName) {
-	
+		// TODO Auto-generated method stub
 		String fileName = "";
 
 		Calendar calendar = Calendar.getInstance();
@@ -86,9 +96,9 @@ public class ApndngFileService {
 		
 	}
 	
-	public void setFileVo(String orginalFileName, Long fileSize, String extName, String url) {
+	public void setFileVo(String orginalFileName, Long fileSize, String extName, String url,String saveFileName) {
 		vo = new ApndngFileVo();
-		
+		vo.setSaveFileName(saveFileName);
 		vo.setApndngFileNm(orginalFileName);
 		vo.setApndngFileSize(fileSize);
 		vo.setApndngFileEtsionNm(extName);
@@ -101,17 +111,18 @@ public class ApndngFileService {
 	}
 
 	public ApndngFileVo getFileInfo(Long id) {
-		
+		// TODO Auto-generated method stub
 		return apndngFileDao.getFileInfo(id);
 	}
 
 	public List<ApndngFileVo> getFileList(Long no, String type) {
-		
+		// TODO Auto-generated method stub
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("no", no);
 		map.put("type", type);
 		return apndngFileDao.getFileList(map);
 	}
+	
 	
 
 }

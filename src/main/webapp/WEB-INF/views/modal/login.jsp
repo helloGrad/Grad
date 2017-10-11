@@ -181,8 +181,7 @@ display: inline-block;
 		<div class="login-modal-content">
 		
 			<div class="modal-header">
-        		<h4 class="modal-title">관심 학문을 선택해주세요</h4>
-        		<p>(최대 3개 선택 가능)</p>
+        		<h4 class="modal-title">관심 학문을 하나만 선택해주세요</h4>
         		
       		</div>
       		<form action="#" id="join-form">

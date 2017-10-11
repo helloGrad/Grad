@@ -257,7 +257,7 @@
 		from slctn_noti s, slctn_noti_info i
 		where s.slctn_noti_no = i.SLCTN_NOTI_NO
 		and pchrg_yn='y'
-		and to_days(s.slctn_End_Dt)-to_days(sysdate()) > 0 
+		and to_days(s.slctn_End_Dt)-to_days(sysdate()) >= 0 
 		and (to_days(s.slctn_End_Dt)-to_days(s.slctn_Begin_Dt)) >= (to_days(s.slctn_End_Dt)-to_days(sysdate())) 
 		group by s.SLCTN_NOTI_NO, substr(cd_id,1,1)) c
 	</select>

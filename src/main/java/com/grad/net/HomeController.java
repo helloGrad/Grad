@@ -59,15 +59,14 @@ public class HomeController {
 	@Autowired
 	OrganzService organzService;
 	
-	/*
-	 * 정예린,2017-09-13, 메인 
-	 */
+	
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home( Model model, MemberVo memberVo) {	
 		model.addAttribute("MemberVo", memberVo);		
-		return "main";
+		return "submain";
 	}
-
+ 
 
 	/*
 	 * 정예린, 2017-09-25, 서브메인 

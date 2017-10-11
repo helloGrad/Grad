@@ -11,18 +11,104 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
+<script type="text/javascript"
+		src="${pageContext.request.contextPath}/resources/js/counseling.js"></script>
+
 	
-	
+
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link href="css/higrad-signup.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
-<style>
+<script type="text/javascript">
+$(function() {
+	
+	
+	
+	var authUser = $("#mbNo").val();
+	
+	
+	if(authUser == null || authUser == "" ){
+		
+		console.log("ddd")
+		
+	}else{
+		console.log("ddd")
+	
+		var scrapList=JSON.parse('${scrapList}');
+		for(var i=0;i<scrapList.length;i++){
+			if(scrapList[i].prntsDstnct==='모집공고'){ //게시글
+				
+				
+				$('.do-scrapnoti' + scrapList[i].prntsNo).addClass('scrap-on');
+			}
+		};	
+		
+	};
+	
+$(document).on('click', ".counseling", function(event) { 
+		
+		
+		click_id = $(this).attr('value');
+		console.log(click_id);
+	
+		if (authUser === null || authUser === '') {
+			
+			$("#login").css({
+				"display" : "block"
+			});
+		}else{
+			
+			
+			location.href="/net/counseling/detail?no="+click_id+"&type=prnts";
+			
+		}      
+	
+	
+	
+	});
+	
+	
+	
+	$(document).on('click', ".counselingreply", function() { 
+		
+		
+		click_id = $(this).attr('value');
+		
+		console.log(click_id);
+	
+		
+		
+		if (authUser === null || authUser === '') {
+			
+			$("#login").css({
+				"display" : "block"
+			});
+		}else{
+			
+			
+			location.href="/net/counseling/detail?no="+click_id+"&type=reply";
+			 event.stoplmmediatePropagation();
+		}      
+	
+	
+	
+	});
+});
+</script>
 
+
+
+
+
+<style>
 .row{
 	clear: both;
 }
@@ -61,7 +147,6 @@
 .navbar {
 	background-color: rgba(255, 255, 255, 0.95);
 }
-
 .navbar-qna {
 	font-weight: 400;
 	margin-top: -5px;
@@ -71,138 +156,78 @@
 	letter-spacing: 4px;
 	float: left;
 }
-
 .navbar-nav li a:hover {
 	color: #1abc9c !important;
 	background-color: white;
 }
-
 .grad-background-color {
 	background-color: rgb(247, 245, 242);
 }
-	
+/* nav-bar End */
 body {
 	padding-top: 5em;
 }
-
 .grad-banner {
 	box-shadow: 5px 10px 10px rgba(102, 102, 255, 0.3), -1px -1px 10px
 		rgba(136, 176, 75, 0.3);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
-
 .grad-banner:hover {
 	box-shadow: 5px 10px 30px rgba(102, 102, 255, 0.5), -1px -1px 30px
 		rgba(136, 176, 75, 0.5);
 	margin-bottom: 1.5em;
 }
-
 .lab-banner {
 	box-shadow: 5px 10px 10px rgba(51, 102, 255, 0.3), -1px -1px 10px
 		rgba(75, 0, 130, 0.3);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
-
 .lab-banner:hover {
 	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.5), -1px -1px 30px
 		rgba(75, 0, 130, 0.5);
 	margin-bottom: 1.5em;
 }
-
 .conference-banner {
 	box-shadow: 5px 10px 10px rgba(51, 102, 255, 0.3), -1px -1px 10px
 		rgba(153, 0, 153, 0.3);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
-
 .conference-banner:hover {
 	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.5), -1px -1px 30px
 		rgba(153, 0, 153, 0.5);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
-
 .qna-banner {
 	box-shadow: 5px 10px 10px rgba(0, 0, 51, 0.3), -1px -1px 10px
 		rgba(0, 0, 51, 0.3);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
-
 .qna-banner:hover {
 	box-shadow: 5px 10px 30px rgba(0, 0, 51, 0.5), -1px -1px 30px
 		rgba(0, 0, 51, 0.5);
 	margin-bottom: 1.5em;
 }
-
 .content-answers {
 	height: 3.5em;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: normal;
 }
-
 .grad-banner-our {
 	box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15), -1px -1px 10px
 		rgba(0, 0, 0, 0.15);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
+.scrap-on {
+	color: #FF0000;
+}
 </style>
-
-<script type="text/javascript">
-
-
-$(document).on('click', ".counseling", function(event) { 
-	
-	
-	click_id = $(this).attr('value');
-
-
-	if (authUser === null || authUser === '') {
-		
-		$("#login").css({
-			"display" : "block"
-		});
-
-	}else{
-		
-		location.href="/net/counseling/detail?no="+click_id+"&type=prnts";
-		
-	}      
-
-
-});
-
-
-
-$(document).on('click', ".counselingreply", function() { 
-	
-	
-	click_id = $(this).attr('value');
-
-	
-	if (authUser === null || authUser === '') {
-		
-		$("#login").css({
-			"display" : "block"
-		});
-
-	}else{
-		
-		
-		location.href="/net/counseling/detail?no="+click_id+"&type=reply";
-		 event.stoplmmediatePropagation();
-	}      
-
-
-});
-
-
-</script>
 
 </head>
 <body>
@@ -228,11 +253,11 @@ $(document).on('click', ".counselingreply", function() {
 									<c:if test="${infoList.cdDstnct=='학문' }">
 
 										<c:if test="${cindex=='0'}">
-										${infoList.cdNm }
-										</c:if>
+								${infoList.cdNm }
+							</c:if>
 										<c:if test="${cindex!='0' }">
-										/${infoList.cdNm }
-										</c:if>
+								/${infoList.cdNm }
+							</c:if>
 
 										<c:set var="cindex" value='1' />
 									</c:if>
@@ -249,11 +274,11 @@ $(document).on('click', ".counselingreply", function() {
 									<c:if test="${infoList.cdDstnct=='연구분야' }">
 
 										<c:if test="${cindex=='0'}">
-										${infoList.cdNm }
-										</c:if>
+								${infoList.cdNm }
+							</c:if>
 										<c:if test="${cindex!='0' }">
-										/${infoList.cdNm }
-										</c:if>
+								/${infoList.cdNm }
+							</c:if>
 
 										<c:set var="cindex" value='1' />
 									</c:if>
@@ -270,11 +295,11 @@ $(document).on('click', ".counselingreply", function() {
 									<c:if test="${infoList.cdDstnct=='방문목적' }">
 
 										<c:if test="${cindex=='0'}">
-										${infoList.cdNm }
-										</c:if>
+								${infoList.cdNm }
+							</c:if>
 										<c:if test="${cindex!='0' }">
-										/${infoList.cdNm }
-										</c:if>
+								/${infoList.cdNm }
+							</c:if>
 
 										<c:set var="cindex" value='1' />
 									</c:if>
@@ -291,11 +316,11 @@ $(document).on('click', ".counselingreply", function() {
 									<c:if test="${infoList.cdDstnct=='지역' }">
 
 										<c:if test="${cindex=='0'}">
-										${infoList.cdNm }
-										</c:if>
+								${infoList.cdNm }
+							</c:if>
 										<c:if test="${cindex!='0' }">
-										/${infoList.cdNm }
-										</c:if>
+								/${infoList.cdNm }
+							</c:if>
 
 										<c:set var="cindex" value='1' />
 									</c:if>
@@ -313,6 +338,10 @@ $(document).on('click', ".counselingreply", function() {
 		<div class="container"></div>
 	</div>
 
+	<!--
+    main contents
+    page
+-->
 	<div class="row">
 
 		<div class="container">
@@ -329,21 +358,21 @@ $(document).on('click', ".counselingreply", function() {
 			<c:forEach var="i" begin="1" end="2" step="1">
 
 			<div class="row">
-		
+				<!--시작 라인-->
 				<hr>
-			
+				<!--내용-->
 				<div class="col-xs-12 col-sm-4 col-lg-4">
 					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
-					<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+					<c:set var="name" value="${BoardList.wrtbtDstnct}" />
 					<c:set var="leng" value="${fn:length(name)}" />
 					
 						<c:if test="${(i=='1' && fn:substring(name,leng-3,leng)=='게시판' && BoardList.no%3 == 1) || (i=='2' && fn:substring(name,leng-3,leng)!='게시판' && BoardList.no%3 == 1) }">
 							
 							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
-							
-								<div class="grad-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+								<div class="grad-banner w3-card w3-round-large" >
+								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
-									<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
+									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
 									<div class="w3-container w3-center">
 										<h4><strong>${BoardList.lab }</strong></h4>
 										<p style="font-size: 1.8vmin;">
@@ -358,12 +387,13 @@ $(document).on('click', ".counselingreply", function() {
 	                            		<c:if test="${BoardList.percent>0 }">
 		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
 	                            		</c:if>
-	                            	</div>									
+	                            		</div>									
+									</div>
 									</div>
 										<div class="w3-padding">
-										<span class="noti-hh">
-										<i class="glyphicon"></i>
-										</span> 
+										<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
 										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
 											<c:if test="${BoardList.percent<=0 }">
 												모집 예정
@@ -373,13 +403,15 @@ $(document).on('click', ".counselingreply", function() {
 											</c:if>
 										</span>
 										</div>
+									
 									</div>
 
 								</c:if>
 
 					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
 					
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="grad-banner-our w3-card w3-round-large">
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
 							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
 								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
@@ -388,10 +420,11 @@ $(document).on('click', ".counselingreply", function() {
 								</h4>
 								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
 							</div>
+							</div>
 							<div class="w3-padding">
-								<span class="noti-hh">
-									<i class="glyphicon"></i>
-								</span>
+								<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
 								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
 									<c:if test="${BoardList.percent<=0 }">
 										모집 예정
@@ -408,7 +441,8 @@ $(document).on('click', ".counselingreply", function() {
 
 					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
 									
-						<div class="lab-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="lab-banner w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
 								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
 	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
@@ -416,7 +450,7 @@ $(document).on('click', ".counselingreply", function() {
         	            		</div>						
 						
 							</c:if>
-                    	<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
+                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
                     	<div class="w3-container w3-center">
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
@@ -427,8 +461,11 @@ $(document).on('click', ".counselingreply", function() {
 								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
 							</c:forEach>
                     	</div>
+                    	</div>
                     	<div class="w3-padding">
-                        	<span class="noti-hh"><i class="glyphicon"></i></span>
+                        	<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
                         		<c:if test="${BoardList.percent<=0 }">
 	                        		모집 예정
@@ -444,15 +481,18 @@ $(document).on('click', ".counselingreply", function() {
 
 					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
 									
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-                    		<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr }</div>
+						<div class="lab-banner w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
                     		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
                         		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
                         		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
                         		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
                     		</div>
+                    		</div>
                     		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon"></i></span>
+                        		<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
                         			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
 								</c:if>
@@ -470,7 +510,7 @@ $(document).on('click', ".counselingreply", function() {
 					</c:if>
 					
 					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large counseling" value=${BoardList.slctnNotiNo }>
+					<div class="qna-banner w3-card w3-round-large">
                     	<div class="w3-small w3-padding ">
                         	<c:if test="${fn:substring(name,0,2) =='상담'}">
                     			<span class="">Question</span>
@@ -483,7 +523,7 @@ $(document).on('click', ".counselingreply", function() {
                         	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
                     	</div>
                     	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="" style="width:100%;">
+                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
                     	</c:if>
                     	<div class="w3-container w3-margin-top">
                     		<c:if test="${fn:substring(name,0,2) =='상담'}">
@@ -508,7 +548,7 @@ $(document).on('click', ".counselingreply", function() {
                     	</div>
                     	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
                     		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply"  style="letter-spacing: 2px;" value="${BoardList.slctnNotiNo}">답변하기</button>
+                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
                     		</div>
                     	</c:if>
                     	
@@ -520,38 +560,36 @@ $(document).on('click', ".counselingreply", function() {
 			</div>
 				<div class="col-xs-12 col-sm-4 col-lg-4">
 					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
-					<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+					<c:set var="name" value="${BoardList.wrtbtDstnct}" />
 					<c:set var="leng" value="${fn:length(name)}" />
 					
 						<c:if test="${(i=='1' && fn:substring(name,leng-3,leng)=='게시판' && BoardList.no%3 == 2) || (i=='2' && fn:substring(name,leng-3,leng)!='게시판' && BoardList.no%3 == 2) }">
 							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
-							
-								<div class="grad-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}/${BoardList.slctnSemstr}</div>
-									<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
+								<div class="grad-banner w3-card w3-round-large" >
+								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
+									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
 									<div class="w3-container w3-center">
 										<h4><strong>${BoardList.lab }</strong></h4>
 										<p style="font-size: 1.8vmin;">
 											<span class="grad-target">${BoardList.slctnTitle }</span>
 										</p>
 									</div>
-								
-								
-								
 									<div class="noti-period">
-                        				<div class="w3-light-grey w3-tiny">
+										<div class="w3-light-grey w3-tiny">
 		                            	<c:if test="${BoardList.percent<=0 }">
-		                            		<div class="w3-container" style="width: 0%; height: 1px;"></div>
+	                            			<div class="w3-container" style="width: 0%; height: 1px;"></div>
 	                            		</c:if>
 	                            		<c:if test="${BoardList.percent>0 }">
 		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
 	                            		</c:if>
-	                            		</div>
-                        			</div>
+	                            		</div>									
+									</div>
+									</div>
 										<div class="w3-padding">
-										<span class="noti-hh">
-										<i class="glyphicon"></i>
-										</span> 
+										<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
 										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
 											<c:if test="${BoardList.percent<=0 }">
 												모집 예정
@@ -561,13 +599,15 @@ $(document).on('click', ".counselingreply", function() {
 											</c:if>
 										</span>
 										</div>
+									
 									</div>
 
 								</c:if>
 
 					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
 					
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="grad-banner-our w3-card w3-round-large">
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
 							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
 								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
@@ -576,10 +616,11 @@ $(document).on('click', ".counselingreply", function() {
 								</h4>
 								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
 							</div>
+							</div>
 							<div class="w3-padding">
-								<span class="noti-hh">
-									<i class="glyphicon"></i>
-								</span>
+								<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
 								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
 									<c:if test="${BoardList.percent<=0 }">
 										모집 예정
@@ -596,7 +637,8 @@ $(document).on('click', ".counselingreply", function() {
 
 					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
 									
-						<div class="lab-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="lab-banner w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
 								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
 	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
@@ -604,7 +646,7 @@ $(document).on('click', ".counselingreply", function() {
         	            		</div>						
 						
 							</c:if>
-                    	<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
+                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
                     	<div class="w3-container w3-center">
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
@@ -615,8 +657,11 @@ $(document).on('click', ".counselingreply", function() {
 								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
 							</c:forEach>
                     	</div>
+                    	</div>
                     	<div class="w3-padding">
-                        	<span class="noti-hh"><i class="glyphicon"></i></span>
+                        	<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
                         		<c:if test="${BoardList.percent<=0 }">
 	                        		모집 예정
@@ -630,17 +675,20 @@ $(document).on('click', ".counselingreply", function() {
 
 					</c:if>
 
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}">
+					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
 									
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-                    		<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr }</div>
+						<div class="lab-banner w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
                     		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
                         		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
                         		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
                         		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
                     		</div>
+                    		</div>
                     		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon"></i></span>
+                        		<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
                         			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
 								</c:if>
@@ -658,7 +706,7 @@ $(document).on('click', ".counselingreply", function() {
 					</c:if>
 					
 					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large counseling" value=${BoardList.slctnNotiNo }>
+					<div class="qna-banner w3-card w3-round-large">
                     	<div class="w3-small w3-padding ">
                         	<c:if test="${fn:substring(name,0,2) =='상담'}">
                     			<span class="">Question</span>
@@ -671,7 +719,7 @@ $(document).on('click', ".counselingreply", function() {
                         	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
                     	</div>
                     	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="" style="width:100%;">
+                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
                     	</c:if>
                     	<div class="w3-container w3-margin-top">
                     		<c:if test="${fn:substring(name,0,2) =='상담'}">
@@ -696,7 +744,7 @@ $(document).on('click', ".counselingreply", function() {
                     	
                     	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
                     		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" style="letter-spacing: 2px;" value="${BoardList.slctnNotiNo}">답변하기</button>
+                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
                     		</div>
                     	</c:if>
                     	
@@ -708,15 +756,15 @@ $(document).on('click', ".counselingreply", function() {
 			</div>
 				<div class="col-xs-12 col-sm-4 col-lg-4">
 					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
-					<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+					<c:set var="name" value="${BoardList.wrtbtDstnct}" />
 					<c:set var="leng" value="${fn:length(name)}" />
 					
 						<c:if test="${(i=='1' && fn:substring(name,leng-3,leng)=='게시판' && BoardList.no%3 == 0) || (i=='2' && fn:substring(name,leng-3,leng)!='게시판' && BoardList.no%3 == 0) }">
 							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
-							
-								<div class="grad-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+								<div class="grad-banner w3-card w3-round-large" >
+								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
-									<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
+									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
 									<div class="w3-container w3-center">
 										<h4><strong>${BoardList.lab }</strong></h4>
 										<p style="font-size: 1.8vmin;">
@@ -724,19 +772,19 @@ $(document).on('click', ".counselingreply", function() {
 										</p>
 									</div>
 									<div class="noti-period">
-                        				<div class="w3-light-grey w3-tiny">
+										<div class="w3-light-grey w3-tiny">
 		                            	<c:if test="${BoardList.percent<=0 }">
-		                            		<div class="w3-container" style="width: 0%; height: 1px;"></div>
+	                            			<div class="w3-container" style="width: 0%; height: 1px;"></div>
 	                            		</c:if>
 	                            		<c:if test="${BoardList.percent>0 }">
 		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
 	                            		</c:if>
-	                            		</div>
-                        			</div>
+	                            		</div>									
+									</div>
+									</div>
 										<div class="w3-padding">
-										<span class="noti-hh">
-										<i class="glyphicon"></i>
-										</span> 
+										<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
 										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
 											<c:if test="${BoardList.percent<=0 }">
 												모집 예정
@@ -746,13 +794,15 @@ $(document).on('click', ".counselingreply", function() {
 											</c:if>
 										</span>
 										</div>
+									
 									</div>
 
 								</c:if>
 
 					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
 					
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="grad-banner-our w3-card w3-round-large">
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
 							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
 								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
@@ -761,10 +811,11 @@ $(document).on('click', ".counselingreply", function() {
 								</h4>
 								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
 							</div>
+							</div>
 							<div class="w3-padding">
-								<span class="noti-hh">
-									<i class="glyphicon"></i>
-								</span>
+								<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
 								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
 									<c:if test="${BoardList.percent<=0 }">
 										모집 예정
@@ -781,7 +832,8 @@ $(document).on('click', ".counselingreply", function() {
 
 					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
 									
-						<div class="lab-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="lab-banner w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
 								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
 	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
@@ -789,7 +841,7 @@ $(document).on('click', ".counselingreply", function() {
         	            		</div>						
 						
 							</c:if>
-                    	<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
+                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
                     	<div class="w3-container w3-center">
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
@@ -800,8 +852,11 @@ $(document).on('click', ".counselingreply", function() {
 								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
 							</c:forEach>
                     	</div>
+                    	</div>
                     	<div class="w3-padding">
-                        	<span class="noti-hh"><i class="glyphicon"></i></span>
+                        	<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
                         		<c:if test="${BoardList.percent<=0 }">
 	                        		모집 예정
@@ -815,17 +870,20 @@ $(document).on('click', ".counselingreply", function() {
 
 					</c:if>
 
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}">
+					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
 									
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-                    		<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr }</div>
+						<div class="lab-banner w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
                     		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
                         		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
                         		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
                         		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
                     		</div>
+                    		</div>
                     		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon"></i></span>
+                        		<span class="noti-hh"><i
+													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
                         			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
 								</c:if>
@@ -843,7 +901,7 @@ $(document).on('click', ".counselingreply", function() {
 					</c:if>
 					
 					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large counseling" value=${BoardList.slctnNotiNo }>
+					<div class="qna-banner w3-card w3-round-large">
                     	<div class="w3-small w3-padding ">
                         	<c:if test="${fn:substring(name,0,2) =='상담'}">
                     			<span class="">Question</span>
@@ -856,7 +914,7 @@ $(document).on('click', ".counselingreply", function() {
                         	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
                     	</div>
                     	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="" style="width:100%;">
+                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
                     	</c:if>
                     	<div class="w3-container w3-margin-top">
                     		<c:if test="${fn:substring(name,0,2) =='상담'}">
@@ -881,7 +939,7 @@ $(document).on('click', ".counselingreply", function() {
                     	
                     	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
                     		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" style="letter-spacing: 2px;" value="${BoardList.slctnNotiNo}">답변하기</button>
+                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
                     		</div>
                     	</c:if>
                     	
@@ -904,27 +962,28 @@ $(document).on('click', ".counselingreply", function() {
 		<c:if test="${type == '-1' || type == 'noti' }">
 			<c:forEach items="${calList }" var="calList">
 			<div class="row">
-				
+				<!--날짜 ,요일 , 년월 -->
 				<h1>
 					<div style="float: left; margin-right: 0.3em;">${calList.day }</div>
 					<small>
 						<div style="float: left; font-size: medium; line-height: 130%;">${calList.week }<br>${calList.year }년
 							${calList.month }월							</div>
 					</small> <br>					</h1>
-				
+				<!--시작 라인-->
 				<hr>
-				
+				<!--내용-->
 				<div class="col-xs-12 col-sm-4 col-lg-4">
 					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
 						<c:if test="${BoardList.no%3==1 && calList.month==BoardList.month && calList.day==BoardList.day }">
 						
-							<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+							<c:set var="name" value="${BoardList.wrtbtDstnct}" />
 							<c:set var="leng" value="${fn:length(name)}" />
 							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
 							
-								<div class="grad-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+								<div class="grad-banner w3-card w3-round-large" >
+								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
-									<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
+									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
 									<div class="w3-container w3-center">
 										<h4><strong>${BoardList.lab }</strong></h4>
 										<p style="font-size: 1.8vmin;">
@@ -939,30 +998,29 @@ $(document).on('click', ".counselingreply", function() {
 	                            		<c:if test="${BoardList.percent>0 }">
 		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
 	                            		</c:if>
+	                            	</div>
 	                            	</div>									
 									</div>
-                    		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip"></i></span>
-                        		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-                        			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
-								</c:if>
-
-								<c:if test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-									<c:if test="${BoardList.percent<=0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">모집예정</span>
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">D-${BoardList.dday }</span>
-									</c:if>
-								</c:if>
-                    		</div>
+										<div class="w3-padding">
+										<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
+										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
+											<c:if test="${BoardList.percent<=0 }">
+												모집 예정
+											</c:if>
+											<c:if test="${BoardList.percent>0 }">
+												D-${BoardList.dday }
+											</c:if>
+										</span>
+										</div>
 									</div>
 
 								</c:if>
 
 					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
 					
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="grad-banner-our w3-card w3-round-large" >
+						<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
 							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
 								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
@@ -971,21 +1029,20 @@ $(document).on('click', ".counselingreply", function() {
 								</h4>
 								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
 							</div>
-                    		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip"></i></span>
-                        		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-                        			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
-								</c:if>
-
-								<c:if test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+							</div>
+							<div class="w3-padding">
+								<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
+								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
 									<c:if test="${BoardList.percent<=0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">모집예정</span>
+										모집 예정
 									</c:if>
 									<c:if test="${BoardList.percent>0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">D-${BoardList.dday }</span>
+										D-${BoardList.dday }
 									</c:if>
-								</c:if>
-                    		</div>
+								</span>
+							</div>
+							
 						</div>
 						
 					</c:if>
@@ -993,7 +1050,8 @@ $(document).on('click', ".counselingreply", function() {
 
 					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
 									
-						<div class="lab-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="lab-banner w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
 								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
 	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
@@ -1001,7 +1059,7 @@ $(document).on('click', ".counselingreply", function() {
         	            		</div>						
 						
 							</c:if>
-                    	<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
+                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
                     	<div class="w3-container w3-center">
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
@@ -1012,36 +1070,38 @@ $(document).on('click', ".counselingreply", function() {
 								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
 							</c:forEach>
                     	</div>
-                    		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip"></i></span>
-                        		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-                        			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
-								</c:if>
-
-								<c:if test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-									<c:if test="${BoardList.percent<=0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">모집예정</span>
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">D-${BoardList.dday }</span>
-									</c:if>
-								</c:if>
-                    		</div>
+                    	</div>
+                    	<div class="w3-padding">
+                        	<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
+                        	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
+                        		<c:if test="${BoardList.percent<=0 }">
+	                        		모집 예정
+	                        	</c:if>
+								<c:if test="${BoardList.percent>0 }">
+	                        		D-${BoardList.dday }
+	                        	</c:if>
+	                        </span>
+                    	</div>
+                    	
                 		</div>
 
 					</c:if>
 
 					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
 									
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="grad-banner-our w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
                     		<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr }</div>
                     		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
                         		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
                         		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
                         		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
                     		</div>
+                    		</div>
                     		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip"></i></span>
+                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
                         			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
 								</c:if>
@@ -1055,11 +1115,12 @@ $(document).on('click', ".counselingreply", function() {
 									</c:if>
 								</c:if>
                     		</div>
+                    		
                 		</div>
 					</c:if>
 					
 					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large counseling" value=${BoardList.slctnNotiNo }>
+					<div class="qna-banner w3-card w3-round-large counseling" value="${BoardList.slctnNotiNo}">
                     	<div class="w3-small w3-padding ">
                         	<c:if test="${fn:substring(name,0,2) =='상담'}">
                     			<span class="">Question</span>
@@ -1072,7 +1133,7 @@ $(document).on('click', ".counselingreply", function() {
                         	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
                     	</div>
                     	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="" style="width:100%;">
+                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
                     	</c:if>
                     	<div class="w3-container w3-margin-top">
                     		<c:if test="${fn:substring(name,0,2) =='상담'}">
@@ -1097,7 +1158,7 @@ $(document).on('click', ".counselingreply", function() {
                     	</div>
                     	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
                     		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" style="letter-spacing: 2px;" value="${BoardList.slctnNotiNo}">답변하기</button>
+                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
                     		</div>
                     	</c:if>
                     	
@@ -1112,13 +1173,14 @@ $(document).on('click', ".counselingreply", function() {
 					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
 						<c:if test="${BoardList.no%3==2 && calList.month==BoardList.month && calList.day==BoardList.day }">
 						
-							<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+							<c:set var="name" value="${BoardList.wrtbtDstnct}" />
 							<c:set var="leng" value="${fn:length(name)}" />
 							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
 							
-								<div class="grad-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}/${BoardList.slctnSemstr}</div>
-									<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
+								<div class="grad-banner w3-card w3-round-large" >
+								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
+									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
 									<div class="w3-container w3-center">
 										<h4><strong>${BoardList.lab }</strong></h4>
 										<p style="font-size: 1.8vmin;">
@@ -1126,19 +1188,19 @@ $(document).on('click', ".counselingreply", function() {
 										</p>
 									</div>
 									<div class="noti-period">
-                        				<div class="w3-light-grey w3-tiny">
+										<div class="w3-light-grey w3-tiny">
 		                            	<c:if test="${BoardList.percent<=0 }">
-		                            		<div class="w3-container" style="width: 0%; height: 1px;"></div>
+	                            			<div class="w3-container" style="width: 0%; height: 1px;"></div>
 	                            		</c:if>
 	                            		<c:if test="${BoardList.percent>0 }">
 		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
 	                            		</c:if>
-	                            		</div>
-                        			</div>
+	                            	</div>
+	                            	</div>									
+									</div>
 										<div class="w3-padding">
-										<span class="noti-hh">
-										<i class="glyphicon glyphicon-paperclip"></i>
-										</span> 
+										<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
 										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
 											<c:if test="${BoardList.percent<=0 }">
 												모집 예정
@@ -1154,7 +1216,8 @@ $(document).on('click', ".counselingreply", function() {
 
 					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
 					
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="grad-banner-our w3-card w3-round-large" >
+						<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
 							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
 								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
@@ -1163,10 +1226,10 @@ $(document).on('click', ".counselingreply", function() {
 								</h4>
 								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
 							</div>
+							</div>
 							<div class="w3-padding">
-								<span class="noti-hh">
-									<i class="glyphicon glyphicon-paperclip"></i>
-								</span>
+								<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
 								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
 									<c:if test="${BoardList.percent<=0 }">
 										모집 예정
@@ -1176,6 +1239,7 @@ $(document).on('click', ".counselingreply", function() {
 									</c:if>
 								</span>
 							</div>
+							
 						</div>
 						
 					</c:if>
@@ -1183,7 +1247,8 @@ $(document).on('click', ".counselingreply", function() {
 
 					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
 									
-						<div class="lab-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="lab-banner w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
 								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
 	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
@@ -1191,7 +1256,7 @@ $(document).on('click', ".counselingreply", function() {
         	            		</div>						
 						
 							</c:if>
-                    	<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
+                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
                     	<div class="w3-container w3-center">
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
@@ -1202,8 +1267,10 @@ $(document).on('click', ".counselingreply", function() {
 								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
 							</c:forEach>
                     	</div>
+                    	</div>
                     	<div class="w3-padding">
-                        	<span class="noti-hh"><i class="glyphicon glyphicon-paperclip"></i></span>
+                        	<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
                         		<c:if test="${BoardList.percent<=0 }">
 	                        		모집 예정
@@ -1213,21 +1280,25 @@ $(document).on('click', ".counselingreply", function() {
 	                        	</c:if>
 	                        </span>
                     	</div>
+                    	
                 		</div>
 
 					</c:if>
 
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}">
+					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
 									
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="grad-banner-our w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
                     		<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr }</div>
                     		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
                         		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
                         		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
                         		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
                     		</div>
+                    		</div>
                     		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip"></i></span>
+                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
                         			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
 								</c:if>
@@ -1241,11 +1312,12 @@ $(document).on('click', ".counselingreply", function() {
 									</c:if>
 								</c:if>
                     		</div>
+                    		
                 		</div>
 					</c:if>
 					
 					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large counseling" value=${BoardList.slctnNotiNo }>
+					<div class="qna-banner w3-card w3-round-large counseling" value="${BoardList.slctnNotiNo}">
                     	<div class="w3-small w3-padding ">
                         	<c:if test="${fn:substring(name,0,2) =='상담'}">
                     			<span class="">Question</span>
@@ -1258,7 +1330,7 @@ $(document).on('click', ".counselingreply", function() {
                         	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
                     	</div>
                     	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="" style="width:100%;">
+                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
                     	</c:if>
                     	<div class="w3-container w3-margin-top">
                     		<c:if test="${fn:substring(name,0,2) =='상담'}">
@@ -1283,7 +1355,7 @@ $(document).on('click', ".counselingreply", function() {
                     	</div>
                     	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
                     		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" style="letter-spacing: 2px;" value="${BoardList.slctnNotiNo}">답변하기</button>
+                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
                     		</div>
                     	</c:if>
                     	
@@ -1297,13 +1369,14 @@ $(document).on('click', ".counselingreply", function() {
 					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
 						<c:if test="${BoardList.no%3==0 && calList.month==BoardList.month && calList.day==BoardList.day }">
 						
-							<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+							<c:set var="name" value="${BoardList.wrtbtDstnct}" />
 							<c:set var="leng" value="${fn:length(name)}" />
 							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
 							
-								<div class="grad-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+								<div class="grad-banner w3-card w3-round-large" >
+								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
-									<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
+									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
 									<div class="w3-container w3-center">
 										<h4><strong>${BoardList.lab }</strong></h4>
 										<p style="font-size: 1.8vmin;">
@@ -1311,19 +1384,19 @@ $(document).on('click', ".counselingreply", function() {
 										</p>
 									</div>
 									<div class="noti-period">
-                        				<div class="w3-light-grey w3-tiny">
+										<div class="w3-light-grey w3-tiny">
 		                            	<c:if test="${BoardList.percent<=0 }">
-		                            		<div class="w3-container" style="width: 0%; height: 1px;"></div>
+	                            			<div class="w3-container" style="width: 0%; height: 1px;"></div>
 	                            		</c:if>
 	                            		<c:if test="${BoardList.percent>0 }">
 		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
 	                            		</c:if>
-	                            		</div>
-                        			</div>
+	                            	</div>
+	                            	</div>									
+									</div>
 										<div class="w3-padding">
-										<span class="noti-hh">
-										<i class="glyphicon glyphicon-paperclip"></i>
-										</span> 
+										<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
 										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
 											<c:if test="${BoardList.percent<=0 }">
 												모집 예정
@@ -1339,7 +1412,8 @@ $(document).on('click', ".counselingreply", function() {
 
 					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
 					
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="grad-banner-our w3-card w3-round-large" >
+						<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
 							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
 								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
@@ -1348,10 +1422,10 @@ $(document).on('click', ".counselingreply", function() {
 								</h4>
 								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
 							</div>
+							</div>
 							<div class="w3-padding">
-								<span class="noti-hh">
-									<i class="glyphicon glyphicon-paperclip"></i>
-								</span>
+								<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
 								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
 									<c:if test="${BoardList.percent<=0 }">
 										모집 예정
@@ -1361,6 +1435,7 @@ $(document).on('click', ".counselingreply", function() {
 									</c:if>
 								</span>
 							</div>
+							
 						</div>
 						
 					</c:if>
@@ -1368,7 +1443,8 @@ $(document).on('click', ".counselingreply", function() {
 
 					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
 									
-						<div class="lab-banner w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="lab-banner w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
 							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
 								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
 	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
@@ -1376,7 +1452,7 @@ $(document).on('click', ".counselingreply", function() {
         	            		</div>						
 						
 							</c:if>
-                    	<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
+                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
                     	<div class="w3-container w3-center">
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
                         	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
@@ -1387,8 +1463,10 @@ $(document).on('click', ".counselingreply", function() {
 								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
 							</c:forEach>
                     	</div>
+                    	</div>
                     	<div class="w3-padding">
-                        	<span class="noti-hh"><i class="glyphicon glyphicon-paperclip"></i></span>
+                        	<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
                         		<c:if test="${BoardList.percent<=0 }">
 	                        		모집 예정
@@ -1398,21 +1476,25 @@ $(document).on('click', ".counselingreply", function() {
 	                        	</c:if>
 	                        </span>
                     	</div>
+                    	
                 		</div>
 
 					</c:if>
 
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}">
+					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
 									
-						<div class="grad-banner-our w3-card w3-round-large" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+						<div class="grad-banner-our w3-card w3-round-large" >
+							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
                     		<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr }</div>
                     		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
                         		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
                         		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
                         		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
                     		</div>
+                    		</div>
                     		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip"></i></span>
+                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
                         		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
                         			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
 								</c:if>
@@ -1426,11 +1508,12 @@ $(document).on('click', ".counselingreply", function() {
 									</c:if>
 								</c:if>
                     		</div>
+                    		
                 		</div>
 					</c:if>
 					
 					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large counseling" value=${BoardList.slctnNotiNo }>
+					<div class="qna-banner w3-card w3-round-large counseling" value="${BoardList.slctnNotiNo}">
                     	<div class="w3-small w3-padding ">
                         	<c:if test="${fn:substring(name,0,2) =='상담'}">
                     			<span class="">Question</span>
@@ -1443,7 +1526,7 @@ $(document).on('click', ".counselingreply", function() {
                         	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
                     	</div>
                     	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${pageContext.request.contextPath }${BoardList.storgPath }" alt="" style="width:100%;">
+                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
                     	</c:if>
                     	<div class="w3-container w3-margin-top">
                     		<c:if test="${fn:substring(name,0,2) =='상담'}">
@@ -1468,7 +1551,7 @@ $(document).on('click', ".counselingreply", function() {
                     	</div>
                     	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
                     		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" style="letter-spacing: 2px;" value="${BoardList.slctnNotiNo}">답변하기</button>
+                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
                     		</div>
                     	</c:if>
                     	
@@ -1486,6 +1569,11 @@ $(document).on('click', ".counselingreply", function() {
 
 		</div>
 	</div>
+	
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/resources/js/doscrap.js"></script>
+		
+	
 
 </body>
 </html>

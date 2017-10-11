@@ -455,7 +455,7 @@ textarea {
                     </p>
                     
                    	<c:forEach items="${fileList }" var="list" varStatus="status">
-					  <img src="${pageContext.request.contextPath }${list.storgPath }" style="max-width: 100%; height: auto;" >  
+					  <img src="${list.storgPath }" style="max-width: 100%; height: auto;" >  
 					</c:forEach>
                 
                 </div>

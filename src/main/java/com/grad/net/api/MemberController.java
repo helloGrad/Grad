@@ -5,9 +5,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -222,13 +226,31 @@ public class MemberController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public JSONResult register(@ModelAttribute MemberVo memberVo) {
-
+	public JSONResult register(HttpServletRequest request, @ModelAttribute @Valid MemberVo memberVo,
+			BindingResult result) {
+		
+		
 		System.out.println(memberVo);
-		boolean success = memberService.register(memberVo);
-		return JSONResult.success(true);
+		
+		
+		if(result.hasErrors()){
+			List<ObjectError> list = result.getAllErrors();
+			for(ObjectError error: list){
+				System.out.println(error);
+			}
+			return JSONResult.success(list);
+		}
+		boolean success = memberService.register(memberVo);		
+		
+		HttpSession session = request.getSession(true);
+		
+		session.setAttribute("authUser", memberService.getUser(memberVo.getIden()));
+		
+
+		return JSONResult.success(success);
 
 	}
+	
 	
 	
 	/*
@@ -237,7 +259,8 @@ public class MemberController {
 	@ResponseBody
 	@RequestMapping(value = "/registerStudy", method = RequestMethod.POST)
 	public JSONResult registerStudy(@RequestParam String iden, @RequestParam(value="studys") List<String> studys, @RequestParam String type) {
-		
+		System.out.println(iden+"-"+type);
+		System.out.println(studys);
 		for(int i=0;i<studys.size();i++) {
 			if(type.equals("common")||type.equals("naver")) {
 				memberService.registerStudy(iden, studys.get(i),type);

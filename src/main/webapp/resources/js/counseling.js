@@ -93,7 +93,7 @@
 						
 						count=1+parseInt(i)+parseInt(startNo2);
 
-						$('.listimg'+count).css("background-image"," url('/net"+response.data.fileList[i][j].storgPath+"')"); 
+						$('.listimg'+count).css("background-image"," url('"+response.data.fileList[i][j].storgPath+"')"); 
 						$('.listimg'+count).css("background-position","center"); 
 						$('.listimg'+count).css("height","200px"); 
 						$('.listimg'+count).css("margin","5px 0 5px 0"); 
@@ -252,9 +252,10 @@
 			$(".writeBtn").click(function() { 
 				
 
+				console.log("글쓰기")
 				if (authUser === null || authUser === '' || authUser === undefined) {
 					
-					$("#login").css({
+					$("#loginForm").css({
 						"display" : "block"
 					});
 
@@ -310,6 +311,26 @@
 					"display" : "none"
 				});
 			}
+			
+			
+			if (event.target.id === "registerForm") {
+				$("#registerForm").css({
+					"display" : "none"
+				});
+				
+				initSignupModal();
+			}
+			
+
+			if (event.target.id === "loginForm") {
+				$("#loginForm").css({
+					"display" : "none"
+				});
+				
+				initLoginModal();
+			}
+			
+
 			
 			
 		});
