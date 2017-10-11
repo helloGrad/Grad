@@ -11,8 +11,7 @@ public class ApndngFileVo {
 		private String storgPath;
 		private String resgtDt;
 		private int prntsNo;
-		
-		
+		private String saveFileName;
 		public Long getApndngFileNo() {
 			return apndngFileNo;
 		}
@@ -61,12 +60,25 @@ public class ApndngFileVo {
 		public void setPrntsNo(int prntsNo) {
 			this.prntsNo = prntsNo;
 		}
+		public String getSaveFileName() {
+			return saveFileName;
+		}
+		public void setSaveFileName(String saveFileName) {
+			this.saveFileName = saveFileName;
+		}
 		@Override
 		public String toString() {
 			return "ApndngFileVo [apndngFileNo=" + apndngFileNo + ", prntsDstnct=" + prntsDstnct + ", apndngFileNm="
 					+ apndngFileNm + ", apndngFileSize=" + apndngFileSize + ", apndngFileEtsionNm=" + apndngFileEtsionNm
-					+ ", storgPath=" + storgPath + ", resgtDt=" + resgtDt + ", prntsNo=" + prntsNo + "]";
+					+ ", storgPath=" + storgPath + ", resgtDt=" + resgtDt + ", prntsNo=" + prntsNo + ", saveFileName="
+					+ saveFileName + "]";
 		}
+		
+	
+		
+		
+		
+		
 		
 }
 		

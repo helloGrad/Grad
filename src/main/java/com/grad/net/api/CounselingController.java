@@ -61,6 +61,12 @@ public class CounselingController {
 			counselingVo.setWritrInfoOpngYn(multi.getParameter("writrInfoOpngYn"));
 			counselingVo.setWrtbtDstnct(multi.getParameter("writeoption"));
 		
+			System.out.println("게시판옵션"+multi.getParameter("writeoption"));
+			System.out.println("공학....인지"+multi.getParameter("boardoption"));
+			
+			String boardtype = multi.getParameter("boardoption");
+	
+			
 			
 			if(multi.getParameter("writeoption").equals("상담게시판")) {
 				
@@ -165,7 +171,7 @@ public class CounselingController {
 		 }
 
 	        
-		return JSONResult.success(lastId);
+		return JSONResult.success(boardtype);
 	}
 	
 
@@ -231,7 +237,7 @@ public class CounselingController {
 		}
 	
 		
-		System.out.println("ㄴㄴㄴㄴ"+counselingList);
+		
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("counselingList", counselingList);

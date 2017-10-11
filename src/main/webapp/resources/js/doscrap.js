@@ -22,10 +22,12 @@ var doScrap = function(type, id, user) {
 		}
 		
 
-		if ($('.do-scrap' + classType + id).hasClass("scrap-on")) {
+		if ($('.do-scrap' + classType + id).hasClass("w3-text-red")) {
+			
+			console.log("클릭")
 
 			
-			$('.do-scrap' + classType + id).removeClass("scrap-on");
+			$('.do-scrap' + classType + id).removeClass("w3-text-red");
 
 			$.ajax({
 				url : "/net/api/deletescrap?type=" + type + "&id=" + id
@@ -47,7 +49,7 @@ var doScrap = function(type, id, user) {
 				}
 			});
 		} else {
-			$('.do-scrap' + classType + id).addClass("scrap-on");
+			$('.do-scrap' + classType + id).addClass("w3-text-red");
 
 
 			$.ajax({

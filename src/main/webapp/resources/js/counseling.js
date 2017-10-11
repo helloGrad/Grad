@@ -226,7 +226,6 @@
 
 	$(function() {
 
-		type=boardtype;
 		
 	
 		var authUser = $("#authUser").val();
@@ -246,36 +245,25 @@
 
 			});
 			
+			
+			type=boardtype;
+			
 
 			$(".writeBtn").click(function() { 
+				
 
-				if (authUser === null || authUser === '') {
+				if (authUser === null || authUser === '' || authUser === undefined) {
 					
-
 					$("#login").css({
 						"display" : "block"
 					});
 
 				} else {
 					
+					$("#boardoption").val(type).attr("selected", "selected");
 					
-					if( type == '전체' ){
-						
-						$('#writeleft').removeClass('hide');
-						document.getElementById("boardoption").setAttribute("name", "boardoption");
-						
-						$("#writeright").addClass('col-lg-9');
 					
-						
-					}else{
-						$('#writeleft').addClass('hide');
-					
-						
-						document.getElementById("boardoption").setAttribute("name", "");
-						$("#writeright").removeClass('col-lg-9');
-						
-					}
-					
+
 					$("#writeModal").css({
 						"display" : "block"
 					});
@@ -310,11 +298,20 @@
 		});
 
 		$("html").click(function(event) {
+			
 			if (event.target.id === "writeModal") {
 				$("#writeModal").css({
 					"display" : "none"
 				});
 			}
+			
+			if (event.target.id === "searchForm") {
+				$("#searchForm").css({
+					"display" : "none"
+				});
+			}
+			
+			
 		});
 		
 		
@@ -370,16 +367,10 @@
 		
 		 var formData = new FormData($("#counselingform")[0]);
 
-
 		 
-		 if($("#writeleft").hasClass("hide") === true) {
-			
-			 formData.append('boardoption', boardtype);
-		 }
-
-
-		
-		var writrInfoOpngYn = $("#writrInfoOpngYn").val();
+		var boardoption=$("#boardoption").val();
+		 
+		 var writrInfoOpngYn = $("#writrInfoOpngYn").val();
 		
 		
 		formData.append('writrInfoOpngYn', writrInfoOpngYn);

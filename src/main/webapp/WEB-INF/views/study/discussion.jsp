@@ -156,7 +156,7 @@ $(function() {
              
 
 				<input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
-				
+	
                 <div id="list"></div>
                 <div id="pagelist" class="pagelist"></div>
 

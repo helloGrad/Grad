@@ -6,10 +6,13 @@
 <head>
 <base target="_self" /> 
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/ejs/ejs.js"></script>
 <script defer src="${pageContext.request.contextPath }/resources/js/fontawesome.js"></script>
 <script defer src="${pageContext.request.contextPath }/resources/js/packs/regular.js"></script>
 <script defer src="${pageContext.request.contextPath }/resources/js/packs/solid.js"></script>
+<script defer src="${pageContext.request.contextPath }/resources/js/packs/brands.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script>
 var boardtype; 
@@ -17,7 +20,8 @@ var boardtype;
 
 
 <link href="${pageContext.request.contextPath}/resources/css/bootstrap-social1.css" rel="stylesheet"> 	
-<link href="${pageContext.request.contextPath}/resources/css/login.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/login1.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">		
 
 
 <style>
@@ -156,16 +160,7 @@ function closeRightMenu() {
 }
 
 //사이드 메뉴 end
-//글쓰기 폼
-function wrightMenu() {
-    document.getElementById("writeForm").style.display = "block";
-}
 
-function closeMenu() {
-    document.getElementById("writeForm").style.display = "none";
-}
-
-//글쓰기 폼 end
 
 //로그인 메뉴
 function loginForm() {
@@ -208,9 +203,6 @@ window.onclick = function (e) {
     if (e.target == document.getElementById("loginForm")) {
         closeLogin();
     }
-    if (e.target == document.getElementById("writeForm")) {
-        closeMenu();
-    }
     if (e.target == document.getElementById("searchForm")) {
         closeSearch();
     }
@@ -225,32 +217,7 @@ $(document).keydown(function (e) {
 });
 // 메뉴 닫기 end
 
-$(document).ready(function () {
-    $('#responsive').lightSlider({
-        item: 8,
-        loop: false,
-        slideMove: 2,
-        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-        speed: 600,
-        responsive: [
-            {
-                breakpoint: 800,
-                settings: {
-                    item: 3,
-                    slideMove: 1,
-                    slideMargin: 6,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    item: 2.5,
-                    slideMove: 1
-                }
-            }
-        ]
-    });
-});
+
 </script>
 
 </head>
@@ -258,7 +225,7 @@ $(document).ready(function () {
 <div class="w3-top">
     <div class="w3-bar w3-border navi-background">
         <div class="container">
-            <button onclick="wrightMenu()" class="w3-bar-item w3-button w3-padding-16" style="letter-spacing: 3px;"><i
+            <button id="headerBtn" class="w3-bar-item w3-button w3-padding-16 writeBtn" style="letter-spacing: 3px;"><i
                     class="fas fa-pen"></i> 글쓰기
             </button>
             
@@ -278,6 +245,8 @@ $(document).ready(function () {
 		                <a href="help.html" class="w3-bar-item w3-button w3-border-bottom w3-padding-16"
 		                   style="letter-spacing: 3px;">HELP CENTER</a>
                 
+                
+                <input id="authUser" type="hidden" value="${authUser.mbNo }">
                  <c:choose>
 					<c:when test="${empty authUser }">
 						
@@ -305,7 +274,7 @@ $(document).ready(function () {
 				</c:choose>
 				
                
-               
+                </div>
                
                
            <div id="login" class="login-modal" >
@@ -457,41 +426,7 @@ $(document).ready(function () {
 	
 
                
-                 <div id="writeForm" class="w3-modal w3-animate-opacity">
-                <div class="w3-modal-content w3-card-2 w3-round-large w3-padding-16">
-                    <header class="w3-container">
-                    <span class="w3-medium w3-text-grey ">@
-                        <select class="w3-border-0 w3-white" name="option">
-                            <option value="" disabled selected>you are posting at</option>
-                            <option value="1">Animal</option>
-                            <option value="2">Meeting</option>
-                            <option value="3">Counseling</option>
-                        </select>
-                    </span>
-
-                    </header>
-                    <div class="w3-container">
-                        <input type="text" class=" w3-xxlarge w3-border-0 w3-padding-16" placeholder="TITLE..."
-                               style="width: 100%;">
-                        <textarea class="w3-container w3-xlarge w3-border-0" style="width: 100%; height: 13em;"
-                                  placeholder="my story is...."></textarea>
-                    </div>
-                    <footer class="w3-container">
-                        <label>
-                            <input class="w3-radio" type="radio" name="public" value="public" checked>공개
-                        </label>
-                        <label>
-                            <input class="w3-radio" type="radio" name="public" value="private">비공개
-                        </label>
-                        <button onclick=""
-                                class="w3-bar-item w3-button w3-right w3-green w3-margin-left w3-round-large"
-                                style="background: linear-gradient(141deg, #0fb8ad, #1fc8db , #2cb5e8);">확 인
-                        </button>
-                        <button onclick="closeMenu()" class="w3-bar-item w3-button w3-right w3-round-large">Cancel
-                        </button>
-                    </footer>
-                </div>
-            </div>
+             
                
                
                 
@@ -533,9 +468,7 @@ $(document).ready(function () {
                     </div>
                 </div>
                 
-                
-               
-                
+
                 
                 <div id="registerForm" class="w3-modal w3-animate-opacity">
                     <div class="w3-modal-content w3-card-2 w3-round-large w3-padding-16" style="max-width: 420px;">
@@ -576,7 +509,7 @@ $(document).ready(function () {
                         </footer>
                     </div>
                 </div>
-            </div>
+           
             <div class="">
                 <button class="w3-button w3-bar-item w3-right w3-padding-16" onclick="openRightMenu()">
                     <i class="fas fa-chevron-down"></i></button>
@@ -584,17 +517,22 @@ $(document).ready(function () {
             <button onclick="searchForm()" class="w3-bar-item w3-button w3-right w3-padding-16">
                 <i class="fas fa-search"></i>
             </button>
+            
+            
             <div id="searchForm" class="w3-modal">
                 <div class="w3-bar w3-modal-content w3-card-2 w3-round-large w3-padding-16 w3-content" style="width: 80%;">
-                    <form action="">
+                    <form name="searchform" action="${pageContext.servletContext.contextPath }/search">
                         <div class="w3-content">
-                            <input type="text" class="w3-bar-item w3-xlarge w3-border-0 w3-padding-16 w3-left" placeholder="SEARCH…"
+                            <input type="text" name="text" class="w3-bar-item w3-xlarge w3-border-0 w3-padding-16 w3-left" placeholder="SEARCH…"
                                    style="width: 80%;">
                             <button type="submit" class="w3-bar-item w3-xlarge w3-orange w3-text-white w3-round-xlarge w3-right w3-margin-right"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                 </div>
             </div>
+            
+            <c:import url="/WEB-INF/views/modal/write.jsp" />
+            
         </div>
     </div>
 </div>
@@ -609,7 +547,6 @@ $(document).ready(function () {
 
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/counseling.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/write.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/signup.js"></script>
 
 		

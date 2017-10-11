@@ -10,158 +10,120 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/ejs/ejs.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/ejs/ejs.js"></script>
 
 
 <link href="${pageContext.request.contextPath}/resources/css/counseling.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/css/study.css" rel="stylesheet">
 <style>
 
-.element {
-  display: inline-flex;
-  align-items: center;
-}
-i.fa-camera {
-  margin: 10px;
-  cursor: pointer;
-  font-size: 30px;
-}
-i:hover {
-  opacity: 0.6;
-}
-.hide{
-  		display:none;  
-}
 
-.col-xs-91 {
-    border-right: 1px solid #ccc;
-  	padding-right: 0px; 
- 	padding-left: 0px; 
- 	 margin: 10px;
-}
-
-.col-xs-31{
-
- 	padding-right: 0px; 
- 	padding-left: 0px; 
-	 margin: 10px;
-}
 
 </style>
+<script>
+//글쓰기 폼
+function wrightMenu() {
+    document.getElementById("writeModal").style.display = "block";
+}
 
+function closeMenu() {
+    document.getElementById("writeModal").style.display = "none";
+}
+
+//글쓰기 폼 end
+
+window.onclick = function (e) {
+
+    if (e.target == document.getElementById("writeModal")) {
+        closeMenu();
+    }
+ 
+}
+
+$(function() {
+	
+	$(document).ready(function() {
+		
+		
+
+		$("#cfile").click(function () {
+			
+				
+			  $("input[type='file']").trigger('click');
+			});
+
+			$('input[type="file"]').on('change', function() {
+			  var val = $(this).val();
+			  $(this).siblings('span').text(val);
+		});
+			
+
+
+	});
+	
+	
+})
+
+
+
+
+</script>
 </head>
 <body>
 
 
-		<form class="counselingform" id="counselingform" name="counseling"  method="post" action="/net/counseling/api/write" enctype="multipart/form-data">
-		<div id="writeModal" class="modal" tabindex=-1 >
-			<div class="modal-dialog modal-lg modal-fullsize">
-			
-			
-			  <div class="row">
-			    <div id="writeright" class="col-xs-12 col-lg-9">
-			    
-					    <div class="modal-content content-fullsize">
-						<div class="modal-header u-flex1">
-			        	
-			      
-						
-			        	
-			        	<img src="https://cdn-images-1.medium.com/fit/c/40/40/0*oapGePcc_FQR1KmN." class="avatar-image avatar-image--smaller writeimage">
-			   			<button type="button" class="close col-close"></button>
-			   			
-			   	
-			   			<div class="writeName">
-			        		<a class="">${authUser.nknm }</a>
-			      			
- 	
-			             	<div class="dropdown writedropdown">
-	               			<button  class="w3-button w3-padding w3-round-large dropdown-toggle" type="button" data-toggle="dropdown" style="float:right;">
-	                   		 <i class="glyphicon glyphicon-option-horizontal"></i>
-	               			 </button>
-	               			 <ul id="writrInfoOpngYn2" class="dropdown-menu dropdown-menu-right"> <!-- 디폴트는 Y -->
-	                  	     <li class="hide"><a href="#" value="Y">공개로 작성하기</a></li>
-	                  	     <li><a href="#" value="N">비공개로 작성하기</a></li>
-	                  	  
-	                		</ul>
-	               
-	                		
-	                		<select id="writrInfoOpngYn" class="hide">
-			           		
-							  <option  class="hide" value="Y" selected="selected"></option>
-							  <option value="N">비공개로 작성하기</option>
-							</select> 
-	                		
-			             	</div>
-			           
-			           		
-			             		
-			      			<div>
-			      			
-			      			
-			      				      <c:choose>
-		 
-									 <c:when test="${authUser.birdt == null and authUser.agrg == null}">
-								              없음
-								    </c:when>
-				 					
-								    <c:when test="${authUser.birdt == null}">
-								       ${authUser.agrg }대
-								    </c:when>
-								 
-								    <c:when test="${authUser.agrg == null }">
-								        ${authUser.birdt }대
-								    </c:when>
-								 
-								    <c:otherwise>
-								         기타	
-								    </c:otherwise>
-				 
-									</c:choose>
-			      				
-			      			</div>
-			      		
-			      			<br>
-			      		  <div class="gender">
-		                  	<label class="objectbutton1 on" id="5"> <input type="radio"
-		                     name="writeoption" value="상담게시판" id="writeoption" checked
-		                     onclick="changeColor(this);"> 상담하기
-		                  	</label> <label class="objectbutton2" id="6"> <input type="radio"
-		                     name="writeoption" value="일반게시판" id="writeoption"
-		                     onclick="changeColor(this);">잡담하기
-		                  	</label>
-		            		 </div>
-
-			        	</div>
-			              
-			        </div>
-			      	        
-			        <div class="modal-body">
-
-								<input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
-								
-
-								 <div>
-			         
-			      
-			        			<textarea class="wrtbtTitle" onkeydown="titleResize(this)" onkeyup="titleResize(this)" id="wrtbtTitle" name="wrtbtTitle" placeholder="Title..." style=" width:100%; height:70px; border:none; border-color: white;" autofocus></textarea>
-					 			<br>
-					 			<textarea class="autosize wrtbtText" onkeydown="resize(this)" onkeyup="resize(this)" id="wrtbtText" name="wrtbtText" placeholder="Tell your story..." style=" width:100%; height:200px; border:none; border-color: white;"></textarea>
-					      	
-			   					</div>
-								
-			        
-			        </div>
-			        <div class="modal-footer">
-			        	
-
-							<table id="filetable" cellpadding="5" cellspacing="0">
+<form class="counselingform" id="counselingform" name="counseling"  enctype="multipart/form-data">
+		  <div id="writeModal" class="w3-modal w3-animate-opacity"  tabindex=-1>
+                <div class="w3-modal-content w3-card-2 w3-round-large w3-padding-16">
+                    <header class="w3-container">
+                    <span class="w3-medium w3-text-grey ">@
+                        <select class="w3-border-0 w3-white" name="boardoption" id="boardoption">
+                            <option value="전체" disabled selected>you are posting at</option>
+                            <option value="인문학">인문학</option>
+                            <option value="사회과학">사회과학</option>
+                            <option value="자연과학">자연과학</option>
+                            <option value="공학">공학</option>
+                            <option value="의약학">의약학</option>
+                            <option value="농수해양학">농수해양학</option>
+                            <option value="예술체육학">예술체육학</option>  
+                            <option value="복합학">복합학</option>      
+                                  
+                        </select>
+                        
+							
+					<input id="boardtype" type="hidden" name="boardtype" value="${boardtype }">
+					
+                    </span>
+                        <span class="w3-right">작성자 정보
+                        <label>
+                            <input class="w3-radio" type="radio" id="writrInfoOpngYn" name="writrInfoOpngYn" value="Y" checked>공개
+                        </label>
+                        <label>
+                            <input class="w3-radio" type="radio" id="writrInfoOpngYn" name="writrInfoOpngYn" value="N">비공개
+                        </label>
+                    </span>
+                    </header>
+                    <div class="w3-container">
+                        <input type="text" class=" w3-xxlarge w3-border-0 w3-padding-16" id="wrtbtTitle" name="wrtbtTitle" placeholder="TITLE…"
+                               style="width: 100%;">
+                        <textarea class="w3-container w3-xlarge w3-border-0" id="wrtbtText" name="wrtbtText" style="width: 100%; height: 13em;"
+                                  placeholder="my story is…."></textarea>
+                    </div>
+                    <footer class="w3-container">
+                        <label>
+                            <input class="w3-radio" type="radio" name="writeoption" value="일반게시판" id="writeoption">일반
+                        </label>
+                        <label>
+                            <input class="w3-radio" type="radio" name="writeoption" value="상담게시판" id="writeoption" checked>상담
+                        </label>
+                        
+                        
+                        <table id="filetable" cellpadding="5" cellspacing="0">
 								<tr name="tr_attach_file">
 									
 									<td>
 											
 										<div class="element">
-										  <i id="cfile" class="fa fa-picture-o fa-lg"></i><span class="name"></span>
+										  <span id="cfile" class="name"><i class="far fa-file-image fa-lg"></i></span>
 										  <input class="hide" id="file" type="file" name="file"  accept="image/*" multiple />
 										</div>
 															
@@ -171,49 +133,22 @@ i:hover {
 
 							</table>
 							<div id='apndngfiles'></div>
-							<input type="button" value="입력" class="form-control" onClick="counselinginsert();">
+							
+                        
+                        
+                        <button 
+                                class="w3-button w3-right w3-green w3-margin-left w3-round-large" onClick="counselinginsert();"
+                                style="background: linear-gradient(141deg, #0fb8ad, #1fc8db , #2cb5e8);">확 인
+                        </button>
+                        <button type="button" onclick="closeMenu()" class="w3-button w3-right w3-round-large">Cancel
+                        </button>
+                    </footer>
+                </div>
+            </div>
+            
+  </form>	          
 
-			        </div>			  
-				</div>
 
-			    </div>
-			    <div id="writeleft" class="col-xs-12 col-lg-3">
-			    
-				  <div class="modal-content content-fullsize sidebar">
-						<div class="modal-header u-flex1">
-			        	
-			    
-			      			<div> 카테고리 </div>
-			      	
-			        	</div>
-			       
-
-			        <div class="modal-body">
-			        <select class="w3-select" name="boardoption" id="boardoption">
-					  <option value="전체">게시판선택</option>
-					  <option value="인문학">인문학</option>
-					  <option value="사회과학">사회과학</option>
-					  <option value="자연과학">자연과학</option>
-					  <option value="공학">공학</option>
-					   <option value="의약학">의약학</option>
-					    <option value="농수해양학">농수해양학</option>
-					     <option value="예술체육학">예술체육학</option>
-					      <option value="복합학">복합학</option>
-					</select>
-			        </div>
-			        <div class="modal-footer">
-			        </div>
-		  
-				   </div>				  
-		  
-				</div>
-
-			    </div>
-			</div>
-
-		</div>
-	</form>	
-	
 	
 </body>
 </html>
