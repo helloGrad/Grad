@@ -142,24 +142,6 @@
 			
 		};	
 		
-		$('#myinfo').on('click',function(){
-		
-    		if(authUser=='undefined'||authUser == null || authUser == "" ){
-    			
-    			$('#login').css('display','block');
-    		}else{
-    			
-    			location.href='/net/user/setting'
-    		}
-    	})
-    	    	
-    	$('.major-titles').on('click',function(){
-    		if(authUser == null || authUser == "" ){
-    			$('#login').css('display','block');
-    		}else{
-    			location.href='/net/user/mypage'
-    		}
-    	})
 
 		
 	});
@@ -174,6 +156,8 @@
 
 
 	<div class="container main-contents">
+	
+	
 		<div class="col-xs-12 col-sm-12 col-lg-12">
 			<div class="row">
 				<p class="w3-center w3-large "></p>
@@ -201,10 +185,11 @@
 			</div>
 			
 		
-            
-            
+        
+            <c:if test="${authUser.mbNo != null  }">
             
 
+        
 			<div class="row distinct-line">
 				<div class="col-xs-12 col-sm-12 col-lg-12">
 					<h3>
@@ -246,7 +231,7 @@
 			                    </div>
 			                    </div>
 			                    <div class="w3-row-padding w3-padding">
-									 	<div class="w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${myBoardList.slctnNotiNo }">
+									 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${myBoardList.slctnNotiNo }">
 				                            <i class="far fa-thumbtack w3-large" 
 				                            onclick="doScrap('모집공고',${myBoardList.slctnNotiNo },${authUser.mbNo });"></i>
 				                        </div>
@@ -269,6 +254,11 @@
 					</c:forEach>
 				</div>
 			</div>
+			    
+			</c:if>
+			
+			
+			
 		</div>
 
 		<div class="row distinct-line">
@@ -315,7 +305,7 @@
 								</div>
 			                    </div>
 			                    <div class="w3-row-padding w3-padding">
-									 	<div class="w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${myBoardList.slctnNotiNo }">
+									 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${myBoardList.slctnNotiNo }">
 				                            <i class="far fa-thumbtack w3-large" 
 				                            onclick="doScrap('모집공고',${myBoardList.slctnNotiNo },${authUser.mbNo });"></i>
 				                        </div>
@@ -503,7 +493,7 @@
 			                    </div>
 			                    </div>
 			                    <div class="w3-row-padding w3-padding">
-									 	<div class="w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${gradVo.slctnNotiNo }">
+									 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${gradVo.slctnNotiNo }">
 				                            <i class="far fa-thumbtack w3-large" 
 				                            onclick="doScrap('모집공고',${gradVo.slctnNotiNo },${authUser.mbNo });"></i>
 				                        </div>
@@ -592,7 +582,7 @@
 								</div>
 			                    </div>
 			                    <div class="w3-row-padding w3-padding">
-									 	<div class="w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${labVo.slctnNotiNo }">
+									 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${labVo.slctnNotiNo }">
 				                            <i class="far fa-thumbtack w3-large" 
 				                            onclick="doScrap('모집공고',${labVo.slctnNotiNo },${authUser.mbNo });"></i>
 				                        </div>

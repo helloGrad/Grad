@@ -59,21 +59,26 @@ public class HomeController {
 	@Autowired
 	OrganzService organzService;
 	
-	
+	/*
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home( Model model, MemberVo memberVo) {	
-		model.addAttribute("MemberVo", memberVo);		
+	public String home( Model model,@AuthUser MemberVo authUser) {	
+		
+		model.addAttribute("authUser", authUser);		
+		model.addAttribute("notiCount", notiService.getNotiCount());
+		
+		System.out.println("사용자정보"+authUser);
+		
 		return "submain";
 	}
  
-
+ */
 	/*
 	 * 정예린, 2017-09-25, 서브메인 
 	 */
 
 	@SuppressWarnings("static-access")
-	@RequestMapping(value = "/submain", method = RequestMethod.GET)
+	@RequestMapping(value = {"/submain", "/"}, method = RequestMethod.GET)
 	public String submain(Model model, @AuthUser MemberVo authUser) {
 
 
@@ -114,6 +119,8 @@ public class HomeController {
 
 		model.addAttribute("gradList", jsonArray.fromObject(notiService.getGradNotiList()));
 		model.addAttribute("labList", jsonArray.fromObject(notiService.getLabNotiList()));
+		
+		
 		return "submain";
 	}
 	

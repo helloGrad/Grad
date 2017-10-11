@@ -31,7 +31,7 @@
 	rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/css/login1.css"
 	rel="stylesheet">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/w3.css">
 
 
 <style>
@@ -287,6 +287,137 @@ body {
 <div class="w3-top">
 	<div class="w3-bar w3-border navi-background">
 		<div class="container">
+		
+			<div class="w3-dropdown-hover">
+                <button class="w3-bar-item w3-button w3-padding-16" style="letter-spacing: 3px;" onclick="myFunction(true)">
+                    HGN
+                </button>
+                <div id="Shortcuts" class="w3-dropdown-content w3-bar-block w3-card-4  w3-col s12 m6 l5" style="margin-top: 3em;">
+                    <div class="w3-col s4 m4 l4">
+                        <a href="${pageContext.servletContext.contextPath }/" style="text-decoration: none;">
+                            <div class="w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding ">
+                                    <div><i class="far fa-home fa-3x  "></i></div>
+                                    <span class="w3-large ">홈</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4 ">
+                        <a class="mypage" style="text-decoration: none;">
+                            <div class="w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-user fa-3x"></i></div>
+                                    <span class="w3-large">마이페이지</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4">
+                        <a class="setting" style="text-decoration: none;">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-cogs fa-3x "></i></div>
+                                    <span class="w3-large ">설정</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4">
+                        <a href="${pageContext.servletContext.contextPath }/study/main?boardtype=공학" style="text-decoration: none;">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-wrench fa-3x "></i></div>
+                                    <span class="w3-large ">공학</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4">
+                        <a href="${pageContext.servletContext.contextPath }/study/main?boardtype=농수해양학" style="text-decoration: none;">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-tree-alt fa-3x "></i></div>
+                                    <span class="w3-large ">농수해양학</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4">
+                        <a href="${pageContext.servletContext.contextPath }/study/main?boardtype=복합학" class="w3-hover-opacity w3-hover-red" style="text-decoration: none;">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-code-merge fa-3x "></i></div>
+                                    <span class="w3-large ">복합학</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4 ">
+                        <a href="${pageContext.servletContext.contextPath }/study/main?boardtype=사회과학" style="text-decoration: none;">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-users fa-3x "></i></div>
+                                    <span class="w3-large ">사회과학</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4">
+                        <a href="${pageContext.servletContext.contextPath }/study/main?boardtype=인문학" style="text-decoration: none;">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-universal-access fa-3x "></i></div>
+                                    <span class="w3-large ">인문학</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4">
+                        <a href="${pageContext.servletContext.contextPath }/study/main?boardtype=의약학" style="text-decoration: none;">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-medkit fa-3x "></i></div>
+                                    <span class="w3-large ">의약학</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w3-col s4 m4 l4">
+                        <a href="${pageContext.servletContext.contextPath }/study/main?boardtype=예술체육학" style="text-decoration: none;">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-film-alt fa-3x "></i></div>
+                                    <span class="w3-large ">예술체육학</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="w3-col s4 m4 l4">
+                        <a href="${pageContext.servletContext.contextPath }/study/main?boardtype=자연과학"  style="text-decoration: none;">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-globe fa-3x "></i></div>
+                                    <span class="w3-large ">자연과학</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="w3-col s4 m4 l4">
+                        <a href="" style="text-decoration: none;">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                                <div class="w3-center w3-round-large w3-padding">
+                                    <div><i class="far fa-lightbulb fa-3x"></i></div>
+                                    <span class="w3-large">팁</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+		
 			<button id="headerBtn"
 				class="w3-bar-item w3-button w3-padding-16 writeBtn"
 				style="letter-spacing: 3px;">
@@ -300,17 +431,15 @@ body {
 					class="w3-bar-item w3-button w3-large w3-black">Close
 					&times;</button>
 
-				<a href="${pageContext.servletContext.contextPath }/submain"
+				<a href="${pageContext.servletContext.contextPath }/"
 					class="w3-bar-item w3-button w3-padding-16"
-					style="letter-spacing: 3px;">HOME</a> <a
-					href="${pageContext.servletContext.contextPath }/user/mypage"
+					style="letter-spacing: 3px;">HOME</a>
+					 <a class="w3-bar-item w3-button w3-padding-16 mypage"  style="letter-spacing: 3px;">PROFILE</a>
+					 <a href="saves.html"
 					class="w3-bar-item w3-button w3-padding-16"
-					style="letter-spacing: 3px;">PROFILE</a> <a href="saves.html"
-					class="w3-bar-item w3-button w3-padding-16"
-					style="letter-spacing: 3px;">SAVE</a> <a
-					href="${pageContext.servletContext.contextPath }/user/setting"
-					class="w3-bar-item w3-button w3-padding-16"
-					style="letter-spacing: 3px;">SETTING</a> <a href="help.html"
+					style="letter-spacing: 3px;">SAVE</a> 
+					<a class="w3-bar-item w3-button w3-padding-16 setting" style="letter-spacing: 3px;">SETTING</a> 
+					<a href="help.html"
 					class="w3-bar-item w3-button w3-border-bottom w3-padding-16"
 					style="letter-spacing: 3px;">HELP CENTER</a> <input id="authUser"
 					type="hidden" value="${authUser.mbNo }">
@@ -477,34 +606,7 @@ body {
 			</div>
 
 
-			<div id="selectModal" class="login-modal">
 
-				<div class="login-modal-content">
-
-					<div class="modal-header">
-						<h4 class="modal-title">관심 학문을 하나만 선택해주세요</h4>
-
-					</div>
-					<form action="#" id="join-form">
-						<div class="modal-body">
-							<div class='study col-xs-5 interdisciplinary over black'>인문학</div>
-							<div class='study col-xs-5 socialscience over black'>사회과학</div>
-							<div class='study col-xs-5 naturalscience over black'>자연과학</div>
-							<div class='study col-xs-5 engineering over black'>공학</div>
-							<div class='study col-xs-5 medicine over black'>의약학</div>
-							<div class='study col-xs-5 ocean over black'>농수해양학</div>
-							<div class='study col-xs-5 art over black'>예술체육학</div>
-							<div class='study col-xs-5 interdisciplinary over black'>복합학</div>
-						</div>
-
-						<button id='studySubmit' type="submit" style="margin-bottom: 10px"
-							class="btn formbtn disabled">선택완료</button>
-						<br>
-					</form>
-
-				</div>
-
-			</div>
 
 			<div class="">
 				<button class="w3-button w3-bar-item w3-right w3-padding-16"

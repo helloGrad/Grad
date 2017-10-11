@@ -231,20 +231,58 @@ public class StudyController {
 		
 		model.addAttribute("majorList2", majorList);
 		
-		
+
 		List<StudyVo> BoardList = studyService.getBoardList(intMajorList,boardtype);
 		
-		for(int i=0; i< majorList.size(); i++) {
+		
+		for(int i=0; i<majorList.size(); i++) {
 			
-			if(i < majorList.size()-1 && majorList.get(i).getSlctnNotiNo().equals(majorList.get(i+1).getSlctnNotiNo() ) && majorList.get(i).getSpCdNm().equals(majorList.get(i+1).getSpCdNm())) {
-				
-				
-				majorList.get(i+1).setSpCdNm(null);
-			}
+			System.out.print( majorList.get(i).getSlctnNotiNo()+" ");
+			
+		}
+		for(int i=0; i<  BoardList.size(); i++) {
+			
+			
+			System.out.print( BoardList.get(i).getSlctnNotiNo()+" ");
+			System.out.print( BoardList.get(i).getSlctnNotiDstnct()+" ");
+			System.out.print( BoardList.get(i).getPchrgYn()+" ");
+			System.out.println( BoardList.get(i).getSlctnTitle());
+			
 		
 			
 		}
 		
+		
+		for(int i=0; i< majorList.size(); i++) {
+			
+			System.out.println(majorList.get(i).getSlctnNotiNo()+" ");
+			
+			System.out.println(majorList.get(i).getSpCdNm());
+		}
+		
+	
+		for(int i=0; i< majorList.size(); i++) {
+		
+			for(int j=i+1; j< majorList.size(); j++) {
+
+				if(majorList.get(i).getSpCdNm() != null) {
+					if( majorList.get(i).getSlctnNotiNo().equals(majorList.get(j).getSlctnNotiNo() )  &&  majorList.get(i).getSpCdNm().equals(majorList.get(j).getSpCdNm())) {
+						System.out.println(i+"-"+j+":"+majorList.get(i).getSlctnNotiNo()+" "+majorList.get(j).getSlctnNotiNo()+" "+majorList.get(i).getSpCdNm()+"-"+majorList.get(j).getSpCdNm()+"비교후");
+						
+						
+						majorList.get(j).setSpCdNm(null);
+					}
+				}
+			
+			}
+			
+			
+		
+			
+		}
+		
+		
+		//System.out.println(majorList);
 		
 		model.addAttribute("codeList2", codeList);
 		model.addAttribute("MemberVo", memberVo);

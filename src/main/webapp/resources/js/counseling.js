@@ -281,7 +281,7 @@
 			
 			$(".detail").removeAttr("href");
 			
-			$("#login").css({
+			$("#loginForm").css({
 				"display" : "block"
 			});
 
@@ -298,6 +298,41 @@
 			
 		});
 
+		$('.html').on('click touchstart', function(event) {
+			
+			if (event.target.id === "writeModal") {
+				$("#writeModal").css({
+					"display" : "none"
+				});
+			}
+			
+			if (event.target.id === "searchForm") {
+				$("#searchForm").css({
+					"display" : "none"
+				});
+			}
+			
+			
+			if (event.target.id === "registerForm") {
+				$("#registerForm").css({
+					"display" : "none"
+				});
+				
+				initSignupModal();
+			}
+			
+
+			if (event.target.id === "loginForm") {
+				$("#loginForm").css({
+					"display" : "none"
+				});
+				
+				initLoginModal();
+			}
+			
+	    });
+		
+		
 		$("html").click(function(event) {
 			
 			if (event.target.id === "writeModal") {
@@ -330,11 +365,36 @@
 				initLoginModal();
 			}
 			
-
-			
 			
 		});
 		
+		$('.setting').on('click',function(){
+			
+    		if(authUser=='undefined'||authUser == null || authUser == "" ){
+    			
+    			$('#loginForm').css('display','block');
+    		}else{
+    			
+    			location.href='/net/user/setting'
+    		}
+    	})
+    	    	
+    	$('.mypage').on('click',function(){
+    		if(authUser=='undefined'|| authUser == null || authUser == "" ){
+    			$('#loginForm').css('display','block');
+    		}else{
+    			location.href='/net/user/mypage'
+    		}
+    	})
+		
+    	
+    	$('.doScrap').on('click',function(){
+    		if(authUser=='undefined'|| authUser == null || authUser == "" ){
+    			$('#loginForm').css('display','block');
+    		}
+    	})
+    	
+    	
 		
 		$('#writrInfoOpngYn2 li > a').on('click', function() { 
 
