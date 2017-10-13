@@ -15,138 +15,62 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
-<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/js/counseling.js"></script>
 
-	
 
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link href="css/higrad-signup.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-
-<script type="text/javascript">
-$(function() {
-	
-	
-	
-	var authUser = $("#mbNo").val();
-	
-	
-	if(authUser == null || authUser == "" ){
-		
-		console.log("ddd")
-		
-	}else{
-		console.log("ddd")
-	
-		var scrapList=JSON.parse('${scrapList}');
-		for(var i=0;i<scrapList.length;i++){
-			if(scrapList[i].prntsDstnct==='모집공고'){ //게시글
-				
-				
-				$('.do-scrapnoti' + scrapList[i].prntsNo).addClass('scrap-on');
-			}
-		};	
-		
-	};
-	
-$(document).on('click', ".counseling", function(event) { 
-		
-		
-		click_id = $(this).attr('value');
-		console.log(click_id);
-	
-		if (authUser === null || authUser === '') {
-			
-			$("#login").css({
-				"display" : "block"
-			});
-		}else{
-			
-			
-			location.href="/net/counseling/detail?no="+click_id+"&type=prnts";
-			
-		}      
-	
-	
-	
-	});
-	
-	
-	
-	$(document).on('click', ".counselingreply", function() { 
-		
-		
-		click_id = $(this).attr('value');
-		
-		console.log(click_id);
-	
-		
-		
-		if (authUser === null || authUser === '') {
-			
-			$("#login").css({
-				"display" : "block"
-			});
-		}else{
-			
-			
-			location.href="/net/counseling/detail?no="+click_id+"&type=reply";
-			 event.stoplmmediatePropagation();
-		}      
-	
-	
-	
-	});
-});
-</script>
-
-
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w31.css">
 
 
 <style>
-.row{
+.row {
 	clear: both;
 }
+
 .jumbotron {
 	position: relative;
 	z-index: 1;
 	height: 25em;
-    margin-bottom: 0.1em;
-    text-align: center;
-    background-size: cover;
+	margin-bottom: 0.1em;
+	text-align: center;
+	background-size: cover;
 }
+
 .user-info {
-	color : #FFFFFF;
-    padding-top: 4em;
+	color: #FFFFFF;
+	padding-top: 4em;
 }
+
 .user-info-box {
-	background-color : rgba(78,18,201,0.8) !important;
-    height : 20em;
+	background-color: rgba(78, 18, 201, 0.8) !important;
+	height: 20em;
 }
-.user-info-list{
+
+.user-info-list {
 	float: left;
-    margin-left: 1em;
-    color : #FFFFFF;
-    font-size: 1.2em;
-    list-style-type : none;
+	margin-left: 1em;
+	color: #FFFFFF;
+	font-size: 1.2em;
+	list-style-type: none;
 }
+
 .user-info-weight {
-    font-weight: 100;
-    margin-left: 0.5em;
+	font-weight: 100;
+	margin-left: 0.5em;
 }
+
 .user-info-list-box {
-    border: 1px solid #f0f0f0;
-    width: 100%;
-     height: 100%;
+	border: 1px solid #f0f0f0;
+	width: 100%;
+	height: 100%;
 }
+
 .navbar {
 	background-color: rgba(255, 255, 255, 0.95);
 }
+
 .navbar-qna {
 	font-weight: 400;
 	margin-top: -5px;
@@ -156,78 +80,187 @@ $(document).on('click', ".counseling", function(event) {
 	letter-spacing: 4px;
 	float: left;
 }
+
 .navbar-nav li a:hover {
 	color: #1abc9c !important;
 	background-color: white;
 }
+
 .grad-background-color {
 	background-color: rgb(247, 245, 242);
 }
-/* nav-bar End */
+
 body {
 	padding-top: 5em;
 }
+
 .grad-banner {
 	box-shadow: 5px 10px 10px rgba(102, 102, 255, 0.3), -1px -1px 10px
 		rgba(136, 176, 75, 0.3);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
+
 .grad-banner:hover {
 	box-shadow: 5px 10px 30px rgba(102, 102, 255, 0.5), -1px -1px 30px
 		rgba(136, 176, 75, 0.5);
 	margin-bottom: 1.5em;
 }
+
 .lab-banner {
 	box-shadow: 5px 10px 10px rgba(51, 102, 255, 0.3), -1px -1px 10px
 		rgba(75, 0, 130, 0.3);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
+
 .lab-banner:hover {
 	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.5), -1px -1px 30px
 		rgba(75, 0, 130, 0.5);
 	margin-bottom: 1.5em;
 }
+
 .conference-banner {
 	box-shadow: 5px 10px 10px rgba(51, 102, 255, 0.3), -1px -1px 10px
 		rgba(153, 0, 153, 0.3);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
+
 .conference-banner:hover {
 	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.5), -1px -1px 30px
 		rgba(153, 0, 153, 0.5);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
+
 .qna-banner {
 	box-shadow: 5px 10px 10px rgba(0, 0, 51, 0.3), -1px -1px 10px
 		rgba(0, 0, 51, 0.3);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
+
 .qna-banner:hover {
 	box-shadow: 5px 10px 30px rgba(0, 0, 51, 0.5), -1px -1px 30px
 		rgba(0, 0, 51, 0.5);
 	margin-bottom: 1.5em;
 }
+
 .content-answers {
 	height: 3.5em;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: normal;
 }
+
 .grad-banner-our {
 	box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15), -1px -1px 10px
 		rgba(0, 0, 0, 0.15);
 	margin-bottom: 1.5em;
 	background-color: white;
 }
+
 .scrap-on {
 	color: #FF0000;
 }
 </style>
+
+<script type="text/javascript">
+
+$(function() {
+	
+	var authUser = $("#mbNo").val();
+	
+	if(authUser == null || authUser == "" ){
+	}else{
+		
+		var scrapList=JSON.parse('${scrapList}');
+		for(var i=0;i<scrapList.length;i++){
+			if(scrapList[i].prntsDstnct==='모집공고'){ 
+				console.log(scrapList[i].prntsNo);
+				$('.do-scrapnoti' + scrapList[i].prntsNo).addClass('w3-text-red');
+			}
+		};	
+		
+	};
+	
+	
+	var mypageText=$(".mypage-text");
+	var readMore=$(".read-more");
+	
+	for(var i=0;i<mypageText.length;i++){
+		if($(mypageText[i]).height() < 147){
+			$(readMore[i]).empty();
+		}
+	}
+	
+	$(document).on(
+			'click',
+			".counseling",
+			function(event) {
+
+				click_id = $(this).attr('value');
+				
+				console.log("원글");
+
+				if (authUser === null || authUser === '') {
+
+					$("#loginForm").css({
+						"display" : "block"
+					});
+
+				} else {
+
+					location.href = "/net/counseling/detail?no=" + click_id
+							+ "&type=prnts";
+
+				}
+
+			});
+
+	$(document).on(
+			'click',
+			".counselingreply",
+			function() {
+
+				click_id = $(this).attr('value');
+
+				console.log("답글");
+				
+				if (authUser === null || authUser === '') {
+
+					$("#loginForm").css({
+						"display" : "block"
+					});
+
+				} else {
+
+					location.href = "/net/counseling/detail?no=" + click_id
+							+ "&type=reply";
+					event.stoplmmediatePropagation();
+				}
+
+			});
+	
+		
+});
+
+
+
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+
+
+
+</script>
 
 </head>
 <body>
@@ -235,1345 +268,1899 @@ body {
 	<c:import url="/WEB-INF/views/include/header.jsp" />
 
 
-	<div class="row major-nav-box">
-		<div class="jumbotron user-info-box">
-			<div class="container">
-				<input id='mbNo' type="hidden" value="${authUser.mbNo }">
-				<h2 class="text-left user-info"
-					style="color: white; font-weight: bold">${authUser.nknm }</h2>
-				<div class="row user-info-list-box">
-					<ul>
 
-						<li class=" user-info-list"><i
-							class="glyphicon glyphicon-education"></i> <span
-							class="user-info-weight"> <c:set var="cindex" value='0' />
-								<c:forEach var='infoList' items='${infoList }'
-									varStatus="status">
-
-									<c:if test="${infoList.cdDstnct=='학문' }">
-
-										<c:if test="${cindex=='0'}">
-								${infoList.cdNm }
-							</c:if>
-										<c:if test="${cindex!='0' }">
-								/${infoList.cdNm }
-							</c:if>
-
-										<c:set var="cindex" value='1' />
-									</c:if>
-
-								</c:forEach> <c:if test="${cindex=='0' }">분야 미설정</c:if>
-						</span></li>
-
-						<li class=" user-info-list"><i
-							class="glyphicon glyphicon-search"></i> <span
-							class="user-info-weight"> <c:set var="cindex" value='0' />
-								<c:forEach var='infoList' items='${infoList }'
-									varStatus="status">
-
-									<c:if test="${infoList.cdDstnct=='연구분야' }">
-
-										<c:if test="${cindex=='0'}">
-								${infoList.cdNm }
-							</c:if>
-										<c:if test="${cindex!='0' }">
-								/${infoList.cdNm }
-							</c:if>
-
-										<c:set var="cindex" value='1' />
-									</c:if>
-
-								</c:forEach> <c:if test="${cindex=='0' }">연구분야 미설정</c:if>
-						</span></li>
-
-						<li class=" user-info-list "><i
-							class="glyphicon glyphicon-road"></i> <span
-							class="user-info-weight"> <c:set var="cindex" value='0' />
-								<c:forEach var='infoList' items='${infoList }'
-									varStatus="status">
-
-									<c:if test="${infoList.cdDstnct=='방문목적' }">
-
-										<c:if test="${cindex=='0'}">
-								${infoList.cdNm }
-							</c:if>
-										<c:if test="${cindex!='0' }">
-								/${infoList.cdNm }
-							</c:if>
-
-										<c:set var="cindex" value='1' />
-									</c:if>
-
-								</c:forEach> <c:if test="${cindex=='0' }">방문목적 미설정</c:if>
-						</span></li>
-
-						<li class=" user-info-list"><i
-							class="glyphicon glyphicon-map-marker"></i> <span
-							class="user-info-weight"> <c:set var="cindex" value='0' />
-								<c:forEach var='infoList' items='${infoList }'
-									varStatus="status">
-
-									<c:if test="${infoList.cdDstnct=='지역' }">
-
-										<c:if test="${cindex=='0'}">
-								${infoList.cdNm }
-							</c:if>
-										<c:if test="${cindex!='0' }">
-								/${infoList.cdNm }
-							</c:if>
-
-										<c:set var="cindex" value='1' />
-									</c:if>
-
-								</c:forEach> <c:if test="${cindex=='0' }">지역 미설정</c:if>
-						</span></li>
-					</ul>
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-	<div class="row">
-		<div class="container"></div>
-	</div>
-
-	<!--
-    main contents
-    page
--->
-	<div class="row">
-
+	<!--sub navigation-->
+	<div class="w3-panel">
+		<c:if test="${type!='myscrap' }">
+			<h1 class="w3-center" style="letter-spacing: 5px;">${authUser.nknm }'s
+				PROFILE</h1>
+		</c:if>
 		<div class="container">
-			<ul class="nav navbar-nav navbar-left"
-				style="margin-top: 10px;">
-				<li><a href="${pageContext.request.contextPath}/user/mypage">새소식</a></li>
-				<li><a href="${pageContext.request.contextPath}/user/mypage?type=noti">모집공고</a></li>
-				<li><a href="${pageContext.request.contextPath}/user/mypage?type=myboard">내가 쓴 글</a></li>
-				<li><a href="${pageContext.request.contextPath}/user/mypage?type=myscrap">스크랩</a></li>
-			</ul>
-			
-			
-			<c:if test="${type == 'myscrap' || type == 'myboard' }">
-			<c:forEach var="i" begin="1" end="2" step="1">
+			<input id='mbNo' type="hidden" value="${authUser.mbNo }"> <input
+				id='type' type="hidden" value="${type }">
 
-			<div class="row">
-				<!--시작 라인-->
-				<hr>
-				<!--내용-->
-				<div class="col-xs-12 col-sm-4 col-lg-4">
-					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
-					<c:set var="name" value="${BoardList.wrtbtDstnct}" />
-					<c:set var="leng" value="${fn:length(name)}" />
-					
-						<c:if test="${(i=='1' && fn:substring(name,leng-3,leng)=='게시판' && BoardList.no%3 == 1) || (i=='2' && fn:substring(name,leng-3,leng)!='게시판' && BoardList.no%3 == 1) }">
-							
-							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
-								<div class="grad-banner w3-card w3-round-large" >
-								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
-									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
-									<div class="w3-container w3-center">
-										<h4><strong>${BoardList.lab }</strong></h4>
-										<p style="font-size: 1.8vmin;">
-											<span class="grad-target">${BoardList.slctnTitle }</span>
-										</p>
-									</div>
-									<div class="noti-period">
-										<div class="w3-light-grey w3-tiny">
-		                            	<c:if test="${BoardList.percent<=0 }">
-	                            			<div class="w3-container" style="width: 0%; height: 1px;"></div>
-	                            		</c:if>
-	                            		<c:if test="${BoardList.percent>0 }">
-		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
-	                            		</c:if>
-	                            		</div>									
-									</div>
-									</div>
-										<div class="w3-padding">
-										<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
-											<c:if test="${BoardList.percent<=0 }">
-												모집 예정
-											</c:if>
-											<c:if test="${BoardList.percent>0 }">
-												D-${BoardList.dday }
-											</c:if>
-										</span>
-										</div>
-									
-									</div>
+			<!-- 패널 시작-->
+			<c:if test="${type!='myscrap' }">
+				<div class="w3-row">
+					<div class="w3-row-padding w3-container">
+						<div
+							class="w3-col s12 m12 l12  w3-white w3-round-large main-banner">
+							<div class="w3-col s12 m4 l4">
+								<h5 class="w3-center w3-padding " style="letter-spacing: 0.3em;">
+									<strong>I am</strong>
+								</h5>
+								<p>
+									<i
+										class="fas fa-graduation-cap fa-fw w3-margin-right w3-text-theme"></i>
+									<c:set var="cindex" value='0' />
+									<c:forEach var='infoList' items='${infoList }'
+										varStatus="status">
+										<c:if test="${infoList.cdDstnct=='학문' }">
 
-								</c:if>
+											<c:if test="${cindex=='0'}">
+										${infoList.cdNm }
+										</c:if>
+											<c:if test="${cindex!='0' }">
+										/${infoList.cdNm }
+										</c:if>
 
-					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
-					
-						<div class="grad-banner-our w3-card w3-round-large">
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
-							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
-									<strong style="color: ${BoardList.symbolColorNm };">${BoardList.major }</strong>
-									<strong>${BoardList.lab }</strong>
-								</h4>
-								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
+											<c:set var="cindex" value='1' />
+										</c:if>
+
+									</c:forEach>
+									<c:if test="${cindex=='0' }">분야 미설정</c:if>
+
+									<c:set var="cindex" value='0' />
+									<c:forEach var='infoList' items='${infoList }'
+										varStatus="status">
+										<c:if test="${infoList.cdDstnct=='연구분야' }">
+
+											<c:if test="${cindex=='0'}">
+										${infoList.cdNm }
+										</c:if>
+											<c:if test="${cindex!='0' }">
+										/${infoList.cdNm }
+										</c:if>
+
+											<c:set var="cindex" value='1' />
+										</c:if>
+									</c:forEach>
+									<c:if test="${cindex=='0' }">연구분야 미설정</c:if>
+
+								</p>
+								<p>
+									<i class="fas fa-home fa-fw w3-margin-right w3-text-theme"></i>
+
+									<c:set var="cindex" value='0' />
+									<c:forEach var='infoList' items='${infoList }'
+										varStatus="status">
+
+										<c:if test="${infoList.cdDstnct=='방문목적' }">
+
+											<c:if test="${cindex=='0'}">
+										${infoList.cdNm }
+										</c:if>
+											<c:if test="${cindex!='0' }">
+										/${infoList.cdNm }
+										</c:if>
+
+											<c:set var="cindex" value='1' />
+										</c:if>
+
+									</c:forEach>
+									<c:if test="${cindex=='0' }">방문목적 미설정</c:if>
+								</p>
+								<p>
+									<i
+										class="fas fa-map-marker-alt fa-fw w3-margin-right w3-text-theme"></i>
+									<c:set var="cindex" value='0' />
+									<c:forEach var='infoList' items='${infoList }'
+										varStatus="status">
+
+										<c:if test="${infoList.cdDstnct=='지역' }">
+
+											<c:if test="${cindex=='0'}">
+										${infoList.cdNm }
+										</c:if>
+											<c:if test="${cindex!='0' }">
+										/${infoList.cdNm }
+										</c:if>
+
+											<c:set var="cindex" value='1' />
+										</c:if>
+
+									</c:forEach>
+									<c:if test="${cindex=='0' }">전국</c:if>
+								</p>
 							</div>
+
+
+							<div class="w3-col s12 m4 l4">
+								<h5 class="w3-center w3-padding" style="letter-spacing: 0.3em;">
+									<strong>Activity</strong>
+								</h5>
+								<p
+									onclick="window.location.href='${pageContext.request.contextPath}/user/mypage?type=myboard&btype=원글'">
+									<i class="fas fa-pencil fa-fw w3-margin-right w3-text-theme"></i>
+									작성 내역
+								</p>
+								<p
+									onclick="window.location.href='${pageContext.request.contextPath}/user/mypage?type=myboard&btype=답글'">
+									<i class="fas fa-reply fa-fw w3-margin-right w3-text-theme"></i>
+									답변 내역
+								</p>
+								<p
+									onclick="window.location.href='${pageContext.request.contextPath}/user/mypage?type=myscrap'">
+									<i class="fas fa-thumbtack fa-fw w3-margin-right w3-text-theme"></i>
+									스크랩
+								</p>
 							</div>
-							<div class="w3-padding">
-								<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
-									<c:if test="${BoardList.percent<=0 }">
-										모집 예정
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										D-${BoardList.dday }
-									</c:if>
-								</span>
-							</div>
-						</div>
-						
-					</c:if>
+							<div class="w3-col s12 m4 l4 w3-center">
+								<h5 class="w3-center w3-padding" style="letter-spacing: 0.3em;">
+									<strong>Setting</strong>
+								</h5>
 
-
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
-									
-						<div class="lab-banner w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
-								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
-	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-    	                    		<span class="w3-blue " style="padding-right: 5px; padding-left: 0px;">21+</span>
-        	            		</div>						
-						
-							</c:if>
-                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
-                        	<p style="font-size: 1.8vmin;"><span class="grad-target">${BoardList.slctnTitle }</span></p>
-                    	</div>
-                    	<div class="research-field w3-padding text-center">
-                    		<c:forEach items="${BoardList.researchList }" var="resList"	varStatus="status">
-								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
-							</c:forEach>
-                    	</div>
-                    	</div>
-                    	<div class="w3-padding">
-                        	<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
-                        		<c:if test="${BoardList.percent<=0 }">
-	                        		모집 예정
-	                        	</c:if>
-								<c:if test="${BoardList.percent>0 }">
-	                        		D-${BoardList.dday }
-	                        	</c:if>
-	                        </span>
-                    	</div>
-                		</div>
-
-					</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
-									
-						<div class="lab-banner w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-                    		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-                        		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
-                        		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
-                        		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-                    		</div>
-                    		</div>
-                    		<div class="w3-padding">
-                        		<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-                        			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
-								</c:if>
-
-								<c:if test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-									<c:if test="${BoardList.percent<=0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">모집예정</span>
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">D-${BoardList.dday }</span>
-									</c:if>
-								</c:if>
-                    		</div>
-                		</div>
-					</c:if>
-					
-					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large">
-                    	<div class="w3-small w3-padding ">
-                        	<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="">Question</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="">Ordinary</span>
-                    		</c:if>
-                    	</div>
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
-                    	</div>
-                    	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
-                    	</c:if>
-                    	<div class="w3-container w3-margin-top">
-                    		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="w3-small w3-padding" >Answer</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="w3-small w3-padding" >Comment</span>
-                    		</c:if>
-							<c:if test="${BoardList.count>0 }">
-								<c:if test="${fn:substring(name,0,2) !='상담' }">
-                        			<p class="w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-								</c:if>
-                        		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                        			<p class="w3-center w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-                    			</c:if>
-								
-							</c:if>
-                    	</div>
-                    	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
-                    		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
-                    		</div>
-                    	</c:if>
-                    	
-                    	
-                	</div>
-					</c:if>
-				</c:if>
-				</c:forEach>
-			</div>
-				<div class="col-xs-12 col-sm-4 col-lg-4">
-					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
-					<c:set var="name" value="${BoardList.wrtbtDstnct}" />
-					<c:set var="leng" value="${fn:length(name)}" />
-					
-						<c:if test="${(i=='1' && fn:substring(name,leng-3,leng)=='게시판' && BoardList.no%3 == 2) || (i=='2' && fn:substring(name,leng-3,leng)!='게시판' && BoardList.no%3 == 2) }">
-							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
-								<div class="grad-banner w3-card w3-round-large" >
-								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
-									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
-									<div class="w3-container w3-center">
-										<h4><strong>${BoardList.lab }</strong></h4>
-										<p style="font-size: 1.8vmin;">
-											<span class="grad-target">${BoardList.slctnTitle }</span>
-										</p>
-									</div>
-									<div class="noti-period">
-										<div class="w3-light-grey w3-tiny">
-		                            	<c:if test="${BoardList.percent<=0 }">
-	                            			<div class="w3-container" style="width: 0%; height: 1px;"></div>
-	                            		</c:if>
-	                            		<c:if test="${BoardList.percent>0 }">
-		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
-	                            		</c:if>
-	                            		</div>									
-									</div>
-									</div>
-										<div class="w3-padding">
-										<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
-											<c:if test="${BoardList.percent<=0 }">
-												모집 예정
-											</c:if>
-											<c:if test="${BoardList.percent>0 }">
-												D-${BoardList.dday }
-											</c:if>
-										</span>
-										</div>
-									
-									</div>
-
-								</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
-					
-						<div class="grad-banner-our w3-card w3-round-large">
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
-							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
-									<strong style="color: ${BoardList.symbolColorNm };">${BoardList.major }</strong>
-									<strong>${BoardList.lab }</strong>
-								</h4>
-								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-							</div>
-							</div>
-							<div class="w3-padding">
-								<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
-									<c:if test="${BoardList.percent<=0 }">
-										모집 예정
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										D-${BoardList.dday }
-									</c:if>
-								</span>
+								<p>
+									<a
+										href="${pageContext.servletContext.contextPath }/user/setting">
+										EDIT </a>
+								<p>
 							</div>
 						</div>
-						
-					</c:if>
 
+						<div class="w3-col s12 m6 l9 w3-white w3-round-large main-banner">
 
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
-									
-						<div class="lab-banner w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
-								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
-	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-    	                    		<span class="w3-blue " style="padding-right: 5px; padding-left: 0px;">21+</span>
-        	            		</div>						
-						
-							</c:if>
-                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
-                        	<p style="font-size: 1.8vmin;"><span class="grad-target">${BoardList.slctnTitle }</span></p>
-                    	</div>
-                    	<div class="research-field w3-padding text-center">
-                    		<c:forEach items="${BoardList.researchList }" var="resList"	varStatus="status">
-								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
-							</c:forEach>
-                    	</div>
-                    	</div>
-                    	<div class="w3-padding">
-                        	<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
-                        		<c:if test="${BoardList.percent<=0 }">
-	                        		모집 예정
-	                        	</c:if>
-								<c:if test="${BoardList.percent>0 }">
-	                        		D-${BoardList.dday }
-	                        	</c:if>
-	                        </span>
-                    	</div>
-                		</div>
-
-					</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
-									
-						<div class="lab-banner w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-                    		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-                        		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
-                        		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
-                        		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-                    		</div>
-                    		</div>
-                    		<div class="w3-padding">
-                        		<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-                        			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
-								</c:if>
-
-								<c:if test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-									<c:if test="${BoardList.percent<=0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">모집예정</span>
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">D-${BoardList.dday }</span>
-									</c:if>
-								</c:if>
-                    		</div>
-                		</div>
-					</c:if>
-					
-					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large">
-                    	<div class="w3-small w3-padding ">
-                        	<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="">Question</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="">Ordinary</span>
-                    		</c:if>
-                    	</div>
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
-                    	</div>
-                    	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
-                    	</c:if>
-                    	<div class="w3-container w3-margin-top">
-                    		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="w3-small w3-padding" >Answer</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="w3-small w3-padding" >Comment</span>
-                    		</c:if>
-							<c:if test="${BoardList.count>0 }">
-								<c:if test="${fn:substring(name,0,2) !='상담' }">
-                        			<p class="w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-								</c:if>
-                        		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                        			<p class="w3-center w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-                    			</c:if>
-							</c:if>
-                    	</div>
-                    	
-                    	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
-                    		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
-                    		</div>
-                    	</c:if>
-                    	
-                    	
-                	</div>
-					</c:if>
-				</c:if>
-				</c:forEach>
-			</div>
-				<div class="col-xs-12 col-sm-4 col-lg-4">
-					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
-					<c:set var="name" value="${BoardList.wrtbtDstnct}" />
-					<c:set var="leng" value="${fn:length(name)}" />
-					
-						<c:if test="${(i=='1' && fn:substring(name,leng-3,leng)=='게시판' && BoardList.no%3 == 0) || (i=='2' && fn:substring(name,leng-3,leng)!='게시판' && BoardList.no%3 == 0) }">
-							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
-								<div class="grad-banner w3-card w3-round-large" >
-								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
-									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
-									<div class="w3-container w3-center">
-										<h4><strong>${BoardList.lab }</strong></h4>
-										<p style="font-size: 1.8vmin;">
-											<span class="grad-target">${BoardList.slctnTitle }</span>
-										</p>
-									</div>
-									<div class="noti-period">
-										<div class="w3-light-grey w3-tiny">
-		                            	<c:if test="${BoardList.percent<=0 }">
-	                            			<div class="w3-container" style="width: 0%; height: 1px;"></div>
-	                            		</c:if>
-	                            		<c:if test="${BoardList.percent>0 }">
-		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
-	                            		</c:if>
-	                            		</div>									
-									</div>
-									</div>
-										<div class="w3-padding">
-										<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
-											<c:if test="${BoardList.percent<=0 }">
-												모집 예정
-											</c:if>
-											<c:if test="${BoardList.percent>0 }">
-												D-${BoardList.dday }
-											</c:if>
-										</span>
-										</div>
-									
-									</div>
-
-								</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
-					
-						<div class="grad-banner-our w3-card w3-round-large">
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
-							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
-									<strong style="color: ${BoardList.symbolColorNm };">${BoardList.major }</strong>
-									<strong>${BoardList.lab }</strong>
-								</h4>
-								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-							</div>
-							</div>
-							<div class="w3-padding">
-								<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
-									<c:if test="${BoardList.percent<=0 }">
-										모집 예정
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										D-${BoardList.dday }
-									</c:if>
-								</span>
-							</div>
 						</div>
-						
-					</c:if>
-
-
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
-									
-						<div class="lab-banner w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
-								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
-	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-    	                    		<span class="w3-blue " style="padding-right: 5px; padding-left: 0px;">21+</span>
-        	            		</div>						
-						
-							</c:if>
-                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
-                        	<p style="font-size: 1.8vmin;"><span class="grad-target">${BoardList.slctnTitle }</span></p>
-                    	</div>
-                    	<div class="research-field w3-padding text-center">
-                    		<c:forEach items="${BoardList.researchList }" var="resList"	varStatus="status">
-								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
-							</c:forEach>
-                    	</div>
-                    	</div>
-                    	<div class="w3-padding">
-                        	<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
-                        		<c:if test="${BoardList.percent<=0 }">
-	                        		모집 예정
-	                        	</c:if>
-								<c:if test="${BoardList.percent>0 }">
-	                        		D-${BoardList.dday }
-	                        	</c:if>
-	                        </span>
-                    	</div>
-                		</div>
-
-					</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
-									
-						<div class="lab-banner w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-                    		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-                        		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
-                        		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
-                        		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-                    		</div>
-                    		</div>
-                    		<div class="w3-padding">
-                        		<span class="noti-hh"><i
-													class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-                        			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
-								</c:if>
-
-								<c:if test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-									<c:if test="${BoardList.percent<=0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">모집예정</span>
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">D-${BoardList.dday }</span>
-									</c:if>
-								</c:if>
-                    		</div>
-                		</div>
-					</c:if>
-					
-					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large">
-                    	<div class="w3-small w3-padding ">
-                        	<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="">Question</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="">Ordinary</span>
-                    		</c:if>
-                    	</div>
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
-                    	</div>
-                    	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
-                    	</c:if>
-                    	<div class="w3-container w3-margin-top">
-                    		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="w3-small w3-padding" >Answer</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="w3-small w3-padding" >Comment</span>
-                    		</c:if>
-							<c:if test="${BoardList.count>0 }">
-								<c:if test="${fn:substring(name,0,2) !='상담' }">
-                        			<p class="w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-								</c:if>
-                        		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                        			<p class="w3-center w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-                    			</c:if>
-							</c:if>
-                    	</div>
-                    	
-                    	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
-                    		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
-                    		</div>
-                    	</c:if>
-                    	
-                    	
-                	</div>
-					</c:if>
-				</c:if>
-				</c:forEach>
-			</div>
-
+					</div>
 				</div>
 
-			</c:forEach>
-		</c:if>	
-		
-		
-		
-		
-		
-		<c:if test="${type == '-1' || type == 'noti' }">
-			<c:forEach items="${calList }" var="calList">
-			<div class="row">
-				<!--날짜 ,요일 , 년월 -->
-				<h1>
-					<div style="float: left; margin-right: 0.3em;">${calList.day }</div>
-					<small>
-						<div style="float: left; font-size: medium; line-height: 130%;">${calList.week }<br>${calList.year }년
-							${calList.month }월							</div>
-					</small> <br>					</h1>
-				<!--시작 라인-->
-				<hr>
-				<!--내용-->
-				<div class="col-xs-12 col-sm-4 col-lg-4">
-					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
-						<c:if test="${BoardList.no%3==1 && calList.month==BoardList.month && calList.day==BoardList.day }">
-						
-							<c:set var="name" value="${BoardList.wrtbtDstnct}" />
-							<c:set var="leng" value="${fn:length(name)}" />
-							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
-							
-								<div class="grad-banner w3-card w3-round-large" >
-								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
-									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
-									<div class="w3-container w3-center">
-										<h4><strong>${BoardList.lab }</strong></h4>
-										<p style="font-size: 1.8vmin;">
-											<span class="grad-target">${BoardList.slctnTitle }</span>
-										</p>
-									</div>
-									<div class="noti-period">
-										<div class="w3-light-grey w3-tiny">
-		                            	<c:if test="${BoardList.percent<=0 }">
-	                            			<div class="w3-container" style="width: 0%; height: 1px;"></div>
-	                            		</c:if>
-	                            		<c:if test="${BoardList.percent>0 }">
-		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
-	                            		</c:if>
-	                            	</div>
-	                            	</div>									
-									</div>
-										<div class="w3-padding">
-										<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
-											<c:if test="${BoardList.percent<=0 }">
-												모집 예정
-											</c:if>
-											<c:if test="${BoardList.percent>0 }">
-												D-${BoardList.dday }
-											</c:if>
-										</span>
-										</div>
-									</div>
+				<!-- 패널 끝 -->
+				<div class="w3-row">
+					<div class="w3-bar w3-round-large">
 
-								</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
-					
-						<div class="grad-banner-our w3-card w3-round-large" >
-						<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
-							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
-									<strong style="color: ${BoardList.symbolColorNm };">${BoardList.major }</strong>
-									<strong>${BoardList.lab }</strong>
-								</h4>
-								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-							</div>
-							</div>
-							<div class="w3-padding">
-								<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
-									<c:if test="${BoardList.percent<=0 }">
-										모집 예정
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										D-${BoardList.dday }
-									</c:if>
-								</span>
-							</div>
-							
-						</div>
-						
-					</c:if>
+						<c:choose>
+							<c:when test="${type=='noti' }">
+								<button class="w3-bar-item w3-button w3-margin-left w3-large "
+									onclick="window.location.href='${pageContext.request.contextPath}/user/mypage'">
+									<i class="fas fa-newspaper"></i> TODAY
+								</button>
+								<button class="w3-bar-item w3-button w3-large w3-text-blue"
+									onclick="window.location.href='${pageContext.request.contextPath}/user/mypage?type=noti'">
+									<i class="fas fa-users w3-text-grey"></i> RECRUIT
+								</button>
+							</c:when>
+							<c:when test="${type == '-1' }">
+								<button
+									class="w3-bar-item w3-button w3-margin-left w3-large w3-text-blue"
+									onclick="window.location.href='${pageContext.request.contextPath}/user/mypage'">
+									<i class="fas fa-newspaper"></i> TODAY
+								</button>
+								<button class="w3-bar-item w3-button w3-large"
+									onclick="window.location.href='${pageContext.request.contextPath}/user/mypage?type=noti'">
+									<i class="fas fa-users w3-text-grey"></i> RECRUIT
+								</button>
+							</c:when>
+							<c:otherwise>
+								<button class="w3-bar-item w3-button w3-margin-left w3-large "
+									onclick="window.location.href='${pageContext.request.contextPath}/user/mypage'">
+									<i class="fas fa-newspaper"></i> TODAY
+								</button>
+								<button class="w3-bar-item w3-button w3-large "
+									onclick="window.location.href='${pageContext.request.contextPath}/user/mypage?type=noti'">
+									<i class="fas fa-users w3-text-grey"></i> RECRUIT
+								</button>
+							</c:otherwise>
+						</c:choose>
 
 
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
-									
-						<div class="lab-banner w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
-								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
-	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-    	                    		<span class="w3-blue " style="padding-right: 5px; padding-left: 0px;">21+</span>
-        	            		</div>						
-						
-							</c:if>
-                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
-                        	<p style="font-size: 1.8vmin;"><span class="grad-target">${BoardList.slctnTitle }</span></p>
-                    	</div>
-                    	<div class="research-field w3-padding text-center">
-                    		<c:forEach items="${BoardList.researchList }" var="resList"	varStatus="status">
-								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
-							</c:forEach>
-                    	</div>
-                    	</div>
-                    	<div class="w3-padding">
-                        	<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
-                        		<c:if test="${BoardList.percent<=0 }">
-	                        		모집 예정
-	                        	</c:if>
-								<c:if test="${BoardList.percent>0 }">
-	                        		D-${BoardList.dday }
-	                        	</c:if>
-	                        </span>
-                    	</div>
-                    	
-                		</div>
-
-					</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
-									
-						<div class="grad-banner-our w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-                    		<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr }</div>
-                    		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-                        		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
-                        		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
-                        		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-                    		</div>
-                    		</div>
-                    		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-                        			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
-								</c:if>
-
-								<c:if test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-									<c:if test="${BoardList.percent<=0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">모집예정</span>
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">D-${BoardList.dday }</span>
-									</c:if>
-								</c:if>
-                    		</div>
-                    		
-                		</div>
-					</c:if>
-					
-					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large counseling" value="${BoardList.slctnNotiNo}">
-                    	<div class="w3-small w3-padding ">
-                        	<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="">Question</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="">Ordinary</span>
-                    		</c:if>
-                    	</div>
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
-                    	</div>
-                    	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
-                    	</c:if>
-                    	<div class="w3-container w3-margin-top">
-                    		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="w3-small w3-padding" >Answer</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="w3-small w3-padding" >Comment</span>
-                    		</c:if>
-							<c:if test="${BoardList.count>0 }">
-								<c:if test="${fn:substring(name,0,2) !='상담' }">
-                        			<p class="w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-								</c:if>
-                        		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                        			<p class="w3-center w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-                    			</c:if>
-								
-							</c:if>
-                    	</div>
-                    	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
-                    		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
-                    		</div>
-                    	</c:if>
-                    	
-                    	
-                	</div>
-					</c:if>
-				</c:if>
-				</c:forEach>
-			</div>
-			
-				<div class="col-xs-12 col-sm-4 col-lg-4">
-					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
-						<c:if test="${BoardList.no%3==2 && calList.month==BoardList.month && calList.day==BoardList.day }">
-						
-							<c:set var="name" value="${BoardList.wrtbtDstnct}" />
-							<c:set var="leng" value="${fn:length(name)}" />
-							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
-							
-								<div class="grad-banner w3-card w3-round-large" >
-								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
-									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
-									<div class="w3-container w3-center">
-										<h4><strong>${BoardList.lab }</strong></h4>
-										<p style="font-size: 1.8vmin;">
-											<span class="grad-target">${BoardList.slctnTitle }</span>
-										</p>
-									</div>
-									<div class="noti-period">
-										<div class="w3-light-grey w3-tiny">
-		                            	<c:if test="${BoardList.percent<=0 }">
-	                            			<div class="w3-container" style="width: 0%; height: 1px;"></div>
-	                            		</c:if>
-	                            		<c:if test="${BoardList.percent>0 }">
-		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
-	                            		</c:if>
-	                            	</div>
-	                            	</div>									
-									</div>
-										<div class="w3-padding">
-										<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
-											<c:if test="${BoardList.percent<=0 }">
-												모집 예정
-											</c:if>
-											<c:if test="${BoardList.percent>0 }">
-												D-${BoardList.dday }
-											</c:if>
-										</span>
-										</div>
-									</div>
-
-								</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
-					
-						<div class="grad-banner-our w3-card w3-round-large" >
-						<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
-							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
-									<strong style="color: ${BoardList.symbolColorNm };">${BoardList.major }</strong>
-									<strong>${BoardList.lab }</strong>
-								</h4>
-								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-							</div>
-							</div>
-							<div class="w3-padding">
-								<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
-									<c:if test="${BoardList.percent<=0 }">
-										모집 예정
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										D-${BoardList.dday }
-									</c:if>
-								</span>
-							</div>
-							
-						</div>
-						
-					</c:if>
-
-
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
-									
-						<div class="lab-banner w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
-								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
-	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-    	                    		<span class="w3-blue " style="padding-right: 5px; padding-left: 0px;">21+</span>
-        	            		</div>						
-						
-							</c:if>
-                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
-                        	<p style="font-size: 1.8vmin;"><span class="grad-target">${BoardList.slctnTitle }</span></p>
-                    	</div>
-                    	<div class="research-field w3-padding text-center">
-                    		<c:forEach items="${BoardList.researchList }" var="resList"	varStatus="status">
-								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
-							</c:forEach>
-                    	</div>
-                    	</div>
-                    	<div class="w3-padding">
-                        	<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
-                        		<c:if test="${BoardList.percent<=0 }">
-	                        		모집 예정
-	                        	</c:if>
-								<c:if test="${BoardList.percent>0 }">
-	                        		D-${BoardList.dday }
-	                        	</c:if>
-	                        </span>
-                    	</div>
-                    	
-                		</div>
-
-					</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
-									
-						<div class="grad-banner-our w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-                    		<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr }</div>
-                    		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-                        		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
-                        		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
-                        		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-                    		</div>
-                    		</div>
-                    		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-                        			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
-								</c:if>
-
-								<c:if test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-									<c:if test="${BoardList.percent<=0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">모집예정</span>
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">D-${BoardList.dday }</span>
-									</c:if>
-								</c:if>
-                    		</div>
-                    		
-                		</div>
-					</c:if>
-					
-					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large counseling" value="${BoardList.slctnNotiNo}">
-                    	<div class="w3-small w3-padding ">
-                        	<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="">Question</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="">Ordinary</span>
-                    		</c:if>
-                    	</div>
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
-                    	</div>
-                    	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
-                    	</c:if>
-                    	<div class="w3-container w3-margin-top">
-                    		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="w3-small w3-padding" >Answer</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="w3-small w3-padding" >Comment</span>
-                    		</c:if>
-							<c:if test="${BoardList.count>0 }">
-								<c:if test="${fn:substring(name,0,2) !='상담' }">
-                        			<p class="w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-								</c:if>
-                        		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                        			<p class="w3-center w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-                    			</c:if>
-								
-							</c:if>
-                    	</div>
-                    	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
-                    		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
-                    		</div>
-                    	</c:if>
-                    	
-                    	
-                	</div>
-					</c:if>
-				</c:if>
-				</c:forEach>
-			</div>
-				<div class="col-xs-12 col-sm-4 col-lg-4">
-					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
-						<c:if test="${BoardList.no%3==0 && calList.month==BoardList.month && calList.day==BoardList.day }">
-						
-							<c:set var="name" value="${BoardList.wrtbtDstnct}" />
-							<c:set var="leng" value="${fn:length(name)}" />
-							<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
-							
-								<div class="grad-banner w3-card w3-round-large" >
-								<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-									<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year}년 ${BoardList.slctnSemstr}</div>
-									<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width: 100%; padding: 1em 1em 0 1em;">
-									<div class="w3-container w3-center">
-										<h4><strong>${BoardList.lab }</strong></h4>
-										<p style="font-size: 1.8vmin;">
-											<span class="grad-target">${BoardList.slctnTitle }</span>
-										</p>
-									</div>
-									<div class="noti-period">
-										<div class="w3-light-grey w3-tiny">
-		                            	<c:if test="${BoardList.percent<=0 }">
-	                            			<div class="w3-container" style="width: 0%; height: 1px;"></div>
-	                            		</c:if>
-	                            		<c:if test="${BoardList.percent>0 }">
-		                            		<div class="w3-container w3-black" style="width: ${BoardList.percent }%; height: 1px;"></div>
-	                            		</c:if>
-	                            	</div>
-	                            	</div>									
-									</div>
-										<div class="w3-padding">
-										<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float: right;"> 
-											<c:if test="${BoardList.percent<=0 }">
-												모집 예정
-											</c:if>
-											<c:if test="${BoardList.percent>0 }">
-												D-${BoardList.dday }
-											</c:if>
-										</span>
-										</div>
-									</div>
-
-								</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
-					
-						<div class="grad-banner-our w3-card w3-round-large" >
-						<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr}</div>
-							<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-								<h4 class="w3-padding w3-round-large" style="margin-bottom: 0em;">
-									<strong style="color: ${BoardList.symbolColorNm };">${BoardList.major }</strong>
-									<strong>${BoardList.lab }</strong>
-								</h4>
-								<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-							</div>
-							</div>
-							<div class="w3-padding">
-								<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-								<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"	style="float: right;">
-									<c:if test="${BoardList.percent<=0 }">
-										모집 예정
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										D-${BoardList.dday }
-									</c:if>
-								</span>
-							</div>
-							
-						</div>
-						
-					</c:if>
-
-
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
-									
-						<div class="lab-banner w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-							<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
-								<div class="w3-small w3-padding  "style="margin-bottom: -1.5em; height: 2.7em">
-	                        		<span class="w3-red " style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-    	                    		<span class="w3-blue " style="padding-right: 5px; padding-left: 0px;">21+</span>
-        	            		</div>						
-						
-							</c:if>
-                    	<img src="${BoardList.storgPath }" alt="대학교 로고 이미지" style="width:100%; padding: 1em 1em 0 1em;">
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.graduate }</strong></h4>
-                        	<h4 style="font-size: 1.8vmin;"><strong>${BoardList.lab }</strong></h4>
-                        	<p style="font-size: 1.8vmin;"><span class="grad-target">${BoardList.slctnTitle }</span></p>
-                    	</div>
-                    	<div class="research-field w3-padding text-center">
-                    		<c:forEach items="${BoardList.researchList }" var="resList"	varStatus="status">
-								<span class="w3-tag w3-black w3-tiny ">${resList.cdNm }</span>
-							</c:forEach>
-                    	</div>
-                    	</div>
-                    	<div class="w3-padding">
-                        	<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        	<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">
-                        		<c:if test="${BoardList.percent<=0 }">
-	                        		모집 예정
-	                        	</c:if>
-								<c:if test="${BoardList.percent>0 }">
-	                        		D-${BoardList.dday }
-	                        	</c:if>
-	                        </span>
-                    	</div>
-                    	
-                		</div>
-
-					</c:if>
-
-					<c:if test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}" >
-									
-						<div class="grad-banner-our w3-card w3-round-large" >
-							<div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
-                    		<div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.year }년 ${BoardList.slctnSemstr }</div>
-                    		<div class="w3-container w3-center w3-padding" style="margin-bottom: -1em;">
-                        		<h5 class="w3-padding" style="margin-bottom: 0em;"><strong style="color: ${BoardList.symbolColorNm };">${BoardList.university } </strong></h5>
-                        		<h5><strong>${BoardList.graduate } ${BoardList.lab }</strong></h5>
-                        		<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
-                    		</div>
-                    		</div>
-                    		<div class="w3-padding">
-                        		<span class="noti-hh"><i class="glyphicon glyphicon-paperclip do-scrapnoti${BoardList.slctnNotiNo }"
-													onclick="doScrap('모집공고',${BoardList.slctnNotiNo },${authUser.mbNo });"></i></span>
-                        		<c:if test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-                        			<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">상시모집</span>
-								</c:if>
-
-								<c:if test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-									<c:if test="${BoardList.percent<=0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">모집예정</span>
-									</c:if>
-									<c:if test="${BoardList.percent>0 }">
-										<span class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue" style="float :right;">D-${BoardList.dday }</span>
-									</c:if>
-								</c:if>
-                    		</div>
-                    		
-                		</div>
-					</c:if>
-					
-					<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
-					<div class="qna-banner w3-card w3-round-large counseling" value="${BoardList.slctnNotiNo}">
-                    	<div class="w3-small w3-padding ">
-                        	<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="">Question</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="">Ordinary</span>
-                    		</c:if>
-                    	</div>
-                    	<div class="w3-container w3-center">
-                        	<h4 style="font-size: 2vmin;"><strong>${BoardList.wrtbtTitle }</strong></h4>
-                    	</div>
-                    	<c:if test="${BoardList.storgPath ne null }">
-                    		<img src="${BoardList.storgPath }" alt="게시판 이미지 자리" style="width:100%;">
-                    	</c:if>
-                    	<div class="w3-container w3-margin-top">
-                    		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                    			<span class="w3-small w3-padding" >Answer</span>
-                    		</c:if>
-                    		<c:if test="${fn:substring(name,0,2) !='상담' }">
-                    			<span class="w3-small w3-padding" >Comment</span>
-                    		</c:if>
-							<c:if test="${BoardList.count>0 }">
-								<c:if test="${fn:substring(name,0,2) !='상담' }">
-                        			<p class="w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-								</c:if>
-                        		<c:if test="${fn:substring(name,0,2) =='상담'}">
-                        			<p class="w3-center w3-padding content-answers w3-round-large w3-border-blue grad-background-color" style="font-size: 1.8vmin; margin-top: 0em;">
-                           			${BoardList.subwrtbtText }
-                        			</p>
-                    			</c:if>
-								
-							</c:if>
-                    	</div>
-                    	<c:if test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
-                    		<div class="w3-container w3-center w3-padding">
-                        	<button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" value=${BoardList.slctnNotiNo } style="letter-spacing: 2px;">답변하기</button>
-                    		</div>
-                    	</c:if>
-                    	
-                    	
-                	</div>
-					</c:if>
-				</c:if>
-				</c:forEach>
-			</div>
-
+					</div>
 				</div>
 
-			</c:forEach>
 			</c:if>
 
+			<!-- 내가 쓴글 -->
+
+			<c:if test="${type == 'myboard' }">
+
+
+				<div class="w3-row">
+					<div class="w3-row-padding">
+						<div
+							class="w3-card w3-white w3-round-large w3-margin-bottom w3-content"
+							style="max-width: 800px;">
+							<!--게시글-->
+							<div class="w3-col s12 m12 l12 w3-margin-bottom ">
+
+								<c:forEach items="${BoardList }" var="BoardList"
+									varStatus="status">
+									<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+									<c:set var="leng" value="${fn:length(name)}" />
+
+									<c:if test="${BoardList.wrtbtTypeDstnct == btype}">
+
+										<c:if test="${btype=='원글' }">
+											<div
+												class="w3-card w3-round-large w3-margin-bottom w3-white talk-banner counseling"
+												value="${BoardList.slctnNotiNo }">
+										</c:if>
+										<c:if test="${btype=='답글' }">
+											<div
+												class="w3-card w3-round-large w3-margin-bottom w3-white talk-banner counselingreply"
+												value="${BoardList.prntsWrtbtNo }">
+										</c:if>
+
+										<div class="w3-padding w3-text-grey w3-small">
+											<span class=""> <c:if
+													test="${BoardList.slctnNotiDstnct=='상담게시판' }">
+											Question Asked
+										</c:if> <c:if test="${BoardList.slctnNotiDstnct=='일반게시판' }">
+											Ordinary
+										</c:if> - ${fn:replace(BoardList.bbsNm,'게시판','') }
+											</span> <span class="w3-right"><i class="fas fa-ellipsis-h"></i></span>
+										</div>
+
+
+
+
+										<!-- 이미지가 있는 경우 -->
+										<c:if test="${BoardList.storgPath ne null }">
+
+											<div class="w3-margin-left">
+												<h5 style="margin-bottom: 0em;">
+
+													<c:if test="${BoardList.slctnNotiDstnct=='상담게시판' }">
+														<i class="far fa-question fa-lg"></i>
+													</c:if>
+													<c:if test="${BoardList.slctnNotiDstnct=='일반게시판' }">
+														<i class="far fa-sun fa-lg"></i>
+													</c:if>
+													<strong><c:if test="${btype=='답글' }">
+															${BoardList.ptitle }
+														</c:if> <c:if test="${btype=='원글' }">
+															${BoardList.wrtbtTitle }
+														</c:if></strong>
+												</h5>
+											</div>
+											<div class="w3-display-container">
+												
+												<img src="${BoardList.storgPath }" alt=""
+													style="width: 100%;">
+
+												<!--제목-->
+												<div
+													class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
+													style="background-color: rgba(0, 0, 0, 0.5);">#${BoardList.wrtbtTitle
+													}</div>
+											</div>
+										</c:if>
+
+
+										<!-- 이미지가 없는 경우 -->
+										<c:if test="${BoardList.storgPath eq null }">
+											<div class="w3-center w3-container">
+												<h5 style="margin-bottom: 0em;">
+													<strong> <c:if test="${btype=='답글' }">
+															${BoardList.ptitle }
+														</c:if> <c:if test="${btype=='원글' }">
+															${BoardList.wrtbtTitle }
+														</c:if>
+													</strong>
+												</h5>
+											</div>
+
+											<c:if test="${btype=='원글' }">
+												<div class="w3-container" style="margin-bottom: -1em;">
+													<div class="w3-container w3-margin-top">
+
+
+														<p class="w3-medium mypage-text"
+															style="margin-top: 0em; line-height: 200%; max-height: 10em; text-overflow: ellipsis; overflow: hidden;">
+															${BoardList.wrtbtText }</p>
+														<span
+															class="w3-medium w3-left w3-margin-bottom w3-text-blue read-more"
+															style="font-size: 1.8vmin; margin-top: -1.5em;">(read
+															more)</span>
+
+
+													</div>
+												</div>
+											</c:if>
+										</c:if>
+
+
+
+										<c:if test="${BoardList.count>0 }">
+											<div class="w3-container w3-margin-top">
+												<!--코멘트 수-->
+												<span class="w3-small w3-padding"> <c:if
+														test="${fn:substring(name,0,2) =='상담'}">
+													Answer
+												</c:if> <c:if test="${fn:substring(name,0,2) !='상담' }">
+													Comment
+												</c:if> <span class="w3-badge w3-light-gray">${BoardList.count }</span>
+												</span>
+												<!--코멘트(베스트)-->
+
+												<p class="board-answer w3-round-large w3-padding w3-medium"
+													style="font-size: 1.8vmin; margin-top: 0em; line-height: 200%; max-height: 4em; text-overflow: ellipsis; overflow: hidden;">
+													${BoardList.subwrtbtText }</p>
+
+											</div>
+										</c:if>
+										<c:if test="${BoardList.count <=0 }">
+											<div class="w3-container w3-margin-top"></div>
+										</c:if>
+
+										<c:if
+											test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 && btype=='원글'}">
+											<div class="w3-container w3-center w3-padding">
+												<button
+													class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply"
+													style="letter-spacing: 2px;"
+													value="${BoardList.slctnNotiNo}">답변하기</button>
+											</div>
+										</c:if>
+							</div>
+			</c:if>
+			</c:forEach>
+
+
 		</div>
 	</div>
-	
+
+	</div>
+	</div>
+	</c:if>
+
+	<!-- 내가 쓴글 끝-->
+
+	<!-- 모집공고, 새소식 시작 -->
+
+	<c:if test="${type == '-1' || type == 'noti' }">
+
+		<c:forEach items="${calList }" var="calList">
+			<div class="w3-row">
+				<div class="w3-panel w3-border-bottom w3-border-black">
+					<h1>
+						<div style="float: left; margin-right: 0.3em; line-height: 90%;">${calList.day }</div>
+						<small>
+							<div style="float: left; font-size: small; line-height: 130%;">
+								${calList.week }<br>${calList.year }년 ${calList.month }월
+							</div>
+						</small>
+					</h1>
+				</div>
+
+				<div class="w3-row-padding">
+
+					<!--lane 1-->
+
+					<div class="w3-col s12 m6 l4 w3-row-padding w3-margin-bottom">
+						<c:forEach items="${BoardList }" var="BoardList"
+							varStatus="status">
+							<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+							<c:set var="leng" value="${fn:length(name)}" />
+							<c:if
+								test="${BoardList.no%3==1 && calList.month==BoardList.month && calList.day==BoardList.day }">
+
+
+								<!-- 대학원 유료 -->
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
+
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white">
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year}년
+												${BoardList.slctnSemstr}</div>
+											<div style="margin-bottom: 0em;">
+												<img src="${BoardList.storgPath }" alt="${BoardList.major }"
+													style="width: 100%; padding: 1em 1em 0 1em; height: 83px;">
+											</div>
+											<div class="w3-container w3-center">
+												<h4>
+													<strong>${BoardList.lab }</strong>
+												</h4>
+												<p style="font-size: 1.8vmin;">
+													<span class="grad-target">${BoardList.slctnTitle }</span>
+												</p>
+											</div>
+											<div class="w3-container">
+												<div class="w3-light-grey w3-tiny">
+													<c:if test="${BoardList.percent<=0 }">
+														<div class="w3-container" style="width: 0%; height: 1px;"></div>
+													</c:if>
+													<c:if test="${BoardList.percent>0 }">
+														<div class="w3-container w3-black"
+															style="width: ${BoardList.percent }%; height: 1px;"></div>
+													</c:if>
+												</div>
+											</div>
+
+										</div>
+
+										<div class="w3-container w3-margin-top">
+											<div
+												class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+												<i class="far fa-thumbtack w3-large"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+											</div>
+										</div>
+
+										<div class="w3-row-padding w3-padding">
+											<span
+												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+												style="float: right;"> <c:if
+													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+															</c:if> <c:if
+													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+													<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+													<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+												</c:if>
+											</span>
+										</div>
+									</div>
+								</c:if>
+
+								<!-- 연구실 유료 -->
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white">
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
+												<div class="w3-small w3-padding  "
+													style="margin-bottom: -1.5em; height: 2.7em">
+													<span class="w3-red "
+														style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
+													<span class="w3-blue "
+														style="padding-right: 5px; padding-left: 0px;">21+</span>
+												</div>
+
+											</c:if>
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year}년
+												${BoardList.slctnSemstr}</div>
+											<div style="margin-bottom: 0em;">
+												<img src="${BoardList.storgPath }" alt="${BoardList.major }"
+													style="width: 100%; padding: 1em 1em 0 1em; height: 83px;">
+											</div>
+											<div class="w3-container w3-center">
+												<h4>
+													<strong>${BoardList.lab }</strong>
+												</h4>
+												<p style="font-size: 1.8vmin;">
+													<span class="grad-target">${BoardList.slctnTitle }</span>
+												</p>
+											</div>
+
+											<div class="research-field w3-padding text-center">
+												<c:forEach items="${BoardList.researchList }" var="resList"
+													varStatus="status">
+													<span class="w3-tag w3-light-grey w3-tiny ">${resList.cdNm }</span>
+												</c:forEach>
+											</div>
+										</div>
+										<div
+											class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+											<i class="far fa-thumbtack w3-large"
+												onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+										</div>
+										<div class="w3-row-padding w3-padding">
+											<span
+												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+												style="float: right;"> <c:if
+													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+															</c:if> <c:if
+													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+													<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+													<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+												</c:if>
+											</span>
+										</div>
+									</div>
+								</c:if>
+
+								<!-- 대학원 무료-->
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
+
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
+
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year }년
+												${BoardList.slctnSemstr}</div>
+											<div class="w3-container w3-center w3-padding"
+												style="margin-bottom: -1em;">
+												<h4 class="w3-padding w3-round-large"
+													style="margin-bottom: 0em;">
+													<strong style="color: ${BoardList.symbolColorNm };">${BoardList.major }</strong>
+													<strong>${BoardList.lab }</strong>
+												</h4>
+												<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
+											</div>
+										</div>
+										<div class="w3-row-padding w3-padding">
+											<div
+												class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+												<i class="far fa-thumbtack w3-large"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+											</div>
+											<div class="w3-row-padding w3-padding">
+												<span
+													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+													style="float: right;"> <c:if
+														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+														</c:if> <c:if
+														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+														<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+														<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+													</c:if>
+												</span>
+											</div>
+										</div>
+									</div>
+
+								</c:if>
+
+
+								<!-- 연구실 무료-->
+
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}">
+
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom"
+										onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year }년
+												${BoardList.slctnSemstr }</div>
+											<div class="w3-container w3-center w3-padding"
+												style="margin-bottom: -1em;">
+												<h5 class="w3-padding" style="margin-bottom: 0em;">
+													<strong style="color: ${BoardList.symbolColorNm };">${BoardList.university }
+													</strong>
+												</h5>
+												<h5>
+													<strong>${BoardList.graduate } ${BoardList.lab }</strong>
+												</h5>
+												<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
+											</div>
+										</div>
+										<div class="w3-row-padding w3-padding">
+											<div
+												class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+												<i class="far fa-thumbtack w3-large"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+											</div>
+											<div class="w3-row-padding w3-padding">
+												<span
+													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+													style="float: right;"> <c:if
+														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+														</c:if> <c:if
+														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+														<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+														<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+													</c:if>
+												</span>
+											</div>
+										</div>
+									</div>
+								</c:if>
+
+
+								<!-- 게시글 -->
+								<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
+									<div
+										class="w3-card w3-round-large w3-margin-bottom main-banner w3-white counseling"
+										value=${BoardList.slctnNotiNo }>
+										<div class="w3-padding w3-text-grey w3-small">
+											<span class="">${fn:replace(BoardList.bbsNm,'게시판','') }
+												- <c:if test="${fn:substring(name,0,2) =='상담'}">
+												Question
+											</c:if> <c:if test="${fn:substring(name,0,2) !='상담' }">
+												Ordinary
+											</c:if> - <c:if test="${BoardList.storgPath ne null }">
+												with Image                    	
+											</c:if> <c:if test="${BoardList.storgPath eq null }">
+												no Image
+											</c:if>
+											</span>
+										</div>
+
+
+
+										<!-- 이미지가 있는 경우 -->
+										<c:if test="${BoardList.storgPath ne null }">
+											<div class="w3-display-container">
+												<img src="${BoardList.storgPath }" alt=""
+													style="width: 100%;">
+
+												<!--제목-->
+												<div
+													class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
+													style="background-color: rgba(0, 0, 0, 0.5);">#${BoardList.wrtbtTitle
+													}</div>
+											</div>
+										</c:if>
+
+
+										<!-- 이미지가 없는 경우 -->
+										<c:if test="${BoardList.storgPath eq null }">
+											<div class="w3-center w3-container">
+												<h5 style="margin-bottom: 0em;">
+													<strong>${BoardList.wrtbtTitle }</strong>
+												</h5>
+											</div>
+											<div class="w3-container" style="margin-bottom: -1em;">
+												<div class="w3-container w3-margin-top">
+													<p class="w3-medium mypage-text"
+														style="margin-top: 0em; line-height: 200%; max-height: 10em; text-overflow: ellipsis; overflow: hidden;">
+														${BoardList.wrtbtText }</p>
+													<span
+														class="w3-medium w3-left w3-margin-bottom w3-text-blue read-more"
+														style="font-size: 1.8vmin; margin-top: -1.5em;">(read
+														more)</span>
+												</div>
+											</div>
+										</c:if>
+
+
+
+										<c:if test="${BoardList.count>0 }">
+											<div class="w3-container w3-margin-top">
+												<!--코멘트 수-->
+												<span class="w3-small w3-padding"> <c:if
+														test="${fn:substring(name,0,2) =='상담'}">
+													Answer
+												</c:if> <c:if test="${fn:substring(name,0,2) !='상담' }">
+													Comment
+												</c:if> <span class="w3-badge w3-light-gray">${BoardList.count }</span>
+												</span>
+												<!--코멘트(베스트)-->
+												<p class="board-answer w3-round-large w3-padding w3-medium"
+													style="font-size: 1.8vmin; margin-top: 0em; line-height: 200%; max-height: 4em; text-overflow: ellipsis; overflow: hidden;">
+													${BoardList.subwrtbtText }</p>
+											</div>
+										</c:if>
+										<c:if test="${BoardList.count <=0 }">
+											<div class="w3-container w3-margin-top"></div>
+										</c:if>
+
+										<c:if
+											test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
+											<div class="w3-container w3-center w3-padding">
+												<button
+													class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply"
+													style="letter-spacing: 2px;"
+													value="${BoardList.slctnNotiNo}">답변하기</button>
+											</div>
+										</c:if>
+									</div>
+								</c:if>
+
+								<!-- 게시글 끝 -->
+
+							</c:if>
+						</c:forEach>
+
+					</div>
+
+					<!--lane 2-->
+					<div class="w3-col s12 m6 l4 w3-row-padding w3-margin-bottom">
+						<c:forEach items="${BoardList }" var="BoardList"
+							varStatus="status">
+							<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+							<c:set var="leng" value="${fn:length(name)}" />
+							<c:if
+								test="${BoardList.no%3==2 && calList.month==BoardList.month && calList.day==BoardList.day }">
+
+
+								<!-- 대학원 유료 -->
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
+
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white">
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year}년
+												${BoardList.slctnSemstr}</div>
+											<div style="margin-bottom: 0em;">
+												<img src="${BoardList.storgPath }" alt="${BoardList.major }"
+													style="width: 100%; padding: 1em 1em 0 1em; height: 83px;">
+											</div>
+											<div class="w3-container w3-center">
+												<h4>
+													<strong>${BoardList.lab }</strong>
+												</h4>
+												<p style="font-size: 1.8vmin;">
+													<span class="grad-target">${BoardList.slctnTitle }</span>
+												</p>
+											</div>
+											<div class="w3-container">
+												<div class="w3-light-grey w3-tiny">
+													<c:if test="${BoardList.percent<=0 }">
+														<div class="w3-container" style="width: 0%; height: 1px;"></div>
+													</c:if>
+													<c:if test="${BoardList.percent>0 }">
+														<div class="w3-container w3-black"
+															style="width: ${BoardList.percent }%; height: 1px;"></div>
+													</c:if>
+												</div>
+											</div>
+
+										</div>
+
+										<div class="w3-container w3-margin-top">
+											<div
+												class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+												<i class="far fa-thumbtack w3-large"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+											</div>
+										</div>
+
+										<div class="w3-row-padding w3-padding">
+											<span
+												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+												style="float: right;"> <c:if
+													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+															</c:if> <c:if
+													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+													<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+													<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+												</c:if>
+											</span>
+										</div>
+									</div>
+								</c:if>
+
+								<!-- 연구실 유료 -->
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white">
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
+												<div class="w3-small w3-padding  "
+													style="margin-bottom: -1.5em; height: 2.7em">
+													<span class="w3-red "
+														style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
+													<span class="w3-blue "
+														style="padding-right: 5px; padding-left: 0px;">21+</span>
+												</div>
+
+											</c:if>
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year}년
+												${BoardList.slctnSemstr}</div>
+											<div style="margin-bottom: 0em;">
+												<img src="${BoardList.storgPath }" alt="${BoardList.major }"
+													style="width: 100%; padding: 1em 1em 0 1em; height: 83px;">
+											</div>
+											<div class="w3-container w3-center">
+												<h4>
+													<strong>${BoardList.lab }</strong>
+												</h4>
+												<p style="font-size: 1.8vmin;">
+													<span class="grad-target">${BoardList.slctnTitle }</span>
+												</p>
+											</div>
+
+											<div class="research-field w3-padding text-center">
+												<c:forEach items="${BoardList.researchList }" var="resList"
+													varStatus="status">
+													<span class="w3-tag w3-light-grey w3-tiny ">${resList.cdNm }</span>
+												</c:forEach>
+											</div>
+										</div>
+										<div
+											class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+											<i class="far fa-thumbtack w3-large"
+												onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+										</div>
+										<div class="w3-row-padding w3-padding">
+											<span
+												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+												style="float: right;"> <c:if
+													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+															</c:if> <c:if
+													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+													<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+													<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+												</c:if>
+											</span>
+										</div>
+									</div>
+								</c:if>
+
+								<!-- 대학원 무료-->
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
+
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
+
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year }년
+												${BoardList.slctnSemstr}</div>
+											<div class="w3-container w3-center w3-padding"
+												style="margin-bottom: -1em;">
+												<h4 class="w3-padding w3-round-large"
+													style="margin-bottom: 0em;">
+													<strong style="color: ${BoardList.symbolColorNm };">${BoardList.major }</strong>
+													<strong>${BoardList.lab }</strong>
+												</h4>
+												<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
+											</div>
+										</div>
+										<div class="w3-row-padding w3-padding">
+											<div
+												class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+												<i class="far fa-thumbtack w3-large"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+											</div>
+											<div class="w3-row-padding w3-padding">
+												<span
+													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+													style="float: right;"> <c:if
+														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+														</c:if> <c:if
+														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+														<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+														<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+													</c:if>
+												</span>
+											</div>
+										</div>
+									</div>
+
+								</c:if>
+
+
+								<!-- 연구실 무료-->
+
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}">
+
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom"
+										onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year }년
+												${BoardList.slctnSemstr }</div>
+											<div class="w3-container w3-center w3-padding"
+												style="margin-bottom: -1em;">
+												<h5 class="w3-padding" style="margin-bottom: 0em;">
+													<strong style="color: ${BoardList.symbolColorNm };">${BoardList.university }
+													</strong>
+												</h5>
+												<h5>
+													<strong>${BoardList.graduate } ${BoardList.lab }</strong>
+												</h5>
+												<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
+											</div>
+										</div>
+										<div class="w3-row-padding w3-padding">
+											<div
+												class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+												<i class="far fa-thumbtack w3-large"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+											</div>
+											<div class="w3-row-padding w3-padding">
+												<span
+													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+													style="float: right;"> <c:if
+														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+														</c:if> <c:if
+														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+														<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+														<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+													</c:if>
+												</span>
+											</div>
+										</div>
+									</div>
+								</c:if>
+
+								<!-- 게시글 -->
+								<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
+									<div
+										class="w3-card w3-round-large w3-margin-bottom main-banner w3-white counseling"
+										value=${BoardList.slctnNotiNo }>
+										<div class="w3-padding w3-text-grey w3-small">
+											<span class="">${fn:replace(BoardList.bbsNm,'게시판','') }
+												- <c:if test="${fn:substring(name,0,2) =='상담'}">
+												Question
+											</c:if> <c:if test="${fn:substring(name,0,2) !='상담' }">
+												Ordinary
+											</c:if> - <c:if test="${BoardList.storgPath ne null }">
+												with Image                    	
+											</c:if> <c:if test="${BoardList.storgPath eq null }">
+												no Image
+											</c:if>
+											</span>
+										</div>
+
+
+
+										<!-- 이미지가 있는 경우 -->
+										<c:if test="${BoardList.storgPath ne null }">
+											<div class="w3-display-container">
+												<img src="${BoardList.storgPath }" alt=""
+													style="width: 100%;">
+
+												<!--제목-->
+												<div
+													class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
+													style="background-color: rgba(0, 0, 0, 0.5);">#${BoardList.wrtbtTitle
+													}</div>
+											</div>
+										</c:if>
+
+
+										<!-- 이미지가 없는 경우 -->
+										<c:if test="${BoardList.storgPath eq null }">
+											<div class="w3-center w3-container">
+												<h5 style="margin-bottom: 0em;">
+													<strong>${BoardList.wrtbtTitle }</strong>
+												</h5>
+											</div>
+											<div class="w3-container" style="margin-bottom: -1em;">
+												<div class="w3-container w3-margin-top">
+
+													<p class="w3-medium mypage-text"
+														style="margin-top: 0em; line-height: 200%; max-height: 10em; text-overflow: ellipsis; overflow: hidden;">
+														${BoardList.wrtbtText }</p>
+													<span
+														class="w3-medium w3-left w3-margin-bottom w3-text-blue read-more"
+														style="font-size: 1.8vmin; margin-top: -1.5em;">(read
+														more)</span>
+												</div>
+											</div>
+										</c:if>
+
+
+
+										<c:if test="${BoardList.count>0 }">
+											<div class="w3-container w3-margin-top">
+												<!--코멘트 수-->
+												<span class="w3-small w3-padding"> <c:if
+														test="${fn:substring(name,0,2) =='상담'}">
+													Answer
+												</c:if> <c:if test="${fn:substring(name,0,2) !='상담' }">
+													Comment
+												</c:if> <span class="w3-badge w3-light-gray">${BoardList.count }</span>
+												</span>
+												<!--코멘트(베스트)-->
+												<p class="board-answer w3-round-large w3-padding w3-medium"
+													style="font-size: 1.8vmin; margin-top: 0em; line-height: 200%; max-height: 4em; text-overflow: ellipsis; overflow: hidden;">
+													${BoardList.subwrtbtText }</p>
+											</div>
+										</c:if>
+										<c:if test="${BoardList.count <=0 }">
+											<div class="w3-container w3-margin-top"></div>
+										</c:if>
+
+										<c:if
+											test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
+											<div class="w3-container w3-center w3-padding">
+												<button
+													class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply"
+													style="letter-spacing: 2px;"
+													value="${BoardList.slctnNotiNo}">답변하기</button>
+											</div>
+										</c:if>
+									</div>
+								</c:if>
+
+								<!-- 게시글 끝 -->
+
+							</c:if>
+						</c:forEach>
+
+					</div>
+
+
+					<!--lane 3-->
+					<div class="w3-col s12 m6 l4 w3-row-padding w3-margin-bottom">
+						<c:forEach items="${BoardList }" var="BoardList"
+							varStatus="status">
+							<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+							<c:set var="leng" value="${fn:length(name)}" />
+							<c:if
+								test="${BoardList.no%3==0 && calList.month==BoardList.month && calList.day==BoardList.day }">
+
+
+								<!-- 대학원 유료 -->
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='Y'}">
+
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white">
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year}년
+												${BoardList.slctnSemstr}</div>
+											<div style="margin-bottom: 0em;">
+												<img src="${BoardList.storgPath }" alt="${BoardList.major }"
+													style="width: 100%; padding: 1em 1em 0 1em; height: 83px;">
+											</div>
+											<div class="w3-container w3-center">
+												<h4>
+													<strong>${BoardList.lab }</strong>
+												</h4>
+												<p style="font-size: 1.8vmin;">
+													<span class="grad-target">${BoardList.slctnTitle }</span>
+												</p>
+											</div>
+											<div class="w3-container">
+												<div class="w3-light-grey w3-tiny">
+													<c:if test="${BoardList.percent<=0 }">
+														<div class="w3-container" style="width: 0%; height: 1px;"></div>
+													</c:if>
+													<c:if test="${BoardList.percent>0 }">
+														<div class="w3-container w3-black"
+															style="width: ${BoardList.percent }%; height: 1px;"></div>
+													</c:if>
+												</div>
+											</div>
+
+										</div>
+
+										<div class="w3-container w3-margin-top">
+											<div
+												class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+												<i class="far fa-thumbtack w3-large"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+											</div>
+										</div>
+
+										<div class="w3-row-padding w3-padding">
+											<span
+												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+												style="float: right;"> <c:if
+													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+															</c:if> <c:if
+													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+													<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+													<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+												</c:if>
+											</span>
+										</div>
+									</div>
+								</c:if>
+
+								<!-- 연구실 유료 -->
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='Y'}">
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white">
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<c:if test="${BoardList.bk21EorgnzSuprtYn=='Y' }">
+												<div class="w3-small w3-padding  "
+													style="margin-bottom: -1.5em; height: 2.7em">
+													<span class="w3-red "
+														style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
+													<span class="w3-blue "
+														style="padding-right: 5px; padding-left: 0px;">21+</span>
+												</div>
+
+											</c:if>
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year}년
+												${BoardList.slctnSemstr}</div>
+											<div style="margin-bottom: 0em;">
+												<img src="${BoardList.storgPath }" alt="${BoardList.major }"
+													style="width: 100%; padding: 1em 1em 0 1em; height: 83px;">
+											</div>
+											<div class="w3-container w3-center">
+												<h4>
+													<strong>${BoardList.lab }</strong>
+												</h4>
+												<p style="font-size: 1.8vmin;">
+													<span class="grad-target">${BoardList.slctnTitle }</span>
+												</p>
+											</div>
+
+											<div class="research-field w3-padding text-center">
+												<c:forEach items="${BoardList.researchList }" var="resList"
+													varStatus="status">
+													<span class="w3-tag w3-light-grey w3-tiny ">${resList.cdNm }</span>
+												</c:forEach>
+											</div>
+										</div>
+										<div
+											class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+											<i class="far fa-thumbtack w3-large"
+												onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+										</div>
+										<div class="w3-row-padding w3-padding">
+											<span
+												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+												style="float: right;"> <c:if
+													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+															</c:if> <c:if
+													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+													<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+													<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+												</c:if>
+											</span>
+										</div>
+									</div>
+								</c:if>
+
+								<!-- 대학원 무료-->
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '대학원' && BoardList.pchrgYn=='N'}">
+
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
+
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year }년
+												${BoardList.slctnSemstr}</div>
+											<div class="w3-container w3-center w3-padding"
+												style="margin-bottom: -1em;">
+												<h4 class="w3-padding w3-round-large"
+													style="margin-bottom: 0em;">
+													<strong style="color: ${BoardList.symbolColorNm };">${BoardList.major }</strong>
+													<strong>${BoardList.lab }</strong>
+												</h4>
+												<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
+											</div>
+										</div>
+										<div class="w3-row-padding w3-padding">
+											<div
+												class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+												<i class="far fa-thumbtack w3-large"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+											</div>
+											<div class="w3-row-padding w3-padding">
+												<span
+													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+													style="float: right;"> <c:if
+														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+														</c:if> <c:if
+														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+														<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+														<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+													</c:if>
+												</span>
+											</div>
+										</div>
+									</div>
+
+								</c:if>
+
+
+								<!-- 연구실 무료-->
+
+								<c:if
+									test="${BoardList.slctnNotiDstnct == '연구실' && BoardList.pchrgYn=='N'}">
+
+									<div
+										class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom"
+										onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+										<div
+											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+											<div class="w3-padding w3-text-grey w3-small"
+												style="margin-bottom: -1.5em;">${BoardList.year }년
+												${BoardList.slctnSemstr }</div>
+											<div class="w3-container w3-center w3-padding"
+												style="margin-bottom: -1em;">
+												<h5 class="w3-padding" style="margin-bottom: 0em;">
+													<strong style="color: ${BoardList.symbolColorNm };">${BoardList.university }
+													</strong>
+												</h5>
+												<h5>
+													<strong>${BoardList.graduate } ${BoardList.lab }</strong>
+												</h5>
+												<p style="font-size: 1.8vmin;">${BoardList.slctnTitle }</p>
+											</div>
+										</div>
+										<div class="w3-row-padding w3-padding">
+											<div
+												class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
+												<i class="far fa-thumbtack w3-large"
+													onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
+											</div>
+											<div class="w3-row-padding w3-padding">
+												<span
+													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
+													style="float: right;"> <c:if
+														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
+																상시모집
+														</c:if> <c:if
+														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
+														<c:if test="${BoardList.percent<=0 }">
+																	모집예정
+																</c:if>
+														<c:if test="${BoardList.percent>0 }">
+																	D-${BoardList.dday }
+																</c:if>
+													</c:if>
+												</span>
+											</div>
+										</div>
+									</div>
+								</c:if>
+
+								<!-- 게시글 -->
+								<c:if test="${'게시판' == fn:substring(name,leng-3,leng)}">
+									<div
+										class="w3-card w3-round-large w3-margin-bottom main-banner w3-white counseling"
+										value=${BoardList.slctnNotiNo }>
+										<div class="w3-padding w3-text-grey w3-small">
+											<span class="">${fn:replace(BoardList.bbsNm,'게시판','') }
+												- <c:if test="${fn:substring(name,0,2) =='상담'}">
+												Question
+											</c:if> <c:if test="${fn:substring(name,0,2) !='상담' }">
+												Ordinary
+											</c:if> - <c:if test="${BoardList.storgPath ne null }">
+												with Image                    	
+											</c:if> <c:if test="${BoardList.storgPath eq null }">
+												no Image
+											</c:if>
+											</span>
+										</div>
+
+
+
+										<!-- 이미지가 있는 경우 -->
+										<c:if test="${BoardList.storgPath ne null }">
+											<div class="w3-display-container">
+												<img src="${BoardList.storgPath }" alt=""
+													style="width: 100%;">
+
+												<!--제목-->
+												<div
+													class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
+													style="background-color: rgba(0, 0, 0, 0.5);">#${BoardList.wrtbtTitle
+													}</div>
+											</div>
+										</c:if>
+
+
+										<!-- 이미지가 없는 경우 -->
+										<c:if test="${BoardList.storgPath eq null }">
+											<div class="w3-center w3-container">
+												<h5 style="margin-bottom: 0em;">
+													<strong>${BoardList.wrtbtTitle }</strong>
+												</h5>
+											</div>
+											<div class="w3-container" style="margin-bottom: -1em;">
+												<div class="w3-container w3-margin-top">
+
+													<p class="w3-medium mypage-text"
+														style="margin-top: 0em; line-height: 200%; max-height: 10em; text-overflow: ellipsis; overflow: hidden;">
+														${BoardList.wrtbtText }</p>
+													<span
+														class="w3-medium w3-left w3-margin-bottom w3-text-blue read-more"
+														style="font-size: 1.8vmin; margin-top: -1.5em;">(read
+														more)</span>
+												</div>
+											</div>
+										</c:if>
+
+
+
+										<c:if test="${BoardList.count>0 }">
+											<div class="w3-container w3-margin-top">
+												<!--코멘트 수-->
+												<span class="w3-small w3-padding"> <c:if
+														test="${fn:substring(name,0,2) =='상담'}">
+													Answer
+												</c:if> <c:if test="${fn:substring(name,0,2) !='상담' }">
+													Comment
+												</c:if> <span class="w3-badge w3-light-gray">${BoardList.count }</span>
+												</span>
+												<!--코멘트(베스트)-->
+												<p class="board-answer w3-round-large w3-padding w3-medium"
+													style="font-size: 1.8vmin; margin-top: 0em; line-height: 200%; max-height: 4em; text-overflow: ellipsis; overflow: hidden;">
+													${BoardList.subwrtbtText }</p>
+											</div>
+										</c:if>
+										<c:if test="${BoardList.count <=0 }">
+											<div class="w3-container w3-margin-top"></div>
+										</c:if>
+
+										<c:if
+											test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
+											<div class="w3-container w3-center w3-padding">
+												<button
+													class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply"
+													style="letter-spacing: 2px;"
+													value="${BoardList.slctnNotiNo}">답변하기</button>
+											</div>
+										</c:if>
+									</div>
+								</c:if>
+
+								<!-- 게시글 끝 -->
+
+							</c:if>
+						</c:forEach>
+
+					</div>
+
+					<!-- 끝 -->
+
+				</div>
+			</div>
+		</c:forEach>
+	</c:if>
+
+	<!-- 모집공고, 새소식 끝 -->
+
+
+	<!-- 스크랩 시작 -->
+
+	<c:if test="${type == 'myscrap'}">
+		<div class="w3-row w3-margin-bottom">
+
+			<div class="w3-panel w3-border-bottom w3-border-black">
+				<h3>
+					<div style="float: left; margin-right: 0.3em;">대학원/연구실 스크랩</div>
+
+				</h3>
+			</div>
+		</div>
+
+		<!-- 스크랩 대학원/연구실 모집공고 -->
+
+		<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
+			<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+			<c:set var="leng" value="${fn:length(name)}" />
+			<c:if
+				test="${BoardList.slctnNotiDstnct=='연구실' || BoardList.slctnNotiDstnct=='대학원'}">
+
+
+
+
+				<div
+					class="w3-row w3-card w3-border-top w3-round-large w3-margin-bottom w3-content w3-white"
+					style="max-width: 1000px;" id="scrapnoti${BoardList.slctnNotiNo }">
+					<!--대학원-->
+					<div class="w3-col s12 m12 l12 w3-bar w3-padding">
+						<button class="w3-padding w3-white w3-button"
+							style="font-size: 2.2vmin;"
+							onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=${BoardList.slctnNotiDstnct}'">
+							<i class="far fa-university fa-lg"></i><b>${BoardList.major }${BoardList.lab }</b>
+							${BoardList.slctnTitle }
+						</button>
+						<button
+							onclick="deleteScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"
+							class="w3-button w3-right">&times;</button>
+
+					</div>
+
+					<!-- 연구실 정보 -->
+					<c:if test="${BoardList.slctnNotiDstnct=='연구실'}">
+						<div class="w3-center">
+							<div class="w3-col s6 m6 l6 w3-border-top">
+								<div class=" w3-padding">
+									<span class="w3-padding w3-text-grey" style="font-size: 2vmin;">지도교수</span>
+									<br> <span style="font-size: 2vmin;">${BoardList.mapProfNm }</span>
+								</div>
+							</div>
+							<div class="w3-col s6 m6 l6 w3-border-top">
+								<div class=" w3-padding">
+									<span class="w3-padding w3-text-grey" style="font-size: 2vmin;">모집전공</span>
+									<br> <span style="font-size: 2vmin;"> <c:if
+											test="${BoardList.researchList == null }">
+													무관
+												</c:if> <c:forEach items="${BoardList.researchList }" var="resList"
+											varStatus="status">
+											<c:choose>
+												<c:when test="${status.last}">
+															${resList.cdNm }	
+														</c:when>
+												<c:otherwise>
+															${resList.cdNm },
+														</c:otherwise>
+											</c:choose>
+										</c:forEach>
+
+									</span>
+								</div>
+							</div>
+						</div>
+					</c:if>
+
+					<div class="w3-center">
+						<div class="w3-col s6 m3 l3  w3-border-top w3-white w3-padding">
+							<span class="w3-padding w3-text-grey" style="font-size: 2vmin;">모집기간</span>
+							<br> <span style="font-size: 2vmin;"> <c:if
+									test="${BoardList.slctnSemstr=='상시' }">상시모집</c:if> <c:if
+									test="${BoardList.slctnSemstr!='상시' }">${BoardList.slctnBeginDt }~${BoardList.slctnEndDt }</c:if>
+							</span>
+						</div>
+						<div class="w3-col s6 m3 l3  w3-border-top w3-white w3-padding">
+							<span class="w3-padding w3-text-grey" style="font-size: 2vmin;">지역</span>
+							<br> <span style="font-size: 2vmin;">${BoardList.ar }</span>
+						</div>
+						<div class="w3-col s6 m3 l3  w3-border-top w3-white w3-padding">
+							<span class="w3-padding w3-text-grey" style="font-size: 2vmin;">전형방법</span>
+							<br> <span style="font-size: 2vmin;">${BoardList.slsnMth }</span>
+						</div>
+
+						<div class="w3-col s6 m3 l3  w3-border-top w3-white w3-padding">
+							<span class="w3-padding w3-text-grey" style="font-size: 2vmin;">모집인원</span>
+							<br> <span style="font-size: 2vmin;">${BoardList.slctnNops }</span>
+						</div>
+					</div>
+
+
+					<!-- 연구실 지원내역 -->
+					<c:if test="${BoardList.slctnNotiDstnct=='연구실'}">
+						<div class="w3-col s12 m12 l12 w3-white  w3-border-top">
+							<div class=" w3-padding">
+								<span class="w3-padding w3-text-grey" style="font-size: 2vmin;">지원내역</span>
+								<div class="w3-container">
+									<c:if test="${BoardList.tuitionSuprtYn == 'Y' }">
+										<span class="w3-padding  " style="font-size: 2vmin;">등록금
+											지원</span>
+									</c:if>
+									<c:if test="${BoardList.lvncSuprtYn == 'Y' }">
+										<span class="w3-padding  " style="font-size: 2vmin;">생활비
+											지원</span>
+									</c:if>
+									<c:if test="${BoardList.bk21EorgnzSuprtYn == 'Y' }">
+										<span class="w3-padding  " style="font-size: 2vmin;">BK
+											지원</span>
+									</c:if>
+									<c:if test="${BoardList.incetSuprtYn == 'Y' }">
+										<span class="w3-padding  " style="font-size: 2vmin;">인센티브
+											지원</span>
+									</c:if>
+									<c:if test="${BoardList.lrstyJoingfeeSuprtYn == 'Y' }">
+										<span class="w3-padding  " style="font-size: 2vmin;">학회
+											참가비 지원</span>
+									</c:if>
+									<c:if test="${BoardList.dormSuprtYn == 'Y' }">
+										<span class="w3-padding  " style="font-size: 2vmin;">기숙사
+											지원</span>
+									</c:if>
+									<c:if test="${BoardList.internYn == 'Y' }">
+										<span class="w3-padding  " style="font-size: 2vmin;">인턴
+											지원</span>
+									</c:if>
+									<c:if test="${BoardList.lrstyJoingYn == 'Y' }">
+										<span class="w3-padding  " style="font-size: 2vmin;">학회
+											참가 지원</span>
+									</c:if>
+									<c:if test="${BoardList.resrchTaskJoingYn == 'Y' }">
+										<span class="w3-padding  " style="font-size: 2vmin;">연구
+											과제 참가 지원</span>
+									</c:if>
+									<c:if test="${BoardList.stdtrOpptySuprtYn == 'Y' }">
+													<<span class="w3-padding  " style="font-size: 2vmin;">연수
+											기회 지원</span>
+									</c:if>
+									<c:if test="${BoardList.eduPgmJoingSuprtYn == 'Y' }">
+										<span class="w3-padding  " style="font-size: 2vmin;">교육프로그램
+											지원</span>
+									</c:if>
+								</div>
+							</div>
+						</div>
+
+					</c:if>
+
+
+					<div class="w3-col s12 m12 l12 w3-border-top">
+						<div class="w3-center w3-padding">
+							<button onclick="myFunction(${BoardList.slctnNotiNo })"
+								class="w3-large w3-white w3-button">
+								<b>Contact</b>
+							</button>
+							<div id="${BoardList.slctnNotiNo }"
+								class="w3-hide w3-animate-opacity w3-content">
+								<span class=" w3-block w3-left-align"><i
+									class="far fa-user"></i> ${BoardList.chrgrNm }</span> <span
+									class=" w3-block w3-left-align"><i class="far fa-phone"></i>
+									${BoardList.chrgrTelNo } </span> <span class="w3-block w3-left-align"><i
+									class="far fa-envelope"></i> ${BoardList.chrgrEmail }</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</c:if>
+		</c:forEach>
+
+
+		<div class="w3-row w3-margin-bottom">
+			<div class="w3-panel w3-border-bottom w3-border-black">
+				<h3>
+					<div style="float: left; margin-right: 0.3em;">교육/모임 스크랩</div>
+				</h3>
+			</div>
+		</div>
+
+		<div class="w3-margin-bottom w3-content" style="max-width: 1000px;">
+			<!--교육모임-->
+			<div class="w3-row">
+				<div class="w3-panel w3-border-bottom w3-border-black">
+					<h3>
+						<div
+							style="float: left; margin-right: 0.3em; letter-spacing: 3px;">
+							<strong>교육</strong>
+						</div>
+					</h3>
+				</div>
+				<div class="w3-row-padding">
+					<!--lane 1-->
+					<div class="w3-col s12 m6 l3">
+						<div
+							class="w3-card w3-round-large w3-margin-bottom main-banner w3-white">
+							<div class="w3-padding w3-text-grey w3-small">
+								<span class="">Category - Meeting -with Image</span> <span
+									class="w3-right"><i class="fas fa-ellipsis-h"></i></span>
+							</div>
+							<div class="w3-display-container">
+								<img class="meeting-title"
+									src="https://onoffmix.com/images/event/81439/s"
+									style="width: 100%;">
+								<div
+									class="w3-large w3-display-topleft w3-padding w3-text-white w3-round-large"
+									style="background-color: rgba(0, 0, 0, 0.6);">서울</div>
+							</div>
+							<div class="w3-container w3-margin-top ">
+								<a class="bar-deco" href="meeting.html">
+									<button
+										class="w3-button w3-block w3-border w3-white w3-round-large w3-margin-bottom w3-large"
+										style="letter-spacing: 2px;">Request</button>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<!--lane 2-->
+					<div class="w3-col s12 m6 l3">
+						<div
+							class="w3-card w3-round-large w3-margin-bottom main-banner w3-white">
+							<div class="w3-padding w3-text-grey w3-small">
+								<span class="">Category - Meeting -with Image</span> <span
+									class="w3-right"><i class="fas fa-ellipsis-h"></i></span>
+							</div>
+							<div class="w3-display-container">
+								<img class="meeting-title"
+									src="https://onoffmix.com/images/event/82819/s"
+									style="width: 100%;">
+								<div
+									class="w3-large w3-display-topleft w3-padding w3-text-white w3-round-large"
+									style="background-color: rgba(0, 0, 0, 0.6);">서울</div>
+							</div>
+							<div class="w3-container w3-margin-top ">
+								<a class="bar-deco" href="meeting.html">
+									<button
+										class="w3-button w3-block w3-border w3-white w3-round-large w3-margin-bottom w3-large"
+										style="letter-spacing: 2px;">Request</button>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<!--lane 3-->
+					<div class="w3-col s12 m6 l3">
+						<div
+							class="w3-card w3-round-large w3-margin-bottom main-banner w3-white">
+							<div class="w3-padding w3-text-grey w3-small">
+								<span class="">Category - Meeting -with Image</span> <span
+									class="w3-right"><i class="fas fa-ellipsis-h"></i></span>
+							</div>
+							<div class="w3-display-container">
+								<img class="meeting-title"
+									src="https://onoffmix.com/images/event/79536/s"
+									style="width: 100%;">
+								<div
+									class="w3-large w3-display-topleft w3-padding w3-text-white w3-round-large"
+									style="background-color: rgba(0, 0, 0, 0.6);">서울</div>
+							</div>
+							<div class="w3-container w3-margin-top ">
+								<a class="bar-deco" href="meeting.html">
+									<button
+										class="w3-button w3-block w3-border w3-white w3-round-large w3-margin-bottom w3-large"
+										style="letter-spacing: 2px;">Request</button>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="w3-col s12 m6 l3">
+						<div
+							class="w3-card w3-round-large w3-margin-bottom main-banner w3-white">
+							<div class="w3-padding w3-text-grey w3-small">
+								<span class="">Category - Meeting -with Image</span> <span
+									class="w3-right"><i class="fas fa-ellipsis-h"></i></span>
+							</div>
+							<div class="w3-display-container">
+								<img class="meeting-title"
+									src="https://onoffmix.com/images/event/97153/s"
+									style="width: 100%;">
+								<div
+									class="w3-large w3-display-topleft w3-padding w3-text-white w3-round-large"
+									style="background-color: rgba(0, 0, 0, 0.6);">서울</div>
+							</div>
+							<div class="w3-container w3-margin-top ">
+								<a class="bar-deco" href="meeting.html">
+									<button
+										class="w3-button w3-block w3-border w3-white w3-round-large w3-margin-bottom w3-large"
+										style="letter-spacing: 2px;">Request</button>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="w3-col s12 m6 l3">
+						<div
+							class="w3-card w3-round-large w3-margin-bottom main-banner w3-white">
+							<div class="w3-padding w3-text-grey w3-small">
+								<span class="">Category - Meeting -with Image</span> <span
+									class="w3-right"><i class="fas fa-ellipsis-h"></i></span>
+							</div>
+							<div class="w3-display-container">
+								<img class="meeting-title"
+									src="https://onoffmix.com/images/event/79131/s"
+									style="width: 100%;">
+								<div
+									class="w3-large w3-display-topleft w3-padding w3-text-white w3-round-large"
+									style="background-color: rgba(0, 0, 0, 0.6);">서울</div>
+							</div>
+							<div class="w3-container w3-margin-top ">
+								<a class="bar-deco" href="meeting.html">
+									<button
+										class="w3-button w3-block w3-border w3-white w3-round-large w3-margin-bottom w3-large"
+										style="letter-spacing: 2px;">Request</button>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="w3-col s12 m6 l3">
+						<div
+							class="w3-card w3-round-large w3-margin-bottom main-banner w3-white">
+							<div class="w3-padding w3-text-grey w3-small">
+								<span class="">Category - Meeting -with Image</span> <span
+									class="w3-right"><i class="fas fa-ellipsis-h"></i></span>
+							</div>
+							<div class="w3-display-container">
+								<img class="meeting-title"
+									src="https://onoffmix.com/images/event/17004/s"
+									style="width: 100%;">
+								<div
+									class="w3-large w3-display-topleft w3-padding w3-text-white w3-round-large"
+									style="background-color: rgba(0, 0, 0, 0.6);">서울</div>
+							</div>
+							<div class="w3-container w3-margin-top ">
+								<a class="bar-deco" href="meeting.html">
+									<button
+										class="w3-button w3-block w3-border w3-white w3-round-large w3-margin-bottom w3-large"
+										style="letter-spacing: 2px;">Request</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="w3-row w3-margin-bottom">
+			<div class="w3-panel w3-border-bottom w3-border-black">
+				<h3>
+					<div style="float: left; margin-right: 0.3em;">게시글 스크랩</div>
+				</h3>
+			</div>
+		</div>
+
+
+		<div
+			class="w3-card w3-white w3-round-large w3-margin-bottom w3-content"
+			style="max-width: 800px;">
+			<!--게시글-->
+			<div class="w3-col s12 m12 l12 w3-margin-bottom ">
+
+
+				<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
+					<c:set var="name" value="${BoardList.slctnNotiDstnct}" />
+					<c:set var="leng" value="${fn:length(name)}" />
+					<c:if test="${fn:substring(name,leng-3,leng)=='게시판'}">
+						<div
+							class="w3-card w3-round-large w3-margin-bottom w3-white talk-banner"
+							id="scrapcoun${BoardList.slctnNotiNo }">
+
+							<div class="w3-padding w3-text-grey w3-small">
+								<span class=""> <c:if
+										test="${BoardList.wrtbtDstnct=='상담게시판' }">
+											Question Asked
+										</c:if> <c:if test="${BoardList.wrtbtDstnct=='일반게시판' }">
+											Ordinary
+										</c:if> - ${fn:replace(BoardList.bbsNm,'게시판','') }
+								</span> <span class="w3-right"><button
+										onclick="deleteScrap('게시글',${BoardList.slctnNotiNo},${authUser.mbNo });"
+										class="w3-button w3-right">&times;</button></span>
+							</div>
+
+							<div class="counseling" value="${BoardList.slctnNotiNo }">
+
+
+
+								<!-- 이미지가 있는 경우 -->
+								<c:if test="${BoardList.storgPath ne null }">
+									<div class="w3-margin-left">
+										<h5 style="margin-bottom: 0em;">
+
+											<c:if test="${BoardList.wrtbtDstnct=='상담게시판' }">
+												<i class="far fa-question fa-lg"></i>
+											</c:if>
+											<c:if test="${BoardList.wrtbtDstnct=='일반게시판' }">
+												<i class="far fa-sun fa-lg"></i>
+											</c:if>
+											<strong>${BoardList.wrtbtTitle }</strong>
+										</h5>
+									</div>
+									<div class="w3-display-container">
+										<img src="${BoardList.storgPath }" alt="" style="width: 100%;">
+
+										<!--제목-->
+										<div
+											class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
+											style="background-color: rgba(0, 0, 0, 0.5);">#${BoardList.wrtbtTitle
+											}</div>
+									</div>
+								</c:if>
+
+
+								<!-- 이미지가 없는 경우 -->
+								<c:if test="${BoardList.storgPath eq null }">
+									<div class="w3-center w3-container">
+										<h5 style="margin-bottom: 0em;">
+											<strong>${BoardList.wrtbtTitle }</strong>
+										</h5>
+									</div>
+									<div class="w3-container" style="margin-bottom: -1em;">
+										<div class="w3-container w3-margin-top">
+
+											<p class="w3-medium mypage-text"
+												style="margin-top: 0em; line-height: 200%; max-height: 10em; text-overflow: ellipsis; overflow: hidden;">
+												${BoardList.wrtbtText }</p>
+											<span
+												class="w3-medium w3-left w3-margin-bottom w3-text-blue read-more"
+												style="font-size: 1.8vmin; margin-top: -1.5em;">(read
+												more)</span>
+										</div>
+									</div>
+								</c:if>
+
+
+
+								<c:if test="${BoardList.count>0 }">
+									<div class="w3-container w3-margin-top">
+										<!--코멘트 수-->
+										<span class="w3-small w3-padding"> <c:if
+												test="${fn:substring(name,0,2) =='상담'}">
+													Answer
+												</c:if> <c:if test="${fn:substring(name,0,2) !='상담' }">
+													Comment
+												</c:if> <span class="w3-badge w3-light-gray">${BoardList.count }</span>
+										</span>
+										<!--코멘트(베스트)-->
+										<p class="board-answer w3-round-large w3-padding w3-medium"
+											style="font-size: 1.8vmin; margin-top: 0em; line-height: 200%; max-height: 4em; text-overflow: ellipsis; overflow: hidden;">
+											${BoardList.subwrtbtText }</p>
+									</div>
+								</c:if>
+								<c:if test="${BoardList.count <=0 }">
+									<div class="w3-container w3-margin-top"></div>
+								</c:if>
+
+								<c:if
+									test="${fn:substring(name,0,2) =='상담' && BoardList.count<=0 }">
+									<div class="w3-container w3-center w3-padding">
+										<button
+											class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply"
+											style="letter-spacing: 2px;" value="${BoardList.slctnNotiNo}">답변하기</button>
+									</div>
+								</c:if>
+							</div>
+
+						</div>
+
+
+
+					</c:if>
+				</c:forEach>
+
+
+			</div>
+		</div>
+
+	</c:if>
+
+	<!-- 스크랩 끝 -->
+	</div>
+	</div>
+
+
+
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/resources/js/doscrap.js"></script>
-		
-	
-
 </body>
 </html>

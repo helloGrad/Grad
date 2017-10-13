@@ -140,33 +140,31 @@ public class MemberController {
 
 
 	/*
-	 * 허주한, 마이페이지 기능 
+	 * 허주한, 정예린, 마이페이지 기능 
 	 */	
 	
-	@Auth(role = Auth.Role.USER)
+	@Auth(role=Auth.Role.USER) 
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public String notiMypage(HttpServletRequest request, Model model, @RequestParam(value="type", required = true , defaultValue = "-1") String type) {
+	public String notiMypage2(HttpServletRequest request, Model model, 
+			@RequestParam(value="type", required = true , defaultValue = "-1") String type,
+			@RequestParam(value="btype", required = true , defaultValue = "-1") String btype) {
 		HttpSession session = request.getSession(true);
 
 		MemberVo authUser = (MemberVo) session.getAttribute("authUser");
 
-		//맞춤정보 코드 할당
+		
 		List<CodeVo> codeList = memberService.getinfoList(authUser);
 
-		//내가 쓴 글 할당
+		
 		List<StudyVo> myBoardList = memberService.getMyBoardList(authUser);
 
-		//맞춤정보로 출려 정보 할당
+		
 		List<StudyVo> tempBoardList = memberService.getArticleByInfo(codeList,-1l);
 
-		//렌더링 할 정보 할당
+		
 		List<StudyVo> BoardList = new ArrayList<StudyVo>();
 
 
-		//내가 스크랩한 게시물 모집공고 할당
-		//		List<CodeVo> scrapList = memberService.getBoardScrapList(authUser);
-
-		//내소식, 모집공고, 내가 쓴 글, 스크랩 별 보여줄 일수
 		int dayCount=0;
 
 
@@ -243,13 +241,10 @@ public class MemberController {
 		}
 
 
-
-
-		//그룹 번호 할당
 		if(type.equals("-1")||type.equals("noti")) {
 			for(int i=0;i<BoardList.size();i++) {
 
-				//연구실일 경우 모집연구 분야(1:다) 할당
+				
 				if(BoardList.get(i).getSlctnNotiDstnct().equals("연구실")) {
 					BoardList.get(i).setResearchList(memberService.getReasearchList(BoardList.get(i).getSlctnNotiNo()));
 				}
@@ -274,26 +269,43 @@ public class MemberController {
 			for(int i=0;i<BoardList.size();i++) {
 				if(BoardList.get(i).getSlctnNotiDstnct().equals("연구실")||BoardList.get(i).getSlctnNotiDstnct().equals("대학원")) {
 					BoardList.get(i).setNo(notiNum++);
-					System.out.println(BoardList.get(i).getNo());
+					
 				}else {
 					BoardList.get(i).setNo(boardNum++);
-					System.out.println(BoardList.get(i).getNo());
+				
 				}
 			}
 		}
 
-		JSONArray jsonArray = new JSONArray();
+		
+		/*
+		 * 2017-10-12
+		 */
 
-		model.addAttribute("scrapList", jsonArray.fromObject(memberService.getScrapList(authUser.getMbNo())));
+		JSONArray jsonArray = new JSONArray();
+		if (authUser != null) {
+			model.addAttribute("scrapList", memberService.getScrapList(authUser.getMbNo()));
+			model.addAttribute("scrapList", jsonArray.fromObject(memberService.getScrapList(authUser.getMbNo())));
+		}
+
 		model.addAttribute("type", type);
 		model.addAttribute("calList", calList);
 		model.addAttribute("infoList", codeList);
 		model.addAttribute("BoardList", BoardList);
+		
+		
+		
 
+		/*
+		 * 2017-10-12
+		 */
+		model.addAttribute("btype", btype);
+		
 
 
 		return "mypage";
 	}
+
 
 
 }

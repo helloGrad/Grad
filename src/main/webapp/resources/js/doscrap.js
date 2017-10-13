@@ -1,5 +1,5 @@
 
-var doScrap = function(type, id, user) {
+var doScrap = function(type, id,  isdetail, user) {
 	
 
 
@@ -41,6 +41,10 @@ var doScrap = function(type, id, user) {
 					if (response.result === "fail") {
 						console.warn(response.message);
 						return;
+					}
+					else if(isdetail === 'y'){
+						$("#notiDetailCount").text(response.data);
+						$("#notiDetailCountIcon").text(response.data);
 					}
 					
 					$.ajax({
@@ -87,6 +91,11 @@ var doScrap = function(type, id, user) {
 						console.warn(response.message);
 						return;
 					}
+					else if(isdetail === 'y'){
+						$("#notiDetailCount").text(response.data);
+						$("#notiDetailCountIcon").text(response.data);
+						
+					}
 					
 					$.ajax({
 						url : "/net/api/scrapCount?&user="
@@ -125,4 +134,41 @@ var doScrap = function(type, id, user) {
 		
 	}
 
+}
+
+
+
+
+var deleteScrap = function(type, id, user) {
+	
+	
+	$.ajax({
+		url : "/net/api/deletescrap?type=" + type + "&id=" + id
+				+ "&user=" + user,
+		type : "get",
+		dataType : "json",
+		data : "",
+		success : function(response) {
+		
+
+			if (response.result === "fail") {
+				console.warn(response.message);
+				return;
+			}
+
+			if(type==='모집공고'){
+				$("#scrapnoti"+id).remove();
+			}
+			else if(type==='게시글'){
+				$("#scrapcoun"+id).remove();
+			}
+			
+			
+
+		},
+		error : function(jqXHR, status, e) {
+			console.error(status + " : " + e);
+		}
+	});
+	
 }

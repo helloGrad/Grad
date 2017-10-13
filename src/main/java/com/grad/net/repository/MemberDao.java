@@ -175,4 +175,7 @@ public class MemberDao {
 		return sqlSession.selectOne("member.selectScrapCount",mbNo);
 	}	
 
+	public int getScrapCount(String id) {
+		return sqlSession.selectOne("member.getScrapCount",id);
+	}
 }

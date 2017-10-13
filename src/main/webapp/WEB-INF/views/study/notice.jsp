@@ -17,7 +17,7 @@
 <link href="${pageContext.request.contextPath}/resources/css/higrad-signup.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">	
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w31.css">	
 <link href="${pageContext.request.contextPath}/resources/css/login.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/css/study.css" rel="stylesheet">
 
@@ -168,7 +168,7 @@ body {
 			                    <div class="w3-row-padding w3-padding">
 									 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 				                            <i class="far fa-thumbtack w3-large" 
-				                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+				                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 				                        </div>
 										<span
 											class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"
@@ -249,7 +249,7 @@ body {
 					                     <div class="w3-row-padding w3-padding">
 									 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 				                            <i class="far fa-thumbtack w3-large" 
-				                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+				                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 				                        </div>
 										<span
 											class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"
@@ -368,7 +368,7 @@ body {
 						                    <div class="w3-row-padding w3-padding">
 												 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
-							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                        </div>
 							                        
 													 <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -460,7 +460,7 @@ body {
 								                    <div class="w3-row-padding w3-padding">
 								                    <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
-							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                        </div>
 						
 								                        

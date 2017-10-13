@@ -187,9 +187,9 @@ public class MemberController {
 			@RequestParam("id") String id,
 			@RequestParam("user") String user) {
 
-		boolean success = memberService.insertScrap(type,id,user);
+		memberService.insertScrap(type,id,user);
 
-		return JSONResult.success(success);
+		return JSONResult.success(memberService.getScrapCount(id));
 	}
 	
 	/*
@@ -201,8 +201,9 @@ public class MemberController {
 			@RequestParam("id") String id,
 			@RequestParam("user") String user) {
 
-		boolean success = memberService.deleteScrap(type,id,user);
-		return JSONResult.success(success);
+
+		memberService.deleteScrap(type,id,user);
+		return JSONResult.success(memberService.getScrapCount(id));
 	}
 
 	
@@ -364,5 +365,8 @@ public class MemberController {
 		return JSONResult.success(count);
 			
 	}
+	
+	
+	
 
 }

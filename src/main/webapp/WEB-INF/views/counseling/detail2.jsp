@@ -20,7 +20,7 @@ pageContext.setAttribute("newLine", "\n");
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
 <link href="${pageContext.request.contextPath}/resources/css/higrad-signup.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+>
 
 		
 <style>

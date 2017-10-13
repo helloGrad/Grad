@@ -142,6 +142,16 @@
 		where mb_no=#{mbNo };
 		]]>
 	</select>
+
+
+	<select id="getScrapCount" parameterType="String" resultType="int">
+		<![CDATA[	
+		select count(*) 
+		from mb_scrap_info
+		where prnts_dstnct='모집공고'
+		and prnts_no=#{id };
+		]]>
+	</select>
 	
 	
 		<!-- 정예린 -->
@@ -262,12 +272,42 @@
 		]]>
 	</select>
 	
-	<!-- 허주한 -->
+	<!-- 허주한 정예린 -->
 	<select id="getArticleByInfo" parameterType="map" resultType="studyVo">  
 		<![CDATA[
 		select a.*, (select count(*) from wetbt w where w.PRNTS_WRTBT_NO = a.slctnNotiNo) count, (select WRTBT_TEXT from wetbt w where w.PRNTS_WRTBT_NO = a.slctnNotiNo order by RCMD_CO desc limit 1) subwrtbtText
 from (select  af.STORG_PATH 'university',af.STORG_PATH 'graduate',w.WRTBT_NO 'pno3',af.STORG_PATH 'major',w.WRTBT_NO 'pno2',af.STORG_PATH 'lab',w.WRTBT_NO 'pno1',w.WRTBT_NO 'slctnNotiNo',af.STORG_PATH 'symbolColorNm',w.BBS_NM 'slctnNotiDstnct',
-w.AVLBL_BEGIN_DT 'notiRegstDt',w.AVLBL_BEGIN_DT 'slctnBeginDt',w.AVLBL_BEGIN_DT 'slctnEndDt',w.WRTBT_NO 'dday',w.WRTBT_NO 'percent',af.STORG_PATH 'slctnTitle',af.STORG_PATH 'slctnYycl',af.STORG_PATH 'slctnSemstr',af.STORG_PATH 'pchrgYn', null bk21EorgnzSuprtYn, af.STORG_PATH 'storgPath',
+w.AVLBL_BEGIN_DT 'notiRegstDt',w.AVLBL_BEGIN_DT 'slctnBeginDt',w.AVLBL_BEGIN_DT 'slctnEndDt',w.WRTBT_NO 'dday',w.WRTBT_NO 'percent',af.STORG_PATH 'slctnTitle',af.STORG_PATH 'slctnYycl',af.STORG_PATH 'slctnSemstr',af.STORG_PATH 'pchrgYn', 
+null bk21EorgnzSuprtYn, 
+null tuitionSuprtYn,
+ 
+ null lvncSuprtYn,
+ 
+ null incetSuprtYn,
+ 
+ null lrstyJoingfeeSuprtYn,
+ 
+ null dormSuprtYn,
+ 
+ null internYn,
+ 
+ null lrstyJoingYn,
+ 
+ null resrchTaskJoingYn,
+ 
+ null stdtrOpptySuprtYn,
+ 
+ null eduPgmJoingSuprtYn,
+ 
+  null chrgrNm,
+null chrgrTelNo,
+null chrgrEmail,
+ 
+null ar, 
+null mapProfNm, 
+null slsnMth,
+null slctnNops,
+af.STORG_PATH 'storgPath',
 w.WRTBT_NO wrtbtNo, w.BBS_NM bbsNm, w.WRTBT_TEXT wrtbtText, w.WRTBT_TITLE wrtbtTitle, w.AVLBL_BEGIN_DT avlblBeginDt, af.STORG_PATH 'coSrorgPath', year(w.AVLBL_BEGIN_DT) 'year', month(w.AVLBL_BEGIN_DT) 'month', DAYOFMONTH(w.AVLBL_BEGIN_DT) 'day', w.wrtbt_dstnct wrtbtDstnct
 from
 (select w.WRTBT_NO, b.BBS_NM, w.WRTBT_TEXT, w.WRTBT_TITLE,w.AVLBL_BEGIN_DT, w.wrtbt_dstnct
@@ -284,11 +324,35 @@ from
 from (select  p2.orgnz_nm 'graduate', p2.PRNTS_ORGNZ_NO pno3, c2.*
 from (select p.orgnz_nm 'major', p.PRNTS_ORGNZ_NO pno2, c.*
 from (select o.ORGNZ_NM 'lab', o.PRNTS_ORGNZ_NO pno1, sn.SLCTN_NOTI_NO, o.SYMBOL_COLOR_NM, sn.SLCTN_NOTI_DSTNCT,sn.NOTI_REGST_DT, 
-sn.SLCTN_BEGIN_DT, sn.SLCTN_END_DT ,TO_DAYS(sn.SLCTN_END_DT) - TO_DAYS(now()) "dday", TO_DAYS(now()) - TO_DAYS(sn.SLCTN_BEGIN_DT)/TO_DAYS(sn.SLCTN_END_DT) - TO_DAYS(sn.SLCTN_BEGIN_DT) "percent",
-sn.SLCTN_TITLE,sn.SLCTN_YYCL,sn.SLCTN_SEMSTR, sn.PCHRG_YN, sn.bk21_eorgnz_suprt_yn
-from organz o, slctn_Noti sn
-where o.ORGNZ_NO = sn.ORGNZ_NO
-and sn.SLCTN_END_DT >= now()) c left outer join organz p 
+ date_format(sn.SLCTN_BEGIN_DT,'%Y.%m.%d')
+, 
+date_format(sn.SLCTN_END_DT ,'%Y.%m.%d')
+,TO_DAYS(sn.SLCTN_END_DT) - TO_DAYS(now()) "dday", TO_DAYS(now()) - TO_DAYS(sn.SLCTN_BEGIN_DT)/TO_DAYS(sn.SLCTN_END_DT) - TO_DAYS(sn.SLCTN_BEGIN_DT) "percent",
+sn.SLCTN_TITLE,sn.SLCTN_YYCL,sn.SLCTN_SEMSTR, sn.PCHRG_YN, 
+sn.bk21_eorgnz_suprt_yn,
+sn.TUITION_SUPRT_YN,
+sn.LVNC_SUPRT_YN,
+sn.INCET_SUPRT_YN,
+sn.LRSTY_JOINGFEE_SUPRT_YN,
+sn.DORM_SUPRT_YN,
+sn.INTERN_YN,
+sn.LRSTY_JOING_YN,
+sn.RESRCH_TASK_JOING_YN,
+sn.STDTR_OPPTY_SUPRT_YN,
+sn.EDU_PGM_JOING_SUPRT_YN, 
+sn.chrgr_nm,
+sn.chrgr_tel_no,
+sn.chrgr_email,
+c.ar, 
+o.map_prof_nm,
+sn.slsn_mth,
+sn.slctn_nops
+from organz o inner join slctn_Noti sn on o.ORGNZ_NO = sn.ORGNZ_NO 
+left outer join (select oi.orgnz_no orgnz_no, c.cd_nm ar
+from organz_info oi, cd c
+where oi.cd_id = c.cd_id 
+and c.cd_dstnct='지역') c on o.orgnz_no=c.orgnz_no
+where sn.SLCTN_END_DT >= now()) c left outer join organz p 
 on c.pno1 = p.ORGNZ_NO) c2 left outer join organz p2 
 on c2.pno2 = p2.ORGNZ_NO) c3 left outer join organz p3
 on c3.pno3 = p3.ORGNZ_NO )sn LEFT JOIN apndng_file af
@@ -300,14 +364,15 @@ where (a.slctnNotiNo, slctnNotiDstnct) in (
 		from (select SLCTN_NOTI_NO noti_no, ORGNZ_NO orgnz_no, SLCTN_NOTI_DSTNCT noti_dstnct
 		from slctn_noti
 		]]>
-		
+
 		<if test="purposeListSize != 0">
 			<![CDATA[
 			where SLCTN_NOTI_DSTNCT in 
 			]]>
-			<foreach item="item" index="index" collection="purposeList" open="(" close=")" separator=",">
-					#{item}
-			</foreach> 
+			<foreach item="item" index="index" collection="purposeList"
+				open="(" close=")" separator=",">
+				#{item}
+			</foreach>
 		</if>
 		<![CDATA[
         ) noti, cd c, slctn_noti_info noti_cd
@@ -320,18 +385,20 @@ where (a.slctnNotiNo, slctnNotiDstnct) in (
 		<if test="arListSize != 0">
 			<![CDATA[
 			and c2.cd_nm in
-			]]> 
-			<foreach item="item" index="index" collection="arList" open="(" close=")" separator=",">
-					#{item}
+			]]>
+			<foreach item="item" index="index" collection="arList" open="("
+				close=")" separator=",">
+				#{item}
 			</foreach>
 		</if>
-		
+
 		<if test="studyListSize != 0">
 			<![CDATA[
 			and a.pnm in 
 			]]>
-			<foreach item="item" index="index" collection="studyList" open="(" close=")" separator=",">
-					#{item}
+			<foreach item="item" index="index" collection="studyList"
+				open="(" close=")" separator=",">
+				#{item}
 			</foreach>
 		</if> 
 		
@@ -341,13 +408,14 @@ where (a.slctnNotiNo, slctnNotiDstnct) in (
 		or (
 		b.cdNm = '연구실' 
 		]]>
-		
+
 		<if test="researchListSize != 0">
 		<![CDATA[
 		and b.prntsCdNm in 
 		]]>
-		<foreach item="item" index="index" collection="researchList" open="(" close=")" separator=",">
-					#{item}
+			<foreach item="item" index="index" collection="researchList"
+				open="(" close=")" separator=",">
+				#{item}
 			</foreach>
 		</if> 
 		<![CDATA[
@@ -362,9 +430,10 @@ where (a.slctnNotiNo, slctnNotiDstnct) in (
 		<![CDATA[
 		and bbs_nm in
 		]]>
-		<foreach item="item" index="index" collection="boardList" open="(" close=")" separator=",">
-					#{item}
-		</foreach>
+			<foreach item="item" index="index" collection="boardList"
+				open="(" close=")" separator=",">
+				#{item}
+			</foreach>
 		</if>
 		<![CDATA[
 		and w.WRTBT_TYPE_DSTNCT='원글')
@@ -388,9 +457,9 @@ where (a.slctnNotiNo, slctnNotiDstnct) in (
 		<![CDATA[
 		order by a.notiRegstDt desc
 		]]>
-		
-		
-		
+
+
+
 	</select>
 	
 	<select id="getReasearchList" parameterType="long" resultType="codeVo">
@@ -405,13 +474,19 @@ where (a.slctnNotiNo, slctnNotiDstnct) in (
 	<select id="getMyBoardList" parameterType="long" resultType="studyVo">
 	<![CDATA[
 	select wt.*, a.STORG_PATH storgPath
-	from (select w.AVLBL_BEGIN_DT notiRegstDt, year(w.AVLBL_BEGIN_DT) year, month(w.AVLBL_BEGIN_DT) month, DAYOFMONTH(w.AVLBL_BEGIN_DT) day ,w.WRTBT_DSTNCT slctnNotiDstnct, w.WRTBT_TEXT wrtbtText, w.WRTBT_TITLE wrtbtTitle
+	from (select w.WRTBT_NO slctnNotiNo,w.AVLBL_BEGIN_DT notiRegstDt, year(w.AVLBL_BEGIN_DT) year, month(w.AVLBL_BEGIN_DT) month, DAYOFMONTH(w.AVLBL_BEGIN_DT) day ,w.WRTBT_DSTNCT slctnNotiDstnct, 
+	w.WRTBT_TEXT wrtbtText, w.WRTBT_TITLE wrtbtTitle
 	 , (select count(*) from wetbt w2 where w2.PRNTS_WRTBT_NO = w.wrtbt_no) count
-	 , (select w2.WRTBT_TEXT from wetbt w2 where w2.PRNTS_WRTBT_NO = w.wrtbt_no order by w2.RCMD_CO desc limit 1) subwrtbtText, w.WRTBT_DSTNCT wrtbtDstnct, w.mb_no, w.WRTBT_NO wrtbtNo
+	 , (select w2.WRTBT_TEXT from wetbt w2 where w2.PRNTS_WRTBT_NO = w.wrtbt_no order by w2.RCMD_CO desc limit 1) subwrtbtText, 
+	 w.WRTBT_TYPE_DSTNCT wrtbtTypeDstnct, 
+	 b.bbs_nm bbsNm, w.prnts_wrtbt_no prntsWrtbtNo,
+	 (select w2.wrtbt_Title from wetbt w2 where w2.WRTBT_NO = w.PRNTS_WRTBT_NO) ptitle 
 	from bbs b, wetbt w
 	where b.BBS_NO = w.BBS_NO
-	and w.MB_NO = #{mbNo}
-	order by 1 desc) wt left outer join apndng_file a on wt.wrtbtNo = a.PRNTS_NO ;
+	and w.mb_no = #{mbNo}) wt left outer join (select storg_path, prnts_no  
+    from apndng_file
+    where prnts_dstnct='게시글'
+    group by prnts_no) a on wt.slctnNotiNo = a.PRNTS_NO
 	]]>
 	</select>
 	

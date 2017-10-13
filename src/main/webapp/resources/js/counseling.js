@@ -403,6 +403,14 @@
     			location.href='/net/user/mypage'
     		}
     	})
+    	
+    	$('.myscrap').on('click',function(){
+    		if(authUser=='undefined'|| authUser == null || authUser == "" ){
+    			$('#loginForm').css('display','block');
+    		}else{
+    			location.href='/net/user/mypage?type=myscrap'
+    		}
+    	})
 		
     	
     	$('.doScrap').on('click',function(){

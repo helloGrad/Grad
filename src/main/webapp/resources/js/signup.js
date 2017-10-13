@@ -290,8 +290,9 @@ $(function(){
 	naverToken = naverToken[0].split('=');
 	
 	
-	if(naverToken[1]!=undefined){
-	//	console.log(naverToken[0],naverToken[1],naverToken[2])
+	if((naverToken[0]==='nknm'&&naverToken[1]!="") ||naverToken[0]==='id'&&naverToken[1]!=""){
+		console.log(naverToken[0]+"-"+naverToken[1]+"-"+naverToken[2])
+		console.log("232")
 		$('#selectModal').css('display','block');
 	}
 })

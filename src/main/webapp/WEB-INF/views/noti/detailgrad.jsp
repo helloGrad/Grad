@@ -22,7 +22,7 @@
 
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
 <style>
 
@@ -83,28 +83,30 @@ body {
 					${vo.slctnEndDt }</p>
 
 				<div class="w3-row-padding w3-center" style="margin-top: 1px">
-					<div class="w3-container">
-						<h5>모집 학과</h5>
-						<div class="w3-tag w3-round w3-light-green" style="padding: 2px">
-							<span
-								class="w3-tag w3-default w3-border w3-border-white w3-white"
-								style="padding: 3px;">문화학과</span>
-						</div>
-					</div>
+
 					<div class="w3-container w3-row w3-center w3-padding-32">
 						<div class="w3-quarter w3-text-grey w3-margin-bottom">
-							<span class="w3-xlarge"> 
-							<c:choose>
+							<span class="w3-xlarge"> <c:choose>
 									<c:when test="${vo.scrapYn=='Y' }">
-										<i class="glyphicon glyphicon-heart-empty do-scrapnoti${vo.slctnNotiNo } scrap-on "
-											onclick="doScrap('모집공고',${vo.slctnNotiNo },${authUser.mbNo });"></i>
+											<button class="w3-button do-scrapnoti${vo.slctnNotiNo } w3-text-red"
+											onclick="doScrap('모집공고',${vo.slctnNotiNo },'y',${authUser.mbNo });">									
+											<span class="fa-layers fa-fw" style="font-size: 1.5em;">
+												<i class="fal fa-thumbtack"></i> <span
+												class="fa-layers-counter fa-layers-bottom-right">${vo.scrapNum }</span>
+											</span>
+										</button>
 									</c:when>
 									<c:when test="${vo.scrapYn=='N' }">
-										<i class="glyphicon glyphicon-heart-empty do-scrapnoti${vo.slctnNotiNo } "
-											onclick="doScrap('모집공고',${vo.slctnNotiNo },${authUser.mbNo });"></i>
+										<button class="w3-button do-scrapnoti${vo.slctnNotiNo }"
+											onclick="doScrap('모집공고',${vo.slctnNotiNo },'y',${authUser.mbNo });">
+											<span class="fa-layers fa-fw" style="font-size: 1.5em;">
+												<i class="fal fa-thumbtack"></i> <span
+												class="fa-layers-counter fa-layers-bottom-right" id="notiDetailCountIcon">${vo.scrapNum }</span>
+											</span>
+										</button>
 									</c:when>
-							</c:choose>
-							</span> <br>${vo.scrapNum }명이 관심을 가지고 있습니다.
+								</c:choose>
+							</span> <br><span id="notiDetailCount">${vo.scrapNum }</span>명이 관심을 가지고 있습니다.
 						</div>
 						<div class="w3-quarter w3-margin-bottom">
 							<span class="w3-xlarge" style="letter-spacing: 0.3em;">모집인원</span>

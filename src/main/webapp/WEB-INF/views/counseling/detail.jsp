@@ -514,7 +514,7 @@ textarea {
                 </div>
 
                 <div class="w3-container w3-bar w3-border-bottom w3-padding">
-                    <button class="w3-button do-scrapcoun${counselingPrnts.wrtbtNo}"  onclick="doScrap('게시글',${counselingPrnts.wrtbtNo},${authUser.mbNo });">
+                    <button class="w3-button do-scrapcoun${counselingPrnts.wrtbtNo}"  onclick="doScrap('게시글',${counselingPrnts.wrtbtNo},'',${authUser.mbNo });">
                         <span class="fa-layers fa-fw" style="font-size: 2.5em;">
                         <i class="fal fa-thumbtack"></i>
                         </span>

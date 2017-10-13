@@ -15,21 +15,24 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 
 
 
 <link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w31.css">
 
 
 <style>
-
 .navbar {
 	background-color: rgba(255, 255, 255, 0.95);
 }
+
 .navbar-qna {
 	font-weight: 400;
 	margin-top: -5px;
@@ -39,6 +42,7 @@
 	letter-spacing: 4px;
 	float: left;
 }
+
 .navbar-nav li a:hover {
 	color: #1abc9c !important;
 	background-color: white;
@@ -48,19 +52,24 @@
 	height: 400px;
 	width: 100%;
 }
+
 body {
 	padding-top: 70px;
 }
+
 .grad-title {
 	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.2), -1px -1px 30px
 		rgba(102, 255, 51, 0.1);
 }
+
 .grad-background-color {
 	background-color: rgb(247, 245, 242);
 }
+
 .grad-color {
 	background-color: #92B558;
 }
+
 .scrap-on {
 	color: #FF0000;
 }
@@ -70,13 +79,14 @@ body {
 
 <body class="grad-background-color">
 
-		<c:import url="/WEB-INF/views/include/header.jsp" />
+	<c:import url="/WEB-INF/views/include/header.jsp" />
 
 	<div class="container">
 		<div class="row">
 			<div class="w3-round-large w3-white grad-title">
 
-				<div class="w3-text-white w3-round-large" style="background-color:${vo.symbolColorNm};">
+				<div class="w3-text-white w3-round-large"
+					style="background-color:${vo.symbolColorNm};">
 					<h2 class="w3-center w3-padding" style="letter-spacing: 0.2em;">
 						<small class="w3-text-white">${vo.university } ${vo.major }</Small>
 						<br> ${vo.lab } <br> <small class="w3-text-white">모집기간
@@ -125,16 +135,28 @@ body {
 						<div class="w3-quarter w3-text-grey w3-margin-bottom">
 							<span class="w3-xlarge"> <c:choose>
 									<c:when test="${vo.scrapYn=='Y' }">
-										<i
-											class="glyphicon glyphicon-heart-empty do-scrapnoti${vo.slctnNotiNo } scrap-on "
-											onclick="doScrap('모집공고',${vo.slctnNotiNo },${authUser.mbNo });"></i>
+										<button
+											class="w3-button do-scrapnoti${vo.slctnNotiNo } w3-text-red"
+											onclick="doScrap('모집공고',${vo.slctnNotiNo },'y',${authUser.mbNo });">
+											<span class="fa-layers fa-fw" style="font-size: 1.5em;">
+												<i class="fal fa-thumbtack"></i> <span
+												class="fa-layers-counter fa-layers-bottom-right">${vo.scrapNum }</span>
+											</span>
+										</button>
+
 									</c:when>
 									<c:when test="${vo.scrapYn=='N' }">
-										<i
-											class="glyphicon glyphicon-heart-empty do-scrapnoti${vo.slctnNotiNo } "
-											onclick="doScrap('모집공고',${vo.slctnNotiNo },${authUser.mbNo });"></i>
+										<button class="w3-button do-scrapnoti${vo.slctnNotiNo }"
+											onclick="doScrap('모집공고',${vo.slctnNotiNo },'y',${authUser.mbNo });">
+											<span class="fa-layers fa-fw" style="font-size: 1.5em;">
+												<i class="fal fa-thumbtack"></i> <span
+												class="fa-layers-counter fa-layers-bottom-right"
+												id="notiDetailCountIcon">${vo.scrapNum }</span>
+											</span>
+										</button>
 									</c:when>
-								</c:choose></span> <br>${vo.scrapNum }명이 관심을 가지고 있습니다
+								</c:choose></span> <br> <span id="notiDetailCount">${vo.scrapNum }</span> 명이
+							관심을 가지고 있습니다
 						</div>
 						<a href="#resume">
 							<div class="w3-quarter w3-margin-bottom">
@@ -308,20 +330,23 @@ body {
 							</h5>
 							<h5>
 								<i
-									class="glyphicon glyphicon-user w3-text-grey w3-large w3-margin-right w3-margin-bottom"></i> ${vo.chrgrNm }
+									class="glyphicon glyphicon-user w3-text-grey w3-large w3-margin-right w3-margin-bottom"></i>
+								${vo.chrgrNm }
 							</h5>
 							<h5>
 								<i
-									class="glyphicon glyphicon-earphone w3-text-grey w3-large w3-margin-right w3-margin-bottom"></i> ${vo.chrgrTelNo }
+									class="glyphicon glyphicon-earphone w3-text-grey w3-large w3-margin-right w3-margin-bottom"></i>
+								${vo.chrgrTelNo }
 							</h5>
 							<h5>
 								<i
-									class="glyphicon glyphicon-envelope w3-text-grey w3-large w3-margin-right w3-margin-bottom"></i> 
+									class="glyphicon glyphicon-envelope w3-text-grey w3-large w3-margin-right w3-margin-bottom"></i>
 								${vo.chrgrEmail }
 							</h5>
 							<h5>
 								<i
-									class="glyphicon glyphicon-map-marker w3-text-grey w3-large w3-margin-right w3-margin-bottom"></i> ${vo.addr }
+									class="glyphicon glyphicon-map-marker w3-text-grey w3-large w3-margin-right w3-margin-bottom"></i>
+								${vo.addr }
 							</h5>
 						</div>
 						<br> <input id="address" type="hidden" value="${vo.addr }">
@@ -383,7 +408,8 @@ body {
 		</div>
 
 	</div>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/doscrap.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/resources/js/doscrap.js"></script>
 </body>
 
 </html>

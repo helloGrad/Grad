@@ -18,7 +18,7 @@
 <link href="${pageContext.request.contextPath}/resources/css/higrad-signup.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">	
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w31.css">	
 <link href="${pageContext.request.contextPath}/resources/css/login.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/css/study.css" rel="stylesheet">
 

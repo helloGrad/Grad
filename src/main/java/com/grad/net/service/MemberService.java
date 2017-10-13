@@ -303,4 +303,9 @@ public class MemberService {
 	}
 	
 	
+	public int getScrapCount(String id) {
+		return memberDao.getScrapCount(id);
+	}
+	
+	
 }

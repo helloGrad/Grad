@@ -29,7 +29,7 @@
 
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/w3.css">
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">
 
 <style>
 body {
@@ -148,6 +148,11 @@ body {
 	background-image:
 		url(https://s3.ap-northeast-2.amazonaws.com/elasticbeanstalk-ap-northeast-2-563282106598/college-logo/interdisciplinary.jpg);
 	background-size: cover;
+}
+
+.black{
+	background-color:rgba(0,0,0,0.7);
+	background-blend-mode:overlay;
 }
 </style>
 
@@ -430,8 +435,8 @@ body {
 					class="w3-bar-item w3-button w3-padding-16"
 					style="letter-spacing: 3px;">HOME</a>
 					 <a class="w3-bar-item w3-button w3-padding-16 mypage"  style="letter-spacing: 3px;">PROFILE</a>
-					 <a href="saves.html"
-					class="w3-bar-item w3-button w3-padding-16"
+					 <a href="#"
+					class="w3-bar-item w3-button w3-padding-16 myscrap" 
 					style="letter-spacing: 3px;">SAVE</a> 
 					<a class="w3-bar-item w3-button w3-padding-16 setting" style="letter-spacing: 3px;">SETTING</a> 
 					<a href="help.html"
@@ -524,7 +529,7 @@ body {
 						<span class="w3-large w3-text-grey ">@회원가입</span>
 					</header>
 
-					<form class="w3-container" action="#">
+					<div class="w3-container">
 						<button
 							class="w3-button w3-block w3-margin-bottom w3-large w3-round w3-margin-top w3-margin-bottom"
 							style="background-color: #3b5998;" id="new-fbloginBtn">
@@ -538,12 +543,13 @@ body {
 							<span id="na-logo" class="naverLogo w3-text-white fa-lg w3-left"></span>
 							<span class="w3-text-white">Continue with Naver</span>
 						</button>
+					</div>
 
 
 						<div class="login-devider">
 							<span>또는</span>
 						</div>
-
+					<form class="w3-container" action="#">
 						<input class="w3-input w3-margin-bottom w3-large w3-padding-16"
 							type="text" id="nickname" name="nknm" placeholder="NAME"
 							style="letter-spacing: 2px;">
@@ -638,6 +644,32 @@ body {
 
 		</div>
 	</div>
+</div>
+
+<div id="selectModal" class="w3-modal w3-animate-opacity">
+                    <div class="w3-modal-content w3-card-2 w3-round-large w3-padding-16" style="max-width: 480px">
+                        <header class="w3-container w3-padding-16">
+                            <span class="w3-large w3-text-grey ">@관심있는 학문을 선택하여 주세요. </span>
+                        </header>
+                        <form action="#" id="join-form">
+                            <div class="w3-container w3-center">
+                                <div class='study w3-col s6 l6 interdisciplinary over black w3-text-white  w3-padding-32 lay'>인문학</div>
+                                <div class='study w3-col s6 l6 socialscience over black w3-text-white  w3-padding-32'>사회과학</div>
+                                <div class='study w3-col s6 l6 naturalscience over black w3-text-white  w3-padding-32'>자연과학</div>
+                                <div class='study w3-col s6 l6 engineering over black w3-text-white  w3-padding-32'>공학</div>
+                                <div class='study w3-col s6 l6 medicine over black w3-text-white  w3-padding-32'>의약학</div>
+                                <div class='study w3-col s6 l6 ocean over black w3-text-white  w3-padding-32'>농수해양학</div>
+                                <div class='study w3-col s6 l6 art over black w3-text-white  w3-padding-32'>예술체육학</div>
+                                <div class='study w3-col s6 l6 interdisciplinary over black w3-text-white  w3-padding-32'>복합학</div>
+                            </div>
+
+                            <button id='studySubmit' type="submit" style="margin-bottom: 10px"
+                                    class="btn formbtn disabled w3-button w3-margin-left">선택완료</button>
+                            <br>
+                        </form>
+
+                    </div>
+
 </div>
 
 

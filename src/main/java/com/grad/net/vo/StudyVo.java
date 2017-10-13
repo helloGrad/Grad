@@ -48,7 +48,28 @@ public class StudyVo {
 	private int no;
 
 	
+	/* 2017-10-12 스크랩 칼럼 추가  */
 	
+	private String tuitionSuprtYn;
+	private String lvncSuprtYn;
+	private String incetSuprtYn;
+	private String lrstyJoingfeeSuprtYn;
+	private String dormSuprtYn;
+	private String internYn;
+	private String lrstyJoingYn;
+	private String resrchTaskJoingYn;
+	private String stdtrOpptySuprtYn;
+	private String eduPgmJoingSuprtYn;
+	private String mapProfNm;
+	private String ar;
+	private String slsnMth;
+	private String slctnNops;
+	private String chrgrNm;
+	private String chrgrTelNo;
+	private String chrgrEmail;
+	private String wrtbtTypeDstnct;
+	private String ptitle;
+	private Long prntsWrtbtNo;
 	
 	
 	public Long getOrgnzNo() {
@@ -386,6 +407,169 @@ public class StudyVo {
 	public void setNo(int no) {
 		this.no = no;
 	}
+	
+	
+	
+
+	public String getTuitionSuprtYn() {
+		return tuitionSuprtYn;
+	}
+
+	public void setTuitionSuprtYn(String tuitionSuprtYn) {
+		this.tuitionSuprtYn = tuitionSuprtYn;
+	}
+
+	public String getLvncSuprtYn() {
+		return lvncSuprtYn;
+	}
+
+	public void setLvncSuprtYn(String lvncSuprtYn) {
+		this.lvncSuprtYn = lvncSuprtYn;
+	}
+
+	public String getIncetSuprtYn() {
+		return incetSuprtYn;
+	}
+
+	public void setIncetSuprtYn(String incetSuprtYn) {
+		this.incetSuprtYn = incetSuprtYn;
+	}
+
+	public String getLrstyJoingfeeSuprtYn() {
+		return lrstyJoingfeeSuprtYn;
+	}
+
+	public void setLrstyJoingfeeSuprtYn(String lrstyJoingfeeSuprtYn) {
+		this.lrstyJoingfeeSuprtYn = lrstyJoingfeeSuprtYn;
+	}
+
+	public String getDormSuprtYn() {
+		return dormSuprtYn;
+	}
+
+	public void setDormSuprtYn(String dormSuprtYn) {
+		this.dormSuprtYn = dormSuprtYn;
+	}
+
+	public String getInternYn() {
+		return internYn;
+	}
+
+	public void setInternYn(String internYn) {
+		this.internYn = internYn;
+	}
+
+	public String getLrstyJoingYn() {
+		return lrstyJoingYn;
+	}
+
+	public void setLrstyJoingYn(String lrstyJoingYn) {
+		this.lrstyJoingYn = lrstyJoingYn;
+	}
+
+	public String getResrchTaskJoingYn() {
+		return resrchTaskJoingYn;
+	}
+
+	public void setResrchTaskJoingYn(String resrchTaskJoingYn) {
+		this.resrchTaskJoingYn = resrchTaskJoingYn;
+	}
+
+	public String getStdtrOpptySuprtYn() {
+		return stdtrOpptySuprtYn;
+	}
+
+	public void setStdtrOpptySuprtYn(String stdtrOpptySuprtYn) {
+		this.stdtrOpptySuprtYn = stdtrOpptySuprtYn;
+	}
+
+	public String getEduPgmJoingSuprtYn() {
+		return eduPgmJoingSuprtYn;
+	}
+
+	public void setEduPgmJoingSuprtYn(String eduPgmJoingSuprtYn) {
+		this.eduPgmJoingSuprtYn = eduPgmJoingSuprtYn;
+	}
+
+	public String getMapProfNm() {
+		return mapProfNm;
+	}
+
+	public void setMapProfNm(String mapProfNm) {
+		this.mapProfNm = mapProfNm;
+	}
+
+	public String getAr() {
+		return ar;
+	}
+
+	public void setAr(String ar) {
+		this.ar = ar;
+	}
+
+	public String getSlsnMth() {
+		return slsnMth;
+	}
+
+	public void setSlsnMth(String slsnMth) {
+		this.slsnMth = slsnMth;
+	}
+
+	public String getSlctnNops() {
+		return slctnNops;
+	}
+
+	public void setSlctnNops(String slctnNops) {
+		this.slctnNops = slctnNops;
+	}
+
+	public String getChrgrNm() {
+		return chrgrNm;
+	}
+
+	public void setChrgrNm(String chrgrNm) {
+		this.chrgrNm = chrgrNm;
+	}
+
+	public String getChrgrTelNo() {
+		return chrgrTelNo;
+	}
+
+	public void setChrgrTelNo(String chrgrTelNo) {
+		this.chrgrTelNo = chrgrTelNo;
+	}
+
+	public String getChrgrEmail() {
+		return chrgrEmail;
+	}
+
+	public void setChrgrEmail(String chrgrEmail) {
+		this.chrgrEmail = chrgrEmail;
+	}
+
+	public String getWrtbtTypeDstnct() {
+		return wrtbtTypeDstnct;
+	}
+
+	public void setWrtbtTypeDstnct(String wrtbtTypeDstnct) {
+		this.wrtbtTypeDstnct = wrtbtTypeDstnct;
+	}
+
+	public String getPtitle() {
+		return ptitle;
+	}
+
+	public void setPtitle(String ptitle) {
+		this.ptitle = ptitle;
+	}
+
+	public Long getPrntsWrtbtNo() {
+		return prntsWrtbtNo;
+	}
+
+	public void setPrntsWrtbtNo(Long prntsWrtbtNo) {
+		this.prntsWrtbtNo = prntsWrtbtNo;
+	}
 
 	@Override
 	public String toString() {
@@ -400,24 +584,16 @@ public class StudyVo {
 				+ ", pNm=" + pNm + ", wrtbtDstnct=" + wrtbtDstnct + ", bk21EorgnzSuprtYn=" + bk21EorgnzSuprtYn
 				+ ", year=" + year + ", day=" + day + ", month=" + month + ", count=" + count + ", subwrtbtText="
 				+ subwrtbtText + ", orderNum=" + orderNum + ", spCdNm=" + spCdNm + ", totaldays=" + totaldays
-				+ ", researchList=" + researchList + ", no=" + no + ", getOrgnzNo()=" + getOrgnzNo() + ", getpCdNm()="
-				+ getpCdNm() + ", getUniversity()=" + getUniversity() + ", getGraduate()=" + getGraduate()
-				+ ", getPno3()=" + getPno3() + ", getMajor()=" + getMajor() + ", getPno2()=" + getPno2() + ", getLab()="
-				+ getLab() + ", getPno1()=" + getPno1() + ", getSlctnNotiNo()=" + getSlctnNotiNo()
-				+ ", getSymbolColorNm()=" + getSymbolColorNm() + ", getSlctnNotiDstnct()=" + getSlctnNotiDstnct()
-				+ ", getNotiRegstDt()=" + getNotiRegstDt() + ", getSlctnBeginDt()=" + getSlctnBeginDt()
-				+ ", getSlctnEndDt()=" + getSlctnEndDt() + ", getDday()=" + getDday() + ", getPercent()=" + getPercent()
-				+ ", getSlctnTitle()=" + getSlctnTitle() + ", getSlctnYycl()=" + getSlctnYycl() + ", getSlctnSemstr()="
-				+ getSlctnSemstr() + ", getPchrgYn()=" + getPchrgYn() + ", getStorgPath()=" + getStorgPath()
-				+ ", getWrtbtNo()=" + getWrtbtNo() + ", getBbsNm()=" + getBbsNm() + ", getWrtbtText()=" + getWrtbtText()
-				+ ", getWrtbtTitle()=" + getWrtbtTitle() + ", getAvlblBeginDt()=" + getAvlblBeginDt()
-				+ ", getCoSrorgPath()=" + getCoSrorgPath() + ", getCdNm()=" + getCdNm() + ", getpNm()=" + getpNm()
-				+ ", getWrtbtDstnct()=" + getWrtbtDstnct() + ", getBk21EorgnzSuprtYn()=" + getBk21EorgnzSuprtYn()
-				+ ", getYear()=" + getYear() + ", getDay()=" + getDay() + ", getMonth()=" + getMonth() + ", getCount()="
-				+ getCount() + ", getSubwrtbtText()=" + getSubwrtbtText() + ", getOrderNum()=" + getOrderNum()
-				+ ", getSpCdNm()=" + getSpCdNm() + ", getTotaldays()=" + getTotaldays() + ", getResearchList()="
-				+ getResearchList() + ", getNo()=" + getNo() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", researchList=" + researchList + ", no=" + no + ", tuitionSuprtYn=" + tuitionSuprtYn
+				+ ", lvncSuprtYn=" + lvncSuprtYn + ", incetSuprtYn=" + incetSuprtYn + ", lrstyJoingfeeSuprtYn="
+				+ lrstyJoingfeeSuprtYn + ", dormSuprtYn=" + dormSuprtYn + ", internYn=" + internYn + ", lrstyJoingYn="
+				+ lrstyJoingYn + ", resrchTaskJoingYn=" + resrchTaskJoingYn + ", stdtrOpptySuprtYn=" + stdtrOpptySuprtYn
+				+ ", eduPgmJoingSuprtYn=" + eduPgmJoingSuprtYn + ", mapProfNm=" + mapProfNm + ", ar=" + ar
+				+ ", slsnMth=" + slsnMth + ", slctnNops=" + slctnNops + ", chrgrNm=" + chrgrNm + ", chrgrTelNo="
+				+ chrgrTelNo + ", chrgrEmail=" + chrgrEmail + ", wrtbtTypeDstnct=" + wrtbtTypeDstnct + ", ptitle="
+				+ ptitle + ", prntsWrtbtNo=" + prntsWrtbtNo + "]";
 	}
+
+	
 
 }

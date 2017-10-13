@@ -20,7 +20,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">	
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w31.css">	
 
 
 <style>
@@ -305,7 +305,7 @@ $(function() {
 						                    <div class="w3-row-padding w3-padding">
 												 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
-							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                        </div>
 							                        
 													 <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -366,7 +366,7 @@ $(function() {
 								                    <div class="w3-row-padding w3-padding">
 								                        <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
-							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                        	</div>
 								                        
 								                        <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -433,7 +433,7 @@ $(function() {
 								                    <div class="w3-row-padding w3-padding">
 														 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 									                            <i class="far fa-thumbtack w3-large" 
-									                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+									                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 									                        </div>
 															<span
 																class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"
@@ -493,7 +493,7 @@ $(function() {
 					                    <div class="w3-row-padding w3-padding">
 					                         <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                     <i class="far fa-thumbtack w3-large" 
-							                     onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                     onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                 </div>
 					                        
 					                          <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -565,9 +565,7 @@ $(function() {
 										                 <img src="${BoardList.coSrorgPath }" alt="이미지" style="width:100%">
 										                  <div class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
 							                              	style="background-color: rgba(0,0,0,0.5);">#${BoardList.wrtbtTitle }</div>
-							                            	<div class="w3-padding w3-display-topleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large">
-							                                <i class="fa fa-heart w3-text-red w3-large"></i>
-					                            </div>
+		
 										            </c:if>
 
 					                        </div>
@@ -630,9 +628,7 @@ $(function() {
 										                 <img src="${BoardList.coSrorgPath }" alt="이미지" style="width:100%">
 										                  <div class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
 							                              	style="background-color: rgba(0,0,0,0.5);">#${BoardList.wrtbtTitle }</div>
-							                            	<div class="w3-padding w3-display-topleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large">
-							                                <i class="fa fa-heart w3-text-red w3-large"></i>
-					                            </div>
+							                            	
 										            </c:if>
 
 					                        </div>
@@ -748,7 +744,7 @@ $(function() {
 						                    <div class="w3-row-padding w3-padding">
 												 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
-							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                        </div>
 							                        
 													 <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -809,7 +805,7 @@ $(function() {
 								                    <div class="w3-row-padding w3-padding">
 								                        <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
-							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                        	</div>
 								                        
 								                        <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -876,7 +872,7 @@ $(function() {
 								                    <div class="w3-row-padding w3-padding">
 														 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 									                            <i class="far fa-thumbtack w3-large" 
-									                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+									                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 									                        </div>
 															<span
 																class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"
@@ -936,7 +932,7 @@ $(function() {
 					                    <div class="w3-row-padding w3-padding">
 					                         <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                     <i class="far fa-thumbtack w3-large" 
-							                     onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                     onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                 </div>
 					                        
 					                          <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -1004,9 +1000,7 @@ $(function() {
 										                 <img src="${BoardList.coSrorgPath }" alt="이미지" style="width:100%">
 										                  <div class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
 							                              	style="background-color: rgba(0,0,0,0.5);">#${BoardList.wrtbtTitle }</div>
-							                            	<div class="w3-padding w3-display-topleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large">
-							                                <i class="fa fa-heart w3-text-red w3-large"></i>
-					                            </div>
+							                            	
 										            </c:if>
 
 					                        </div>
@@ -1071,9 +1065,7 @@ $(function() {
 										                 <img src="${BoardList.coSrorgPath }" alt="이미지" style="width:100%">
 										                  <div class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
 							                              	style="background-color: rgba(0,0,0,0.5);">#${BoardList.wrtbtTitle }</div>
-							                            	<div class="w3-padding w3-display-topleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large">
-							                                <i class="fa fa-heart w3-text-red w3-large"></i>
-					                            </div>
+							                            	
 										            </c:if>
 
 					                        </div>
@@ -1189,7 +1181,7 @@ $(function() {
 						                    <div class="w3-row-padding w3-padding">
 												 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
-							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                        </div>
 							                        
 													 <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -1250,7 +1242,7 @@ $(function() {
 								                    <div class="w3-row-padding w3-padding">
 								                        <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
-							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                        	</div>
 								                        
 								                        <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -1317,7 +1309,7 @@ $(function() {
 								                    <div class="w3-row-padding w3-padding">
 														 	<div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 									                            <i class="far fa-thumbtack w3-large" 
-									                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+									                            onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 									                        </div>
 															<span
 																class="noti-endtext w3-tag w3-round-large w3-light-grey w3-text-blue"
@@ -1377,7 +1369,7 @@ $(function() {
 					                    <div class="w3-row-padding w3-padding">
 					                         <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapnoti${BoardList.slctnNotiNo}">
 							                     <i class="far fa-thumbtack w3-large" 
-							                     onclick="doScrap('모집공고',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
+							                     onclick="doScrap('모집공고',${BoardList.slctnNotiNo},'',${authUser.mbNo });"></i>
 							                 </div>
 					                        
 					                          <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -1445,9 +1437,7 @@ $(function() {
 										                 <img src="${BoardList.coSrorgPath }" alt="이미지" style="width:100%">
 										                  <div class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
 							                              	style="background-color: rgba(0,0,0,0.5);">#${BoardList.wrtbtTitle }</div>
-							                            	<div class="w3-padding w3-display-topleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large">
-							                                <i class="fa fa-heart w3-text-red w3-large"></i>
-					                            </div>
+							                            	
 										            </c:if>
 
 					                        </div>
@@ -1511,9 +1501,7 @@ $(function() {
 										                 <img src="${BoardList.coSrorgPath }" alt="이미지" style="width:100%">
 										                  <div class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
 							                              	style="background-color: rgba(0,0,0,0.5);">#${BoardList.wrtbtTitle }</div>
-							                            	<div class="w3-padding w3-display-topleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large">
-							                                <i class="fa fa-heart w3-text-red w3-large"></i>
-					                            </div>
+							                            	
 										            </c:if>
 
 					                        </div>
