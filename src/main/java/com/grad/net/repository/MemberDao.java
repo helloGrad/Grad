@@ -171,5 +171,8 @@ public class MemberDao {
 		return sqlSession.selectOne("member.existNknm", nknm);
 	}
 
+	public int selectScrapCount(Long mbNo) {
+		return sqlSession.selectOne("member.selectScrapCount",mbNo);
+	}	
 
 }

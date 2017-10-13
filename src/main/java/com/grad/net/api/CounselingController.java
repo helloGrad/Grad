@@ -212,6 +212,8 @@ public class CounselingController {
 		}
 		CounselingVo result = counselingService.getCounselingPrnts(counselingVo.getWrtbtNo()); 
 		
+		
+		
 
 		return JSONResult.success(result);
 	}
@@ -223,23 +225,28 @@ public class CounselingController {
 
 	@ResponseBody
 	@RequestMapping("/list")
-	public JSONResult list(@RequestParam("type") String type,@RequestParam("order") String order, @RequestParam(value="sno", required=true, defaultValue="0") Long startNo) {
+	public JSONResult list(@RequestParam("type") String type,@RequestParam("order") String order, @RequestParam(value="sno", required=true, defaultValue="0") Long startNo,
+			@RequestParam("ttype") String ttype) {
 
 	
-		List<CounselingVo> counselingList= counselingService.getCounselingList(type,order,startNo); 
+		List<CounselingVo> counselingList= counselingService.getCounselingList(type,order,startNo,ttype); 
 		List<Object> fileList = new ArrayList<Object>(); 
+		
+		
+		
 		
 		for(int i=0; i<counselingList.size(); i++) {
 			
-			List<ApndngFileVo> fileList2 = apndngFileService.getFileList(counselingList.get(i).getWrtbtNo(), "게시글");	
-			fileList.add(fileList2)	;
-			
+			//List<ApndngFileVo> fileList2 = apndngFileService.getFileList(counselingList2.get(i).getWrtbtNo(), "게시글");	
+			//fileList.add(fileList2)	;
+
 		}
-	
-		
-		
+
 		
 		Map<String, Object> map = new HashMap<String, Object>();
+		
+
+		
 		map.put("counselingList", counselingList);
 		map.put("fileList", fileList);
 		
@@ -258,15 +265,17 @@ public class CounselingController {
 			@RequestParam(value="page", required=true ,defaultValue="1") int page, 
 			@RequestParam(value="type") String type,
 			@RequestParam(value="order") String order,
+			@RequestParam(value="ttype") String ttype,
 			@RequestParam(value="user", required=true, defaultValue="-1") Long user) {
 		
 		Map<String, Object> map =  new HashMap<String, Object>();
+	
 		
 		map.put("scrapList", counselingService.getScrapList(user));
 		map.put("page", page);
 		pageVo.calcPage(counselingService.countCounList(type));
 		map.put("pageVo", pageVo);
-		map.put("counList", counselingService.getCounList(type, order, pageVo));
+		map.put("counList", counselingService.getCounList(type, order, pageVo,ttype));
 		
 		return  JSONResult.success(map);
 	}

@@ -59,20 +59,7 @@ public class HomeController {
 	@Autowired
 	OrganzService organzService;
 	
-	/*
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home( Model model,@AuthUser MemberVo authUser) {	
-		
-		model.addAttribute("authUser", authUser);		
-		model.addAttribute("notiCount", notiService.getNotiCount());
-		
-		System.out.println("사용자정보"+authUser);
-		
-		return "submain";
-	}
- 
- */
+
 	/*
 	 * 정예린, 2017-09-25, 서브메인 
 	 */
@@ -100,6 +87,8 @@ public class HomeController {
 			}
 			
 			model.addAttribute("myBoardList", BoardList);
+			
+			model.addAttribute("scrapCount", memberService.getScrapCount(authUser.getMbNo()));
 
 		}
 
@@ -111,6 +100,7 @@ public class HomeController {
 		model.addAttribute("labList", notiService.getLabNotiList());
 		model.addAttribute("labCodeList", notiService.getLabCodeList());
 		model.addAttribute("notiCount", notiService.getNotiCount());
+		
 
 		if (authUser != null) {
 			model.addAttribute("scrapList", memberService.getScrapList(authUser.getMbNo()));

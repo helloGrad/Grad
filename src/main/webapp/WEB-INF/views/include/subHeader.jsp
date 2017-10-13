@@ -98,7 +98,7 @@ boardtype = "${boardtype}";
 						<li><a
 							href="${pageContext.servletContext.contextPath }/study/notice?boardtype=${boardtype}">모집공고</a></li>
 						<li><a
-							href="${pageContext.servletContext.contextPath }/study/discussion?boardtype=${boardtype}">토론</a></li>
+							href="${pageContext.servletContext.contextPath }/study/discussion?boardtype=${boardtype}&ttype=A">토론</a></li>
 						<li><a
 							href="${pageContext.servletContext.contextPath }/study/research?boardtype=${boardtype}">연구과제</a></li>
 						<li><a

@@ -54,7 +54,6 @@ a.btn.disabled.numbtn {
 
 var order;
 var authUser = '${authUser.mbNo }';
-var ttype= '${ttype }';
        
 $(function() {
 		
@@ -67,7 +66,7 @@ $(function() {
 		console.log(order);
 		
 		
-		disfetchList(boardtype, order, ttype, function() {
+		disfetchList(boardtype, order, function() {
 			
 	
 			if(authUser == null || authUser == "" ){
@@ -77,7 +76,6 @@ $(function() {
 				
 				
 				var scrapList=JSON.parse('${scrapList}');
-				
 				for(var i=0;i<scrapList.length;i++){
 
 					if(scrapList[i].prntsDstnct==='게시글'){ 
@@ -99,7 +97,7 @@ $(function() {
 				if (!disbFetching) {
 					disbFetching = true;
 				
-					disfetchList(boardtype, order,ttype, function() {
+					disfetchList(boardtype, order, function() {
 						
 
 						if(authUser == null || authUser == "" ){
@@ -133,55 +131,42 @@ $(function() {
 <c:import url="/WEB-INF/views/include/subHeader.jsp" />
 
 
-<div class="container">
-    <div class="w3-row">
-       
-        
-       
-            
-            
-        <div class="w3-row-padding">
-            <div class="w3-col s12 m6 l3  w3-white w3-round-large main-banner">
-                <h5 class="w3-center w3-padding" style="letter-spacing: 0.3em;"><strong>Activity</strong></h5>
-                <ul class="w3-ul w3-center w3-text-grey w3-padding" style="letter-spacing: 0.1em;">
-                    <li class=""><a href="${pageContext.servletContext.contextPath }/study/discussion?boardtype=${boardtype}&ttype=A"> All <span class=""></span></a></li>
-                    <li class=""><a href="${pageContext.servletContext.contextPath }/study/discussion?boardtype=${boardtype}&ttype=C"> 상담실 <span class=""></span></a></li>
-                    <li class=""><a href="${pageContext.servletContext.contextPath }/study/discussion?boardtype=${boardtype}&ttype=W"> 답변을 기다리는 중 <span class=""></span></a></li>
-                    <li class=""><a href="${pageContext.servletContext.contextPath }/study/discussion?boardtype=${boardtype}&ttype=N"> 일반게시판 <span class=""></span></a></li>
-                </ul>
-            </div>
+<div class="row">
+    <div class="container">
+        <div class="col-xs-12 col-sm-12 col-lg-12">
+            <div class="col-lg-2"></div>
 
-            <div class="w3-col s12 m4 l7 w3-margin-bottom ">
-            
-               <div id="myBtn" class="btn btn-danger web-volunteer writeBtn">질문하기</div>
-            
-            <div class="dropdown option">
-                <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-option-horizontal"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                     <li><a href="javascript:void(0);" onclick="reset('전체','조회순');">조회순</a></li>
-                     <li><a href="javascript:void(0);" onclick="reset('전체','공감순');">공감순</a></li>
-                     <li><a href="javascript:void(0);" onclick="reset('전체','최신순');">최신순</a></li>
-                </ul>
-            </div>
-            
-            <input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
+          
+            <div class="col-lg-8 distinct-line">
+                <div class="w3-container">
+                	
+                    <div id="myBtn" class="btn btn-danger web-volunteer writeBtn">글 작성하기</div>
+                   
+                    <div class="dropdown option">
+                        <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-option-horizontal"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="javascript:void(0);" onclick="reset('${boardtype }','조회순');">조회순</a></li>
+                            <li><a href="javascript:void(0);" onclick="reset('${boardtype }','공감순');">공감순</a></li>
+                            <li><a href="javascript:void(0);" onclick="reset('${boardtype }','최신순');">최신순</a></li>
+                        </ul>
+                    </div>
+                </div>
+             
+
+				<input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
 	
-            <div id="list"></div>
-            <div id="pagelist" class="pagelist"></div>
-                
- 
-                
-     
-            </div>
-        </div>
+                <div id="list"></div>
+                <div id="pagelist" class="pagelist"></div>
 
+            </div>
+
+            <div class="col-lg-2"></div>
+        </div>
+        
 
     </div>
-
-
-
 </div>
 
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/doscrap.js"></script>	

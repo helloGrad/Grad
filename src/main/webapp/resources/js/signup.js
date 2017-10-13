@@ -291,8 +291,7 @@ $(function(){
 	
 	
 	if(naverToken[1]!=undefined){
-		console.log(naverToken[0],naverToken[1],naverToken[2])
-		console.log("232")
+	//	console.log(naverToken[0],naverToken[1],naverToken[2])
 		$('#selectModal').css('display','block');
 	}
 })

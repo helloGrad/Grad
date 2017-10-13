@@ -89,7 +89,7 @@ $(function() {
                                   
                         </select>
                         
-							
+					<input id="ttype" type="hidden" name="ttype" value="A">	
 					<input id="boardtype" type="hidden" name="boardtype" value="${boardtype }">
 					
                     </span>

@@ -463,5 +463,15 @@ where (a.slctnNotiNo, slctnNotiDstnct) in (
 	
 	
 	
+	<select id="selectScrapCount" parameterType="Long" resultType="int">
+		<![CDATA[
+		select count(*) count
+		from mb_scrap_info
+		where mb_no=#{mbNo} and PRNTS_DSTNCT='모집공고';
+
+		]]>
+	</select>
+	
+	
 
 </mapper>

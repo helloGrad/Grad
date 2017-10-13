@@ -5,6 +5,7 @@
 	var boardtype;
 	var count=0;
 	var totalListNum = 0;
+	var ttype;
 
 
 	var isEnd = false;
@@ -20,7 +21,7 @@
 	function reset(type,order1){
 				
 		if(totalListNum >= 20){
-			pageList(type, order1, '1');
+			pageList(type, order1, '1' , '' , ttype);
 		}
 		else {
 		$("#list").empty();
@@ -34,7 +35,7 @@
 	}
 	
 	
-	var disfetchList = function(type,order, callback) {
+	var disfetchList = function(type,order, ttype, callback) {
 			
 		if (isEnd === true) {
 			return;
@@ -46,15 +47,17 @@
 		
 			
 		if(type == '전체') {
-			startNo = $("#list .w3-card-2:last-child").find('input').val() || 0;
+			startNo = $("#list .w3-card:last-child").find('input').val() || 0;
+			
 		}else{
 			
-			startNo = $("#list .w3-card-4:last-child").find('input').val() || 0;
+			startNo = $("#list .w3-card:last-child").find('input').val() || 0;
+			
 		}
 
-
+		
 		$.ajax({
-			url : "/net/counseling/api/list?sno="+startNo+"&type="+type+"&order="+order,
+			url : "/net/counseling/api/list?sno="+startNo+"&type="+type+"&order="+order+"&ttype="+ttype,
 			type : "get",
 			dataType : "json",
 			data : "",
@@ -71,19 +74,26 @@
 					console.log(response.data.counselingList.length);
 					isEnd = true;
 				}
+				var ttype2 = ttype;
 				$.each(response.data.counselingList, function(index, vo) {
+					
+					
+					
 					
 					vo.user = user;
 					disrender(type, vo);
 					totalListNum++;
 					if (totalListNum >= 20) {
 						isEnd = true;
-						pageList(type, order, '1', 'init');
+						pageList(type, order, '1', 'init', ttype2);
 					}
 				});
+				
+				
 
 				disbFetching = false;
 				
+				/* ejs 변경
 				startNo2=startNo;
 				for(var i=0; i<response.data.counselingList.length; i++){
 					
@@ -97,6 +107,9 @@
 						$('.listimg'+count).css("background-position","center"); 
 						$('.listimg'+count).css("height","200px"); 
 						$('.listimg'+count).css("margin","5px 0 5px 0"); 
+						$('.listimg'+count).html("<div class='w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large' style='background-color: rgba(0,0,0,0.5);'>"+response.data.fileList[i][j].wrtbtTitle+
+								"</div>");
+						$('.listimg'+count).html("<div class='w3-padding w3-display-topleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large'> <i class='fa fa-heart w3-text-red w3-large'></i></div>");
 						
 						break;
 					}
@@ -104,6 +117,7 @@
 					
 					
 				}
+				*/
 				
 				if (typeof(callback) == "function") callback();
 				
@@ -122,7 +136,7 @@
 		var html;
 
 		if(type==='전체'){
-			html = counlistItemTemplate.render(vo);
+			html = dislistItemTemplate.render(vo);
 		}
 		else{
 			
@@ -140,14 +154,16 @@
 	}
 
 
-	var pageList = function(type, order, page, check) {
+	var pageList = function(type, order, page, check, ttype) {
 
 
 		var user = 	$("#authUser").val();
 		
+		console.log(ttype);
+		
 		$.ajax({
 			url : "/net/counseling/api/pagelist?page=" + page + "&type=" + type
-					+ "&order=" + order + "&user=" + user,
+					+ "&order=" + order + "&user=" + user + "&ttype=" + ttype,
 			type : "get",
 			dataType : "json",
 			data : "",
@@ -166,6 +182,7 @@
 				vo.order = order;
 				vo.check = check;
 				vo.user = user;
+				vo.ttype=ttype;
 
 				pageListrender(type, vo);
 
@@ -187,8 +204,8 @@
 
 		if (vo.check != 'init') {
 			if (type === '전체') {
-				listhtml = counlistTemplate.render(vo);
-			} else if(type === '공학'){
+				listhtml = dislistTemplate.render(vo);
+			} else {
 				listhtml = dislistTemplate.render(vo);
 			}
 		}
@@ -277,15 +294,15 @@
 		
 		$(document).on('click', "a.detail", function() { 
 			
-			if (authUser === null || authUser === '') {
+			//if (authUser === null || authUser === '') {
 			
-			$(".detail").removeAttr("href");
+			//$(".detail").removeAttr("href");
 			
-			$("#loginForm").css({
-				"display" : "block"
-			});
+			//$("#loginForm").css({
+			//	"display" : "block"
+			//});
 
-		}        
+		//}        
 		});
 		
 		

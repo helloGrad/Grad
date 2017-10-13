@@ -49,9 +49,7 @@
 	padding-top: 2.5em;
 }
 
-.main-contents {
-	padding-top: 5em;
-}
+
 
 .grad-banner {
 	box-shadow: 5px 10px 30px rgba(102, 102, 255, 0.2), -1px -1px 30px
@@ -153,38 +151,98 @@
 <body>
 
 	<c:import url="/WEB-INF/views/include/header.jsp" />
-
-
-	<div class="container main-contents">
 	
 	
-		<div class="col-xs-12 col-sm-12 col-lg-12">
-			<div class="row">
-				<p class="w3-center w3-large "></p>
-				<div class="w3-row-padding w3-center " style="margin-top: 1px">
-					<div
-						class="w3-container w3-row w3-center w3-padding-32 w3-white major-nav-box w3-round-large">
-						<div class="w3-quarter w3-text-grey">
-							<span class="w3-padding" style="font-size: 2.8vmin;">전체</span> <br>0건
-						</div>
-						<div class="w3-quarter w3-text-grey">
-							<span class="w3-padding" style="font-size: 2.8vmin;">대학원/연구실</span>
-							<br>${notiCount }건
-						</div>
-						<div class="w3-quarter w3-text-grey">
-							<span class="w3-padding" style="font-size: 2.8vmin;">교육/모임</span>
-							<br>0건
-						</div>
-						<div id='myinfo' class="w3-quarter w3-text-grey">
-							<span class="w3-padding" style="font-size: 2.8vmin;">맞춤정보</span>
-							<br>설정하기
-						</div>
-					</div>
+<div class="w3-center" style="padding-top: 70px;padding-bottom: 30px;margin-bottom: 30px; height: 15em; background: linear-gradient(131deg,rgba(153, 0, 0, 0.65), rgba(0, 0, 153, 0.65), rgba(0,153,0,0.65) );">
+    <div class="w3-content">
+        <div class="w3-xxxlarge w3-text-white" style="letter-spacing: 3px; text-shadow:1px 1px 0 #444">HIGRAD NET</div>
+        <div class="w3-border-top w3-border-white w3-medium w3-text-white" style="text-shadow:1px 1px 0 #444">resources to help you entering grad School</div>
+    </div>
+</div>	
+<div class="container">
+    <div class="w3-col s12 m12 l12">
+        <div class="w3-row w3-row-padding">
+            <div class="w3-col s12 m3 l3  w3-margin-bottom">
+                <div class="w3-card w3-white setting">
+                    <header class="w3-container w3-center w3-text-white" style="background :rgb(11, 194, 132)">
+                        <h6>CUSTOMIZATION</h6>
+                    </header>
+                    <div class="w3-container w3-padding w3-row-padding">
+                        <div class="w3-left w3-margin-right"><i class="far fa-user-circle fa-3x"></i></div>
+                        <span class="w3-content w3-small"> Know your industry. It is important what professionals in your chosen career. </span>
+                    </div>
+                    <footer class="w3-container w3-border-top" >
+                        <div class="w3-padding w3-medium w3-center">설정 바로가기</div>
+                    </footer>
+                </div>
+            </div>
+            <div class="w3-col s12 m3 l3  w3-margin-bottom">
+                <div class="w3-card w3-white " onclick="location.href='${pageContext.servletContext.contextPath }/counseling/list?ttype=A'">
+                    <header class="w3-container w3-center  w3-text-white" style="background :rgb(11, 194, 132)">
+                        <h6>COUNSELING</h6>
+                    </header>
+                    <div class="w3-container w3-padding w3-row-padding">
+                        <div class="w3-left w3-margin-right"><i class="far fa-code-merge fa-3x"></i></div>
+                        <Span class="w3-content w3-small">Allow enough time before you apply grad-school and Know your industry.</Span>
+                    </div>
+                    <footer class="w3-container w3-border-top">
+                        <div class="w3-padding w3-medium w3-center">상담실 바로가기</div>
+                    </footer>
+                </div>
+            </div>
+            <div class="w3-col s12 m3 l3  w3-margin-bottom">
+                <div class="w3-card w3-white">
+                    <header class="w3-container w3-center  w3-text-white" style="background :rgb(11, 194, 132)">
+                        <h6>CHOOSE</h6>
+                    </header>
+                    <div class="w3-container w3-padding w3-row-padding">
+                        <div class="w3-left w3-margin-right"><i class="far fa-university fa-3x "></i></div>
+                        <Span class="w3-content w3-small">Start out with a with at least 5 schools of options on your grad school.</span>
+                    </div>
+                    <footer class="w3-container w3-border-top">
+                        <div class="w3-padding w3-medium w3-center">${notiCount }건 진행 중</div>
+                    </footer>
+                </div>
+            </div>
 
-				</div>
-			</div>
-			
+            <div class="w3-col s12 m3 l3  w3-margin-bottom">
+                <div class="w3-card w3-white" onclick="location.href='${pageContext.request.contextPath}/user/mypage?type=myscrap'">
+                    <header class="w3-container w3-center  w3-text-white" style="background :rgb(11, 194, 132)">
+                        <h6>COMPARE</h6>
+                    </header>
+                    <div class="w3-container w3-padding w3-row-padding">
+                        <div class="w3-left w3-margin-right"><i class="far fa-list fa-3x "></i></div>
+                        <span class="w3-content w3-small">Make spreadsheet. this is important to you in considering what programs are best.</span>
+                    </div>
+                    <footer class="w3-container w3-border-top">
+                    
+                    	<c:choose>
+							<c:when test="${empty authUser }">
 		
+							 
+							<div class="w3-padding w3-medium w3-center mainscrap">0 스크랩</div>
+							</c:when>
+							<c:otherwise>
+		
+		
+							<div class="w3-padding w3-medium w3-center mainscrap">${scrapCount} 스크랩</div>
+							  
+							
+		
+							</c:otherwise>
+						</c:choose>
+                      
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>	
+
+
+	<div class="container">
+		<div class="col-xs-12 col-sm-12 col-lg-12">		
         
             <c:if test="${authUser.mbNo != null  }">
             
@@ -208,8 +266,8 @@
 			                <div class="w3-display-container w3-card w3-round-large w3-white">
 			              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${myBoardList.slctnNotiNo}&tabnm=${myBoardList.slctnNotiDstnct}'">
 				                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${myBoardList.year }년 ${myBoardList.slctnSemstr}</div>
-				                    <div style="margin-bottom: -1em;">
-				                        <img src="${pageContext.request.contextPath }${myBoardList.storgPath }" alt="대학교 로고"
+				                    <div style="margin-bottom: 0em;">
+				                        <img src="${myBoardList.storgPath }" alt="대학교 로고"
 				                             style="width:100%; padding: 1em 1em 0 1em; height:83px;">
 				                       
 				                    </div>
@@ -286,8 +344,8 @@
 										</c:otherwise>
 									</c:choose>
 				                    </div>
-				                    <div style="margin-bottom: -1em;">
-				                        <img src="${pageContext.request.contextPath }${myBoardList.storgPath }" alt="대학교 로고"
+				                    <div style="margin-bottom: 0em;">
+				                        <img src="${myBoardList.storgPath }" alt="대학교 로고"
 				                             style="width:100%; padding: 1em 1em 0 1em; height:83px;">
 				                       
 				                    </div>
@@ -333,104 +391,7 @@
 		</div>
 
 
-		<div class="row distinct-line">
-			<div class="col-xs-6 col-sm-6 col-lg-3">
-				<div class="conference-banner w3-card w3-round-large ">
-					<div class="w3-padding w3-text-grey w3-small"
-						style="margin-bottom: -0.5em;">2018년 전기</div>
-					<img src="/net/resources/images/higrad-img/eclipse.png"
-						style="width: 99%;">
-					<div class="w3-container w3-center w3-padding">
-						<p style="font-size: 1.8vmin;">
-							<strong>세무회계 핵심 교육</strong>
-						</p>
-						<p>Sat. 28 November 2017</p>
-						<button class="btn">참여하기</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-6 col-sm-6 col-lg-3">
-				<div class="conference-banner w3-card w3-round-large ">
-					<div class="w3-padding w3-text-grey w3-small"
-						style="margin-bottom: -0.5em;">2018년 전기</div>
-					<img src="/net/resources/images/higrad-img/drone.png"
-						style="width: 99%;">
-					<div class="w3-container w3-center w3-padding">
-						<p style="font-size: 1.8vmin;">
-							<strong>세무회계 핵심 교육</strong>
-						</p>
-						<p>Sat. 28 November 2017</p>
-						<button class="btn">참여하기</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-6 col-sm-6 col-lg-3">
-				<div class="conference-banner w3-card w3-round-large ">
-					<div class="w3-padding w3-text-grey w3-small"
-						style="margin-bottom: -0.5em;">2018년 전기</div>
-					<img src="/net/resources/images/higrad-img/eclipse.png"
-						style="width: 99%;">
-					<div class="w3-container w3-center w3-padding">
-						<p style="font-size: 1.8vmin;">
-							<strong>세무회계 핵심 교육</strong>
-						</p>
-						<p>Sat. 28 November 2017</p>
-						<button class="btn">참여하기</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-6 col-sm-6 col-lg-3">
-				<div class="conference-banner w3-card w3-round-large ">
-					<div class="w3-padding w3-text-grey w3-small"
-						style="margin-bottom: -0.5em;">2018년 전기</div>
-					<img src="/net/resources/images/higrad-img/financial.png"
-						style="width: 100%;">
-					<div class="w3-container w3-center w3-padding">
-						<p style="font-size: 1.8vmin;">
-							<strong>세무회계 핵심 교육</strong>
-						</p>
-						<p>Sat. 28 November 2017</p>
-						<button class="btn">참여하기</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-6 col-sm-6 col-lg-3">
-				<div class="conference-banner w3-card w3-round-large ">
-					<div class="w3-padding w3-text-grey w3-small"
-						style="margin-bottom: -0.5em;">2018년 전기</div>
-					<img src="/net/resources/images/higrad-img/financial.png"
-						style="width: 99%;">
-					<div class="w3-container w3-center w3-padding">
-						<p style="font-size: 1.8vmin;">
-							<strong>세무회계 핵심 교육</strong>
-						</p>
-						<p>Sat. 28 November 2017</p>
-						<button class="btn">참여하기</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-6 col-sm-6 col-lg-3">
-				<div class="conference-banner w3-card w3-round-large ">
-					<div class="w3-padding w3-text-grey w3-small"
-						style="margin-bottom: -0.5em;">2018년 전기</div>
-					<img src="/net/resources/images/higrad-img/financial.png"
-						style="width: 99%;">
-					<div class="w3-container w3-center w3-padding">
-						<p style="font-size: 1.8vmin;">
-							<strong>세무회계 핵심 교육</strong>
-						</p>
-						<p>Sat. 28 November 2017</p>
-						<button class="btn">참여하기</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
+		
 
 
 		<c:forEach items="${codeList }" var="codeVo" varStatus="status">
@@ -446,7 +407,7 @@
 
 					<hr>
 
-					<div class="row distinct-line">
+					<div class="row">
 						<c:forEach items="${gradList }" var="gradVo" varStatus="status">
 							<c:choose>
 								<c:when test="${gradVo.pNm == codeVo.cdNm}">
@@ -456,8 +417,8 @@
 			                <div class="w3-display-container w3-card w3-round-large w3-white">
 			              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${gradVo.slctnNotiNo}&tabnm=${gradVo.slctnNotiDstnct}'">
 				                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${gradVo.slctnYycl }년 ${gradVo.slctnSemstr }</div>
-				                    <div style="margin-bottom: -1em;">
-				                        <img src="/net${gradVo.storgPath }" alt="${gradVo.major }"
+				                    <div style="margin-bottom: 0em;">
+				                        <img src="${gradVo.storgPath }" alt="${gradVo.major }"
 				                             style="width:100%; padding: 1em 1em 0 1em; height:83px;">
 				                       
 				                    </div>
@@ -561,8 +522,8 @@
 										</c:otherwise>
 									</c:choose>
 				                    </div>
-				                    <div style="margin-bottom: -1em;">
-				                        <img src="/net${labVo.storgPath }" alt="${labVo.major}"
+				                    <div style="margin-bottom: 0em;">
+				                        <img src="${labVo.storgPath }" alt="${labVo.major}"
 				                             style="width:100%; padding: 1em 1em 0 1em; height:83px;">
 				                       
 				                    </div>

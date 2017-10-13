@@ -18,6 +18,8 @@
 	src="${pageContext.request.contextPath }/resources/js/packs/solid.js"></script>
 <script defer
 	src="${pageContext.request.contextPath }/resources/js/packs/brands.js"></script>
+<script defer
+	src="${pageContext.request.contextPath }/resources/js/packs/light.js"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -26,23 +28,16 @@
 </script>
 
 
-<link
-	href="${pageContext.request.contextPath}/resources/css/bootstrap-social1.css"
-	rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/css/login1.css"
-	rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/w3.css">
 
 
 <style>
 body {
-	background-color: rgb(247, 245, 242);
+	background-color: rgb(255, 255, 255);
 	padding-top: 4em;
 }
 
-.w3-lobster {
-	font-family: "Comic Sans MS", cursive, sans-serif;
-}
+
 
 .container {
 	padding-right: 15px;

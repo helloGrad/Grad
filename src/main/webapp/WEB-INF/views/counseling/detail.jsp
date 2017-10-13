@@ -16,17 +16,17 @@ pageContext.setAttribute("newLine", "\n");
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>  
 		  
     
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
-<link href="${pageContext.request.contextPath}/resources/css/higrad-signup.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap1.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap1.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/w3.css">
 
 		
 <style>
-body {
-	padding-top: 80px;
+
+.answers {
+    background-color: rgb(250,250,252);
 }
+
 .question {
 	font-size : 1.5em;
     font-weight: bold;
@@ -98,24 +98,44 @@ textarea {
 		
 		var existLikelist = []; 
 	
-		if (replysize == 0) { 
-
-			if (type === 'prnts') {
-
-				div_hide();
-			}
-
-		} else {
-
-			div_hide();
-		
+		if (type === 'prnts') {
+			
+			//div_hide();
 		}
 		
+		//if (replysize == 0) { 
+
+			//if (type === 'prnts') {
+
+			//	div_hide();
+			//}
+
+		//} else {
+
+			//div_hide();
+		
+		//}
+		
+		if(authUser == null || authUser == "" ){
+			
+		}else{
+			
+
+			var scrapList=JSON.parse('${scrapList}');
+			for(var i=0;i<scrapList.length;i++){
+
+				if(scrapList[i].prntsDstnct==='게시글'){
+					
+					
+					$('.do-scrapcoun' + scrapList[i].prntsNo).addClass('w3-text-red');
+				}
+			};	
+			
+		};	
 		
 
 		for( var i=0; i<existLike.length; i++){
-			
-			
+	
 			if(existLike[i].wrtbtNo == counselingPrnts[0].wrtbtNo){
 			
 				var link ="like"+existLike[i].wrtbtNo+"like";
@@ -123,12 +143,10 @@ textarea {
 				
 				list.push(link);
 				
-				$('.'+link).addClass("winter");
-			
-				
+				$('.'+link).addClass("w3-text-red");
+
 			}
-			
-			
+	
 		}
 		
 			
@@ -148,8 +166,8 @@ textarea {
 					
 					list.push(dislink);
 					
-					$('.'+link).addClass("winter");
-					$('.'+dislink).addClass("winter");
+					$('.'+link).addClass("w3-text-red");
+					$('.'+dislink).addClass("w3-text-red");
 					
 				
 				}
@@ -167,18 +185,20 @@ textarea {
 				if(authUser === null || authUser===''){
 					
 		    		
-		    		location.href='${pageContext.request.contextPath }/user/login';
+					$("#loginForm").css({
+					"display" : "block"
+					});
 					
 					
 				}else{
 					
-					var con = document.getElementById("reply-form");
+					//var con = document.getElementById("reply-form");
 
-					if (con.style.display == 'none') {
-						con.style.display = 'block';
-					} else {
-						con.style.display = 'none';
-					}
+					//if (con.style.display == 'none') {
+					//	con.style.display = 'block';
+					//} else {
+					//	con.style.display = 'none';
+					//}
 
 				}
 
@@ -223,7 +243,9 @@ textarea {
 		var authUser= $("#authUser").val();
 		if(authUser === null || authUser===''){
 			
-    		location.href='${pageContext.request.contextPath }/user/login';
+			$("#loginForm").css({
+				"display" : "block"
+			});
 			return;
 			
 		}
@@ -240,7 +262,6 @@ textarea {
 			bbsNo : bbsNo
 		};
 
-		div_hide();
 
 		jQuery.ajaxSettings.traditional = true;
 
@@ -278,7 +299,10 @@ textarea {
 		var authUser= $("#authUser").val();
 		if(authUser === null || authUser===''){
 			
-    		location.href='${pageContext.request.contextPath }/user/login';
+			$("#loginForm").css({
+				"display" : "block"
+			});
+			
 			return;
 			
 		}
@@ -307,8 +331,10 @@ textarea {
 				}
 
 				
-				location.reload();
+				//location.reload();
 				
+				console.log(response.data.rcmdCo);
+				console.log(response.data.ncmdCo);
 				
 				if(value == 'like'){
 
@@ -337,26 +363,36 @@ textarea {
 							}
 							
 
-						 	$(".like"+num+"like").html("<a class='like"+response.data.wrtbtNo+"like' onclick='likeupdate("+response.data.wrtbtNo+",'like')' value='like'> Up <span class='w3-badge w3-white'>"+response.data.rcmdCo+"</span></a>");
-							 if($(".like"+num+"dislike").hasClass("winter") === true) {
-								 $(".like"+num+"dislike").removeClass("winter");
-								 $(".like"+num+"like").removeClass("winter");
+						 //	$(".like"+num+"like").html("<a class='like"+response.data.wrtbtNo+"like' onclick='likeupdate("+response.data.wrtbtNo+",'like')' value='like'> Up <span class='w3-badge w3-white'>"+response.data.rcmdCo+"</span></a>");
+							 if($(".like"+num+"dislike").hasClass("w3-text-red") === true) {
+								 
+								 $(".like"+num+"dislike").removeClass("w3-text-red");
+								 
+								 $(".like"+num+"like").removeClass("w3-text-red");
+								 
+								 $(".like"+num+"likes").text(response.data.rcmdCo);
+								 $(".like"+num+"dislikes").text(response.data.ncmdCo);
 								}else{
 									
-									 $(".like"+num+"dislike").addClass("winter");
-									 $(".like"+num+"like").addClass("winter");
+									 $(".like"+num+"dislike").addClass("w3-text-red");
+									 $(".like"+num+"like").addClass("w3-text-red");
+									 $(".like"+num+"likes").text(response.data.rcmdCo);
+									 $(".like"+num+"dislikes").text(response.data.ncmdCo);
 								}		
 						
 						
 						 
 					 }else{ 
-					 	$(".like"+num+"like").html("<a class='like"+response.data.wrtbtNo+"like' onclick='likeupdate("+response.data.wrtbtNo+",'like')' value='like'> 공감 <span class='w3-badge w3-white'>"+response.data.rcmdCo+"</span></a>");
+					 	//$(".like"+num+"like").html("<a class='like"+response.data.wrtbtNo+"like' onclick='likeupdate("+response.data.wrtbtNo+",'like')' value='like'> 공감 <span class='w3-badge w3-white'>"+response.data.rcmdCo+"</span></a>");
 	
-					 	 if($(".like"+num+"like").hasClass("winter") === true) {
-							 $(".like"+num+"like").removeClass("winter");
+					 	 if($(".like"+num+"like").hasClass("w3-text-red") === true) {
+					 		 
+					 		$(".like"+num+"likes").text(response.data.rcmdCo);
+							 $(".like"+num+"like").removeClass("w3-text-red");
 							}else{
 								
-								 $(".like"+num+"like").addClass("winter");
+								$(".like"+num+"likes").text(response.data.rcmdCo);
+								 $(".like"+num+"like").addClass("w3-text-red");
 							}
 
 						}
@@ -374,15 +410,21 @@ textarea {
 					}
 					
 					
-						 $(".like"+num+"dislike").html("<a class='like"+response.data.wrtbtNo+"dislike' onclick='likeupdate("+response.data.wrtbtNo+",'dislike')' value='dislike'> Down <span class='w3-badge w3-white'>"+response.data.ncmdCo+"</span></a>");
+						// $(".like"+num+"dislike").html("<a class='like"+response.data.wrtbtNo+"dislike' onclick='likeupdate("+response.data.wrtbtNo+",'dislike')' value='dislike'> Down <span class='w3-badge w3-white'>"+response.data.ncmdCo+"</span></a>");
 
-						 if($(".like"+num+"dislike").hasClass("winter") === true) {
-							 $(".like"+num+"dislike").removeClass("winter");
-							 $(".like"+num+"like").removeClass("winter");
+						 if($(".like"+num+"dislike").hasClass("w3-text-red") === true) {
+							 $(".like"+num+"dislike").removeClass("w3-text-red");
+							 $(".like"+num+"like").removeClass("w3-text-red");
+							 
+							 $(".like"+num+"likes").text(response.data.rcmdCo);
+							 $(".like"+num+"dislikes").text(response.data.ncmdCo);
 							}else{
 								
-								 $(".like"+num+"dislike").addClass("winter");
-								 $(".like"+num+"like").addClass("winter");
+								 $(".like"+num+"dislike").addClass("w3-text-red");
+								 $(".like"+num+"like").addClass("w3-text-red");
+								 
+								 $(".like"+num+"likes").text(response.data.rcmdCo);
+								 $(".like"+num+"dislikes").text(response.data.ncmdCo);
 							}	
 				
 					
@@ -404,19 +446,27 @@ textarea {
 <c:import url="/WEB-INF/views/include/header.jsp" />
 	
 	
+<div class="w3-row">
 <div class="container">
-    <div class="row">
-     
-        <div class="col-lg-8">
-          
-            <div class="w3-card-4 w3-margin w3-topbar w3-border-red">
-
+    <div class="w3-content" style="max-width: 768px;">
+        <div class="w3-col s12 m12 l12">
+            <!--질문 시작-->
+            <div class="w3-margin-bottom">
+                <div class="w3-padding w3-text-grey w3-medium">
+               <c:if test="${counselingPrnts. wrtbtDstnct =='일반게시판' }"	> 
+           			<span> Ordinary</span>
+                   
+               </c:if>   
+               <c:if test="${counselingPrnts. wrtbtDstnct =='상담게시판' }"	> 
+           
+                    <span> Question Asked</span>
+               </c:if>  
+                    
+                </div>
                 <div class="w3-container">
                     <h3><b>${counselingPrnts.wrtbtTitle }</b></h3>
-
-                </div>
-
-                <div class="w3-container">
+                    
+                    	
                 <h6>
                 <c:if test="${counselingPrnts.writrInfoOpngYn =='Y' }"	>
  
@@ -446,257 +496,150 @@ textarea {
                 <c:if test="${counselingPrnts.writrInfoOpngYn =='N' }"	>
                                       비공개
                 </c:if>
-                    <span class="w3-opacity">• ${counselingPrnts.avlblBeginDt }에 작성</span></h6>
-               </div>
+                    <span class="w3-text-grey">• ${counselingPrnts.avlblBeginDt }에 작성</span></h6>
+                
 
-                <div class="w3-container">
-                    <p>
+                </div>
+                
+                
+
+                <div class="w3-container" style="line-height: 200%">
+                    <p class="w3-padding">
                     ${fn:replace(counselingPrnts.wrtbtText, newLine,"<br>") }
                     </p>
-                    
-                   	<c:forEach items="${fileList }" var="list" varStatus="status">
+                     <c:forEach items="${fileList }" var="list" varStatus="status">
 					  <img src="${list.storgPath }" style="max-width: 100%; height: auto;" >  
 					</c:forEach>
-                
+					
                 </div>
 
-                <div class="w3-container interest">
-                </div>
-
-                <div class="w3-container">
-                    <div class="w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large disabled">
-                        조회수 <span class="w3-badge w3-white">${counselingPrnts.findCo }</span>
-                    </div>
+                <div class="w3-container w3-bar w3-border-bottom w3-padding">
+                    <button class="w3-button do-scrapcoun${counselingPrnts.wrtbtNo}"  onclick="doScrap('게시글',${counselingPrnts.wrtbtNo},${authUser.mbNo });">
+                        <span class="fa-layers fa-fw" style="font-size: 2.5em;">
+                        <i class="fal fa-thumbtack"></i>
+                        </span>
+                    </button>
                     
-                   
-					 
-					 	 
-                   		 <div class="w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large">
-                      	<a class="like${counselingPrnts.wrtbtNo }like" onclick="likeupdate(${counselingPrnts.wrtbtNo },'like')" value="like"> 공감 <span class="w3-badge w3-white">${counselingPrnts.rcmdCo }</span></a>
-                   		 </div>
+                      <button class="w3-button like${counselingPrnts.wrtbtNo }like" onclick="likeupdate(${counselingPrnts.wrtbtNo },'like')" value="like">
+                        <span class="fa-layers fa-fw" style="font-size: 2.5em;">
+                        <i class="fal fa-heart"></i>
+                        <span class="fa-layers-counter fa-layers-bottom-right like${counselingPrnts.wrtbtNo }likes">${counselingPrnts.rcmdCo} </span>
+                        </span>
+                    </button>
                   
-                 
+                    
+                    <button class="w3-button">
+                        <span class="fa-layers fa-fw" style="font-size: 2.5em;">
+                        <i class="fal fa-comment-alt"></i>
+                            <span class="fa-layers-counter fa-layers-bottom-right">${fn:length(counselingReplyList)}</span>
+                            
+                        </span>
+                    </button>
                     
                     
-                    <div class="dropup option">
-                        <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
-                            <i class="glyphicon glyphicon-option-horizontal"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#">익명으로 답변하기</a></li>
-                            <li><a href="#">스크랩하기</a></li>
-                            <li><a href="#">신고하기</a></li>
-                        </ul>
-                    </div>
-                    
-                    <br>
-                    <div class="row w3-margin">
+                   		  <div class="w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large disabled">
+                     	   조회수 <span class="w3-badge w3-white">${counselingPrnts.findCo }</span>
+                   		 </div>
+                   		 
+                   	 <div class="row w3-margin">
 					<c:forEach items="${fileList }" var="list" varStatus="status">
 					<a id="down" href="${pageContext.servletContext.contextPath }/download?no=${list.apndngFileNo}">${list.apndngFileNm }</a>
 					</c:forEach>
-					</div>
-                    
+					</div>	 
+                   		 
                 </div>
-                <Br>
-            </div>
-
-            <div class="w3-container">
-
-                    <h4><b>답변</b> <span class="w3-badge w3-white">${fn:length(counselingReplyList)}</span></h4>
-                    <input type="hidden" id="replysize" name="replysize" value="${fn:length(counselingReplyList)}">
-                    
-                    <div id="myBtn" class="btn btn-danger" >답변하기</div>
-                   
-                <hr>
-            </div>
-
-         
-            <div class="w3-card-4 w3-margin w3-topbar w3-border-lightgray" id="reply-form">
-              
-			
-				 <form class="reply-form" id="reply-form" name="reply-form" onsubmit="counselingreplyinsert();">
-				 
-					<input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
+                <div class="w3-container w3-bar">
+                    <div class="w3-bar-item">
+                        <h5>Share your wisdom with us.</h5>
+                    </div>
+                  
+                </div>
+                 <input type="hidden" id="replysize" name="replysize" value="${fn:length(counselingReplyList)}">
+                 
+                <form class="reply-form" id="reply-form" name="reply-form" onsubmit="counselingreplyinsert();">
+                	<input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
 					<input type="hidden" id="prntsWrtbtNo" name="prntsWrtbtNo" value="${counselingPrnts.wrtbtNo }">
 					 <input type="hidden" id="bbsNo" name="bbsNo" value="${counselingPrnts.bbsNo}"> <br>
-					<div>답변</div> 
-					<textarea class="form-control" onkeydown="resize(this)" onkeyup="resize(this)" id="wrtbtText2" name="wrtbtText"></textarea>
-					
-					 <div class="dropdown writedropdown">
-	               			<button  class="w3-button w3-padding w3-round-large dropdown-toggle" type="button" data-toggle="dropdown" style="float:right;">
-	                   		 <i class="glyphicon glyphicon-option-horizontal"></i>
-	               			 </button>
-	               			 <ul id="writrInfoOpngYn2" class="dropdown-menu dropdown-menu-right">
-	                  	     <li class="hide"><a href="#" value="Y">공개로 작성하기</a></li>
-	                  	     <li><a href="#" value="N">비공개로 작성하기</a></li>
-	                  	  
-	                		</ul>
-	               
-	                
-	             	</div>
-	           
-	           		<select id="writrInfoOpngYn" class="hide">
+					 
+                    <textarea class="w3-input w3-border w3-border-grey w3-margin-bottom w3-large" placeholder="Answers..." id="wrtbtText2" name="wrtbtText"></textarea>
+                    
+                    <select id="writrInfoOpngYn" class="hide">
 	           		
 					  <option  class="hide" value="Y" selected="selected"></option>
 					  <option value="N">비공개로 작성하기</option>
 					</select>
-				
-
-					<button type="submit" class="form-control">입력</button>
-				</form>
-			</div>
-            
-            
-            
-            
-            <c:forEach items="${counselingReplyList}" var="counselingReplyList" varStatus="status">
-            	
-            	
-            	 <c:if test="${status.index == 0 }"	>
-            
-            <div class="w3-card-4 w3-margin w3-topbar w3-border-green">
-               
-                <div class="w3-container">
-                    <br>
-                    <img src="images/portfolio/1.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:4em; height: 4em;">
-                    
-                    <c:if test="${counselingReplyList.writrInfoOpngYn =='Y' }"	>
-                	<p><span class="w3-large w3-margin-right">${counselingReplyList.nknm}</span>
-                 	 <span class="w3-medium w3-opacity"></span>
-                 	  </p>
-                	</c:if>
-                
-                
-               		 <c:if test="${counselingReplyList.writrInfoOpngYn =='N' }"	>
-                      <p><span class="w3-large w3-margin-right">비공개</span></p>
-               		 </c:if>
-                    
-                    
-                  
-                <h6>
-                    <span class="w3-small w3-opacity">${counselingReplyList.avlblBeginDt}에 답변</span></h6>
-                </div>
-
-                <br>
-
-           
-                <div class="w3-container">
-                    <p>${fn:replace(counselingReplyList.wrtbtText, newLine,"<br>") } </p> 
-                </div>
-
-                <div class="w3-container">
-                
-                 <div class="w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large">
-                  <a class="like${counselingReplyList.wrtbtNo }like" onclick="likeupdate(${counselingReplyList.wrtbtNo },'like')" value="like" >  Up <span class="w3-badge w3-white">${counselingReplyList.rcmdCo }</span></a>
-                  </div>
-                   
-                       
-                    <div class="w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large">
-                     <a class="like${counselingReplyList.wrtbtNo }dislike" onclick="likeupdate(${counselingReplyList.wrtbtNo },'dislike')" value="dislike">  Down <span class="w3-badge w3-white">${counselingReplyList.ncmdCo }</span></a>
-                    </div>
-
-
-
-                    <div class="dropup option">
-                        <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
-                            <i class="glyphicon glyphicon-option-horizontal"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#">신고하기</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <br>
+					
+                    <button type="submit" id="myBtns" class="w3-button w3-right w3-margin-bottom w3-round-large w3-blue">답변하기</button>
+              
+              
+                </form>
             </div>
-
-  			</c:if>
-  			
-  			<c:if test="${status.index != 0 }"	>
-  			
-            <div class="w3-card-4 w3-margin w3-topbar w3-border-lightgray">
-                
-                <div class="w3-container">
-                    <br>
-                    <img src="http://placehold.it/40x40" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:4em; height: 4em;">
-                    
-                    
-                    <c:if test="${counselingReplyList.writrInfoOpngYn =='Y' }"	>
-                	<p><span class="w3-large w3-margin-right">${counselingReplyList.nknm}</span>
-                 	 <span class="w3-medium w3-opacity"></span>
-                 	  </p>
-                	</c:if>
-                
-                
-               		 <c:if test="${counselingReplyList.writrInfoOpngYn =='N' }"	>
-                      <p><span class="w3-large w3-margin-right">비공개</span></p>
-               		 </c:if>
-               		 
-               		 
-                    <h6>
-                        <span class="w3-small w3-opacity">${counselingReplyList.avlblBeginDt}에 답변</span></h6>
-                </div>
-
-                <br>
-
-                <div class="w3-container">
-                    <p>${counselingReplyList.wrtbtText} </p>
-                </div>
-                
-                
-
-                <div class="w3-container">
-                    <div class="w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large">
-                  <a class="like${counselingReplyList.wrtbtNo }like" onclick="likeupdate(${counselingReplyList.wrtbtNo },'like')" value="like">  Up <span class="w3-badge w3-white">${counselingReplyList.rcmdCo }</span></a>
-                  </div>
-                   
-                       
-                    <div class="w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large">
-                     <a class="like${counselingReplyList.wrtbtNo }dislike" onclick="likeupdate(${counselingReplyList.wrtbtNo },'dislike')" value="dislike">  Down <span class="w3-badge w3-white">${counselingReplyList.ncmdCo }</span></a>
-                    </div>
-                    <div class="dropup option">
-                        <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
-                            <i class="glyphicon glyphicon-option-horizontal"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#">신고하기</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <br>
-            </div>
-
-			</c:if>	
-		
-			</c:forEach>
-
-     
-        </div>
-
- 
-        <div class="col-lg-4">
-            <div class="w3-card-2 w3-margin">
-                <div class="w3-container">
-                <h5>Related Questions</h5>
-                    <div class="interest">#유학 #외국 #컴퓨터
-                    </div>
-                </div>
-                <br>
-                <ul class="w3-ul">
-                    <li><a href="">What are things about 5-star hotels that they do not want you to know?</a> </li>
-                    <li><a href="">전문대 석사</a> </li>
-                    <li><a href="">전문대 졸업을햇는데 학사학위 안따고 그냥 바로 석사 따도대나오??</a> </li>
-                    <li><a href="">전문대 졸업을햇는데 학사학위 안따고 그냥 바로 석사 따도대나오??</a> </li>
-                    <li><a href="">수능 접수하는 기간에 따라 학교배정 받는 것도 달라지나요?</a> </li>
-                    <li><a href="">의대생 생활 (의대생 분들만 답변해 주셨으면 좋겠습니다) </a> </li>
-                    <li><a href="">한국장학재단 농어촌융자금 등록금 납부</a> </li>
-
-                </ul>
-
-                <br>
-            </div>
+            <!--질문 끝-->
         </div>
     </div>
 </div>
+</div>
+
+<div class="w3-row answers">
+<div class="w3-container">
+    <div class="w3-content" style="max-width: 768px;">
+    
+   
+   			 <c:if test="${fn:length(counselingReplyList) > 0  }"	> 
+           
+                    <div class="w3-panel w3-border-bottom w3-border-black">
+			            <h4>
+			                <div style="float: left; margin-right: 0.3em;">답변</div>
+			            </h4>
+			        	</div>
+               </c:if> 
+    		
+    
+    	      <c:forEach items="${counselingReplyList}" var="counselingReplyList" varStatus="status">
+            	
+            	
+            	    <div class="w3-white w3-border w3-border-grey w3-margin-bottom">
+
+			            <div class="w3-padding w3-text-grey w3-large">
+			                <button class="w3-button">
+			                        <span class="fa-layers fa-fw" style="font-size: 1.2em;">
+			                             <i class="fal fa-thumbtack"></i>
+			                        </span>
+			                </button>
+			                <span class="w3-lobster"> #${status.index+1}</span>
+			            </div>
+			            <div class="w3-container">
+			                <h6> ${counselingReplyList.nknm} <span class="w3-text-grey">•${counselingReplyList.avlblBeginDt}에 작성</span></h6>
+			            </div>
+			            <div class="w3-container w3-white" style="line-height: 200%">
+			                <p class="w3-padding">
+			                ${fn:replace(counselingReplyList.wrtbtText, newLine,"<br>") }
+			                </p>
+			
+			                <div class="w3-container w3-bar w3-padding">
+			                    <button class="w3-button like${counselingReplyList.wrtbtNo }like" onclick="likeupdate(${counselingReplyList.wrtbtNo },'like')" value="like">
+			                        <span class="fa-layers fa-fw" style="font-size: 2.5em;">
+			                            <i class="fal fa-thumbs-up"></i><span class="fa-layers-counter fa-layers-bottom-right like${counselingReplyList.wrtbtNo }likes">${counselingReplyList.rcmdCo }</span>
+			                        </span>
+			                    </button>
+			                    <button class="w3-button like${counselingReplyList.wrtbtNo }dislike" onclick="likeupdate(${counselingReplyList.wrtbtNo },'dislike')" value="dislike">
+			                        <span class="fa-layers fa-fw" style="font-size: 2.5em;">
+			                            <i class="fal fa-thumbs-down"></i><span class="fa-layers-counter fa-layers-bottom-right like${counselingReplyList.wrtbtNo }dislikes">${counselingReplyList.ncmdCo }</span>
+			                        </span>
+			                     </button>
+			                    
+			                </div>
+			            </div>
+			        </div>
+            
+		
+			</c:forEach>
+
+    </div>
+</div>
+</div>
+<script type="text/javascript"
+		src="${pageContext.request.contextPath}/resources/js/doscrap.js"></script>	
 
 
 </body>

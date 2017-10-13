@@ -54,12 +54,12 @@ a.btn.disabled.numbtn {
 <script>
 
 var authUser = '${authUser.mbNo }';
-
+var ttype= '${ttype }';
 
 	$(function() {
 		
 		
-		disfetchList("전체", "최신순", function() {
+		disfetchList("전체", "최신순", ttype, function() {
 
 	
 			if(authUser == null || authUser == "" ){
@@ -88,7 +88,7 @@ var authUser = '${authUser.mbNo }';
 			if (scrollTop + windowHeight + 10 > documentHeight) {
 				if (!disbFetching) {
 					disbFetching = true;
-					disfetchList("전체", "최신순", function() {
+					disfetchList("전체", "최신순", ttype, function() {
 						
 
 				
@@ -124,45 +124,30 @@ var authUser = '${authUser.mbNo }';
 
 <div class="container">
    
-    <div class="row">
-        <div class="col-lg-3">
-        	    분야
-            <a href="*" class="remove-btn">EDIT</a>
+   
+   	<div class="w3-row">
+        <div class="w3-panel w3-border-bottom w3-border-black">
+            <h1>
+                <div style="float: left; margin-right: 0.3em;">All</div>
 
-            <hr>
-            <div class="well well-sm">
-                <i class="glyphicon glyphicon-tag"></i> 즐겨찾기
-            </div>
-            <div class="well well-sm">
-                <i class="glyphicon glyphicon-tag"></i> 답변을 기다리는 중 ...
-            </div>
-            <div class="well well-sm">
-                <i class="glyphicon glyphicon-tag"></i> 데이터베이스
-                <a href=""> <i class="glyphicon glyphicon-remove remove-btn"></i></a>
-            </div>
-            <div class="well well-sm">
-                <i class="glyphicon glyphicon-tag"></i> 인공지능
-                <a href=""> <i class="glyphicon glyphicon-remove remove-btn"></i></a>
-            </div>
-            <div class="well well-sm">
-                <i class="glyphicon glyphicon-tag"></i> 빅 데이터
-                <a href=""> <i class="glyphicon glyphicon-remove remove-btn"></i></a>
-            </div>
-            <div class="well well-sm">
-                <i class="glyphicon glyphicon-tag"></i> 컴퓨터
-                <a href=""> <i class="glyphicon glyphicon-remove remove-btn"></i></a>
-            </div>
+            </h1>
         </div>
+   	
+ 
+ 		     <div class="w3-row-padding">
+             <div class="w3-col s12 m6 l3  w3-white w3-round-large main-banner">
+                <h5 class="w3-center w3-padding" style="letter-spacing: 0.3em;"><strong>Activity</strong></h5>
+                <ul class="w3-ul w3-center w3-text-grey w3-padding" style="letter-spacing: 0.1em;">
+                    <li class=""><a href="${pageContext.servletContext.contextPath }/counseling/list?ttype=A"> All <span class=""></span></a></li>
+                    <li class=""><a href="${pageContext.servletContext.contextPath }/counseling/list?ttype=W"> 답변을 기다리는 중 <span class=""></span></a></li>
+                   
+                </ul>
+            </div>
 
 
-
-    <div class="col-lg-9">
-    
-	
-		
-		<div class="w3-container">
-		
-            <div id="myBtn" class="btn btn-danger web-volunteer writeBtn">질문하기</div>
+	    <div class="w3-col s12 m4 l7 w3-margin-bottom ">
+            
+               <div id="myBtn" class="btn btn-danger web-volunteer writeBtn">질문하기</div>
             
             <div class="dropdown option">
                 <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
@@ -174,17 +159,17 @@ var authUser = '${authUser.mbNo }';
                      <li><a href="javascript:void(0);" onclick="reset('전체','최신순');">최신순</a></li>
                 </ul>
             </div>
-   
- </div>
+            
+            <input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
+	
+            <div id="list"></div>
+            <div id="pagelist" class="pagelist"></div>
+                
+ 
+                
+     
+            </div>
 
-			<input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
-        	<div id="list"></div>
-        
-         	<div id="pagelist" class="pagelist"></div>
-        
-
-
-    </div>
 
 
     </div>

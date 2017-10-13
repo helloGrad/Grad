@@ -30,12 +30,13 @@ public class CounselingService {
 
 	}
 
-	public List<CounselingVo> getCounselingList(String type,String order,Long startNo) {
+	public List<CounselingVo> getCounselingList(String type,String order,Long startNo, String ttype) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("type", type);
 		map.put("order", order);
 		map.put("startNo",startNo);
+		map.put("ttype",ttype);
 		
 		return counselingDao.getCounselingList(map);
 	}
@@ -154,12 +155,13 @@ public class CounselingService {
 
 	
 
-	public List<CounselingVo> getCounList(String type, String order, PageVo pageVo) {
+	public List<CounselingVo> getCounList(String type, String order, PageVo pageVo, String ttype) {
 		Map<String, Object> map =  new HashMap<String, Object>();
 		
 		map.put("type", type);
 		map.put("order", order);
 		map.put("pageVo", pageVo);
+		map.put("ttype", ttype);
 		
 		return counselingDao.countCounList(map);
 	}

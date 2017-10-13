@@ -237,16 +237,16 @@ public class StudyController {
 		
 		for(int i=0; i<majorList.size(); i++) {
 			
-			System.out.print( majorList.get(i).getSlctnNotiNo()+" ");
+			//System.out.print( majorList.get(i).getSlctnNotiNo()+" ");
 			
 		}
 		for(int i=0; i<  BoardList.size(); i++) {
 			
 			
-			System.out.print( BoardList.get(i).getSlctnNotiNo()+" ");
-			System.out.print( BoardList.get(i).getSlctnNotiDstnct()+" ");
-			System.out.print( BoardList.get(i).getPchrgYn()+" ");
-			System.out.println( BoardList.get(i).getSlctnTitle());
+			//System.out.print( BoardList.get(i).getSlctnNotiNo()+" ");
+			//System.out.print( BoardList.get(i).getSlctnNotiDstnct()+" ");
+			//System.out.print( BoardList.get(i).getPchrgYn()+" ");
+			//System.out.println( BoardList.get(i).getSlctnTitle());
 			
 		
 			
@@ -255,9 +255,9 @@ public class StudyController {
 		
 		for(int i=0; i< majorList.size(); i++) {
 			
-			System.out.println(majorList.get(i).getSlctnNotiNo()+" ");
+			//System.out.println(majorList.get(i).getSlctnNotiNo()+" ");
 			
-			System.out.println(majorList.get(i).getSpCdNm());
+			//System.out.println(majorList.get(i).getSpCdNm());
 		}
 		
 	
@@ -265,9 +265,9 @@ public class StudyController {
 		
 			for(int j=i+1; j< majorList.size(); j++) {
 
-				if(majorList.get(i).getSpCdNm() != null) {
+				if(majorList.get(i).getSpCdNm() != null) { //연구분야 중복제거 
 					if( majorList.get(i).getSlctnNotiNo().equals(majorList.get(j).getSlctnNotiNo() )  &&  majorList.get(i).getSpCdNm().equals(majorList.get(j).getSpCdNm())) {
-						System.out.println(i+"-"+j+":"+majorList.get(i).getSlctnNotiNo()+" "+majorList.get(j).getSlctnNotiNo()+" "+majorList.get(i).getSpCdNm()+"-"+majorList.get(j).getSpCdNm()+"비교후");
+						//System.out.println(i+"-"+j+":"+majorList.get(i).getSlctnNotiNo()+" "+majorList.get(j).getSlctnNotiNo()+" "+majorList.get(i).getSpCdNm()+"-"+majorList.get(j).getSpCdNm()+"비교후");
 						
 						
 						majorList.get(j).setSpCdNm(null);
@@ -282,7 +282,7 @@ public class StudyController {
 		}
 		
 		
-		//System.out.println(majorList);
+		
 		
 		model.addAttribute("codeList2", codeList);
 		model.addAttribute("MemberVo", memberVo);
@@ -318,7 +318,7 @@ public class StudyController {
 	 */
 	@RequestMapping(value = "/discussion", method = RequestMethod.GET)
 	public String studyDiscussion(Model model, @AuthUser MemberVo authUser,
-			@RequestParam("boardtype") String boardtype) {
+			@RequestParam("boardtype") String boardtype, @RequestParam("ttype") String ttype) {
 		
 		
 		JSONArray jsonArray = new JSONArray();
@@ -335,10 +335,11 @@ public class StudyController {
 		model.addAttribute("gradList", jsonArray.fromObject(notiService.getGradNotiList()));
 		model.addAttribute("labList", jsonArray.fromObject(notiService.getLabNotiList()));
 		
-	
+		
 
 		model.addAttribute("boardtype", boardtype);
 		model.addAttribute("authUser", authUser);
+		model.addAttribute("ttype", ttype);
 
 		return "study/discussion";
 	}

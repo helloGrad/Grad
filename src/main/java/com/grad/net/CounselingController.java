@@ -53,7 +53,7 @@ public class CounselingController {
 	 */
 	
 	@RequestMapping("/list")
-	public String counselingList(Model model, @AuthUser MemberVo authUser) {
+	public String counselingList(Model model, @AuthUser MemberVo authUser,@RequestParam("ttype") String ttype) {
 
 		List<CounselingVo> ReplyList= counselingService.getReplyList();
 		
@@ -73,17 +73,17 @@ public class CounselingController {
 	
 		model.addAttribute("authUser", authUser);
 		model.addAttribute("replyList", ReplyList);
-		
+		model.addAttribute("ttype", ttype);
 		
 
 		return "/counseling/list";
 	}
 	
 	/*
-	 * 박가혜, 2017-08-24, 답변하기, 토론하기 상세보기 기능
+	 * 박가혜, 2017-08-24, 답변하기, 토론하기 상세보기 기능, 회원가입안해도 볼수 있음...
 	 */
 	
-	@Auth(role=Auth.Role.USER) 
+	//@Auth(role=Auth.Role.USER) 
 	@RequestMapping("/detail")
 	public String counselingDetail( Model model, @RequestParam("no") Long no, @AuthUser MemberVo authUser, @RequestParam("type") String type) {
 		
@@ -93,6 +93,12 @@ public class CounselingController {
 		CounselingVo counselingPrnts = counselingService.getCounselingPrnts(no); 
 		List<CounselingVo> counselingReplyList = counselingService.getCounselingReplyDetail(no); 
 		
+		
+		JSONArray jsonArray0 = new JSONArray();
+		if (authUser != null) {
+			model.addAttribute("scrapList", memberService.getScrapList(authUser.getMbNo()));
+			model.addAttribute("scrapList", jsonArray0.fromObject(memberService.getScrapList(authUser.getMbNo())));
+		}
 		
 		/*
 		 * 정예린,2017-09-27, 검색 결과 사용자가 없이 상담글에 접근하려고 할 때 널 처리 

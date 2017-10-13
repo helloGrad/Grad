@@ -297,4 +297,10 @@ public class MemberService {
 		return true;
 	}
 	
+	
+	public int getScrapCount(Long mbNo) {
+		return memberDao.selectScrapCount(mbNo);
+	}
+	
+	
 }

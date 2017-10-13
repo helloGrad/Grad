@@ -300,26 +300,7 @@ padding-top: 4.5em;
     </div>
     
     
-    <div id="snsdiscon" class="login-modal">
-		<div class="login-modal-content">
-			<span class="close">×</span>
 
-
-			<form action="#" id="join-form">
-				<div class="input">
-
-					<div class="signupinput">
-						<input type="text" class="inputbox" id="remail" placeholder="아이디로 사용할 이메일을 입력해주세요"
-							name="iden">
-						<div class="checkinput" id="emailcheck">경고</div>
-					</div>
-
-					<button type="submit" class="btn formbtn">연동 끊기</button>
-				</div>
-			</form>
-			<br>
-		</div>
-	</div>
 
 </div>
   	<script src="${pageContext.request.contextPath}/resources/js/mypage.js"></script>

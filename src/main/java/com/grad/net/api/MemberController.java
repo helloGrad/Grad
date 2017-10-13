@@ -347,5 +347,22 @@ public class MemberController {
 			
 	}
 	
+	
+	
+	/*
+	 * 박가혜 
+	 */
+	
+	@ResponseBody
+	@RequestMapping(value = "/scrapCount", method = RequestMethod.GET)
+	public JSONResult scrapCount(@RequestParam("user") String user) {
+		
+	
+		int count = memberService.getScrapCount(Long.parseLong(user));
+	
+		
+		return JSONResult.success(count);
+			
+	}
 
 }

@@ -5,7 +5,7 @@ var doScrap = function(type, id, user) {
 
 	if (user === undefined || user ==null || user =='' ) {
 
-		$("#login").css({
+		$("#loginForm").css({
 			"display" : "block"
 		});
 
@@ -24,7 +24,7 @@ var doScrap = function(type, id, user) {
 
 		if ($('.do-scrap' + classType + id).hasClass("w3-text-red")) {
 			
-			console.log("클릭")
+
 
 			
 			$('.do-scrap' + classType + id).removeClass("w3-text-red");
@@ -42,6 +42,28 @@ var doScrap = function(type, id, user) {
 						console.warn(response.message);
 						return;
 					}
+					
+					$.ajax({
+						url : "/net/api/scrapCount?&user="
+								+ user,
+						type : "get",
+						//dataType : "json",
+						data : "",
+						success : function(response) {
+							
+							 
+							$('.mainscrap').text(response.data +" 스크랩");
+
+							if (response.result === "fail") {
+								console.warn(response.message);
+								return;
+							}
+
+						},
+						error : function(jqXHR, status, e) {
+							console.error(status + " : " + e);
+						}
+					});
 
 				},
 				error : function(jqXHR, status, e) {
@@ -65,6 +87,28 @@ var doScrap = function(type, id, user) {
 						console.warn(response.message);
 						return;
 					}
+					
+					$.ajax({
+						url : "/net/api/scrapCount?&user="
+								+ user,
+						type : "get",
+						//dataType : "json",
+						data : "",
+						success : function(response) {
+							
+							console.log(response.data);
+							$('.mainscrap').text(response.data +" 스크랩");
+
+							if (response.result === "fail") {
+								console.warn(response.message);
+								return;
+							}
+
+						},
+						error : function(jqXHR, status, e) {
+							console.error(status + " : " + e);
+						}
+					});
 
 				},
 				error : function(jqXHR, status, e) {
@@ -72,6 +116,13 @@ var doScrap = function(type, id, user) {
 				}
 			});
 		}
+		
+		///
+	
+		
+		
+		
+		
 	}
 
 }

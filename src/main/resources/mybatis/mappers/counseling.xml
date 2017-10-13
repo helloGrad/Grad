@@ -24,10 +24,10 @@
 		
  			select r.rownum as rownum,r.wrtbtNo wrtbtNo,r.wrtbtText wrtbtText,r.wrtbtTypeDstnct wrtbtTypeDstnct,replace(DATE_FORMAT(r.avlblBeginDt, "%W %M %e %Y"), ' ', ', ') avlblBeginDt,r.avlblEndDt avlblEndDt,r.mbNo mbNo,r.bbsNo bbsNo,r.wrtbtDstnct wrtbtDstnct,
 				r.rcmdCo rcmdCo,r.ncmdCo ncmdCo,r.findCo findCo,r.groupNo groupNo,r.orderNo orderNo,r.depth depth,r.wrtbtTitle wrtbtTitle,r.conslBbsDstnct conslBbsDstnct,r.orgnzNo orgnzNo,r.count count,
-				r.reMbNo reMbNo, r.reNkNm reNkNm, replace(DATE_FORMAT(r.reAvlblBeginDt, "%W %M %e %Y"), ' ', ', ') reAvlblBeginDt, r.reWrtbtText reWrtbtText, r.reRcMdCo reRcMdCo, r.writrInfoOpngYn writrInfoOpngYn
+				r.reMbNo reMbNo, r.reNkNm reNkNm, replace(DATE_FORMAT(r.reAvlblBeginDt, "%W %M %e %Y"), ' ', ', ') reAvlblBeginDt, r.reWrtbtText reWrtbtText, r.reRcMdCo reRcMdCo, r.writrInfoOpngYn writrInfoOpngYn, r.storgPath storgPath
 			from (SELECT r.rownum as rownum,r.wrtbtNo wrtbtNo,r.wrtbtText wrtbtText,r.wrtbtTypeDstnct wrtbtTypeDstnct,r.avlblBeginDt avlblBeginDt,r.avlblEndDt avlblEndDt,r.mbNo mbNo,r.bbsNo bbsNo,r.wrtbtDstnct wrtbtDstnct,
 				r.rcmdCo rcmdCo,r.ncmdCo ncmdCo,r.findCo findCo,r.groupNo groupNo,r.orderNo orderNo,r.depth depth,r.wrtbtTitle wrtbtTitle,r.conslBbsDstnct conslBbsDstnct,r.orgnzNo orgnzNo, r.count count,
-				r.reMbNo reMbNo, r.reNkNm reNkNm, r.reAvlblBeginDt reAvlblBeginDt, r.reWrtbtText reWrtbtText, r.reRcMdCo reRcMdCo, r.writrInfoOpngYn writrInfoOpngYn
+				r.reMbNo reMbNo, r.reNkNm reNkNm, r.reAvlblBeginDt reAvlblBeginDt, r.reWrtbtText reWrtbtText, r.reRcMdCo reRcMdCo, r.writrInfoOpngYn writrInfoOpngYn, r.storgPath storgPath
 				FROM (SELECT @RNUM:=@RNUM+1 'ROWNUM' , a.* FROM (SELECT @RNUM:=0) R, 
 			(select w.WRTBT_NO wrtbtNo, w.WRTBT_TEXT wrtbtText, w.WRTBT_TYPE_DSTNCT wrtbtTypeDstnct, w.AVLBL_BEGIN_DT avlblBeginDt, w.AVLBL_END_DT avlblEndDt, w.MB_NO mbNo,
 			 w.BBS_NO bbsNo, w.WRTBT_DSTNCT wrtbtDstnct, w.RCMD_CO rcmdCo,w.NCMD_CO ncmdCo,w.FIND_CO findCo,
@@ -38,7 +38,8 @@
              (select AVLBL_BEGIN_DT from wetbt e where w. WRTBT_NO= e.PRNTS_WRTBT_NO    group by RCMD_CO desc limit 1) reAvlblBeginDt,
              (select WRTBT_TEXT  from wetbt e where w. WRTBT_NO= e.PRNTS_WRTBT_NO    group by RCMD_CO desc limit 1) reWrtbtText,
              (select RCMD_CO  from wetbt e where w. WRTBT_NO= e.PRNTS_WRTBT_NO   group by RCMD_CO desc limit 1) reRcMdCo,
-             (select WRITR_INFO_OPNG_YN  from wetbt e where w. WRTBT_NO= e.PRNTS_WRTBT_NO   group by RCMD_CO desc limit 1) writrInfoOpngYn 
+             (select WRITR_INFO_OPNG_YN  from wetbt e where w. WRTBT_NO= e.PRNTS_WRTBT_NO   group by RCMD_CO desc limit 1) writrInfoOpngYn,
+              (select STORG_PATH  from apndng_file af where w. WRTBT_NO= af.PRNTS_NO  and af.PRNTS_DSTNCT='게시글' group by PRNTS_NO desc limit 1) storgPath 
  			from wetbt w, BBS b
  			where w.WRTBT_TYPE_DSTNCT='원글'
             and W.bbs_No = b.bbs_No
@@ -103,7 +104,31 @@
 		</choose>
 		
 		
-			<choose>
+		<choose>
+			<when test='ttype =="A"'>
+				<![CDATA[
+					
+ 			
+				]]>
+			</when>
+			<when test='ttype =="N"'>
+				<![CDATA[
+					
+ 					 and w.WRTBT_DSTNCT='일반게시판' 
+				]]>
+			</when>
+			<when test='ttype =="C"'>
+				<![CDATA[
+					
+ 					 and w.WRTBT_DSTNCT='상담게시판' 
+				]]>
+			</when>
+		</choose>
+		
+		
+		
+		
+		<choose>
 			<when test="order =='공감순'">
 				<![CDATA[
 					
@@ -123,7 +148,17 @@
 			</when>
 		</choose>
 			<![CDATA[
-			 ) a) r) r where rownum between #{startNo}+1 and #{startNo}+5;
+			 ) a 
+			 ]]>
+			<choose> 
+			 <when test='ttype =="W"'>
+				<![CDATA[
+					 where count =0
+				]]>
+			</when>
+			 </choose>
+			 <![CDATA[
+			 ) r) r where rownum between #{startNo}+1 and #{startNo}+5;
 			
 			
 			]]>
@@ -298,12 +333,12 @@
 	<!-- 정예린 -->
 	<select id="getCounList" resultType="counselingVo" parameterType="map">
 		<![CDATA[
-			select r.rownum as rownum,r.wrtbtNo wrtbtNo,r.wrtbtText wrtbtText,r.wrtbtTypeDstnct wrtbtTypeDstnct,r.avlblBeginDt avlblBeginDt,r.avlblEndDt avlblEndDt,r.mbNo mbNo,r.bbsNo bbsNo,r.wrtbtDstnct wrtbtDstnct,
+		select r.rownum as rownum,r.wrtbtNo wrtbtNo,r.wrtbtText wrtbtText,r.wrtbtTypeDstnct wrtbtTypeDstnct,replace(DATE_FORMAT(r.avlblBeginDt, "%W %M %e %Y"), ' ', ', ') avlblBeginDt,r.avlblEndDt avlblEndDt,r.mbNo mbNo,r.bbsNo bbsNo,r.wrtbtDstnct wrtbtDstnct,
 				r.rcmdCo rcmdCo,r.ncmdCo ncmdCo,r.findCo findCo,r.groupNo groupNo,r.orderNo orderNo,r.depth depth,r.wrtbtTitle wrtbtTitle,r.conslBbsDstnct conslBbsDstnct,r.orgnzNo orgnzNo,r.count count,
-				r.reMbNo reMbNo, r.reNkNm reNkNm, r.reAvlblBeginDt reAvlblBeginDt, r.reWrtbtText reWrtbtText, r.reRcMdCo reRcMdCo
+				r.reMbNo reMbNo, r.reNkNm reNkNm, replace(DATE_FORMAT(r.reAvlblBeginDt, "%W %M %e %Y"), ' ', ', ') reAvlblBeginDt, r.reWrtbtText reWrtbtText, r.reRcMdCo reRcMdCo, r.writrInfoOpngYn writrInfoOpngYn, r.storgPath storgPath
 			from (SELECT r.rownum as rownum,r.wrtbtNo wrtbtNo,r.wrtbtText wrtbtText,r.wrtbtTypeDstnct wrtbtTypeDstnct,r.avlblBeginDt avlblBeginDt,r.avlblEndDt avlblEndDt,r.mbNo mbNo,r.bbsNo bbsNo,r.wrtbtDstnct wrtbtDstnct,
 				r.rcmdCo rcmdCo,r.ncmdCo ncmdCo,r.findCo findCo,r.groupNo groupNo,r.orderNo orderNo,r.depth depth,r.wrtbtTitle wrtbtTitle,r.conslBbsDstnct conslBbsDstnct,r.orgnzNo orgnzNo, r.count count,
-				r.reMbNo reMbNo, r.reNkNm reNkNm, r.reAvlblBeginDt reAvlblBeginDt, r.reWrtbtText reWrtbtText, r.reRcMdCo reRcMdCo
+				r.reMbNo reMbNo, r.reNkNm reNkNm, r.reAvlblBeginDt reAvlblBeginDt, r.reWrtbtText reWrtbtText, r.reRcMdCo reRcMdCo, r.writrInfoOpngYn writrInfoOpngYn, r.storgPath storgPath
 				FROM (SELECT @RNUM:=@RNUM+1 'ROWNUM' , a.* FROM (SELECT @RNUM:=0) R, 
 			(select w.WRTBT_NO wrtbtNo, w.WRTBT_TEXT wrtbtText, w.WRTBT_TYPE_DSTNCT wrtbtTypeDstnct, w.AVLBL_BEGIN_DT avlblBeginDt, w.AVLBL_END_DT avlblEndDt, w.MB_NO mbNo,
 			 w.BBS_NO bbsNo, w.WRTBT_DSTNCT wrtbtDstnct, w.RCMD_CO rcmdCo,w.NCMD_CO ncmdCo,w.FIND_CO findCo,
@@ -313,7 +348,9 @@
              (select m.nknm from wetbt e, mb m where w. WRTBT_NO= e.PRNTS_WRTBT_NO and m.mb_no=e.MB_NO  group by RCMD_CO desc limit 1) reNkNm,
              (select AVLBL_BEGIN_DT from wetbt e where w. WRTBT_NO= e.PRNTS_WRTBT_NO    group by RCMD_CO desc limit 1) reAvlblBeginDt,
              (select WRTBT_TEXT  from wetbt e where w. WRTBT_NO= e.PRNTS_WRTBT_NO    group by RCMD_CO desc limit 1) reWrtbtText,
-             (select RCMD_CO  from wetbt e where w. WRTBT_NO= e.PRNTS_WRTBT_NO   group by RCMD_CO desc limit 1) reRcMdCo 
+             (select RCMD_CO  from wetbt e where w. WRTBT_NO= e.PRNTS_WRTBT_NO   group by RCMD_CO desc limit 1) reRcMdCo,
+             (select WRITR_INFO_OPNG_YN  from wetbt e where w. WRTBT_NO= e.PRNTS_WRTBT_NO   group by RCMD_CO desc limit 1) writrInfoOpngYn,
+              (select STORG_PATH  from apndng_file af where w. WRTBT_NO= af.PRNTS_NO  and af.PRNTS_DSTNCT='게시글' group by PRNTS_NO desc limit 1) storgPath 
  			from wetbt w, BBS b
  			where w.WRTBT_TYPE_DSTNCT='원글'
             and W.bbs_No = b.bbs_No		
@@ -330,7 +367,29 @@
 				and w.WRTBT_DSTNCT='상담게시판'
 			]]>
 		</when>
-		</choose>		 	
+		</choose>	
+		
+		<choose>
+			<when test='ttype =="A"'>
+				<![CDATA[
+					
+ 			
+				]]>
+			</when>
+			<when test='ttype =="N"'>
+				<![CDATA[
+					
+ 					 and w.WRTBT_DSTNCT='일반게시판' 
+				]]>
+			</when>
+			<when test='ttype =="C"'>
+				<![CDATA[
+					
+ 					 and w.WRTBT_DSTNCT='상담게시판' 
+				]]>
+			</when>
+		</choose>
+			 	
 		<choose>
 		<when test="order =='공감순'">
 			<![CDATA[
@@ -350,9 +409,23 @@
 		]]>
 		</when>
 	</choose> 
-		<![CDATA[
-		 ) a) r) r where rownum between #{pageVo.startRow}+1 and #{pageVo.startRow}+#{pageVo.numToShow};			
-		]]>		
+	
+	<![CDATA[
+			 ) a 
+			 ]]>
+			<choose> 
+			 <when test='ttype =="W"'>
+				<![CDATA[
+					 where count =0
+				]]>
+			</when>
+			 </choose>
+			 <![CDATA[
+			 )  r) r where rownum between #{pageVo.startRow}+1 and #{pageVo.startRow}+#{pageVo.numToShow};
+			
+			
+		]]>
+		
 	</select>
 	
 	
