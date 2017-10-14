@@ -141,7 +141,7 @@ $(function() {
             
             
         <div class="w3-row-padding">
-            <div class="w3-col s12 m6 l3  w3-white w3-round-large main-banner">
+            <div class="w3-col s12 m12 l3  w3-white w3-round-large main-banner">
                 <h5 class="w3-center w3-padding" style="letter-spacing: 0.3em;"><strong>Activity</strong></h5>
                 <ul class="w3-ul w3-center w3-text-grey w3-padding" style="letter-spacing: 0.1em;">
                     <li class=""><a href="${pageContext.servletContext.contextPath }/study/discussion?boardtype=${boardtype}&ttype=A"> All <span class=""></span></a></li>
@@ -151,18 +151,18 @@ $(function() {
                 </ul>
             </div>
 
-            <div class="w3-col s12 m4 l7 w3-margin-bottom ">
+            <div class="w3-col s12 m12 l7 w3-margin-bottom ">
             
-               <div id="myBtn" class="btn btn-danger web-volunteer writeBtn">질문하기</div>
+               <div id="myBtn" class="btn btn-danger web-volunteer writeBtn w3-margin-bottom w3-margin-top">질문하기</div>
             
-            <div class="dropdown option">
+            <div class="dropdown option w3-margin-bottom w3-margin-top">
                 <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
                     <i class="glyphicon glyphicon-option-horizontal"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
-                     <li><a href="javascript:void(0);" onclick="reset('전체','조회순');">조회순</a></li>
-                     <li><a href="javascript:void(0);" onclick="reset('전체','공감순');">공감순</a></li>
-                     <li><a href="javascript:void(0);" onclick="reset('전체','최신순');">최신순</a></li>
+                     <li><a href="javascript:void(0);" onclick="reset('${boardtype}','조회순');">조회순</a></li>
+                     <li><a href="javascript:void(0);" onclick="reset('${boardtype}','공감순');">공감순</a></li>
+                     <li><a href="javascript:void(0);" onclick="reset('${boardtype}','최신순');">최신순</a></li>
                 </ul>
             </div>
             

@@ -170,4 +170,20 @@ public class CounselingService {
 	public List<MemberVo> getScrapList(Long user) {
 		return counselingDao.getScrapList(user);
 	}
+	
+
+	public CounselingVo checkCounseling(Long id) {
+		return counselingDao.getCheckCounseling(id);
+	}
+	
+	
+	public void deleteCounseling(Long id, CounselingVo CounselingVo) {
+		
+		
+		counselingDao.deleteCounseling(id,CounselingVo);
+		
+	}
+	
+	
+	
 }

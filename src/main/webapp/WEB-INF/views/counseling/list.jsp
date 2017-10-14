@@ -147,7 +147,7 @@ var ttype= '${ttype }';
 
 	    <div class="w3-col s12 m4 l7 w3-margin-bottom ">
             
-               <div id="myBtn" class="btn btn-danger web-volunteer writeBtn">질문하기</div>
+               <div id="myBtn" class="btn btn-danger web-volunteer writeBtn w3-margin-bottom">질문하기</div>
             
             <div class="dropdown option">
                 <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">
@@ -176,7 +176,7 @@ var ttype= '${ttype }';
 </div>
 
 
-<c:import url="/WEB-INF/views/include/footer.jsp" />
+
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/doscrap.js"></script>	
 </body>

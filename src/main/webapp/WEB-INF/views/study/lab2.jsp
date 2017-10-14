@@ -159,63 +159,76 @@ h4, h6 {
 <c:import url="/WEB-INF/views/include/subHeader.jsp" />
 
 
-<div class="container">
-            <div class="w3-row">
-                <div class="w3-col s12 m12 l12">
-                    <h5 class="w3-center" style="font-size: 4vmin;">연구실 리스트</h5>
-                </div>
+ <div class="row">
+ 	<div class="container">
 
-            </div>
-        <div class="w3-row w3-row-padding">
-            <c:set value="1" var="i" />
-            <c:forEach items="${labList }" var="labVo" varStatus="status">
-                <div class="w3-col s12 m12 l4 nopadding" style="margin-bottom: 3%;">
-                    <div class="w3-card-2 w3-padding w3-hover-shadow">
-                      <div class="w3-margin-top w3-border-bottom">
-                            <button
-                                    class="w3-button w3-white w3-border w3-border-green w3-round-large w3-center"  style="font-size: 1.7vmin;">${labVo.ar }</button>
-                            <BR>
-                            <div style="font-size: 2vmin; height: 4em;">
-                                <span style="font-size: 2vmin;"><b style="font-size: 2vmin;">${labVo.orgnzNm }</b></span>
-                                <c:choose>
-                                    <c:when test="${empty labVo.university }">
-                                        <span class="w3-text-grey" style="font-size: 1.1vmin;">${labVo.graduate }</span>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <span class="w3-text-grey" style="font-size: 1.1vmin;">${labVo.university }</span>
-                                    </c:otherwise>
-                                </c:choose>
-                            </div>
-                        </div>
+			<div class="row">
 
-                        <p class="w3-padding" style="height: 4em; font-size: 1.7vmin;">${labVo.addr }${labVo.detailAddr }</p>
-                        <div class="w3-padding" style="height: 3em;">
-                        <c:choose>
-                            <c:when test="${empty labVo.hmpageUrl }">
-                            </c:when>
-                            <c:otherwise>
-                                <button class="w3-button w3-white w3-border w3-border-blue w3-round-large w3-block w3-small"
-                                        onclick="window.open('${labVo.hmpageUrl }')">홈페이지 바로가기</button>
-                            </c:otherwise>
-                        </c:choose>
-                        </div>
-                        <div class="w3-padding" style="height: 5em;">
-                            <c:forEach items="${labCodeList }" var="codeVo"
-                                       varStatus="status">
-                                <c:if test="${codeVo.orgnzNo==labVo.orgnzNo }">
-                                    <button class="w3-button w3-light-gray w3-padding w3-round-large"
-                                            id="js-searchToggle" style="font-size: 0.7vmin;">${codeVo.cdNm }</button>
-                                </c:if>
-                            </c:forEach>
-                        </div>
-                    </div>
-                </div>
-                <c:set var="i" value="${i + 1}" />
-            </c:forEach>
+				<div class="col-sm-12">
+					<h3 class="title-text">연구실 리스트</h3>
+					<p></p>
+
+					<div class="w3-center w3-margin-bottom">
+						<button class="btn btn-default margin-center" id="js-searchToggle">enter
+							zip or city, state</button>
+						<button class="btn btn-default margin-center" id="js">filter
+							by services</button>
+					</div>
+				</div>
+
+			</div>
+
+			<c:set value="1" var="i" />
+			<c:forEach items="${labList }" var="labVo" varStatus="status">
+				<div class="col-sm-4 nopadding" style="margin-bottom: 3%;">
+					<div class="w3-card-2 w3-padding list-color w3-hover-shadow" 
+						style="height: 270px">
+						<div class="w3-margin-top">
+							<h4 class="link-title">
+								${labVo.orgnzNm }
+								<c:choose>
+									<c:when test="${empty labVo.university }">
+										<small class="link-gray">${labVo.graduate }</small>		
+									</c:when>
+									<c:otherwise>
+										<small class="link-gray">${labVo.university }</small>
+									</c:otherwise>
+								</c:choose>
+								
+								<button
+									class="w3-button w3-white w3-border w3-border-green w3-round-large area-title w3-tiny">${labVo.ar }</button>
+							</h4>
+						</div>
+
+						<hr class="list-hr">
+						<p>${labVo.addr }${labVo.detailAddr }</p>
+						<c:choose>
+							<c:when test="${empty labVo.hmpageUrl }">
+							</c:when>
+							<c:otherwise>
+								<button
+									class="w3-button w3-white w3-border w3-border-blue w3-round-large area-title w3-small"
+									onclick="window.open('${labVo.hmpageUrl }')">홈페이지 바로가기</button>
+							</c:otherwise>
+						</c:choose>
+						
+						<div>
+							<c:forEach items="${labCodeList }" var="codeVo"
+								varStatus="status">
+								<c:if test="${codeVo.orgnzNo==labVo.orgnzNo }">
+									<button class="small-btn btn-default margin-center"
+										id="js-searchToggle">${codeVo.cdNm }</button>
+								</c:if>
+							</c:forEach>
+						</div>
+					</div>
+				</div>
+				<c:set var="i" value="${i + 1}" />
+			</c:forEach>
 
 
-        </div>
-    </div>
+		</div>
+	</div>
 	
 </body>
 </html>

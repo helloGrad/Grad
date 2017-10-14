@@ -38,6 +38,12 @@ public class CounselingVo {
 	private Long reRcmdCo;
 	private int rownum;
 	private String storgPath;
+	private int recount;
+	
+	private int mwNo;
+	private int afNo;
+	private int mcNo;
+	private int weNo;
 	public Long getWrtbtNo() {
 		return wrtbtNo;
 	}
@@ -242,6 +248,36 @@ public class CounselingVo {
 	public void setStorgPath(String storgPath) {
 		this.storgPath = storgPath;
 	}
+	public int getRecount() {
+		return recount;
+	}
+	public void setRecount(int recount) {
+		this.recount = recount;
+	}
+	public int getMwNo() {
+		return mwNo;
+	}
+	public void setMwNo(int mwNo) {
+		this.mwNo = mwNo;
+	}
+	public int getAfNo() {
+		return afNo;
+	}
+	public void setAfNo(int afNo) {
+		this.afNo = afNo;
+	}
+	public int getMcNo() {
+		return mcNo;
+	}
+	public void setMcNo(int mcNo) {
+		this.mcNo = mcNo;
+	}
+	public int getWeNo() {
+		return weNo;
+	}
+	public void setWeNo(int weNo) {
+		this.weNo = weNo;
+	}
 	@Override
 	public String toString() {
 		return "CounselingVo [wrtbtNo=" + wrtbtNo + ", wrtbtText=" + wrtbtText + ", wrtbtTypeDstnct=" + wrtbtTypeDstnct
@@ -253,8 +289,30 @@ public class CounselingVo {
 				+ ", conslBbsDstnct=" + conslBbsDstnct + ", orgnzNo=" + orgnzNo + ", count=" + count + ", nknm=" + nknm
 				+ ", birdt=" + birdt + ", agrg=" + agrg + ", infroDstnct=" + infroDstnct + ", reMbNo=" + reMbNo
 				+ ", reNknm=" + reNknm + ", reAvlblBeginDt=" + reAvlblBeginDt + ", reWrtbtText=" + reWrtbtText
-				+ ", reRcmdCo=" + reRcmdCo + ", rownum=" + rownum + ", storgPath=" + storgPath + "]";
+				+ ", reRcmdCo=" + reRcmdCo + ", rownum=" + rownum + ", storgPath=" + storgPath + ", recount=" + recount
+				+ ", mwNo=" + mwNo + ", afNo=" + afNo + ", mcNo=" + mcNo + ", weNo=" + weNo + ", getWrtbtNo()="
+				+ getWrtbtNo() + ", getWrtbtText()=" + getWrtbtText() + ", getWrtbtTypeDstnct()=" + getWrtbtTypeDstnct()
+				+ ", getAvlblBeginDt()=" + getAvlblBeginDt() + ", getAvlblEndDt()=" + getAvlblEndDt() + ", getMbNo()="
+				+ getMbNo() + ", getBbsNo()=" + getBbsNo() + ", getWrtbtDstnct()=" + getWrtbtDstnct() + ", getRcmdCo()="
+				+ getRcmdCo() + ", getNcmdCo()=" + getNcmdCo() + ", getFindCo()=" + getFindCo() + ", getGroupNo()="
+				+ getGroupNo() + ", getOrderNo()=" + getOrderNo() + ", getDepth()=" + getDepth() + ", getWrtbtTitle()="
+				+ getWrtbtTitle() + ", getVoteRegstDt()=" + getVoteRegstDt() + ", getPrntsCwrNo()=" + getPrntsCwrNo()
+				+ ", getPrntsWrtbtNo()=" + getPrntsWrtbtNo() + ", getCwrDstnct()=" + getCwrDstnct()
+				+ ", getWritrInfoOpngYn()=" + getWritrInfoOpngYn() + ", getConslBbsDstnct()=" + getConslBbsDstnct()
+				+ ", getOrgnzNo()=" + getOrgnzNo() + ", getCount()=" + getCount() + ", getNknm()=" + getNknm()
+				+ ", getBirdt()=" + getBirdt() + ", getAgrg()=" + getAgrg() + ", getInfroDstnct()=" + getInfroDstnct()
+				+ ", getReMbNo()=" + getReMbNo() + ", getReNknm()=" + getReNknm() + ", getReAvlblBeginDt()="
+				+ getReAvlblBeginDt() + ", getReWrtbtText()=" + getReWrtbtText() + ", getReRcmdCo()=" + getReRcmdCo()
+				+ ", getRownum()=" + getRownum() + ", getStorgPath()=" + getStorgPath() + ", getRecount()="
+				+ getRecount() + ", getMwNo()=" + getMwNo() + ", getAfNo()=" + getAfNo() + ", getMcNo()=" + getMcNo()
+				+ ", getWeNo()=" + getWeNo() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
+	
+	
+	
+	
+	
 	
 	
 	

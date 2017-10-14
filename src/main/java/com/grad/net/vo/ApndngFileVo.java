@@ -12,6 +12,10 @@ public class ApndngFileVo {
 		private String resgtDt;
 		private int prntsNo;
 		private String saveFileName;
+		
+		
+		
+		
 		public Long getApndngFileNo() {
 			return apndngFileNo;
 		}

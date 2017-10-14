@@ -129,4 +129,38 @@ public class CounselingDao {
 	public List<MemberVo> getScrapList(Long user) {
 		return sqlSession.selectList("counseling.getScrapList",user);
 	}
+	
+	
+	public CounselingVo getCheckCounseling(Long id) {
+		
+		
+		return sqlSession.selectOne("counseling.getCheckCounseling",id);
+	}
+	
+	public void deleteCounseling(Long id, CounselingVo CounselingVo) {
+		
+
+	
+		if(	CounselingVo.getMwNo()== 1 ) {
+			
+			 sqlSession.delete("counseling.deleteCounselingmwNo",id);
+		}
+		if(CounselingVo.getAfNo() == 1) {
+			
+			
+			sqlSession.delete("counseling.deleteCounselingafNo",id);
+		}
+		if(CounselingVo.getMcNo() ==1 ) {
+			
+			sqlSession.delete("counseling.deleteCounselingmcNo",id);
+		}
+		if(CounselingVo.getWeNo() == 1 ) {
+			
+			sqlSession.delete("counseling.deleteCounselingweNo",id);
+		}
+		
+	
+	}
+	
+	
 }

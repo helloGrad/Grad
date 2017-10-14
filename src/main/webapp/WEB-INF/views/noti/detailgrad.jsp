@@ -88,7 +88,7 @@ body {
 						<div class="w3-quarter w3-text-grey w3-margin-bottom">
 							<span class="w3-xlarge"> <c:choose>
 									<c:when test="${vo.scrapYn=='Y' }">
-											<button class="w3-button do-scrapnoti${vo.slctnNotiNo } w3-text-red"
+											<button class="w3-button do-scrapnoti${vo.slctnNotiNo } w3-text-red doScrap"
 											onclick="doScrap('모집공고',${vo.slctnNotiNo },'y',${authUser.mbNo });">									
 											<span class="fa-layers fa-fw" style="font-size: 1.5em;">
 												<i class="fal fa-thumbtack"></i> <span
@@ -97,7 +97,7 @@ body {
 										</button>
 									</c:when>
 									<c:when test="${vo.scrapYn=='N' }">
-										<button class="w3-button do-scrapnoti${vo.slctnNotiNo }"
+										<button class="w3-button do-scrapnoti${vo.slctnNotiNo } doScrap"
 											onclick="doScrap('모집공고',${vo.slctnNotiNo },'y',${authUser.mbNo });">
 											<span class="fa-layers fa-fw" style="font-size: 1.5em;">
 												<i class="fal fa-thumbtack"></i> <span

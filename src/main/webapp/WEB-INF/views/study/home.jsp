@@ -238,7 +238,7 @@ $(function() {
 				<div class="row">
 		
 		
-			<div class="w3-col s12 m6 l4 w3-row-padding w3-margin-bottom">
+			<div class="w3-col s12 m12 l4 w3-row-padding w3-margin-bottom">
 				
 				
 			
@@ -266,7 +266,7 @@ $(function() {
 								  
 								  
 								  
-						                <div class="w3-display-container w3-card w3-round-large w3-white">
+						                <div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
 						              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 							                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">
 							                    	<c:choose>
@@ -344,7 +344,7 @@ $(function() {
 								   
 								   
 							             
-							               <div class="w3-display-container grad-banner-our w3-card w3-round-large">
+							               <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
 								                   <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 								                   	<c:if test="${BoardList.slctnSemstr == '상시' }"	>
 							                    		  
@@ -406,7 +406,7 @@ $(function() {
 								  				
 								  	  		    
 								  	  		      
-								                		<div class="w3-display-container w3-card w3-round-large w3-white">
+								                		<div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
 								              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 									                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.slctnYycl}년 ${BoardList.slctnSemstr}</div>
 									                    <div style="margin-bottom: 0em;">
@@ -471,7 +471,7 @@ $(function() {
 								   <c:if test="${BoardList.pchrgYn =='N' }"	>
 								   
 								   
-								      <div class="w3-display-container grad-banner-our w3-card w3-round-large">
+								      <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
 					                    
 					                    <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 					                      <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -685,7 +685,7 @@ $(function() {
 		
 
 					
-				<div class="col-xs-12 col-sm-4 col-lg-4"> 
+				<div class="w3-col s12 m12 l4 w3-row-padding w3-margin-bottom"> 
 				
 				<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
                 
@@ -705,7 +705,7 @@ $(function() {
 								  
 								  
 								  
-						                <div class="w3-display-container w3-card w3-round-large w3-white">
+						                <div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
 						              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 							                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">
 							                    	<c:choose>
@@ -783,7 +783,7 @@ $(function() {
 								   
 								   
 							             
-							               <div class="w3-display-container grad-banner-our w3-card w3-round-large">
+							               <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
 								                   <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 								                   	<c:if test="${BoardList.slctnSemstr == '상시' }"	>
 							                    		  
@@ -845,7 +845,7 @@ $(function() {
 								  				
 								  	  		    
 								  	  		      
-								                		<div class="w3-display-container w3-card w3-round-large w3-white">
+								                		<div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
 								              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 									                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.slctnYycl}년 ${BoardList.slctnSemstr}</div>
 									                    <div style="margin-bottom: 0em;">
@@ -910,7 +910,7 @@ $(function() {
 								   <c:if test="${BoardList.pchrgYn =='N' }"	>
 								   
 								   
-								      <div class="w3-display-container grad-banner-our w3-card w3-round-large">
+								      <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
 					                    
 					                    <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 					                      <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -1121,7 +1121,7 @@ $(function() {
 					
 
                 
-          <div class="col-xs-12 col-sm-4 col-lg-4">
+          <div class="w3-col s12 m12 l4 w3-row-padding w3-margin-bottom">
 				
 				
 				<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
@@ -1142,7 +1142,7 @@ $(function() {
 								  
 								  
 								  
-						                <div class="w3-display-container w3-card w3-round-large w3-white">
+						                <div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
 						              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 							                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">
 							                    	<c:choose>
@@ -1220,7 +1220,7 @@ $(function() {
 								   
 								   
 							             
-							               <div class="w3-display-container grad-banner-our w3-card w3-round-large">
+							               <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
 								                   <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 								                   	<c:if test="${BoardList.slctnSemstr == '상시' }"	>
 							                    		  
@@ -1282,7 +1282,7 @@ $(function() {
 								  				
 								  	  		    
 								  	  		      
-								                		<div class="w3-display-container w3-card w3-round-large w3-white">
+								                		<div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
 								              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 									                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.slctnYycl}년 ${BoardList.slctnSemstr}</div>
 									                    <div style="margin-bottom: 0em;">
@@ -1347,7 +1347,7 @@ $(function() {
 								   <c:if test="${BoardList.pchrgYn =='N' }"	>
 								   
 								   
-								      <div class="w3-display-container grad-banner-our w3-card w3-round-large">
+								      <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
 					                    
 					                    <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 					                      <c:if test="${BoardList.slctnSemstr == '상시' }"	>

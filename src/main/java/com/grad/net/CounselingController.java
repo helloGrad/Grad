@@ -153,7 +153,27 @@ public class CounselingController {
 	}
 	
 	
+	/*
+	 * 박가혜, 게시글 삭제
+	 */
 	
+	@RequestMapping("/delete")
+	public String counselingDelete(Model model, @AuthUser MemberVo authUser, @RequestParam("id") Long id) {
+
+	
+		
+		
+		counselingService.checkCounseling(id);
+		
+		
+		
+		counselingService.deleteCounseling(id, counselingService.checkCounseling(id));
+	
+		
+		
+
+		return "redirect:/counseling/list?ttype=A";
+	}
 	
 	
 	

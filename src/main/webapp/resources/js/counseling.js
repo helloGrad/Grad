@@ -19,6 +19,8 @@
 	
 	
 	function reset(type,order1){
+		
+		
 				
 		if(totalListNum >= 20){
 			pageList(type, order1, '1' , '' , ttype);
@@ -26,9 +28,10 @@
 		else {
 		$("#list").empty();
 	
+		
 		order=order1;
 		 isEnd=false;
-		 disfetchList(type,order);
+		 disfetchList(type,order,ttype);
 		 totalListNum = 0;
 		}
 		 
@@ -419,6 +422,7 @@
     		}
     	})
     	
+    
     	
 		
 		$('#writrInfoOpngYn2 li > a').on('click', function() { 

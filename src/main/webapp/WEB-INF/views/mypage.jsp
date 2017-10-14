@@ -692,18 +692,27 @@ function myFunction(id) {
 										<div class="w3-row-padding w3-padding">
 											<span
 												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-												style="float: right;"> <c:if
-													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-															</c:if> <c:if
-													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-													<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-													<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-												</c:if>
+												style="float: right;"> 
+												 <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
+												
 											</span>
 										</div>
 									</div>
@@ -757,18 +766,26 @@ function myFunction(id) {
 										<div class="w3-row-padding w3-padding">
 											<span
 												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-												style="float: right;"> <c:if
-													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-															</c:if> <c:if
-													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-													<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-													<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-												</c:if>
+												style="float: right;">  <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
+												
 											</span>
 										</div>
 									</div>
@@ -805,18 +822,25 @@ function myFunction(id) {
 											<div class="w3-row-padding w3-padding">
 												<span
 													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-													style="float: right;"> <c:if
-														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-														</c:if> <c:if
-														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-														<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-														<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-													</c:if>
+													style="float: right;">  <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
 												</span>
 											</div>
 										</div>
@@ -859,18 +883,25 @@ function myFunction(id) {
 											<div class="w3-row-padding w3-padding">
 												<span
 													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-													style="float: right;"> <c:if
-														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-														</c:if> <c:if
-														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-														<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-														<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-													</c:if>
+													style="float: right;">  <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
 												</span>
 											</div>
 										</div>
@@ -1033,18 +1064,25 @@ function myFunction(id) {
 										<div class="w3-row-padding w3-padding">
 											<span
 												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-												style="float: right;"> <c:if
-													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-															</c:if> <c:if
-													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-													<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-													<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-												</c:if>
+												style="float: right;"> <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
 											</span>
 										</div>
 									</div>
@@ -1098,18 +1136,25 @@ function myFunction(id) {
 										<div class="w3-row-padding w3-padding">
 											<span
 												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-												style="float: right;"> <c:if
-													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-															</c:if> <c:if
-													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-													<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-													<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-												</c:if>
+												style="float: right;"> <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
 											</span>
 										</div>
 									</div>
@@ -1146,18 +1191,25 @@ function myFunction(id) {
 											<div class="w3-row-padding w3-padding">
 												<span
 													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-													style="float: right;"> <c:if
-														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-														</c:if> <c:if
-														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-														<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-														<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-													</c:if>
+													style="float: right;"> <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
 												</span>
 											</div>
 										</div>
@@ -1200,18 +1252,25 @@ function myFunction(id) {
 											<div class="w3-row-padding w3-padding">
 												<span
 													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-													style="float: right;"> <c:if
-														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-														</c:if> <c:if
-														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-														<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-														<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-													</c:if>
+													style="float: right;">  <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
 												</span>
 											</div>
 										</div>
@@ -1375,18 +1434,25 @@ function myFunction(id) {
 										<div class="w3-row-padding w3-padding">
 											<span
 												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-												style="float: right;"> <c:if
-													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-															</c:if> <c:if
-													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-													<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-													<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-												</c:if>
+												style="float: right;">  <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
 											</span>
 										</div>
 									</div>
@@ -1440,18 +1506,25 @@ function myFunction(id) {
 										<div class="w3-row-padding w3-padding">
 											<span
 												class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-												style="float: right;"> <c:if
-													test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-															</c:if> <c:if
-													test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-													<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-													<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-												</c:if>
+												style="float: right;">  <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
 											</span>
 										</div>
 									</div>
@@ -1488,18 +1561,25 @@ function myFunction(id) {
 											<div class="w3-row-padding w3-padding">
 												<span
 													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-													style="float: right;"> <c:if
-														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-														</c:if> <c:if
-														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-														<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-														<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-													</c:if>
+													style="float: right;">  <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
 												</span>
 											</div>
 										</div>
@@ -1542,18 +1622,25 @@ function myFunction(id) {
 											<div class="w3-row-padding w3-padding">
 												<span
 													class="w3-right w3-tag w3-round-large w3-light-grey w3-text-blue"
-													style="float: right;"> <c:if
-														test="${BoardList.slctnEndDt == '9999-12-31 00:00:00.0' }">
-																상시모집
-														</c:if> <c:if
-														test="${BoardList.slctnEndDt != '9999-12-31 00:00:00.0' }">
-														<c:if test="${BoardList.percent<=0 }">
-																	모집예정
-																</c:if>
-														<c:if test="${BoardList.percent>0 }">
-																	D-${BoardList.dday }
-																</c:if>
-													</c:if>
+													style="float: right;"> <c:choose>
+													<c:when test="${BoardList.slctnYycl=='9999' }">
+														<div class="noti-endtext">상시모집</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday > BoardList.totaldays}">
+														<div class="noti-endtext">모집예정</div>
+													</c:when>
+													<c:when
+														test="${BoardList.dday > 0 && BoardList.dday <= BoardList.totaldays}">
+														<div class="noti-endtext">D-${labVo.dday}</div>
+													</c:when>
+													<c:when test="${BoardList.dday == 0 }">
+														<div class="noti-endtext">오늘마감</div>
+													</c:when>
+													<c:when test="${BoardList.dday < 0 }">
+														<div class="noti-endtext">모집마감</div>
+													</c:when>
+												</c:choose>
 												</span>
 											</div>
 										</div>

@@ -52,45 +52,6 @@
 	padding-top: 2.5em;
 }
 
-.grad-banner {
-	box-shadow: 5px 10px 30px rgba(102, 102, 255, 0.2), -1px -1px 30px
-		rgba(255, 102, 0, 0.15);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
-
-.grad-banner:hover {
-	box-shadow: 5px 10px 30px rgba(102, 102, 255, 0.5), -1px -1px 30px
-		rgba(255, 102, 0, 0.5);
-	margin-bottom: 1.5em;
-}
-
-.lab-banner {
-	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.2), -1px -1px 30px
-		rgba(102, 255, 51, 0.1);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
-
-.lab-banner:hover {
-	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.5), -1px -1px 30px
-		rgba(102, 255, 51, 0.5);
-	margin-bottom: 1.5em;
-}
-
-.conference-banner {
-	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.2), -1px -1px 30px
-		rgba(153, 0, 153, 0.2);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
-
-.conference-banner:hover {
-	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.5), -1px -1px 30px
-		rgba(153, 0, 153, 0.5);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
 
 .grad-target {
 	font-weight: 600;
@@ -114,6 +75,26 @@
 .noti-hh {
 	cursor: pointer;
 }
+
+.grad-banner {
+            box-shadow: 3px 3px 10px rgba(179, 0, 0, 0.3), -1px -1px 10px rgba(255, 153, 153, 0.3);
+            margin-bottom: 1.5em;
+        }
+        .lab-banner {
+            box-shadow: 3px 3px 10px rgba(0, 0, 255, 0.3), -1px -1px 10px rgba(217, 179, 255, 0.3);
+            margin-bottom: 1.5em;
+        }
+        .conf-banner {
+            box-shadow: 3px 3px 10px rgba(0, 128, 0, 0.3), -1px -1px 10px rgba(179, 230, 179, 0.3);
+            margin-bottom: 1.5em;
+        } 
+        .short-cut{
+            text-decoration: none;
+            color:gray;
+        }
+        .short-cut:hover{
+            color:indianred;
+        }
 </style>
 
 
@@ -225,8 +206,7 @@
 				</div>
 
 				<div class="w3-col s12 m3 l3  w3-margin-bottom">
-					<div class="w3-card w3-white"
-						onclick="location.href='${pageContext.request.contextPath}/user/mypage?type=myscrap'">
+					<div class="w3-card w3-white myscrap">
 						<header class="w3-container w3-center  w3-text-white"
 							style="background: rgb(11, 194, 132)">
 							<h6>COMPARE</h6>
@@ -268,20 +248,14 @@
 
 
 	<div class="container">
-		<div class="col-xs-12 col-sm-12 col-lg-12">
+		<div class="w3-col s12 m12 l12">
 
 			<c:if test="${authUser.mbNo != null  }">
-
-
-
-				<div class="row distinct-line">
-					<div class="col-xs-12 col-sm-12 col-lg-12">
-						<h3>
-							<a class="major-titles"> You might interest </a>
-						</h3>
-
-						<hr>
-					</div>
+				<div class="w3-panel w3-border-bottom w3-border-grey">
+            		<h2>
+                		<span style="float: left; margin-right: 0.3em; "><B>For You</B></span>
+            		</h2>
+        		</div>
 
 					<div class="row distinct-line">
 						<c:forEach items="${myBoardList }" var="myBoardList"
@@ -289,9 +263,9 @@
 							<c:if
 								test="${myBoardList.slctnNotiDstnct == '대학원' && myBoardList.pchrgYn == 'Y' }">
 
-								<div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom">
+								<div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom ">
 									<div
-										class="w3-display-container w3-card w3-round-large w3-white">
+										class="w3-display-container w3-round-large w3-white grad-banner">
 										<div class="noti-card"
 											onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${myBoardList.slctnNotiNo}&tabnm=${myBoardList.slctnNotiDstnct}'">
 											<div class="w3-padding w3-text-grey w3-small"
@@ -357,13 +331,25 @@
 							</c:if>
 						</c:forEach>
 					</div>
-				</div>
+					
+					
+					
+					
+			
+
+
+
 
 			</c:if>
 
 
 
 		</div>
+		
+		
+	
+		
+		
 
 		<div class="row distinct-line">
 			<c:forEach items="${myBoardList }" var="myBoardList"
@@ -373,7 +359,7 @@
 
 
 					<div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom">
-						<div class="w3-display-container w3-card w3-round-large w3-white">
+						<div class="w3-display-container w3-round-large w3-white lab-banner">
 							<div class="noti-card"
 								onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${myBoardList.slctnNotiNo}&tabnm=${myBoardList.slctnNotiDstnct}'">
 								<div class="w3-padding w3-text-grey w3-small"
@@ -455,23 +441,102 @@
 		</div>
 
 
+	<div class="w3-row">
+        <div class="w3-panel w3-border-bottom w3-border-gray">
+            <h2>
+                <div style="float: left; margin-right: 0.3em; "><B>Jump into Wisdom</B></div>
+            </h2>
+        </div>
+        <div class="w3-row w3-row-padding w3-content" style="max-width: 1000px;">
 
+                    <div class=" w3-col s6 m3 l3">
+                        <a href="${pageContext.servletContext.contextPath }/submain#공학" class="short-cut">
+                        <div class="w3-center w3-round-large w3-padding">
+                            <div><i class="far fa-wrench fa-3x "></i></div>
+                            <span class="w3-medium ">공학</span>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class=" w3-col s6 m3 l3">
+                        <a href="${pageContext.servletContext.contextPath }/submain#농수해양학" class="short-cut" >
+                        <div class="w3-center w3-round-large w3-padding">
+                            <div><i class="far fa-tree-alt fa-3x "></i></div>
+                            <span class="w3-medium ">농수해양학</span>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class=" w3-col s6 m3 l3">
+                        <a href="${pageContext.servletContext.contextPath }/submain#복합학" class="short-cut">
+                        <div class="w3-center w3-round-large w3-padding">
+                                <div><i class="far fa-code-merge fa-3x "></i></div>
+                                <span class="w3-medium ">복합학</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class=" w3-col s6 m3 l3">
+                        <a href="${pageContext.servletContext.contextPath }/submain#사회과학" class="short-cut">
+                        <div class="w3-center w3-round-large w3-padding">
+                            <div><i class="far fa-users fa-3x "></i></div>
+                            <span class="w3-medium ">사회과학</span>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class=" w3-col s6 m3 l3">
+                        <a href="${pageContext.servletContext.contextPath }/submain#인문학" class="short-cut">
+                            <div class="w3-center w3-round-large w3-padding">
+                                <div><i class="far fa-universal-access fa-3x "></i></div>
+                                <span class="w3-large ">인문학</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class=" w3-col s6 m3 l3">
+                        <a href="${pageContext.servletContext.contextPath }/submain#의약학" class="short-cut">
+                        <div class="w3-center w3-round-large w3-padding">
+                            <div><i class="far fa-medkit fa-3x "></i></div>
+                            <span class="w3-medium ">의약학</span>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class=" w3-col s6 m3 l3">
+                        <a href="${pageContext.servletContext.contextPath }/submain#예술체육학" class="short-cut">
+                        <div class="w3-center w3-round-large w3-padding">
+                            <div><i class="far fa-film-alt fa-3x "></i></div>
+                            <span class="w3-medium ">예술체육학</span>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class=" w3-col s6 m3 l3">
+                        <a href="${pageContext.servletContext.contextPath }/submain#자연과학" class="short-cut">
+                        <div class="w3-center w3-round-large w3-padding">
+                            <div><i class="far fa-globe fa-3x "></i></div>
+                            <span class="w3-medium ">자연과학</span>
+                        </div>
+                        </a>
+                    </div>
+        </div>
+
+    </div>
 
 
 		<c:forEach items="${codeList }" var="codeVo" varStatus="status">
-			<div class="row distinct-line">
-				<div class="col-xs-12 col-sm-12 col-lg-12">
-					<h3>
-						<a
-							href="${pageContext.servletContext.contextPath }/study/main?boardtype=${codeVo.cdNm }"
-							name="${codeVo.engCodeNm }" style="padding-top: 3em;">${codeVo.cdNm }
-							<small class="w3-text-grery">대학원 ${codeVo.gradIngCount }건
-								연구실 ${codeVo.labIngCount }건</small>
+			
+				<div class="w3-col s12 m12 l12">
+					<div class="w3-panel w3-border-bottom w3-border-grey">
+            		<h2>
+						<a href="${pageContext.servletContext.contextPath }/study/main?boardtype=${codeVo.cdNm }"
+							name="${codeVo.engCodeNm }" id="${codeVo.cdNm }" style="padding-top: 3em;"><b>${codeVo.cdNm }</b>
+							<small class="w3-text-grey">대학원 ${codeVo.gradIngCount }건
+								연구실 ${codeVo.labIngCount }건 </small>
 						</a>
-					</h3>
-
-					<hr>
-
+					</h2>
+					 </div>
 					<div class="row">
 						<c:forEach items="${gradList }" var="gradVo" varStatus="status">
 							<c:choose>
@@ -480,7 +545,7 @@
 
 									<div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom">
 										<div
-											class="w3-display-container w3-card w3-round-large w3-white">
+											class="w3-display-container w3-round-large w3-white grad-banner">
 											<div class="noti-card"
 												onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${gradVo.slctnNotiNo}&tabnm=${gradVo.slctnNotiDstnct}'">
 												<div class="w3-padding w3-text-grey w3-small"
@@ -577,7 +642,7 @@
 
 									<div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom">
 										<div
-											class="w3-display-container w3-card w3-round-large w3-white">
+											class="w3-display-container w3-round-large w3-white lab-banner">
 											<div class="noti-card"
 												onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${labVo.slctnNotiNo}&tabnm=${labVo.slctnNotiDstnct}'">
 												<div class="w3-padding w3-text-grey w3-small"
@@ -659,7 +724,7 @@
 						</c:forEach>
 					</div>
 				</div>
-			</div>
+	
 		</c:forEach>
 	</div>
 

@@ -115,7 +115,9 @@ textarea {
 			//div_hide();
 		
 		//}
-		
+	
+    	
+    	
 		if(authUser == null || authUser == "" ){
 			
 		}else{
@@ -217,12 +219,39 @@ textarea {
 
 		});
 		
+		
+
+		
 	
 
 	})
 	
 	
+	function deletecoun( value) {
+		
+		var authUser= $("#authUser").val();
+		if(authUser === null || authUser==='' || authUser=='undefined'){
+			
+			$("#loginForm").css({
+				"display" : "block"
+			});
+			
+			return;
+			
+		}else{
+			
+		
+				
+				location.href='${pageContext.servletContext.contextPath }/counseling/delete?id='+value;	
+		
 
+			
+		}
+		
+		
+		
+		
+	}
 
 	
 	function div_show() {
@@ -496,9 +525,8 @@ textarea {
                 <c:if test="${counselingPrnts.writrInfoOpngYn =='N' }"	>
                                       비공개
                 </c:if>
-                    <span class="w3-text-grey">• ${counselingPrnts.avlblBeginDt }에 작성</span></h6>
-                
-
+                    <span class="w3-text-grey">• ${counselingPrnts.avlblBeginDt }에 작성</span></h6>                       
+					
                 </div>
                 
                 
@@ -514,7 +542,7 @@ textarea {
                 </div>
 
                 <div class="w3-container w3-bar w3-border-bottom w3-padding">
-                    <button class="w3-button do-scrapcoun${counselingPrnts.wrtbtNo}"  onclick="doScrap('게시글',${counselingPrnts.wrtbtNo},'',${authUser.mbNo });">
+                    <button class="w3-button do-scrapcoun${counselingPrnts.wrtbtNo} doScrap"  onclick="doScrap('게시글',${counselingPrnts.wrtbtNo},'',${authUser.mbNo });">
                         <span class="fa-layers fa-fw" style="font-size: 2.5em;">
                         <i class="fal fa-thumbtack"></i>
                         </span>
@@ -540,6 +568,17 @@ textarea {
                    		  <div class="w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large disabled">
                      	   조회수 <span class="w3-badge w3-white">${counselingPrnts.findCo }</span>
                    		 </div>
+                   		
+                   		 <c:if test="${counselingPrnts.recount  == 0  && authUser.mbNo ==counselingPrnts.mbNo }"	>
+			                                   	
+			                 	<button class="w3-button w3-right" onclick="deletecoun(${counselingPrnts.wrtbtNo })" >
+		                        <span class="fa-layers fa-fw" style="font-size: 2.5em;">
+		                        <i class="fal fa-times"></i>
+		                        </span>
+		                  	  </button>                   	
+			             </c:if>
+                   	
+                   		
                    		 
                    	 <div class="row w3-margin">
 					<c:forEach items="${fileList }" var="list" varStatus="status">
@@ -569,7 +608,7 @@ textarea {
 					  <option value="N">비공개로 작성하기</option>
 					</select>
 					
-                    <button type="submit" id="myBtns" class="w3-button w3-right w3-margin-bottom w3-round-large w3-blue">답변하기</button>
+                    <button type="submit" id="myBtns" class="w3-button w3-right w3-margin-bottom w3-block w3-round-large w3-blue">답변하기</button>
               
               
                 </form>
@@ -627,6 +666,15 @@ textarea {
 			                            <i class="fal fa-thumbs-down"></i><span class="fa-layers-counter fa-layers-bottom-right like${counselingReplyList.wrtbtNo }dislikes">${counselingReplyList.ncmdCo }</span>
 			                        </span>
 			                     </button>
+			                     
+			                    <c:if test="${ authUser.mbNo ==counselingReplyList.mbNo }"	>
+			                                   	
+			                 	<button class="w3-button w3-right" onclick="deletecoun(${counselingReplyList.wrtbtNo })" >
+		                        <span class="fa-layers fa-fw" style="font-size: 2.5em;">
+		                        <i class="fal fa-times"></i>
+		                        </span>
+		                  	  </button>                   	
+			             		</c:if>
 			                    
 			                </div>
 			            </div>
@@ -640,6 +688,7 @@ textarea {
 </div>
 <script type="text/javascript"
 		src="${pageContext.request.contextPath}/resources/js/doscrap.js"></script>	
+
 
 
 </body>
