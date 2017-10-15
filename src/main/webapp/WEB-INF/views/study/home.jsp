@@ -29,34 +29,7 @@
 body {
 	padding-top: 5em;
 }
-.grad-banner {
-	box-shadow: 5px 10px 10px rgba(102, 102, 255, 0.3), -1px -1px 10px rgba(136, 176, 75, 0.3);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
-.grad-banner:hover {
-	box-shadow: 5px 10px 30px rgba(102, 102, 255, 0.5), -1px -1px 30px rgba(136, 176, 75, 0.5);
-	margin-bottom: 1.5em;
-}
-.lab-banner {
-	box-shadow: 5px 10px 10px rgba(51, 102, 255, 0.3), -1px -1px 10px rgba(75, 0, 130, 0.3);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
-.lab-banner:hover {
-	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.5), -1px -1px 30px rgba(75, 0, 130, 0.5);
-	margin-bottom: 1.5em;
-}
-.conference-banner {
-	box-shadow: 5px 10px 10px rgba(51, 102, 255, 0.3), -1px -1px 10px rgba(153, 0, 153, 0.3);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
-.conference-banner:hover {
-	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.5), -1px -1px 30px rgba(153, 0, 153, 0.5);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
+
 .qna-banner {
 	box-shadow: 5px 10px 10px rgba(0, 0, 51, 0.3), -1px -1px 10px rgba(0, 0, 51, 0.3);
 	margin-bottom: 1.5em;
@@ -80,6 +53,27 @@ body {
 .scrap-on {
 	color: #FF0000;
 }
+
+
+.grad-banner {
+            box-shadow: 3px 3px 10px rgba(179, 0, 0, 0.3), -1px -1px 10px rgba(255, 153, 153, 0.3);
+            margin-bottom: 1.5em;
+        }
+        .lab-banner {
+            box-shadow: 3px 3px 10px rgba(0, 0, 255, 0.3), -1px -1px 10px rgba(217, 179, 255, 0.3);
+            margin-bottom: 1.5em;
+        }
+        .conf-banner {
+            box-shadow: 3px 3px 10px rgba(0, 128, 0, 0.3), -1px -1px 10px rgba(179, 230, 179, 0.3);
+            margin-bottom: 1.5em;
+        } 
+        .short-cut{
+            text-decoration: none;
+            color:gray;
+        }
+        .short-cut:hover{
+            color:indianred;
+        }
 </style>
 
 <script type="text/javascript">
@@ -213,14 +207,14 @@ $(function() {
 	<c:import url="/WEB-INF/views/include/subHeader.jsp" />
 
 
-	<div class="row">
+	<div class="w3-row">
 		<div class="container">
 		
 		<input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
 		
 			<c:forEach items="${calList }" var="calList" varStatus="status">
 			
-				<div class="col-xs-12 col-sm-12 col-lg-12">
+				<div class="w3-col s12 m12 l12 ">
 				
 				<h1>
 					<div style="float: left; margin-right: 0.3em;">${calList.day }</div>
@@ -235,9 +229,9 @@ $(function() {
 				</div>
 			
 			
-				<div class="row">
+			<div class="w3-row">
 		
-		
+			<div class="">
 			<div class="w3-col s12 m12 l4 w3-row-padding w3-margin-bottom">
 				
 				
@@ -266,15 +260,14 @@ $(function() {
 								  
 								  
 								  
-						                <div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
+						                <div class="w3-display-container w3-round-large w3-white w3-margin-bottom lab-banner">
 						              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 							                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">
 							                    	<c:choose>
 													<c:when test="${BoardList.bk21EorgnzSuprtYn =='Y' }">
-														<span class="w3-red"
-															style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-														<span class="w3-blue"
-															style="padding-right: 5px; padding-left: 0px;">21+</span>
+														<div class="w3-small"style="margin-bottom: -1.5em; height: 2.7em">
+										                    <span class="w3-text-white w3-round-large" style="background: linear-gradient(141deg,rgba(255, 0, 0, 1), rgba(0, 0, 255, 1));">&nbsp;BK 21+&nbsp;</span>
+										                </div>
 													</c:when>
 													<c:otherwise>
 														<span
@@ -344,7 +337,7 @@ $(function() {
 								   
 								   
 							             
-							               <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
+							               <div class="w3-display-container grad-banner-our w3-round-large w3-margin-bottom lab-banner">
 								                   <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 								                   	<c:if test="${BoardList.slctnSemstr == '상시' }"	>
 							                    		  
@@ -406,7 +399,7 @@ $(function() {
 								  				
 								  	  		    
 								  	  		      
-								                		<div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
+								                		<div class="w3-display-container w3-round-large w3-white w3-margin-bottom grad-banner">
 								              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 									                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.slctnYycl}년 ${BoardList.slctnSemstr}</div>
 									                    <div style="margin-bottom: 0em;">
@@ -471,7 +464,7 @@ $(function() {
 								   <c:if test="${BoardList.pchrgYn =='N' }"	>
 								   
 								   
-								      <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
+								      <div class="w3-display-container grad-banner-our w3-round-large w3-margin-bottom grad-banner">
 					                    
 					                    <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 					                      <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -537,6 +530,8 @@ $(function() {
 							      
 							     
 							      	   <div class="w3-display-container w3-card w3-round-large w3-margin-bottom main-banner w3-white">
+							      	   
+							      	    <c:if test="${BoardList.avlblEndDt == 9999 }"	>
 							      	   	<div class="noti-card counseling" value="${BoardList.slctnNotiNo}">
 					                        <div class="w3-padding w3-text-grey w3-small">
 					                            <span class="">Category - Ordinary</span>
@@ -569,10 +564,12 @@ $(function() {
 										            </c:if>
 
 					                        </div>
-					                        
-					                        <div class="w3-container w3-margin-top">
+					                      
+					                          <c:if test="${BoardList.reAvlblEndDt == 9999 || BoardList.reAvlblEndDt == null }"	> 
+					                      	
+					                      			  <div class="w3-container w3-margin-top">
 					                           
-					                            <!--코멘트(베스트)-->
+					                           		 <!--코멘트(베스트)-->
 					                                 <c:if test="${BoardList.count > 0 }"	>
 					                                 	 <!--코멘트 수-->
 					                          			  <span class="w3-small w3-padding">Comment <span class="w3-badge w3-light-gray">${BoardList.count}</span></span>
@@ -585,7 +582,20 @@ $(function() {
 										            </c:if>
 										             
 					                            
-					                        </div>
+					                        		</div>
+					                      	
+					                      	
+
+					                     	 </c:if>
+					                     	
+					                     	 	 <c:if test="${BoardList.reAvlblEndDt != 9999 && BoardList.reAvlblEndDt != null }"	>
+					                     	  
+					                     	  	<div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+												</div>
+					                     	  
+					                     	  </c:if>
+					                      
 					                      </div>
 					                     <!--
 					                        <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapcoun${BoardList.slctnNotiNo}">
@@ -593,6 +603,13 @@ $(function() {
 							                            onclick="doScrap('게시글',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
 							                </div>  
 					                      -->
+					                     </c:if> 
+					                      <c:if test="${BoardList.avlblEndDt != 9999 }"	>
+					                      <div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+											</div>
+
+					                      </c:if>
 					                    </div>
 					                    
 					                    
@@ -602,7 +619,8 @@ $(function() {
 							      
 							     <c:if test="${BoardList.wrtbtDstnct =='상담게시판' }"	>
 							     
-							     		   <div class="w3-display-container w3-card w3-round-large w3-margin-bottom main-banner w3-white">
+							     		   <div class="w3-display-container w3-card w3-round-large w3-margin-bottom main-banner w3-white ">
+							     		    <c:if test="${BoardList.avlblEndDt == 9999 }"	>
 							     		   <div class="noti-card counseling" value="${BoardList.slctnNotiNo}">
 					                        <div class="w3-padding w3-text-grey w3-small">
 					                            <span class="">Category - Question</span>
@@ -632,6 +650,8 @@ $(function() {
 										            </c:if>
 
 					                        </div>
+					                  
+					                        <c:if test="${BoardList.reAvlblEndDt == 9999 || BoardList.reAvlblEndDt == null }"	> 
 					                       <div class="w3-container w3-margin-top">  
 						                        <c:if test="${BoardList.count > 0 }"	>
 							                  
@@ -650,6 +670,14 @@ $(function() {
 	
 							            	</c:if>
 						            	</div>
+						            	</c:if>
+						            	 <c:if test="${BoardList.reAvlblEndDt != 9999 && BoardList.reAvlblEndDt != null }"	>
+					                     	  
+					                     	  	<div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+												</div>
+					                     	  
+					                     	  </c:if>
 						            	</div>
 					                         <!--
 					                        <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapcoun${BoardList.slctnNotiNo}">
@@ -657,7 +685,13 @@ $(function() {
 							                            onclick="doScrap('게시글',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
 							                </div>  
 					                      -->  
-					                       
+					                     </c:if> 
+					                      <c:if test="${BoardList.avlblEndDt != 9999 }"	>
+					                      <div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+											</div>
+
+					                      </c:if> 
 					                    </div>
 					                    
 					                    
@@ -682,9 +716,9 @@ $(function() {
                   </c:forEach>  
                     
                 </div>
-		
+				</div>
 
-					
+				<div class="">	
 				<div class="w3-col s12 m12 l4 w3-row-padding w3-margin-bottom"> 
 				
 				<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
@@ -705,15 +739,14 @@ $(function() {
 								  
 								  
 								  
-						                <div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
+						                <div class="w3-display-container w3-round-large w3-white w3-margin-bottom lab-banner">
 						              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 							                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">
 							                    	<c:choose>
 													<c:when test="${BoardList.bk21EorgnzSuprtYn =='Y' }">
-														<span class="w3-red"
-															style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-														<span class="w3-blue"
-															style="padding-right: 5px; padding-left: 0px;">21+</span>
+														<div class="w3-small"style="margin-bottom: -1.5em; height: 2.7em">
+										                    <span class="w3-text-white w3-round-large" style="background: linear-gradient(141deg,rgba(255, 0, 0, 1), rgba(0, 0, 255, 1));">&nbsp;BK 21+&nbsp;</span>
+										                </div>
 													</c:when>
 													<c:otherwise>
 														<span
@@ -783,7 +816,7 @@ $(function() {
 								   
 								   
 							             
-							               <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
+							               <div class="w3-display-container grad-banner-our w3-round-large w3-margin-bottom lab-banner">
 								                   <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 								                   	<c:if test="${BoardList.slctnSemstr == '상시' }"	>
 							                    		  
@@ -845,7 +878,7 @@ $(function() {
 								  				
 								  	  		    
 								  	  		      
-								                		<div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
+								                		<div class="w3-display-container w3-round-large w3-white w3-margin-bottom grad-banner">
 								              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 									                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.slctnYycl}년 ${BoardList.slctnSemstr}</div>
 									                    <div style="margin-bottom: 0em;">
@@ -910,7 +943,7 @@ $(function() {
 								   <c:if test="${BoardList.pchrgYn =='N' }"	>
 								   
 								   
-								      <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
+								      <div class="w3-display-container grad-banner-our w3-round-large w3-margin-bottom grad-banner">
 					                    
 					                    <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 					                      <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -970,13 +1003,15 @@ $(function() {
 							    </c:when>
 
 							 
-							    <c:otherwise>
+							        <c:otherwise>
 							    
 							      <c:if test="${BoardList.wrtbtDstnct =='일반게시판' }"	>
 							      
 							     
 							      	   <div class="w3-display-container w3-card w3-round-large w3-margin-bottom main-banner w3-white">
-							      	   <div class="noti-card counseling" value="${BoardList.slctnNotiNo}">
+							      	   
+							      	    <c:if test="${BoardList.avlblEndDt == 9999 }"	>
+							      	   	<div class="noti-card counseling" value="${BoardList.slctnNotiNo}">
 					                        <div class="w3-padding w3-text-grey w3-small">
 					                            <span class="">Category - Ordinary</span>
 					                            <span class="w3-right"><i class="fas fa-ellipsis-h"></i></span>
@@ -988,11 +1023,15 @@ $(function() {
 							                        	</div>
 							                        	  <div class="w3-container" style="margin-bottom: -1em;">
 								                            <div class="w3-container w3-margin-top">
-								                                <p class="w3-medium coheightcheck${status.index}"
+								                                <p class="w3-medium coheightcheck${status.index}" 
 								                                   style="margin-top: 0em; line-height: 200%; max-height: 10em;  text-overflow:ellipsis;overflow: hidden;">
 								                                   ${BoardList.wrtbtText } </p>
+								                                   
+								                                   
 								                                <span class="w3-medium w3-left w3-margin-bottom w3-text-blue readmore${status.index}"
 								                                      style="font-size: 1.8vmin; margin-top: -1.5em;">(read more)</span>
+								                                      
+								                                      
 								                            </div>
 								                        </div>
 										            </c:if>
@@ -1000,14 +1039,16 @@ $(function() {
 										                 <img src="${BoardList.coSrorgPath }" alt="이미지" style="width:100%">
 										                  <div class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
 							                              	style="background-color: rgba(0,0,0,0.5);">#${BoardList.wrtbtTitle }</div>
-							                            	
+		
 										            </c:if>
 
 					                        </div>
-					                        
-					                        <div class="w3-container w3-margin-top">
+					                      
+					                          <c:if test="${BoardList.reAvlblEndDt == 9999 || BoardList.reAvlblEndDt == null }"	> 
+					                      	
+					                      			  <div class="w3-container w3-margin-top">
 					                           
-					                            <!--코멘트(베스트)-->
+					                           		 <!--코멘트(베스트)-->
 					                                 <c:if test="${BoardList.count > 0 }"	>
 					                                 	 <!--코멘트 수-->
 					                          			  <span class="w3-small w3-padding">Comment <span class="w3-badge w3-light-gray">${BoardList.count}</span></span>
@@ -1020,16 +1061,34 @@ $(function() {
 										            </c:if>
 										             
 					                            
-					                        </div>
-					                      </div>
+					                        		</div>
+					                      	
+					                      	
+
+					                     	 </c:if>
+					                     	
+					                     	 	 <c:if test="${BoardList.reAvlblEndDt != 9999 && BoardList.reAvlblEndDt != null }"	>
+					                     	  
+					                     	  	<div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+												</div>
+					                     	  
+					                     	  </c:if>
 					                      
-					                       <!--
+					                      </div>
+					                     <!--
 					                        <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapcoun${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
 							                            onclick="doScrap('게시글',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
 							                </div>  
 					                      -->
-					                      
+					                     </c:if> 
+					                      <c:if test="${BoardList.avlblEndDt != 9999 }"	>
+					                      <div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+											</div>
+
+					                      </c:if>
 					                    </div>
 					                    
 					                    
@@ -1040,6 +1099,7 @@ $(function() {
 							     <c:if test="${BoardList.wrtbtDstnct =='상담게시판' }"	>
 							     
 							     		   <div class="w3-display-container w3-card w3-round-large w3-margin-bottom main-banner w3-white">
+							     		    <c:if test="${BoardList.avlblEndDt == 9999 }"	>
 							     		   <div class="noti-card counseling" value="${BoardList.slctnNotiNo}">
 					                        <div class="w3-padding w3-text-grey w3-small">
 					                            <span class="">Category - Question</span>
@@ -1069,13 +1129,15 @@ $(function() {
 										            </c:if>
 
 					                        </div>
+					                  
+					                        <c:if test="${BoardList.reAvlblEndDt == 9999 || BoardList.reAvlblEndDt == null }"	> 
 					                       <div class="w3-container w3-margin-top">  
 						                        <c:if test="${BoardList.count > 0 }"	>
 							                  
 						                            <span class="w3-small w3-padding">Answers <span class="w3-badge w3-light-gray">${BoardList.count}</span></span>
 						                            <p class="board-answer w3-round-large w3-padding w3-medium" style="font-size: 1.8vmin; margin-top: 0em; line-height: 200%; max-height: 4em; text-overflow: ellipsis; overflow: hidden;">${BoardList.subwrtbtText}</p>
 						                        
-								                    <div class="w3-container w3-center w3-padding" >
+								                    <div class="w3-container w3-center w3-padding">
 								                        <button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" style="letter-spacing: 2px;" value="${BoardList.slctnNotiNo}">답변하기</button>
 								                    </div>
 							                    		
@@ -1087,14 +1149,28 @@ $(function() {
 	
 							            	</c:if>
 						            	</div>
+						            	</c:if>
+						            	 <c:if test="${BoardList.reAvlblEndDt != 9999 && BoardList.reAvlblEndDt != null }"	>
+					                     	  
+					                     	  	<div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+												</div>
+					                     	  
+					                     	  </c:if>
 						            	</div>
-					                     <!--
+					                         <!--
 					                        <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapcoun${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
 							                            onclick="doScrap('게시글',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
 							                </div>  
 					                      -->  
-					                       
+					                     </c:if> 
+					                      <c:if test="${BoardList.avlblEndDt != 9999 }"	>
+					                      <div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+											</div>
+
+					                      </c:if> 
 					                    </div>
 					                    
 					                    
@@ -1104,7 +1180,6 @@ $(function() {
 						
 
 							    </c:otherwise>
-			 
 							</c:choose>
 				
 
@@ -1118,9 +1193,9 @@ $(function() {
                   </c:forEach>  
                     
                 </div>
-					
+			</div>		
 
-                
+            <div class="">    
           <div class="w3-col s12 m12 l4 w3-row-padding w3-margin-bottom">
 				
 				
@@ -1142,15 +1217,14 @@ $(function() {
 								  
 								  
 								  
-						                <div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
+						                <div class="w3-display-container w3-round-large w3-white w3-margin-bottom lab-banner">
 						              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 							                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">
 							                    	<c:choose>
 													<c:when test="${BoardList.bk21EorgnzSuprtYn =='Y' }">
-														<span class="w3-red"
-															style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-														<span class="w3-blue"
-															style="padding-right: 5px; padding-left: 0px;">21+</span>
+														<div class="w3-small"style="margin-bottom: -1.5em; height: 2.7em">
+										                    <span class="w3-text-white w3-round-large" style="background: linear-gradient(141deg,rgba(255, 0, 0, 1), rgba(0, 0, 255, 1));">&nbsp;BK 21+&nbsp;</span>
+										                </div>
 													</c:when>
 													<c:otherwise>
 														<span
@@ -1220,7 +1294,7 @@ $(function() {
 								   
 								   
 							             
-							               <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
+							               <div class="w3-display-container grad-banner-our w3-round-large w3-margin-bottom lab-banner">
 								                   <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 								                   	<c:if test="${BoardList.slctnSemstr == '상시' }"	>
 							                    		  
@@ -1282,7 +1356,7 @@ $(function() {
 								  				
 								  	  		    
 								  	  		      
-								                		<div class="w3-display-container w3-card w3-round-large w3-white w3-margin-bottom">
+								                		<div class="w3-display-container w3-round-large w3-white w3-margin-bottom grad-banner">
 								              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 									                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.slctnYycl}년 ${BoardList.slctnSemstr}</div>
 									                    <div style="margin-bottom: 0em;">
@@ -1347,7 +1421,7 @@ $(function() {
 								   <c:if test="${BoardList.pchrgYn =='N' }"	>
 								   
 								   
-								      <div class="w3-display-container grad-banner-our w3-card w3-round-large w3-margin-bottom">
+								      <div class="w3-display-container grad-banner-our w3-round-large w3-margin-bottom grad-banner">
 					                    
 					                    <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 					                      <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -1407,13 +1481,15 @@ $(function() {
 							    </c:when>
 
 							 
-							    <c:otherwise>
+							        <c:otherwise>
 							    
 							      <c:if test="${BoardList.wrtbtDstnct =='일반게시판' }"	>
 							      
 							     
 							      	   <div class="w3-display-container w3-card w3-round-large w3-margin-bottom main-banner w3-white">
-							      	   <div class="noti-card counseling" value="${BoardList.slctnNotiNo}">
+							      	   
+							      	    <c:if test="${BoardList.avlblEndDt == 9999 }"	>
+							      	   	<div class="noti-card counseling" value="${BoardList.slctnNotiNo}">
 					                        <div class="w3-padding w3-text-grey w3-small">
 					                            <span class="">Category - Ordinary</span>
 					                            <span class="w3-right"><i class="fas fa-ellipsis-h"></i></span>
@@ -1425,11 +1501,15 @@ $(function() {
 							                        	</div>
 							                        	  <div class="w3-container" style="margin-bottom: -1em;">
 								                            <div class="w3-container w3-margin-top">
-								                                <p class="w3-medium coheightcheck${status.index}"
+								                                <p class="w3-medium coheightcheck${status.index}" 
 								                                   style="margin-top: 0em; line-height: 200%; max-height: 10em;  text-overflow:ellipsis;overflow: hidden;">
 								                                   ${BoardList.wrtbtText } </p>
+								                                   
+								                                   
 								                                <span class="w3-medium w3-left w3-margin-bottom w3-text-blue readmore${status.index}"
 								                                      style="font-size: 1.8vmin; margin-top: -1.5em;">(read more)</span>
+								                                      
+								                                      
 								                            </div>
 								                        </div>
 										            </c:if>
@@ -1437,14 +1517,16 @@ $(function() {
 										                 <img src="${BoardList.coSrorgPath }" alt="이미지" style="width:100%">
 										                  <div class="w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large"
 							                              	style="background-color: rgba(0,0,0,0.5);">#${BoardList.wrtbtTitle }</div>
-							                            	
+		
 										            </c:if>
 
 					                        </div>
-					                        
-					                        <div class="w3-container w3-margin-top">
+					                      
+					                          <c:if test="${BoardList.reAvlblEndDt == 9999 || BoardList.reAvlblEndDt == null }"	> 
+					                      	
+					                      			  <div class="w3-container w3-margin-top">
 					                           
-					                            <!--코멘트(베스트)-->
+					                           		 <!--코멘트(베스트)-->
 					                                 <c:if test="${BoardList.count > 0 }"	>
 					                                 	 <!--코멘트 수-->
 					                          			  <span class="w3-small w3-padding">Comment <span class="w3-badge w3-light-gray">${BoardList.count}</span></span>
@@ -1457,7 +1539,20 @@ $(function() {
 										            </c:if>
 										             
 					                            
-					                        </div>
+					                        		</div>
+					                      	
+					                      	
+
+					                     	 </c:if>
+					                     	
+					                     	 	 <c:if test="${BoardList.reAvlblEndDt != 9999 && BoardList.reAvlblEndDt != null }"	>
+					                     	  
+					                     	  	<div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+												</div>
+					                     	  
+					                     	  </c:if>
+					                      
 					                      </div>
 					                     <!--
 					                        <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapcoun${BoardList.slctnNotiNo}">
@@ -1465,7 +1560,13 @@ $(function() {
 							                            onclick="doScrap('게시글',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
 							                </div>  
 					                      -->
-					                      
+					                     </c:if> 
+					                      <c:if test="${BoardList.avlblEndDt != 9999 }"	>
+					                      <div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+											</div>
+
+					                      </c:if>
 					                    </div>
 					                    
 					                    
@@ -1476,6 +1577,7 @@ $(function() {
 							     <c:if test="${BoardList.wrtbtDstnct =='상담게시판' }"	>
 							     
 							     		   <div class="w3-display-container w3-card w3-round-large w3-margin-bottom main-banner w3-white">
+							     		    <c:if test="${BoardList.avlblEndDt == 9999 }"	>
 							     		   <div class="noti-card counseling" value="${BoardList.slctnNotiNo}">
 					                        <div class="w3-padding w3-text-grey w3-small">
 					                            <span class="">Category - Question</span>
@@ -1505,13 +1607,15 @@ $(function() {
 										            </c:if>
 
 					                        </div>
+					                  
+					                        <c:if test="${BoardList.reAvlblEndDt == 9999 || BoardList.reAvlblEndDt == null }"	> 
 					                       <div class="w3-container w3-margin-top">  
 						                        <c:if test="${BoardList.count > 0 }"	>
 							                  
 						                            <span class="w3-small w3-padding">Answers <span class="w3-badge w3-light-gray">${BoardList.count}</span></span>
 						                            <p class="board-answer w3-round-large w3-padding w3-medium" style="font-size: 1.8vmin; margin-top: 0em; line-height: 200%; max-height: 4em; text-overflow: ellipsis; overflow: hidden;">${BoardList.subwrtbtText}</p>
 						                        
-								                    <div class="w3-container w3-center w3-padding" >
+								                    <div class="w3-container w3-center w3-padding">
 								                        <button class="w3-button w3-block w3-border w3-white w3-round-large w3-text-grey counselingreply" style="letter-spacing: 2px;" value="${BoardList.slctnNotiNo}">답변하기</button>
 								                    </div>
 							                    		
@@ -1523,14 +1627,28 @@ $(function() {
 	
 							            	</c:if>
 						            	</div>
+						            	</c:if>
+						            	 <c:if test="${BoardList.reAvlblEndDt != 9999 && BoardList.reAvlblEndDt != null }"	>
+					                     	  
+					                     	  	<div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+												</div>
+					                     	  
+					                     	  </c:if>
 						            	</div>
-					                      <!--
+					                         <!--
 					                        <div class="doScrap w3-padding w3-display-bottomleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large do-scrapcoun${BoardList.slctnNotiNo}">
 							                            <i class="far fa-thumbtack w3-large" 
 							                            onclick="doScrap('게시글',${BoardList.slctnNotiNo},${authUser.mbNo });"></i>
 							                </div>  
-					                      -->
-					                       
+					                      -->  
+					                     </c:if> 
+					                      <c:if test="${BoardList.avlblEndDt != 9999 }"	>
+					                      <div class='w3-container w3-padding w3-text-light-grey'>
+											 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+											</div>
+
+					                      </c:if> 
 					                    </div>
 					                    
 					                    
@@ -1551,6 +1669,7 @@ $(function() {
 				</c:if>
    		 	</c:forEach>  
 		</div>
+		</div>	
 	</div>
 </c:forEach>
 </div>

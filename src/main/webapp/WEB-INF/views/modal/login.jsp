@@ -19,36 +19,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">
 
 <style type="text/css">
-.study{
-	display: inline-block;
-	margin-bottom: 5px;
-	margin-right: 2px;
-	width: 49%;
-	height: 75px;
-	text-align: center;
-	line-height: 75px;
-	color: white;
 
-}
-.over{
-display: inline-block;
-}
-
-.black:after {
-	background-color: black;
-	z-index: -1;
-}
-
-.over:after {
-	z-index: -2;
-	position: absolute;
-	content: "";
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0.8;
-}
 </style>
 
 </head>

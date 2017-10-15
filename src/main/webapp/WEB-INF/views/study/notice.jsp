@@ -25,34 +25,7 @@
 body {
 	padding-top: 5em;
 }
-.grad-banner {
-	box-shadow: 5px 10px 10px rgba(102, 102, 255, 0.3), -1px -1px 10px rgba(136, 176, 75, 0.3);
-   	margin-bottom: 1.5em;
-    background-color: white;
-}
-.grad-banner:hover {
-	box-shadow: 5px 10px 30px rgba(102, 102, 255, 0.5), -1px -1px 30px rgba(136, 176, 75, 0.5);
-    margin-bottom: 1.5em;
-}
-.lab-banner {
-	box-shadow: 5px 10px 10px rgba(51, 102, 255, 0.3), -1px -1px 10px rgba(75, 0, 130, 0.3);
-	margin-bottom: 1.5em;
-    background-color: white;
-}
-.lab-banner:hover {
-	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.5), -1px -1px 30px rgba(75, 0, 130, 0.5);
-	margin-bottom: 1.5em;
-}
-.conference-banner {
-	box-shadow: 5px 10px 10px rgba(51, 102, 255, 0.3), -1px -1px 10px rgba(153, 0, 153, 0.3);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
-.conference-banner:hover {
-	box-shadow: 5px 10px 30px rgba(51, 102, 255, 0.5), -1px -1px 30px rgba(153, 0, 153, 0.5);
-	margin-bottom: 1.5em;
-    background-color: white;
-}
+
 .qna-banner {
 	box-shadow: 5px 10px 10px rgba(0, 0, 51, 0.3), -1px -1px 10px rgba(0, 0, 51, 0.3);
     margin-bottom: 1.5em;
@@ -79,6 +52,27 @@ body {
 .distinct-line {
 	padding-top: 2.5em;
 }
+
+
+.grad-banner {
+            box-shadow: 3px 3px 10px rgba(179, 0, 0, 0.3), -1px -1px 10px rgba(255, 153, 153, 0.3);
+            margin-bottom: 1.5em;
+        }
+        .lab-banner {
+            box-shadow: 3px 3px 10px rgba(0, 0, 255, 0.3), -1px -1px 10px rgba(217, 179, 255, 0.3);
+            margin-bottom: 1.5em;
+        }
+        .conf-banner {
+            box-shadow: 3px 3px 10px rgba(0, 128, 0, 0.3), -1px -1px 10px rgba(179, 230, 179, 0.3);
+            margin-bottom: 1.5em;
+        } 
+        .short-cut{
+            text-decoration: none;
+            color:gray;
+        }
+        .short-cut:hover{
+            color:indianred;
+        }
 </style>
 <script type="text/javascript">
  
@@ -119,7 +113,7 @@ body {
 
 
 
-			<div class="col-xs-12 col-sm-12 col-lg-12 distinct-line">
+			<div class="w3-col s12 m12 l12 w3-container">
 				<h3>
 					<div style="float: left; margin-right: 0.3em;">대학원 모집공고</div>
 					<br>
@@ -127,7 +121,7 @@ body {
 
 				<hr>
 
-				<div class="row">
+				<div class="w3-row">
 
 					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
 
@@ -140,8 +134,8 @@ body {
 								   <c:if test="${BoardList.pchrgYn =='Y' }"	>
 								  		
 								  		
-								  <div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom">
-			                		<div class="w3-display-container w3-card w3-round-large w3-white">
+								  <div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom ">
+			                		<div class="w3-display-container w3-round-large w3-white grad-banner">
 			              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 				                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">${BoardList.slctnYycl}년 ${BoardList.slctnSemstr}</div>
 				                    <div style="margin-bottom: 0em;">
@@ -210,7 +204,7 @@ body {
 
 				</div>
 
-				<div class="row distinct-line">
+				<div class="w3-row distinct-line">
 
 					<c:forEach items="${BoardList }" var="BoardList" varStatus="status">
 
@@ -226,7 +220,7 @@ body {
 								<div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom">
 								    
 								    
-								    <div class="w3-display-container grad-banner-our w3-card w3-round-large">
+								    <div class="w3-display-container grad-banner-our w3-round-large grad-banner">
 					                    
 					                    <div onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=대학원'">
 					                      <c:if test="${BoardList.slctnSemstr == '상시' }"	>
@@ -293,11 +287,12 @@ body {
 			</div>
 
 
+			<div class="w3-col s12 m12 l12 w3-container">
 			<c:forEach items="${codeList2 }" var="codeList2" varStatus="status"> 
           
           	<c:if test="${codeList2.cdDstnct == '학과' }"	>
           	
-          	<div class="col-xs-12 col-sm-12 col-lg-12 distinct-line">
+          	<div class="w3-col s12 m12 l12 w3-container">
           		 <h3>
                 <div style="float: left; margin-right: 0.3em;">${codeList2.cdNm }</div>
                 <br>
@@ -307,7 +302,7 @@ body {
 	            
 	       </div>     
 	            
-	         <div class="row">
+	         <div class="w3-row">
 	         		
 	         		  <c:forEach items="${majorList }" var="majorList" varStatus="status">
            
@@ -329,15 +324,14 @@ body {
 								
 								
 										<div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom">
-						                <div class="w3-display-container w3-card w3-round-large w3-white">
+						                <div class="w3-display-container w3-round-large w3-white lab-banner ">
 						              		 <div class="noti-card" onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 							                    <div class="w3-padding w3-text-grey w3-small" style="margin-bottom: -1.5em;">
 							                    	<c:choose>
 													<c:when test="${BoardList.bk21EorgnzSuprtYn =='Y' }">
-														<span class="w3-red"
-															style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-														<span class="w3-blue"
-															style="padding-right: 5px; padding-left: 0px;">21+</span>
+														<div class="w3-small"style="margin-bottom: -1.5em; height: 2.7em">
+										                    <span class="w3-text-white w3-round-large" style="background: linear-gradient(141deg,rgba(255, 0, 0, 1), rgba(0, 0, 255, 1));">&nbsp;BK 21+&nbsp;</span>
+										                </div>
 													</c:when>
 													<c:otherwise>
 														<span
@@ -415,7 +409,7 @@ body {
 	         
 	         
 	         </div>            
-         	<div class="row">
+         	<div class="w3-row">
          	
          		<c:forEach items="${majorList }" var="majorList" varStatus="status">
            
@@ -438,7 +432,7 @@ body {
 								   
 									<div class="w3-col s12 m6 l3 w3-row-padding w3-margin-bottom">
 							             
-							               <div class="w3-display-container grad-banner-our w3-card w3-round-large">
+							               <div class="w3-display-container grad-banner-our w3-round-large lab-banner">
 								                   <div onclick="location.href='${pageContext.servletContext.contextPath }/noti/detail?no=${BoardList.slctnNotiNo}&tabnm=연구실'">
 								                   	<c:if test="${BoardList.slctnSemstr == '상시' }"	>
 							                    		  
@@ -494,9 +488,11 @@ body {
          			</c:forEach>
 		          	</c:if>
              </c:forEach>         	
-         	</div>            	         	
+         	</div>   
+                  	         	
          </c:if>          
      </c:forEach>
+     </div>
 </div>
 </div>
 	<script type="text/javascript"

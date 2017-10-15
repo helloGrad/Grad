@@ -131,10 +131,10 @@ public class CounselingDao {
 	}
 	
 	
-	public CounselingVo getCheckCounseling(Long id) {
+	public void getCheckCounseling(Long id) {
 		
 		
-		return sqlSession.selectOne("counseling.getCheckCounseling",id);
+		 sqlSession.update("counseling.getCheckCounseling",id);
 	}
 	
 	public void deleteCounseling(Long id, CounselingVo CounselingVo) {

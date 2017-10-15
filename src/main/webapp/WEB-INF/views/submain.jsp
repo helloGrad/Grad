@@ -18,7 +18,8 @@
 	src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet"
@@ -95,6 +96,25 @@
         .short-cut:hover{
             color:indianred;
         }
+        .swiper-container {
+            height: 200px;
+            z-index : 0;
+        }
+        .swiper-slide {
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
 </style>
 
 
@@ -146,10 +166,11 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="w3-col s12 m12 l12">
-			<div class="w3-row w3-row-padding">
-				<div class="w3-col s12 m3 l3  w3-margin-bottom">
-					<div class="w3-card w3-white setting">
+	<div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class=" w3-margin-bottom">
+                            <div class="w3-card w3-white setting">
 						<header class="w3-container w3-center w3-text-white"
 							style="background: rgb(11, 194, 132)">
 							<h6>CUSTOMIZATION</h6>
@@ -165,16 +186,19 @@
 							<div class="w3-padding w3-medium w3-center">설정 바로가기</div>
 						</footer>
 					</div>
-				</div>
-				<div class="w3-col s12 m3 l3  w3-margin-bottom">
-					<div class="w3-card w3-white "
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="w3-margin-bottom">
+                            <div class="w3-card w3-white "
 						onclick="location.href='${pageContext.servletContext.contextPath }/counseling/list?ttype=A'">
 						<header class="w3-container w3-center  w3-text-white"
 							style="background: rgb(11, 194, 132)">
 							<h6>COUNSELING</h6>
 						</header>
 						<div class="w3-container w3-padding w3-row-padding">
-							<div class="w3-left w3-margin-right">
+							<div class="w3-left w3-margin-right  w3-padding">
 								<i class="far fa-code-merge fa-3x"></i>
 							</div>
 							<Span class="w3-content w3-small">Allow enough time before
@@ -184,9 +208,12 @@
 							<div class="w3-padding w3-medium w3-center">상담실 바로가기</div>
 						</footer>
 					</div>
-				</div>
-				<div class="w3-col s12 m3 l3  w3-margin-bottom">
-					<div class="w3-card w3-white">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="w3-margin-bottom">
+                            <div class="w3-card w3-white">
 						<header class="w3-container w3-center  w3-text-white"
 							style="background: rgb(11, 194, 132)">
 							<h6>CHOOSE</h6>
@@ -203,10 +230,12 @@
 								진행 중</div>
 						</footer>
 					</div>
-				</div>
+                        </div>
+                    </div>
 
-				<div class="w3-col s12 m3 l3  w3-margin-bottom">
-					<div class="w3-card w3-white myscrap">
+                    <div class="swiper-slide">
+                        <div class="w3-margin-bottom">
+                            <div class="w3-card w3-white myscrap">
 						<header class="w3-container w3-center  w3-text-white"
 							style="background: rgb(11, 194, 132)">
 							<h6>COMPARE</h6>
@@ -215,8 +244,7 @@
 							<div class="w3-left w3-margin-right">
 								<i class="far fa-list fa-3x "></i>
 							</div>
-							<span class="w3-content w3-small">Make spreadsheet. this
-								is important to you in considering what programs are best.</span>
+							<span class="w3-content w3-small">Make spreadsheet. this is important to you considering what programs are best.</span>
 						</div>
 						<footer class="w3-container w3-border-top">
 
@@ -240,9 +268,12 @@
 
 						</footer>
 					</div>
-				</div>
-			</div>
-		</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+		
 
 	</div>
 
@@ -366,10 +397,10 @@
 									style="margin-bottom: -1.5em;">
 									<c:choose>
 										<c:when test="${myBoardList.bk21EorgnzSuprtYn == 'Y' }">
-											<span class="w3-red"
-												style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-											<span class="w3-blue"
-												style="padding-right: 5px; padding-left: 0px;">21+</span>
+											<div class="w3-small"style="margin-bottom: -1.5em; height: 2.7em">
+							                    <span class="w3-text-white w3-round-large" style="background: linear-gradient(141deg,rgba(255, 0, 0, 1), rgba(0, 0, 255, 1));">&nbsp;BK 21+&nbsp;</span>
+							                </div>
+											
 										</c:when>
 										<c:otherwise>
 											<span
@@ -489,7 +520,7 @@
                         <a href="${pageContext.servletContext.contextPath }/submain#인문학" class="short-cut">
                             <div class="w3-center w3-round-large w3-padding">
                                 <div><i class="far fa-universal-access fa-3x "></i></div>
-                                <span class="w3-large ">인문학</span>
+                                <span class="w3-medium ">인문학</span>
                             </div>
                         </a>
                     </div>
@@ -649,10 +680,9 @@
 													style="margin-bottom: -1.5em;">
 													<c:choose>
 														<c:when test="${labVo.bk21EorgnzSuprtYn == 'Y' }">
-															<span class="w3-red"
-																style="padding-right: 2px; padding-left: 10px; margin-right: -5px">BK</span>
-															<span class="w3-blue"
-																style="padding-right: 5px; padding-left: 0px;">21+</span>
+															<div class="w3-small"style="margin-bottom: -1.5em; height: 2.7em">
+										                    <span class="w3-text-white w3-round-large" style="background: linear-gradient(141deg,rgba(255, 0, 0, 1), rgba(0, 0, 255, 1));">&nbsp;BK 21+&nbsp;</span>
+										                </div>
 														</c:when>
 														<c:otherwise>
 															<span
@@ -730,7 +760,33 @@
 
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        slidesPerView: 4,
+        spaceBetween: 15,
+        breakpoints: {
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 15
+            },
+            768: {
+                slidesPerView: 2.5,
+                spaceBetween: 15
+            },
+            640: {
+                slidesPerView: 1.25,
+                spaceBetween: 15
+            }
+        }
+    });
+</script>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/resources/js/doscrap.js"></script>
 	<script type="text/javascript"

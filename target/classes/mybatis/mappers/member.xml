@@ -275,9 +275,10 @@
 	<!-- 허주한 정예린 -->
 	<select id="getArticleByInfo" parameterType="map" resultType="studyVo">  
 		<![CDATA[
-		select a.*, (select count(*) from wetbt w where w.PRNTS_WRTBT_NO = a.slctnNotiNo) count, (select WRTBT_TEXT from wetbt w where w.PRNTS_WRTBT_NO = a.slctnNotiNo order by RCMD_CO desc limit 1) subwrtbtText
+		select a.*, (select count(*) from wetbt w where w.PRNTS_WRTBT_NO = a.slctnNotiNo) count, (select WRTBT_TEXT from wetbt w where w.PRNTS_WRTBT_NO = a.slctnNotiNo order by RCMD_CO desc limit 1) subwrtbtText,
+(select date_format(AVLBL_END_DT,'%Y') from wetbt w where w.PRNTS_WRTBT_NO = a.slctnNotiNo order by RCMD_CO desc limit 1) subSlctnEndDt
 from (select  af.STORG_PATH 'university',af.STORG_PATH 'graduate',w.WRTBT_NO 'pno3',af.STORG_PATH 'major',w.WRTBT_NO 'pno2',af.STORG_PATH 'lab',w.WRTBT_NO 'pno1',w.WRTBT_NO 'slctnNotiNo',af.STORG_PATH 'symbolColorNm',w.BBS_NM 'slctnNotiDstnct',
-w.AVLBL_BEGIN_DT 'notiRegstDt',w.AVLBL_BEGIN_DT 'slctnBeginDt',w.AVLBL_BEGIN_DT 'slctnEndDt',w.WRTBT_NO 'dday',w.WRTBT_NO 'percent',af.STORG_PATH 'slctnTitle',af.STORG_PATH 'slctnYycl',af.STORG_PATH 'slctnSemstr',af.STORG_PATH 'pchrgYn', 
+w.AVLBL_BEGIN_DT 'notiRegstDt',w.AVLBL_BEGIN_DT 'slctnBeginDt',date_format(w.AVLBL_END_DT,'%Y') 'slctnEndDt',w.WRTBT_NO 'dday',w.WRTBT_NO 'percent',af.STORG_PATH 'slctnTitle',af.STORG_PATH 'slctnYycl',af.STORG_PATH 'slctnSemstr',af.STORG_PATH 'pchrgYn', 
 null bk21EorgnzSuprtYn, 
 null tuitionSuprtYn,
  
@@ -310,7 +311,7 @@ null slctnNops,
 af.STORG_PATH 'storgPath',
 w.WRTBT_NO wrtbtNo, w.BBS_NM bbsNm, w.WRTBT_TEXT wrtbtText, w.WRTBT_TITLE wrtbtTitle, w.AVLBL_BEGIN_DT avlblBeginDt, af.STORG_PATH 'coSrorgPath', year(w.AVLBL_BEGIN_DT) 'year', month(w.AVLBL_BEGIN_DT) 'month', DAYOFMONTH(w.AVLBL_BEGIN_DT) 'day', w.wrtbt_dstnct wrtbtDstnct
 from
-(select w.WRTBT_NO, b.BBS_NM, w.WRTBT_TEXT, w.WRTBT_TITLE,w.AVLBL_BEGIN_DT, w.wrtbt_dstnct
+(select w.WRTBT_NO, b.BBS_NM, w.WRTBT_TEXT, w.WRTBT_TITLE,w.AVLBL_BEGIN_DT,w.AVLBL_END_DT, w.wrtbt_dstnct
 from bbs b, WETBT w
 where b.BBS_NO = w.BBS_NO and w.WRTBT_TYPE_DSTNCT='원글')w LEFT JOIN
 (select *
@@ -473,9 +474,9 @@ where (a.slctnNotiNo, slctnNotiDstnct) in (
 	
 	<select id="getMyBoardList" parameterType="long" resultType="studyVo">
 	<![CDATA[
-	select wt.*, a.STORG_PATH storgPath
+		select wt.*, a.STORG_PATH storgPath, (select date_format(AVLBL_END_DT,'%Y') from wetbt w where w.PRNTS_WRTBT_NO = wt.slctnNotiNo order by RCMD_CO desc limit 1) subSlctnEndDt
 	from (select w.WRTBT_NO slctnNotiNo,w.AVLBL_BEGIN_DT notiRegstDt, year(w.AVLBL_BEGIN_DT) year, month(w.AVLBL_BEGIN_DT) month, DAYOFMONTH(w.AVLBL_BEGIN_DT) day ,w.WRTBT_DSTNCT slctnNotiDstnct, 
-	w.WRTBT_TEXT wrtbtText, w.WRTBT_TITLE wrtbtTitle
+	w.WRTBT_TEXT wrtbtText, w.WRTBT_TITLE wrtbtTitle,  date_format(w.AVLBL_END_DT,'%Y') 'slctnEndDt'
 	 , (select count(*) from wetbt w2 where w2.PRNTS_WRTBT_NO = w.wrtbt_no) count
 	 , (select w2.WRTBT_TEXT from wetbt w2 where w2.PRNTS_WRTBT_NO = w.wrtbt_no order by w2.RCMD_CO desc limit 1) subwrtbtText, 
 	 w.WRTBT_TYPE_DSTNCT wrtbtTypeDstnct, 

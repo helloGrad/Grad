@@ -492,8 +492,19 @@ textarea {
                </c:if>  
                     
                 </div>
+                
+                       
+				
+				
                 <div class="w3-container">
-                    <h3><b>${counselingPrnts.wrtbtTitle }</b></h3>
+                
+		                <c:if test="${counselingPrnts.avlblEndDt == 9999 }"	>
+		                 <h3><b>${counselingPrnts.wrtbtTitle }</b></h3>
+						</c:if>
+						<c:if test="${counselingPrnts.avlblEndDt != 9999 }"	>
+						   <h3><b>사용자에 의해 삭제된 게시물입니다.</b></h3>
+						</c:if>
+                   
                     
                     	
                 <h6>
@@ -530,7 +541,7 @@ textarea {
                 </div>
                 
                 
-
+				<c:if test="${counselingPrnts.avlblEndDt == 9999 }"	>
                 <div class="w3-container" style="line-height: 200%">
                     <p class="w3-padding">
                     ${fn:replace(counselingPrnts.wrtbtText, newLine,"<br>") }
@@ -540,7 +551,18 @@ textarea {
 					</c:forEach>
 					
                 </div>
-
+				</c:if>
+				<c:if test="${counselingPrnts.avlblEndDt != 9999 }"	>
+				  <div class="w3-container" style="line-height: 200%">
+                    <p class="w3-padding">
+                   	 사용자에 의해 삭제된 게시물입니다. 
+                    </p>
+                   
+					
+                </div>
+				</c:if>
+				
+				
                 <div class="w3-container w3-bar w3-border-bottom w3-padding">
                     <button class="w3-button do-scrapcoun${counselingPrnts.wrtbtNo} doScrap"  onclick="doScrap('게시글',${counselingPrnts.wrtbtNo},'',${authUser.mbNo });">
                         <span class="fa-layers fa-fw" style="font-size: 2.5em;">
@@ -569,7 +591,7 @@ textarea {
                      	   조회수 <span class="w3-badge w3-white">${counselingPrnts.findCo }</span>
                    		 </div>
                    		
-                   		 <c:if test="${counselingPrnts.recount  == 0  && authUser.mbNo ==counselingPrnts.mbNo }"	>
+                   		 <c:if test="${counselingPrnts.recount  == 0  && authUser.mbNo ==counselingPrnts.mbNo && counselingPrnts.avlblEndDt == 9999}"	>
 			                                   	
 			                 	<button class="w3-button w3-right" onclick="deletecoun(${counselingPrnts.wrtbtNo })" >
 		                        <span class="fa-layers fa-fw" style="font-size: 2.5em;">
@@ -578,13 +600,17 @@ textarea {
 		                  	  </button>                   	
 			             </c:if>
                    	
-                   		
+                  <c:if test="${counselingPrnts.avlblEndDt == 9999 }"	>
+             			<div class="row w3-margin">
+						<c:forEach items="${fileList }" var="list" varStatus="status">
+						<a id="down" href="${pageContext.servletContext.contextPath }/download?no=${list.apndngFileNo}">${list.apndngFileNm }</a>
+						</c:forEach>
+						</div>
+		             
+             
+				</c:if>	
                    		 
-                   	 <div class="row w3-margin">
-					<c:forEach items="${fileList }" var="list" varStatus="status">
-					<a id="down" href="${pageContext.servletContext.contextPath }/download?no=${list.apndngFileNo}">${list.apndngFileNm }</a>
-					</c:forEach>
-					</div>	 
+                   	 	 
                    		 
                 </div>
                 <div class="w3-container w3-bar">
@@ -595,6 +621,8 @@ textarea {
                 </div>
                  <input type="hidden" id="replysize" name="replysize" value="${fn:length(counselingReplyList)}">
                  
+                 
+                 <c:if test="${counselingPrnts.avlblEndDt == 9999 }"	>
                 <form class="reply-form" id="reply-form" name="reply-form" onsubmit="counselingreplyinsert();">
                 	<input type="hidden" id="authUser" name="authUser" value="${authUser.mbNo }">
 					<input type="hidden" id="prntsWrtbtNo" name="prntsWrtbtNo" value="${counselingPrnts.wrtbtNo }">
@@ -612,6 +640,9 @@ textarea {
               
               
                 </form>
+                </c:if>	
+                
+                
             </div>
             <!--질문 끝-->
         </div>
@@ -651,10 +682,20 @@ textarea {
 			                <h6> ${counselingReplyList.nknm} <span class="w3-text-grey">•${counselingReplyList.avlblBeginDt}에 작성</span></h6>
 			            </div>
 			            <div class="w3-container w3-white" style="line-height: 200%">
+			            
+			            	<c:if test="${counselingReplyList.avlblEndDt == 9999 }"	>
 			                <p class="w3-padding">
 			                ${fn:replace(counselingReplyList.wrtbtText, newLine,"<br>") }
 			                </p>
+							</c:if>
+							<c:if test="${counselingReplyList.avlblEndDt != 9999 }"	>
+							 <p class="w3-padding">
+			               	사용자에 의해 삭제된 게시물입니다.
+			                </p>
+
+							</c:if>
 			
+				
 			                <div class="w3-container w3-bar w3-padding">
 			                    <button class="w3-button like${counselingReplyList.wrtbtNo }like" onclick="likeupdate(${counselingReplyList.wrtbtNo },'like')" value="like">
 			                        <span class="fa-layers fa-fw" style="font-size: 2.5em;">
@@ -667,7 +708,7 @@ textarea {
 			                        </span>
 			                     </button>
 			                     
-			                    <c:if test="${ authUser.mbNo ==counselingReplyList.mbNo }"	>
+			                    <c:if test="${ authUser.mbNo ==counselingReplyList.mbNo && counselingReplyList.avlblEndDt == 9999}"	>
 			                                   	
 			                 	<button class="w3-button w3-right" onclick="deletecoun(${counselingReplyList.wrtbtNo })" >
 		                        <span class="fa-layers fa-fw" style="font-size: 2.5em;">

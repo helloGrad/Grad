@@ -172,8 +172,8 @@ public class CounselingService {
 	}
 	
 
-	public CounselingVo checkCounseling(Long id) {
-		return counselingDao.getCheckCounseling(id);
+	public void checkCounseling(Long id) {
+		 counselingDao.getCheckCounseling(id);
 	}
 	
 	

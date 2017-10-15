@@ -72,6 +72,7 @@ function getUserData(access_token) {
 	});
 }
 
+/*
 $("#naverLogin").hover(
 		function() {
 			$("#naverlogo").css("background-image",
@@ -84,7 +85,7 @@ $("#naverLogin").hover(
 			$("#naverlogo").css("background-size", 'cover');
 		})
 
-
+*/
 
 		var emptyPasswdMsg = "비밀번호를 입력해주세요";
 var emptyEmailMsg = "이메일을 입력해주세요";
@@ -95,7 +96,8 @@ var emailRegExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,
 $(function() {
 
 
-	$("#new-naverLoginBtn").hover(
+		/*
+		$("#new-naverLoginBtn").hover(
 			function() {
 				$("#na-logo").css("background-image",
 				'url("/net/resources/images/logo-hover-copa.png")');
@@ -118,6 +120,8 @@ $(function() {
 						'url("/net/resources/images/logo.png")');
 						$("#na-logo2").css("background-size", 'cover');
 					})
+					
+			*/		
 
 					var date = new Date();
 	$("#birthy").attr("placeholder", date.getFullYear());

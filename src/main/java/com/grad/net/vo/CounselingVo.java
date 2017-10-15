@@ -39,6 +39,9 @@ public class CounselingVo {
 	private int rownum;
 	private String storgPath;
 	private int recount;
+	private String reAvlblEndDt;
+	
+	
 	
 	private int mwNo;
 	private int afNo;
@@ -254,6 +257,12 @@ public class CounselingVo {
 	public void setRecount(int recount) {
 		this.recount = recount;
 	}
+	public String getReAvlblEndDt() {
+		return reAvlblEndDt;
+	}
+	public void setReAvlblEndDt(String reAvlblEndDt) {
+		this.reAvlblEndDt = reAvlblEndDt;
+	}
 	public int getMwNo() {
 		return mwNo;
 	}
@@ -290,23 +299,8 @@ public class CounselingVo {
 				+ ", birdt=" + birdt + ", agrg=" + agrg + ", infroDstnct=" + infroDstnct + ", reMbNo=" + reMbNo
 				+ ", reNknm=" + reNknm + ", reAvlblBeginDt=" + reAvlblBeginDt + ", reWrtbtText=" + reWrtbtText
 				+ ", reRcmdCo=" + reRcmdCo + ", rownum=" + rownum + ", storgPath=" + storgPath + ", recount=" + recount
-				+ ", mwNo=" + mwNo + ", afNo=" + afNo + ", mcNo=" + mcNo + ", weNo=" + weNo + ", getWrtbtNo()="
-				+ getWrtbtNo() + ", getWrtbtText()=" + getWrtbtText() + ", getWrtbtTypeDstnct()=" + getWrtbtTypeDstnct()
-				+ ", getAvlblBeginDt()=" + getAvlblBeginDt() + ", getAvlblEndDt()=" + getAvlblEndDt() + ", getMbNo()="
-				+ getMbNo() + ", getBbsNo()=" + getBbsNo() + ", getWrtbtDstnct()=" + getWrtbtDstnct() + ", getRcmdCo()="
-				+ getRcmdCo() + ", getNcmdCo()=" + getNcmdCo() + ", getFindCo()=" + getFindCo() + ", getGroupNo()="
-				+ getGroupNo() + ", getOrderNo()=" + getOrderNo() + ", getDepth()=" + getDepth() + ", getWrtbtTitle()="
-				+ getWrtbtTitle() + ", getVoteRegstDt()=" + getVoteRegstDt() + ", getPrntsCwrNo()=" + getPrntsCwrNo()
-				+ ", getPrntsWrtbtNo()=" + getPrntsWrtbtNo() + ", getCwrDstnct()=" + getCwrDstnct()
-				+ ", getWritrInfoOpngYn()=" + getWritrInfoOpngYn() + ", getConslBbsDstnct()=" + getConslBbsDstnct()
-				+ ", getOrgnzNo()=" + getOrgnzNo() + ", getCount()=" + getCount() + ", getNknm()=" + getNknm()
-				+ ", getBirdt()=" + getBirdt() + ", getAgrg()=" + getAgrg() + ", getInfroDstnct()=" + getInfroDstnct()
-				+ ", getReMbNo()=" + getReMbNo() + ", getReNknm()=" + getReNknm() + ", getReAvlblBeginDt()="
-				+ getReAvlblBeginDt() + ", getReWrtbtText()=" + getReWrtbtText() + ", getReRcmdCo()=" + getReRcmdCo()
-				+ ", getRownum()=" + getRownum() + ", getStorgPath()=" + getStorgPath() + ", getRecount()="
-				+ getRecount() + ", getMwNo()=" + getMwNo() + ", getAfNo()=" + getAfNo() + ", getMcNo()=" + getMcNo()
-				+ ", getWeNo()=" + getWeNo() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ ", reAvlblEndDt=" + reAvlblEndDt + ", mwNo=" + mwNo + ", afNo=" + afNo + ", mcNo=" + mcNo + ", weNo="
+				+ weNo + "]";
 	}
 	
 	

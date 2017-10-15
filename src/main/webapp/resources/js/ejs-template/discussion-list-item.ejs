@@ -7,11 +7,15 @@ if(wrtbtDstnct =="일반게시판"){
 
 	
 	<div class='w3-card w3-round-large w3-margin-bottom w3-white talk-banner backimg' id='listimg<%=rownum%>'>
+	<input type="hidden" value=<%=rownum%> class="rownum">
+	<%
+	if(avlblEndDt == 9999){
+	%>
 	 <div class='w3-padding w3-text-grey w3-small'>
      <span class=''> Ordinary </span>
      <span class='w3-right'></span>
      </div>
-		<input type="hidden" value=<%=rownum%> class="rownum">
+		
 		   	<%		
 	 if(storgPath != null ){	%>		
 	
@@ -48,17 +52,31 @@ if(wrtbtDstnct =="일반게시판"){
 			
 				<div class='dropup option'>
 					
-							</div><br></div>
+							</div><br>
+			<%
+			}if(avlblEndDt != 9999){
+			%>
+			<div class='w3-container w3-padding w3-text-light-grey'>
+			 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+			</div>
+			<%
+			}
+			%>
+							</div>
 
 	<%		}
 	else if(wrtbtDstnct == "상담게시판"){	%>		
 	
 	<div class='w3-card w3-round-large w3-margin-bottom w3-white talk-banner backimg' id='listimg<%=rownum%>'>
+	<input type="hidden" value=<%=rownum%> class="rownum">
+	<%
+	if(avlblEndDt == 9999){
+	%>
 	<div class='w3-padding w3-text-grey w3-small'>
      <span class=''> Question Asked </span>
      <span class='w3-right'></span>
      </div>
-		<input type="hidden" value=<%=rownum%> class="rownum">
+		
 		  	   	<%		
 	 if(storgPath != null ){	%>		
 	
@@ -90,7 +108,19 @@ if(wrtbtDstnct =="일반게시판"){
 			<a class='detail' href='/net/counseling/detail?no=<%=wrtbtNo%>&type=reply'>답변하기</a></div>
 			
 			
-				</div><br></div>
+				</div><br>
+			<%
+			}if(avlblEndDt != 9999){
+			%>
+			 <div class='w3-container w3-padding w3-text-light-grey'>
+			 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+			</div>
+			
+			<%
+			}
+			%>
+				
+				</div>
 	
 
 <%
@@ -100,11 +130,15 @@ if(wrtbtDstnct =="일반게시판"){
 %>
 	
 	<div class='w3-card w3-round-large w3-margin-bottom w3-white talk-banner backimg' id='listimg<%=rownum%>'>
+	<input type="hidden" value=<%=rownum%> class="rownum">	
+		<%
+	if(avlblEndDt == 9999){
+	%>
 	 <div class='w3-padding w3-text-grey w3-small'>
      <span class=''> Ordinary </span>
      <span class='w3-right'></span>
      </div>
-			<input type="hidden" value=<%=rownum%> class="rownum">	
+			
 			   	   	<%		
 	 if(storgPath != null ){	%>		
 	
@@ -130,6 +164,10 @@ if(wrtbtDstnct =="일반게시판"){
 			
 			</div>
 			
+					<%
+					if(reAvlblEndDt == 9999){
+					%>
+					
 					<div class='w3-container'>
 					<%
 							if( writrInfoOpngYn == "Y") {
@@ -163,6 +201,19 @@ if(wrtbtDstnct =="일반게시판"){
 							%>	
 
 						<a class='detail' href='/net/counseling/detail?no=<%=wrtbtNo%>&type=prnts'><p><%=reWrtbtText%></p></a></div>
+						
+						<%
+						}if(reAvlblEndDt != 9999){
+						%>
+						<div class='w3-container w3-padding w3-text-light-grey'>
+						 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+						</div>
+						<%
+						}
+						%>
+						
+						
+						
 			<div class='w3-container'>
 			<div class='w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large'>
 				answers<span class='w3-badge w3-white'><%=count%></span></div>
@@ -172,16 +223,31 @@ if(wrtbtDstnct =="일반게시판"){
 			Down <span class='badge'><%=ncmdCo%></span></div>
 			
 			
-			</div><br></div>
+			</div><br>
+			<%
+			}if(avlblEndDt != 9999){
+			%>
+			<div class='w3-container w3-padding w3-text-light-grey'>
+			 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+			</div>
+			<%
+			}
+			%>
+			
+			</div>
 				
 	<%		}else if(wrtbtDstnct == "상담게시판"){	%>				
 	
 	<div class='w3-card w3-round-large w3-margin-bottom w3-white talk-banner backimg' id='listimg<%=rownum%>'>
+	<input type="hidden" value=<%=rownum%> class="rownum">
+		<%
+	if(avlblEndDt == 9999){
+	%>
 	<div class='w3-padding w3-text-grey w3-small'>
      <span class=''> Question Asked </span>
      <span class='w3-right'></span>
      </div>
-	<input type="hidden" value=<%=rownum%> class="rownum">
+	
 	  	   	<%		
 	 if(storgPath != null ){	%>		
 	
@@ -207,6 +273,9 @@ if(wrtbtDstnct =="일반게시판"){
 			
 			</div>
 		
+				<%
+					if(reAvlblEndDt == 9999){
+					%>
 				<div class='w3-container'>
 				
 				
@@ -242,6 +311,16 @@ if(wrtbtDstnct =="일반게시판"){
 							%>	
 				
 					<a class='detail' href='/net/counseling/detail?no=<%=wrtbtNo%>&type=prnts'><p><%=reWrtbtText%></p></a></div>
+					
+					<%
+					}if(reAvlblEndDt != 9999){
+					%>
+					<div class='w3-container w3-padding w3-text-light-grey'>
+				 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+				</div>
+					<%
+					}
+					%>
 		<div class='w3-container'>
 		<div class='w3-button w3-padding-small w3-white w3-border w3-border-white w3-round-large'>
 			answers<span class='w3-badge w3-white'><%=count%></span></div>
@@ -251,7 +330,17 @@ if(wrtbtDstnct =="일반게시판"){
 		Down <span class='badge'><%=ncmdCo%></span></div>
 		
 		
-		</div><br></div>
+		</div><br>
+			<%
+			}if(avlblEndDt != 9999){
+			%>
+			<div class='w3-container w3-padding w3-text-light-grey'>
+			 	<h4><b>사용자에 의해 삭제된 게시물입니다.</b></h4>
+			</div>
+			<%
+			}
+			%>
+		</div>
 <%
 	}}
 	

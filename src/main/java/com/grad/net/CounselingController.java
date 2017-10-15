@@ -167,7 +167,9 @@ public class CounselingController {
 		
 		
 		
-		counselingService.deleteCounseling(id, counselingService.checkCounseling(id));
+		//counselingService.deleteCounseling(id, counselingService.checkCounseling(id));
+		
+		
 	
 		
 		

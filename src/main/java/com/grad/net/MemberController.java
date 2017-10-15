@@ -294,7 +294,6 @@ public class MemberController {
 		model.addAttribute("BoardList", BoardList);
 		
 		
-		
 
 		/*
 		 * 2017-10-12

@@ -234,7 +234,6 @@ public class CounselingController {
 		
 		
 		
-		
 		for(int i=0; i<counselingList.size(); i++) {
 			
 			//List<ApndngFileVo> fileList2 = apndngFileService.getFileList(counselingList2.get(i).getWrtbtNo(), "게시글");	
