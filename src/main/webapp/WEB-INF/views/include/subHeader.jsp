@@ -15,65 +15,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w31.css">		
-<style>
-
-.major-nav-box {
-	height: 6em;
-	border-bottom: 1px solid grey;
-}
-
-.navbar-left {
-	font-weight: 400;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	border: 0;
-	border-radius: 0;
-	margin-bottom: 0;
-	font-size: 14px;
-	letter-spacing: 5px;
-}
-
-.navbar-nav li a:hover {
-	color: #1abc9c !important;
-	background-color: white;
-}
-
-
-		
-@media screen and (max-width: 400px) {
-                
-body {
-    padding-top: 11em;
-}  
-
-             
-}
-@media screen and (min-width: 401px) and (max-width: 600px) {
-               
-   
-body {
-    padding-top: 11em;
-}  
-
-		
-   
-             
-}
-@media screen and (min-width: 801px) {
-   
- body {
-            padding-top: 7em;
- }	
- 
-                
-}
-    
-
-
-</style>	
+	
 <script>
 	
 boardtype = "${boardtype}";

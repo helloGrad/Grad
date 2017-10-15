@@ -13,14 +13,11 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link href="${pageContext.request.contextPath}/resources/css/higrad-signup.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w31.css">	
+
 
 
 <style>
@@ -30,26 +27,6 @@ body {
 	padding-top: 5em;
 }
 
-.qna-banner {
-	box-shadow: 5px 10px 10px rgba(0, 0, 51, 0.3), -1px -1px 10px rgba(0, 0, 51, 0.3);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
-.qna-banner:hover {
-	box-shadow: 5px 10px 30px rgba(0, 0, 51, 0.5), -1px -1px 30px rgba(0, 0, 51, 0.5);
-	margin-bottom: 1.5em;
-}
-.content-answers {
-	height: 3.5em;
-	text-overflow:ellipsis;
-	overflow: hidden;
-	white-space: normal;
-}
-.grad-banner-our {
-	box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15), -1px -1px 10px rgba(0, 0, 0, 0.15);
-	margin-bottom: 1.5em;
-	background-color: white;
-}
 .scrap-on {
 	color: #FF0000;
 }

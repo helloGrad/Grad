@@ -13,7 +13,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 
-<link href="css/higrad-signup.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/css/bootstrap-social.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">

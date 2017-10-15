@@ -6,10 +6,19 @@
 <head>
 <base target="_self" />
 
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/resources/js/ejs/ejs.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+<link rel="stylesheet"href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/w3.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/ejs/ejs.js"></script>
 <script defer
 	src="${pageContext.request.contextPath }/resources/js/fontawesome.js"></script>
 <script defer
@@ -20,16 +29,11 @@
 	src="${pageContext.request.contextPath }/resources/js/packs/brands.js"></script>
 <script defer
 	src="${pageContext.request.contextPath }/resources/js/packs/light.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
 <script>
 	var boardtype;
 </script>
 
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/w3.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">
 
 <style>
 body {
@@ -154,6 +158,91 @@ body {
 	background-color:rgba(0,0,0,0.7);
 	background-blend-mode:overlay;
 }
+.major-nav-box {
+	box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1), -1px -1px 20px
+		rgba(0, 0, 0, 0.15);
+}
+
+.nav-menu {
+	letter-spacing: 5px;
+	font-size: 1vw;
+}
+
+.nav-menu>li {
+	margin-right: 0.5em;
+	margin-left: 0.5em;
+}
+
+.nav-menu>li>a:hover {
+	text-decoration: none;
+}
+
+.distinct-line {
+	padding-top: 2.5em;
+}
+
+
+.grad-target {
+	font-weight: 600;
+}
+
+.research-field {
+	height: 4em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: normal;
+}
+
+.scrap-on {
+	color: #FF0000;
+}
+
+.noti-card {
+	cursor: pointer;
+}
+
+.noti-hh {
+	cursor: pointer;
+}
+
+.grad-banner {
+            box-shadow: 3px 3px 10px rgba(179, 0, 0, 0.3), -1px -1px 10px rgba(255, 153, 153, 0.3);
+            margin-bottom: 1.5em;
+        }
+        .lab-banner {
+            box-shadow: 3px 3px 10px rgba(0, 0, 255, 0.3), -1px -1px 10px rgba(217, 179, 255, 0.3);
+            margin-bottom: 1.5em;
+        }
+        .conf-banner {
+            box-shadow: 3px 3px 10px rgba(0, 128, 0, 0.3), -1px -1px 10px rgba(179, 230, 179, 0.3);
+            margin-bottom: 1.5em;
+        } 
+        .short-cut{
+            text-decoration: none;
+            color:gray;
+        }
+        .short-cut:hover{
+            color:indianred;
+        }
+        .swiper-container {
+            height: 200px;
+            z-index : 0;
+        }
+        .swiper-slide {
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
 </style>
 
 
@@ -161,76 +250,8 @@ body {
 
 
 <script>
-	$(function() {
-		$(".searchBtn").click(function(event) {
-			if ($(".search").hasClass("hide") === true) {
-				$(".search").removeClass("hide");
-			} else {
-				$(".search").addClass("hide");
-			}
-		});
-	})
-	//사이드 메뉴
-	function openRightMenu() {
-		document.getElementById("rightMenu").style.display = "block";
-	}
-	function closeRightMenu() {
-		document.getElementById("rightMenu").style.display = "none";
-	}
-	//사이드 메뉴 end
-	//글쓰기 폼
-	function wrightMenu() {
-		document.getElementById("writeForm").style.display = "block";
-	}
-	function closeMenu() {
-		document.getElementById("writeForm").style.display = "none";
-	}
-	//글쓰기 폼 end
-	//로그인 메뉴
-	function loginForm() {
-		document.getElementById("loginForm").style.display = "block";
-	}
-	function closeLogin() {
-		document.getElementById("loginForm").style.display = "none";
-		initLoginModal();
-	}
-	//로그인 메뉴 end
-	//회원가입 메뉴
-	function registerForm() {
-		document.getElementById("registerForm").style.display = "block";
-	}
-	function closeRegister() {
-		document.getElementById("registerForm").style.display = "none";
-		initSignupModal();
-	}
-	//회원가입 메뉴 end
-	//서치 메뉴
-	function searchForm() {
-		document.getElementById("searchForm").style.display = "block";
-	}
-	function closeSearch() {
-		document.getElementById("searchForm").style.display = "none";
-	}
-	//서치 메뉴 end
-	// 메뉴 닫기
 
-	window.onclick = function(e) {
-
-		if (e.target == document.getElementById("registerForm")) {
-			closeRegister();
-			initSignupModal();
-		}
-		if (e.target == document.getElementById("loginForm")) {
-			closeLogin();
-			initLoginModal();
-		}
-		if (e.target == document.getElementById("writeForm")) {
-			closeMenu();
-		}
-		if (e.target == document.getElementById("searchForm")) {
-			closeSearch();
-		}
-	}
+		
 	$(document).keydown(function(e) {
 		if (e.keyCode == 27) {
 			closeRegister();
@@ -281,6 +302,34 @@ body {
 	// 메뉴 닫기 end
 
 </script>
+<script type="text/javascript">
+	$(function() {
+			
+		var authUser = $("#authUser").val();
+		
+		
+		if(authUser == null || authUser == "" ){
+			
+			
+		}else{
+			
+		
+			var scrapList=JSON.parse('${scrapList}');
+			for(var i=0;i<scrapList.length;i++){
+
+				if(scrapList[i].prntsDstnct==='모집공고'){ 
+					
+					$('.do-scrapnoti' + scrapList[i].prntsNo).addClass('w3-text-red');
+				}
+			};	
+			
+		};	
+		
+
+		
+	});
+	
+</script>
 
 </head>
 
@@ -304,7 +353,7 @@ body {
                         </a>
                     </div>
                     <div class="w3-col s4 m4 l4 ">
-                        <a class="mypage" style="text-decoration: none;">
+                        <a style="text-decoration: none;" onclick="mypage('${authUser.mbNo }')">
                             <div class="w3-border w3-hover-opacity w3-hover-red w3-text-grey">
                                 <div class="w3-center w3-round-large w3-padding">
                                     <div><i class="far fa-user fa-2x"></i></div>
@@ -315,7 +364,7 @@ body {
                     </div>
                     <div class="w3-col s4 m4 l4">
                         <a class="setting" style="text-decoration: none;">
-                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey">
+                            <div class=" w3-border w3-hover-opacity w3-hover-red w3-text-grey" onclick="setting('${authUser.mbNo }')">
                                 <div class="w3-center w3-round-large w3-padding">
                                     <div><i class="far fa-cogs fa-2x "></i></div>
                                     <span style="font-size:  1.5vmin;">설정</span>
@@ -418,8 +467,8 @@ body {
                 </div>
             </div>
 		
-			<button id="headerBtn"
-				class="w3-bar-item w3-button w3-padding-16 writeBtn"
+			<button 
+				class="w3-bar-item w3-button w3-padding-16" onclick="wrightMenu('${authUser.mbNo }', '전체')"
 				style="letter-spacing: 3px;">
 				<i class="fas fa-pen"></i> 글쓰기
 			</button>
@@ -434,11 +483,10 @@ body {
 				<a href="${pageContext.servletContext.contextPath }/"
 					class="w3-bar-item w3-button w3-padding-16"
 					style="letter-spacing: 3px;">HOME</a>
-					 <a class="w3-bar-item w3-button w3-padding-16 mypage"  style="letter-spacing: 3px;">PROFILE</a>
+					 <a class="w3-bar-item w3-button w3-padding-16" style="letter-spacing: 3px;" onclick="mypage('${authUser.mbNo }')">PROFILE</a>
 					 <a href="#"
-					class="w3-bar-item w3-button w3-padding-16 myscrap" 
-					style="letter-spacing: 3px;">SAVE</a> 
-					<a class="w3-bar-item w3-button w3-padding-16 setting" style="letter-spacing: 3px;">SETTING</a> 
+					class="w3-bar-item w3-button w3-padding-16" style="letter-spacing: 3px;" onclick="myscrap('${authUser.mbNo }')">SAVE</a> 
+					<a class="w3-bar-item w3-button w3-padding-16" style="letter-spacing: 3px;" onclick="setting('${authUser.mbNo }')">SETTING</a> 
 					<a href="help.html"
 					class="w3-bar-item w3-button w3-border-bottom w3-padding-16"
 					style="letter-spacing: 3px;">HELP CENTER</a> <input id="authUser"

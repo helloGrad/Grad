@@ -12,60 +12,26 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/ejs/ejs.js"></script>
 
-
 <link href="${pageContext.request.contextPath}/resources/css/counseling.css" rel="stylesheet">
-<style>
 
-
-
-</style>
 <script>
 //글쓰기 폼
-function wrightMenu() {
-    document.getElementById("writeModal").style.display = "block";
-}
 
-function closeMenu() {
-    document.getElementById("writeModal").style.display = "none";
-}
 
 //글쓰기 폼 end
 
-window.onclick = function (e) {
 
-    if (e.target == document.getElementById("writeModal")) {
-        closeMenu();
-    }
- 
-}
+
+
+
+
 
 $(function() {
 	
-	$(document).ready(function() {
-		
-		
 
-		$("#cfile").click(function () {
-			
-				
-			  $("input[type='file']").trigger('click');
-			});
-
-			$('input[type="file"]').on('change', function() {
-			  var val = $(this).val();
-			  $(this).siblings('span').text(val);
-		});
-			
-
-
-	});
 	
 	
 })
-
-
-
-
 </script>
 </head>
 <body>

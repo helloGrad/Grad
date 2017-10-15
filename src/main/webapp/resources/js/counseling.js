@@ -6,17 +6,217 @@
 	var count=0;
 	var totalListNum = 0;
 	var ttype;
+	var type;
 
 
 	var isEnd = false;
 
 	var dislistItemTemplate = new EJS({	url : "/net/resources/js/ejs-template/discussion-list-item.ejs"});
 	var dislistTemplate = new EJS({	url : "/net/resources/js/ejs-template/discussion-list.ejs"});
-	var counlistItemTemplate = new EJS({	url : "/net/resources/js/ejs-template/counseling-list-item.ejs"});
-	var counlistTemplate = new EJS({	url : "/net/resources/js/ejs-template/counseling-list.ejs"});	
 	var pagelistTemplate = new EJS({url : "/net/resources/js/ejs-template/page-list.ejs"});
 	var disbFetching = false;
 	
+	
+	
+	
+	$(function() {
+
+		
+		
+		var authUser = $("#authUser").val();
+
+		
+		window.onclick = function(e) {
+
+			if (e.target == document.getElementById("registerForm")) {
+				closeRegister();
+				initSignupModal();
+			}
+			if (e.target == document.getElementById("loginForm")) {
+				closeLogin();
+				initLoginModal();
+			}
+
+			 if (e.target == document.getElementById("writeModal")) {
+			        closeMenu();
+			        initLoginModal();
+			    }
+			if (e.target == document.getElementById("searchForm")) {
+				closeSearch();
+			}
+		}
+		
+		
+		$(document).ready(function() {
+			
+			
+
+			$("#cfile").click(function () {
+				
+					
+				  $("input[type='file']").trigger('click');
+				});
+
+				$('input[type="file"]').on('change', function() {
+				  var val = $(this).val();
+				  $(this).siblings('span').text(val);
+			});
+				
+
+
+		});
+			
+
+		/*
+		$('.setting').on('click',function(){
+			
+    		if(authUser=='undefined'||authUser == null || authUser == "" ){
+    			
+    			$('#loginForm').css('display','block');
+    		}else{
+    			
+    			location.href='/net/user/setting'
+    		}
+    	})
+   
+    	
+    	$('.myscrap').on('click',function(){
+    		if(authUser=='undefined'|| authUser == null || authUser == "" ){
+    			$('#loginForm').css('display','block');
+    		}else{
+    			location.href='/net/user/mypage?type=myscrap'
+    		}
+    	})
+		*/
+    	
+    	$('.doScrap').on('click',function(){
+    		if(authUser=='undefined'|| authUser == null || authUser == "" ){
+    			$('#loginForm').css('display','block');
+    		}
+    	})
+    	
+    
+    	
+		/*
+		$('#writrInfoOpngYn2 li > a').on('click', function() { 
+
+			
+			 document.getElementById("writrInfoOpngYn").innerHTML = 
+				 
+				 "<option  class='hide' value='Y'></option>"+
+				  "<option value='N' selected='selected'>비공개로 작성하기</option>";
+		});
+*/
+		
+		
+		$(document).keydown(function(e) { 
+			
+
+			  var modal1 = document.getElementById('writeModal');
+		    if (e.keyCode == 27) { 
+		    	
+				   modal1.style.display = "none";
+		    } 
+		});
+		
+		
+
+	})
+	
+	
+	function setting(authUser) {
+		
+		
+		if(authUser=='undefined'|| authUser == null || authUser == "" ){
+			$('#loginForm').css('display','block');
+		}else{
+			location.href='/net/user/setting'
+		}
+		
+	}
+	
+	function myscrap(authUser) {
+		
+		
+		if(authUser=='undefined'|| authUser == null || authUser == "" ){
+			$('#loginForm').css('display','block');
+		}else{
+			location.href='/net/user/mypage?type=myscrap'
+		}
+		
+	}
+	
+	function mypage(authUser) {
+		
+		
+		if(authUser=='undefined'|| authUser == null || authUser == "" ){
+			$('#loginForm').css('display','block');
+		}else{
+			location.href='/net/user/mypage'
+		}
+		
+	}
+	 	    	
+	
+	function closeMenu() {
+		document.getElementById("writeModal").style.display = "none";
+	}
+	//글쓰기 폼 end
+	//로그인 메뉴
+	function loginForm() {
+		document.getElementById("loginForm").style.display = "block";
+	}
+	function closeLogin() {
+		document.getElementById("loginForm").style.display = "none";
+		initLoginModal();
+	}
+	//로그인 메뉴 end
+	//회원가입 메뉴
+	function registerForm() {
+		document.getElementById("registerForm").style.display = "block";
+	}
+	function closeRegister() {
+		document.getElementById("registerForm").style.display = "none";
+		initSignupModal();
+	}
+	//회원가입 메뉴 end
+	//서치 메뉴
+	function searchForm() {
+		document.getElementById("searchForm").style.display = "block";
+	}
+	function closeSearch() {
+		document.getElementById("searchForm").style.display = "none";
+	}
+	//서치 메뉴 end
+	// 메뉴 닫기
+		//사이드 메뉴
+	function openRightMenu() {
+		document.getElementById("rightMenu").style.display = "block";
+	}
+	function closeRightMenu() {
+		document.getElementById("rightMenu").style.display = "none";
+	}
+
+	
+	function wrightMenu(authUser, type) {
+		
+	
+		
+		if (authUser === null || authUser === '' || authUser === undefined) {
+			
+			loginForm();
+
+		} else {
+			
+			$("#boardoption").val(type).attr("selected", "selected");
+			
+			
+
+			document.getElementById("writeModal").style.display = "block";
+			
+		}
+		
+	}
 	
 	function reset(type,order1){
 		
@@ -96,31 +296,6 @@
 
 				disbFetching = false;
 				
-				/* ejs 변경
-				startNo2=startNo;
-				for(var i=0; i<response.data.counselingList.length; i++){
-					
-					
-					for(var j=0; j<response.data.fileList[i].length; j++){
-						
-						
-						count=1+parseInt(i)+parseInt(startNo2);
-
-						$('.listimg'+count).css("background-image"," url('"+response.data.fileList[i][j].storgPath+"')"); 
-						$('.listimg'+count).css("background-position","center"); 
-						$('.listimg'+count).css("height","200px"); 
-						$('.listimg'+count).css("margin","5px 0 5px 0"); 
-						$('.listimg'+count).html("<div class='w3-large w3-display-bottomleft w3-padding w3-text-white w3-round-large' style='background-color: rgba(0,0,0,0.5);'>"+response.data.fileList[i][j].wrtbtTitle+
-								"</div>");
-						$('.listimg'+count).html("<div class='w3-padding w3-display-topleft w3-display-hover w3-margin-left w3-margin-top w3-animate-opacity w3-white w3-round-large'> <i class='fa fa-heart w3-text-red w3-large'></i></div>");
-						
-						break;
-					}
-					
-					
-					
-				}
-				*/
 				
 				if (typeof(callback) == "function") callback();
 				
@@ -244,211 +419,7 @@
 	}
 	
 
-	$(function() {
 
-		
-	
-		var authUser = $("#authUser").val();
-
-		 		 
-			$("#headerBtn").click(function(event) {
-				
-				type="전체";	
-				
-			
-			});
-			
-			$("#myBtn").click(function(event) { 
-				
-				type=boardtype;
-				
-
-			});
-			
-			
-			type=boardtype;
-			
-
-			$(".writeBtn").click(function() { 
-				
-
-				console.log("글쓰기")
-				if (authUser === null || authUser === '' || authUser === undefined) {
-					
-					$("#loginForm").css({
-						"display" : "block"
-					});
-
-				} else {
-					
-					$("#boardoption").val(type).attr("selected", "selected");
-					
-					
-
-					$("#writeModal").css({
-						"display" : "block"
-					});
-										
-
-				}
-
-			});
-		
-		
-		$(document).on('click', "a.detail", function() { 
-			
-			//if (authUser === null || authUser === '') {
-			
-			//$(".detail").removeAttr("href");
-			
-			//$("#loginForm").css({
-			//	"display" : "block"
-			//});
-
-		//}        
-		});
-		
-		
-		
-		$(".close").click(function() {
-			$("#writeModal").css({
-				"display" : "none"
-			});
-			
-			
-		});
-
-		$('.html').on('click touchstart', function(event) {
-			
-			if (event.target.id === "writeModal") {
-				$("#writeModal").css({
-					"display" : "none"
-				});
-			}
-			
-			if (event.target.id === "searchForm") {
-				$("#searchForm").css({
-					"display" : "none"
-				});
-			}
-			
-			
-			if (event.target.id === "registerForm") {
-				$("#registerForm").css({
-					"display" : "none"
-				});
-				
-				initSignupModal();
-			}
-			
-
-			if (event.target.id === "loginForm") {
-				$("#loginForm").css({
-					"display" : "none"
-				});
-				
-				initLoginModal();
-			}
-			
-	    });
-		
-		
-		$("html").click(function(event) {
-			
-			if (event.target.id === "writeModal") {
-				$("#writeModal").css({
-					"display" : "none"
-				});
-			}
-			
-			if (event.target.id === "searchForm") {
-				$("#searchForm").css({
-					"display" : "none"
-				});
-			}
-			
-			
-			if (event.target.id === "registerForm") {
-				$("#registerForm").css({
-					"display" : "none"
-				});
-				
-				initSignupModal();
-			}
-			
-
-			if (event.target.id === "loginForm") {
-				$("#loginForm").css({
-					"display" : "none"
-				});
-				
-				initLoginModal();
-			}
-			
-			
-		});
-		
-		$('.setting').on('click',function(){
-			
-    		if(authUser=='undefined'||authUser == null || authUser == "" ){
-    			
-    			$('#loginForm').css('display','block');
-    		}else{
-    			
-    			location.href='/net/user/setting'
-    		}
-    	})
-    	    	
-    	$('.mypage').on('click',function(){
-    		if(authUser=='undefined'|| authUser == null || authUser == "" ){
-    			$('#loginForm').css('display','block');
-    		}else{
-    			location.href='/net/user/mypage'
-    		}
-    	})
-    	
-    	$('.myscrap').on('click',function(){
-    		if(authUser=='undefined'|| authUser == null || authUser == "" ){
-    			$('#loginForm').css('display','block');
-    		}else{
-    			location.href='/net/user/mypage?type=myscrap'
-    		}
-    	})
-		
-    	
-    	$('.doScrap').on('click',function(){
-    		if(authUser=='undefined'|| authUser == null || authUser == "" ){
-    			$('#loginForm').css('display','block');
-    		}
-    	})
-    	
-    
-    	
-		
-		$('#writrInfoOpngYn2 li > a').on('click', function() { 
-
-			
-			 document.getElementById("writrInfoOpngYn").innerHTML = 
-				 
-				 "<option  class='hide' value='Y'></option>"+
-				  "<option value='N' selected='selected'>비공개로 작성하기</option>";
-		});
-
-		
-		
-		$(document).keydown(function(e) { 
-			
-
-			  var modal1 = document.getElementById('writeModal');
-		    if (e.keyCode == 27) { 
-		    	
-				   modal1.style.display = "none";
-		    } 
-		});
-		
-		
-
-	})
 	
 	function resize(obj) {
 			

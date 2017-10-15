@@ -23,6 +23,7 @@
 <link href="${pageContext.request.contextPath}/resources/css/study.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/css/counseling.css" rel="stylesheet">
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/counseling.js"></script>	
 <style>
 
 .pagelist {
@@ -55,7 +56,7 @@ a.btn.disabled.numbtn {
 var order;
 var authUser = '${authUser.mbNo }';
 var ttype= '${ttype }';
-       
+      
 $(function() {
 		
 
@@ -153,7 +154,7 @@ $(function() {
 
             <div class="w3-col s12 m12 l7 w3-margin-bottom ">
             
-               <div id="myBtn" class="btn btn-danger web-volunteer writeBtn w3-margin-bottom w3-margin-top">질문하기</div>
+               <div class="btn btn-danger web-volunteer w3-margin-bottom w3-margin-top" onclick="wrightMenu('${authUser.mbNo }', '${boardtype}')">질문하기</div>
             
             <div class="dropdown option w3-margin-bottom w3-margin-top">
                 <button class="w3-button w3-padding w3-padding w3-round-large" type="button" data-toggle="dropdown">

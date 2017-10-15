@@ -3,157 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="${pageContext.request.contextPath}/resources/css/login.css"
-	rel="stylesheet">
-
-<style>
-.major-nav-box {
-	box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1), -1px -1px 20px
-		rgba(0, 0, 0, 0.15);
-}
-
-.nav-menu {
-	letter-spacing: 5px;
-	font-size: 1vw;
-}
-
-.nav-menu>li {
-	margin-right: 0.5em;
-	margin-left: 0.5em;
-}
-
-.nav-menu>li>a:hover {
-	text-decoration: none;
-}
-
-.distinct-line {
-	padding-top: 2.5em;
-}
-
-
-.grad-target {
-	font-weight: 600;
-}
-
-.research-field {
-	height: 4em;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: normal;
-}
-
-.scrap-on {
-	color: #FF0000;
-}
-
-.noti-card {
-	cursor: pointer;
-}
-
-.noti-hh {
-	cursor: pointer;
-}
-
-.grad-banner {
-            box-shadow: 3px 3px 10px rgba(179, 0, 0, 0.3), -1px -1px 10px rgba(255, 153, 153, 0.3);
-            margin-bottom: 1.5em;
-        }
-        .lab-banner {
-            box-shadow: 3px 3px 10px rgba(0, 0, 255, 0.3), -1px -1px 10px rgba(217, 179, 255, 0.3);
-            margin-bottom: 1.5em;
-        }
-        .conf-banner {
-            box-shadow: 3px 3px 10px rgba(0, 128, 0, 0.3), -1px -1px 10px rgba(179, 230, 179, 0.3);
-            margin-bottom: 1.5em;
-        } 
-        .short-cut{
-            text-decoration: none;
-            color:gray;
-        }
-        .short-cut:hover{
-            color:indianred;
-        }
-        .swiper-container {
-            height: 200px;
-            z-index : 0;
-        }
-        .swiper-slide {
-            /* Center slide text vertically */
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;
-        }
-</style>
-
-
-<script type="text/javascript">
-	$(function() {
-			
-		var authUser = $("#authUser").val();
-		
-		
-		if(authUser == null || authUser == "" ){
-			
-			
-		}else{
-			
-		
-			var scrapList=JSON.parse('${scrapList}');
-			for(var i=0;i<scrapList.length;i++){
-
-				if(scrapList[i].prntsDstnct==='모집공고'){ 
-					
-					$('.do-scrapnoti' + scrapList[i].prntsNo).addClass('w3-text-red');
-				}
-			};	
-			
-		};	
-		
-
-		
-	});
-	
-</script>
-
-
-</head>
+<c:import url="/WEB-INF/views/include/header.jsp" />
 <body>
-
-	<c:import url="/WEB-INF/views/include/header.jsp" />
-
-
 	<div class="w3-center"
 		style="padding-top: 70px; padding-bottom: 30px; margin-bottom: 30px; height: 15em; background: linear-gradient(131deg, rgba(153, 0, 0, 0.65), rgba(0, 0, 153, 0.65), rgba(0, 153, 0, 0.65));">
 		<div class="w3-content">
@@ -170,7 +22,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class=" w3-margin-bottom">
-                            <div class="w3-card w3-white setting">
+                            <div class="w3-card w3-white" onclick="setting('${authUser.mbNo }')">
 						<header class="w3-container w3-center w3-text-white"
 							style="background: rgb(11, 194, 132)">
 							<h6>CUSTOMIZATION</h6>
@@ -235,7 +87,7 @@
 
                     <div class="swiper-slide">
                         <div class="w3-margin-bottom">
-                            <div class="w3-card w3-white myscrap">
+                            <div class="w3-card w3-white myscrap" onclick="myscrap('${authUser.mbNo }')">
 						<header class="w3-container w3-center  w3-text-white"
 							style="background: rgb(11, 194, 132)">
 							<h6>COMPARE</h6>
